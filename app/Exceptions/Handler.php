@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
+//  TODO: Personalizar formato de respuesta para errores
 class Handler extends ExceptionHandler
 {
     /**
