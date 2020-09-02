@@ -84,15 +84,17 @@ class RegistrarTest extends TestCase
             "compania_seguro" => "Cualquiera",
         ];
         $response = $this->json("POST", "cotizaciones/vehiculo_todo_riesgo", $payload);
-        $response->assertStatus(422);
+        $response->assertStatus(400);
 
         $response->assertJsonStructure([
-            "correo",
-            "anio_vehiculo",
-            "asientos",
-            "uso",
-            "costo",
-            "compania_seguro"
+            "messages" => [
+                "correo",
+                "anio_vehiculo",
+                "asientos",
+                "uso",
+                "costo",
+                "compania_seguro"
+            ]
         ]);
     }
 }

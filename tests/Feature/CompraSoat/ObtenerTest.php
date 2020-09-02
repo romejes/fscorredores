@@ -44,5 +44,10 @@ class ObtenerTest extends TestCase
 
         $response = $this->json("GET", "compras/soat/1541");
         $response->assertStatus(404);
+
+        $response->assertJsonStructure([
+            "statusCode",
+            "message"
+        ]);
     }
 }

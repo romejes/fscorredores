@@ -76,16 +76,37 @@ class RegistrarTest extends TestCase
             "voucher" => $uploadImage
         ];
         $response = $this->json("POST", "afiliaciones/seguro_estudiante", $payload);
-        $response->assertStatus(422);
-        $response->assertJsonStructure([
-            "sexo",
-            "pais",
-            "estado_civil",
-            "fecha_nacimiento",
-            "correo",
-            "voucher"
-        ]);
+        $response->assertStatus(400);
+
+        $this->assertEquals(400, $response->getData()->statusCode);
+        $this->assertObjectHasAttribute("sexo", $response->getData()->messages);
+
         $expectedCodigo = date("Ymd") . "-00001";
         Storage::disk('local')->assertMissing("${expectedCodigo}.jpg");
+    }
+
+    public function testDocumentoIdentidadNoEncontrado()
+    {
+        Storage::fake('local');
+        $uploadImage = UploadedFile::fake()->image("voucher.jpg");
+
+        $payload = [
+            "nombres" => "Jesus",
+            "apellido_paterno" => "Romero",
+            "apellido_materno" => "Ramos",
+            "sexo" => "M",
+            "pais" => "PE",
+            "tipo_documento_identidad" => 48,
+            "numero_documento" => "45747712",
+            "estado_civil" => "Soltero",
+            "fecha_nacimiento" => "1989-06-06",
+            "telefono" => "931850406",
+            "correo" => "rome.jes.1@gmail.com",
+            "voucher" => $uploadImage
+        ];
+        $response = $this->json("POST", "afiliaciones/seguro_estudiante", $payload);
+        $response->assertStatus(404);
+
+        $this->assertEquals(404, $response->getData()->statusCode);
     }
 }

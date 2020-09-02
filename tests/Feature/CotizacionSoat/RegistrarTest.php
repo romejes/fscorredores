@@ -129,14 +129,16 @@ class RegistrarTest extends TestCase
             "fecha_vencimiento" => null
         ];
         $response = $this->json("POST", "cotizaciones/soat", $payload);
-        $response->assertStatus(422);
-        
+        $response->assertStatus(400);
+
         $response->assertJsonStructure([
-            "correo",
-            "asientos",
-            "uso",
-            "compania_seguro",
-            "fecha_vencimiento"
+            "messages" => [
+                "correo",
+                "asientos",
+                "uso",
+                "compania_seguro",
+                "fecha_vencimiento"
+            ]
         ]);
     }
 }

@@ -97,6 +97,11 @@ class EditarTest extends TestCase
         ]);
         $response->assertStatus(422);
 
+        $response->assertJsonStructure([
+            "statusCode",
+            "message"
+        ]);
+
         $this->assertDatabaseHas("Solicitud", [
             "IdSolicitud" => $solicitudEnEspera->IdSolicitud,
             "Codigo" => $solicitudEnEspera->Codigo,

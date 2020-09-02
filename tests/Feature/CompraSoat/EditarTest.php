@@ -96,6 +96,10 @@ class EditarTest extends TestCase
             "rechazar" => true
         ]);
         $response->assertStatus(422);
+        $response->assertJsonStructure([
+            "message",
+            "statusCode"
+        ]);
 
         $this->assertDatabaseHas("Solicitud", [
             "IdSolicitud" => $solicitudEnEspera->IdSolicitud,

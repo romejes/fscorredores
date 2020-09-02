@@ -37,9 +37,10 @@ Route::group(["middleware" => ["auth"]], function () {
  * Procesos
  * =========
  */
+
 Route::post("login", "BackEnd\AuthController@login");
-Route::post("compras/soat", "BackEnd\CompraSoatController@store");
 Route::post("afiliaciones/seguro_estudiante", "BackEnd\AfiliacionSeguroEstudianteController@store");
+Route::post("compras/soat", "BackEnd\CompraSoatController@store");
 Route::post("cotizaciones/vehiculo_todo_riesgo", "BackEnd\CotizacionVehiculoTodoRiesgoController@store");
 Route::post("cotizaciones/soat", "BackEnd\CotizacionSoatController@store");
 
@@ -62,3 +63,6 @@ Route::group(["middleware" => ["auth"]], function () {
     Route::put("afiliaciones/seguro_estudiante/{code}", "BackEnd\AfiliacionSeguroEstudianteController@update");
     Route::get("afiliaciones/seguro_estudiante", "BackEnd\AfiliacionSeguroEstudianteController@index");
 });
+
+
+

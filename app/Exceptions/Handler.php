@@ -3,10 +3,12 @@
 namespace App\Exceptions;
 
 use Exception;
-use Illuminate\Auth\AuthenticationException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
-//  TODO: Personalizar formato de respuesta para errores
 class Handler extends ExceptionHandler
 {
     /**
@@ -45,22 +47,35 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+        return $this->returnJsonResponse($request, $exception);
     }
 
     /**
-     * Convert an authentication exception into an unauthenticated response.
+     * Devolver respuesta en JSON
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Illuminate\Auth\AuthenticationException  $exception
+     * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
-    protected function unauthenticated($request, AuthenticationException $exception)
+    private function returnJsonResponse($request, Exception $exception)
     {
-        if ($request->expectsJson()) {
-            return response()->json(['error' => 'Unauthenticated.'], 401);
+        if ($exception instanceof ValidationException) {
+            return response()->json([
+                "statusCode" => Response::HTTP_BAD_REQUEST,
+                "messages" => $exception->validator->getMessageBag()
+            ], Response::HTTP_BAD_REQUEST);
         }
 
-        return redirect()->guest(route('login'));
+        if ($exception instanceof HttpException) {
+            return response()->json([
+                "statusCode" => $exception->getStatusCode(),
+                "message" => $exception->getMessage()
+            ], $exception->getStatusCode());
+        }
+
+        return response()->json([
+            "statusCode" => 500,
+            "message" => $exception->getMessage()
+        ]);
     }
 }
