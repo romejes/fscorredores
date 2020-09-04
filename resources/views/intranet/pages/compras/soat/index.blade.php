@@ -32,7 +32,8 @@
             <h4 class="card-title m-0">Listado de Solicitudes</h4>
           </div>
           <div class="card-body">
-            <table class="table table-bordered" id="tbl-compra-soat"></table>
+            <table class="table table-bordered" id="tbl-compras-soat">
+            </table>
           </div>
         </div>
       </div>

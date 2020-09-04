@@ -2,9 +2,12 @@
 
 namespace App\Models;
 
+use App\Http\Requests\LoginRequest;
 use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Authenticatable as AuthAuthenticatable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable as AuthAuthenticatable;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Usuario extends Model implements AuthAuthenticatable
 {
@@ -48,5 +51,23 @@ class Usuario extends Model implements AuthAuthenticatable
     public function getRememberTokenName()
     {
         return null;
+    }
+
+    /**
+     * Autentica el usuario en la aplicacion
+     *
+     * @param LoginRequest $loginRequest
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function authenticate(LoginRequest $loginRequest)
+    {
+        $credentials = [
+            "NombreUsuario" => $loginRequest->input("usuario"),
+            "password" => $loginRequest->input("contrasena")
+        ];
+
+        if (!Auth::attempt($credentials, false)) {
+            throw new NotFoundHttpException("El usuario y/o contraseña no son correctos");
+        }
     }
 }

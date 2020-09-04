@@ -13,11 +13,15 @@ let mix = require('laravel-mix');
 
 mix
   .sass('resources/assets/sass/intranet/app.scss', 'public/css/intranet.css')
-  .js('resources/assets/js/intranet/app.js', 'public/js/intranet.js')
-  .js('resources/assets/js/intranet/tables.js', 'public/js/tables.js')
+  .js('resources/assets/js/intranet/app.js', 'public/js/intranet/app.js')
   .extract([
     'admin-lte',
     '@fortawesome/fontawesome-free',
     'jquery',
+    'sweetalert2',
+    'jquery-validation',
     'bootstrap-table',
-  ]);
+  ])
+  .autoload({
+    jquery: ['$', 'window.jQuery', 'jQuery', 'window.$'],
+  });

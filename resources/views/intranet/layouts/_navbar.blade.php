@@ -9,7 +9,7 @@
 
   <ul class="navbar-nav ml-auto">
     <li class="nav-item">
-      <a href="{{URL::to('logout') }}" class="nav-link"><i class="fas fa-power-off"></i></a>
+      <a id="btn-logout" class="nav-link"><i class="fas fa-power-off"></i></a>
     </li>
   </ul>
 </nav>

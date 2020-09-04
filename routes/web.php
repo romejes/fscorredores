@@ -21,14 +21,46 @@ use Illuminate\Support\Facades\Route;
 Route::get("/intranet/login", "FrontEnd\IntranetController@login");
 
 Route::group(["middleware" => ["auth"]], function () {
-    Route::get("intranet", "FrontEnd\IntranetController@dashboard");
+    Route::get(
+        "intranet",
+        "FrontEnd\IntranetController@dashboard"
+    );
 
-    Route::get("intranet/compras/soat", "FrontEnd\CompraSoatController@index");
-    Route::get("intranet/compras/soat/{codigo}", "FrontEnd\CompraSoatController@detail");
+    Route::get(
+        "intranet/compras/soat",
+        "FrontEnd\CompraSoatController@index"
+    );
+    Route::get(
+        "intranet/compras/soat/{codigo}",
+        "FrontEnd\CompraSoatController@detail"
+    );
 
-    Route::get("intranet/cotizaciones/soat", "FrontEnd\CotizacionSoatController@index");
-    Route::get("intranet/cotizaciones/soat/{codigo}", "FrontEnd\CotizacionSoatController@detail");
-    //Route::get("intranet/afiliaciones/{type}", "FrontEnd\CotizacionSoatController@detail");
+    Route::get(
+        "intranet/cotizaciones/soat",
+        "FrontEnd\CotizacionSoatController@index"
+    );
+    Route::get(
+        "intranet/cotizaciones/soat/{codigo}",
+        "FrontEnd\CotizacionSoatController@detail"
+    );
+
+    Route::get(
+        "intranet/cotizaciones/vehiculo_todo_riesgo",
+        "FrontEnd\CotizacionVtrController@index"
+    );
+    Route::get(
+        "intranet/cotizaciones/vehiculo_todo_riesgo/{codigo}",
+        "FrontEnd\CotizacionVtrController@detail"
+    );
+    
+    Route::get(
+        "intranet/afiliaciones/seguro_estudiantil",
+        "FrontEnd\AfiliacionSeguroEstudianteController@index"
+    );
+    Route::get(
+        "intranet/afiliaciones/seguro_estudiantil/{codigo}",
+        "FrontEnd\AfiliacionSeguroEstudianteController@detail"
+    );
 });
 
 

@@ -1,6 +1,7 @@
-@extends('intranet.layouts.main') 
+@extends('intranet.layouts.main')
 
 @section('body-content')
+
 <body class="hold-transition sidebar-mini">
   <div class="wrapper">
     <!-- Navbar-->
@@ -14,11 +15,9 @@
       @yield('content')
     </div>
   </div>
-  
-  <script src="{{ asset("js/manifest.js") }}"></script>
-  <script src="{{ asset("js/vendor.js") }}"></script>
-  <script src="{{ asset("js/intranet.js") }}"></script>
-
-  @stack('scripts')
 </body>
 @endsection
+
+@push('scripts')
+<script src="{{ asset("js/intranet/app.js") }}"></script>
+@endpush

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Models\Usuario;
 use App\Http\Requests\LoginRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -9,6 +10,13 @@ use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
+    private $usuario;
+
+    public function __construct(Usuario $usuario)
+    {
+        $this->usuario = $usuario;
+    }
+
     /**
      * Autenticar usuario
      *
@@ -17,16 +25,10 @@ class AuthController extends Controller
      */
     public function login(LoginRequest $loginRequest)
     {
-        $credentials = [
-            "NombreUsuario" => $loginRequest->input("usuario"),
-            "password" => $loginRequest->input("contrasena")
-        ];
-
-        if (!Auth::attempt($credentials, false)) {
-            Session::flash('mensaje', 'Su nombre de usuario y/o contraseña son incorrectos');
-            return redirect("/");
-        }
-        return redirect("intranet");
+        $this->usuario->authenticate($loginRequest);
+        return response()->json([
+            "message" => "Usted ha iniciado sesión"
+        ]);
     }
 
     /**

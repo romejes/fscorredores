@@ -32,23 +32,7 @@
             <h4 class="card-title m-0">Listado de Solicitudes</h4>
           </div>
           <div class="card-body">
-            <table
-              class="table table-bordered"
-              id="tbl-compra-soat"
-              data-toggle="table"
-              data-pagination="true"
-              data-locale="es-ES"
-              data-url="{{ URL::to('compras/soat') }}"
-            >
-              <thead>
-                <tr>
-                  <th>Código</th>
-                  <th>Solicitado por</th>
-                  <th>Fecha y Hora de la solcitud</th>
-                  <th>Estado</th>
-                  <th>Acciones</th>
-                </tr>
-              </thead>
+            <table class="table table-bordered" id="tbl-afiliaciones-seguro-estudiante">
             </table>
           </div>
         </div>
