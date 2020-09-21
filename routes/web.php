@@ -18,6 +18,21 @@ use Illuminate\Support\Facades\Route;
  * Vistas
  * ==========
  */
+Route::group(["name" => "web"], function () {
+    Route::get("/", "FrontEnd\WebController@home");
+
+    Route::get("nosotros", "FrontEnd\WebController@nosotros");
+
+    Route::get("seguros/{tipo?}", "FrontEnd\WebController@seguros");
+
+    Route::get("solicitudes/{tipo?}", "FrontEnd\WebController@solicitudes");
+
+    Route::get("clientes", "FrontEnd\WebController@clientes");
+
+    Route::get("contacto", "FrontEnd\WebController@contacto");
+});
+
+
 Route::get("/intranet/login", "FrontEnd\IntranetController@login");
 
 Route::group(["middleware" => ["auth"]], function () {
@@ -52,7 +67,7 @@ Route::group(["middleware" => ["auth"]], function () {
         "intranet/cotizaciones/vehiculo_todo_riesgo/{codigo}",
         "FrontEnd\CotizacionVtrController@detail"
     );
-    
+
     Route::get(
         "intranet/afiliaciones/seguro_estudiantil",
         "FrontEnd\AfiliacionSeguroEstudianteController@index"
@@ -95,6 +110,3 @@ Route::group(["middleware" => ["auth"]], function () {
     Route::put("afiliaciones/seguro_estudiante/{code}", "BackEnd\AfiliacionSeguroEstudianteController@update");
     Route::get("afiliaciones/seguro_estudiante", "BackEnd\AfiliacionSeguroEstudianteController@index");
 });
-
-
-

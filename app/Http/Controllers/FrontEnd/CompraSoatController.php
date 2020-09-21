@@ -9,6 +9,9 @@ class CompraSoatController extends Controller
 {
     private $detalleCompraSoat;
 
+    /**
+     * Constructor
+     */
     public function __construct(DetalleCompraSoat $detalleCompraSoat)
     {
         $this->detalleCompraSoat = $detalleCompraSoat;

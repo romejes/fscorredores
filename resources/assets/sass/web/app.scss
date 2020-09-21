@@ -1,0 +1,19 @@
+//  Third-party
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~smartwizard/dist/css/smart_wizard_all.min.css';
+
+//  Components
+@import './components/header';
+@import './components/footer';
+
+//  Pages
+@import './pages/home';
+@import './pages/nosotros';
+@import './pages/seguros';
+@import './pages/clientes';
+@import './pages/contacto';
+
+@import './custom';

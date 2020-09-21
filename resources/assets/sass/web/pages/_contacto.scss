@@ -1,0 +1,14 @@
+main {
+  form#frm-contacto {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    form#frm-contacto {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}

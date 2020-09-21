@@ -1,0 +1,69 @@
+@import '../variables/colors';
+
+main {
+  .wrapper-seguros {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .card-seguro {
+      width: 250px;
+      margin: 1.1rem;
+
+      .card-title-seguro {
+        color: $fs-blue-1;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .card-seguro-footer {
+        border-top: 0px;
+        background-color: white;
+        text-align: center;
+      }
+    }
+  }
+
+  .seguro-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+    font-weight: bold;
+    color: $fs-blue-1;
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    .nav-seguros {
+      .nav-seguros-item {
+        color: $fs-blue-1;
+        font-weight: bold;
+        font-size: 1.2rem;
+        font-family: 'Montserrat', sans-serif;
+        margin-bottom: 1.2rem;
+      }
+
+      ul.nav-seguros-item-children {
+        list-style: none;
+        margin-top: 1rem;
+        .nav-seguros-link {
+          color: $fs-blue-1;
+          font-weight: normal;
+          font-family: 'Nunito', sans-serif;
+          margin: 0.8rem 0;
+          display: block;
+          &:hover {
+            text-decoration: none;
+            cursor: pointer;
+          }
+        }
+
+        .nav-seguros-link.active {
+          color: $fs-red-1;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

@@ -1,4 +1,12 @@
-export const getBaseUrl = () => {
+/**
+ * Check if exists DOM element by selector
+ * @param {string} selector
+ */
+export const existsElement = selector => {
+  return document.querySelectorAll(selector).length > 0;
+};
+
+/*export const getBaseUrl = () => {
   return window.location.protocol + '//' + window.location.hostname;
 };
 
@@ -25,3 +33,12 @@ export const showValidationErrorsFromServer = messages => {
     $(`input[name=${key}]`).addClass('is-invalid');
   }
 };
+
+export const existsElement = selector => {
+  if (document.querySelectorAll(selector).length > 0) {
+    console.log('si')
+    return true;
+  }
+  return false;
+};
+*/

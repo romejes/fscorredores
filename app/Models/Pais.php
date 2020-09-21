@@ -26,4 +26,14 @@ class Pais extends Model
     {
         return self::where("Codigo", $code)->first();
     }
+
+    /**
+     * Obtiene todos los paises ordenados segun el nombre
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getAll()
+    {
+        return self::orderBy('Nombre')->get();
+    }
 }

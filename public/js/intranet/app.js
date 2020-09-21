@@ -2133,49 +2133,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTE_DASHBOARD", function() { return ROUTE_DASHBOARD; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTE_LOGOUT", function() { return ROUTE_LOGOUT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ROUTE_GET_COMPRAS_SOAT", function() { return ROUTE_GET_COMPRAS_SOAT; });
-/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util */ "./resources/assets/js/intranet/common/util.js");
+/* harmony import */ var _shared_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/util */ "./resources/assets/js/shared/util.js");
 
-var ROUTE_LOGIN = Object(_util__WEBPACK_IMPORTED_MODULE_0__["getBaseUrl"])() + '/login';
-var ROUTE_DASHBOARD = Object(_util__WEBPACK_IMPORTED_MODULE_0__["getBaseUrl"])() + '/intranet';
-var ROUTE_LOGOUT = Object(_util__WEBPACK_IMPORTED_MODULE_0__["getBaseUrl"])() + '/logout';
-var ROUTE_GET_COMPRAS_SOAT = Object(_util__WEBPACK_IMPORTED_MODULE_0__["getBaseUrl"])() + '/compras/soat';
-
-/***/ }),
-
-/***/ "./resources/assets/js/intranet/common/util.js":
-/*!*****************************************************!*\
-  !*** ./resources/assets/js/intranet/common/util.js ***!
-  \*****************************************************/
-/*! exports provided: getBaseUrl, disable, enable, showValidationErrorsFromServer */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBaseUrl", function() { return getBaseUrl; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "disable", function() { return disable; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enable", function() { return enable; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showValidationErrorsFromServer", function() { return showValidationErrorsFromServer; });
-var getBaseUrl = function getBaseUrl() {
-  return window.location.protocol + '//' + window.location.hostname;
-};
-function disable(element) {
-  element.setAttribute('disabled', true);
-}
-function enable(element) {
-  element.removeAttribute('disabled');
-}
-var showValidationErrorsFromServer = function showValidationErrorsFromServer(messages) {
-  for (var key in messages) {
-    var spanMessage = $('<span></span>', {
-      "class": 'invalid-feedback',
-      text: messages[key],
-      style: 'display:inline'
-    });
-    $("input[name=".concat(key, "]")).closest('.form-group').append(spanMessage);
-    $("input[name=".concat(key, "]")).addClass('is-invalid');
-  }
-};
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+var ROUTE_LOGIN = Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["getBaseUrl"])() + '/login';
+var ROUTE_DASHBOARD = Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["getBaseUrl"])() + '/intranet';
+var ROUTE_LOGOUT = Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["getBaseUrl"])() + '/logout';
+var ROUTE_GET_COMPRAS_SOAT = Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["getBaseUrl"])() + '/compras/soat';
 
 /***/ }),
 
@@ -2317,7 +2280,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _common_routes__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/routes */ "./resources/assets/js/intranet/common/routes.js");
-/* harmony import */ var _common_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/util */ "./resources/assets/js/intranet/common/util.js");
+/* harmony import */ var _shared_util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../shared/util */ "./resources/assets/js/shared/util.js");
 
 
 
@@ -2342,7 +2305,7 @@ var login = function login() {
     }
 
     if (error.response.status === 400) {
-      Object(_common_util__WEBPACK_IMPORTED_MODULE_3__["showValidationErrorsFromServer"])(error.response.data.messages);
+      Object(_shared_util__WEBPACK_IMPORTED_MODULE_3__["showValidationErrorsFromServer"])(error.response.data.messages);
     }
   });
 };
@@ -2382,7 +2345,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap_table__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_table__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var bootstrap_table_src_locale_bootstrap_table_es_ES__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-table/src/locale/bootstrap-table-es-ES */ "./node_modules/bootstrap-table/src/locale/bootstrap-table-es-ES.js");
 /* harmony import */ var bootstrap_table_src_locale_bootstrap_table_es_ES__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap_table_src_locale_bootstrap_table_es_ES__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _common_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../common/util */ "./resources/assets/js/intranet/common/util.js");
+/* harmony import */ var _shared_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../shared/util */ "./resources/assets/js/shared/util.js");
 /* harmony import */ var _common_routes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../common/routes */ "./resources/assets/js/intranet/common/routes.js");
 
 
@@ -2440,7 +2403,7 @@ var loadTableCompraSoat = function loadTableCompraSoat() {
       formatter: function formatter(value, row) {
         var detailButton = $('<a></a>', {
           "class": 'btn',
-          href: Object(_common_util__WEBPACK_IMPORTED_MODULE_2__["getBaseUrl"])() + '/intranet/compras/soat/' + row.solicitud.codigo,
+          href: Object(_shared_util__WEBPACK_IMPORTED_MODULE_2__["getBaseUrl"])() + '/intranet/compras/soat/' + row.solicitud.codigo,
           html: '<i class="fas fa-list text-primary"></i>',
           title: 'Ver detalles'
         });
@@ -2448,6 +2411,52 @@ var loadTableCompraSoat = function loadTableCompraSoat() {
       }
     }])
   });
+};
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/assets/js/shared/util.js":
+/*!********************************************!*\
+  !*** ./resources/assets/js/shared/util.js ***!
+  \********************************************/
+/*! exports provided: getBaseUrl, disable, enable, showValidationErrorsFromServer, existsElement */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBaseUrl", function() { return getBaseUrl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "disable", function() { return disable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "enable", function() { return enable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showValidationErrorsFromServer", function() { return showValidationErrorsFromServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "existsElement", function() { return existsElement; });
+var getBaseUrl = function getBaseUrl() {
+  return window.location.protocol + '//' + window.location.hostname;
+};
+function disable(element) {
+  element.setAttribute('disabled', true);
+}
+function enable(element) {
+  element.removeAttribute('disabled');
+}
+var showValidationErrorsFromServer = function showValidationErrorsFromServer(messages) {
+  for (var key in messages) {
+    var spanMessage = $('<span></span>', {
+      "class": 'invalid-feedback',
+      text: messages[key],
+      style: 'display:inline'
+    });
+    $("input[name=".concat(key, "]")).closest('.form-group').append(spanMessage);
+    $("input[name=".concat(key, "]")).addClass('is-invalid');
+  }
+};
+var existsElement = function existsElement(selector) {
+  if (document.querySelectorAll(selector).length > 0) {
+    console.log('si');
+    return true;
+  }
+
+  return false;
 };
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
@@ -2464,17 +2473,29 @@ var loadTableCompraSoat = function loadTableCompraSoat() {
 
 /***/ }),
 
+/***/ "./resources/assets/sass/web/app.scss":
+/*!********************************************!*\
+  !*** ./resources/assets/sass/web/app.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*********************************************************************************************!*\
-  !*** multi ./resources/assets/js/intranet/app.js ./resources/assets/sass/intranet/app.scss ***!
-  \*********************************************************************************************/
+/*!**********************************************************************************************************************************!*\
+  !*** multi ./resources/assets/js/intranet/app.js ./resources/assets/sass/intranet/app.scss ./resources/assets/sass/web/app.scss ***!
+  \**********************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! /home/jesus/Projects/fscorredores/resources/assets/js/intranet/app.js */"./resources/assets/js/intranet/app.js");
-module.exports = __webpack_require__(/*! /home/jesus/Projects/fscorredores/resources/assets/sass/intranet/app.scss */"./resources/assets/sass/intranet/app.scss");
+__webpack_require__(/*! /home/jesus/Projects/fscorredores/resources/assets/sass/intranet/app.scss */"./resources/assets/sass/intranet/app.scss");
+module.exports = __webpack_require__(/*! /home/jesus/Projects/fscorredores/resources/assets/sass/web/app.scss */"./resources/assets/sass/web/app.scss");
 
 
 /***/ })
 
-},[[0,"/js/intranet/manifest","/js/intranet/vendor"]]]);
+},[[0,"/js/web/manifest","/js/web/vendor"]]]);

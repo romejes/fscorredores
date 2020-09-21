@@ -1,0 +1,73 @@
+@import './shared/colors';
+
+// Components
+body {
+  font-family: 'Nunito', sans-serif;
+  color: $fs-grey-1;
+}
+
+.media-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.section {
+  padding-top: 3em;
+  padding-bottom: 3em;
+
+  .section-title {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    font-size: 1.8rem;
+    padding-bottom: 1rem;
+    font-weight: bold;
+  }
+}
+
+.section-header {
+  background-color: $fs-blue-1;
+  color: white;
+  .section-header-title {
+    font-size: 1.8rem;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    text-align: center;
+  }
+}
+
+.card {
+  .card-title-size {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+}
+
+.btn {
+  border-radius: 0.3rem;
+  padding: 0.5em 1.8em;
+}
+
+.btn-primary {
+  color: white;
+  font-weight: bold;
+  background-color: $fs-blue-1;
+  border: thin solid $fs-blue-1;
+  &:hover {
+    color: $fs-blue-1;
+    background-color: white;
+    border: thin solid $fs-blue-1;
+  }
+}
+
+.btn-alt {
+  color: white;
+  font-weight: bold;
+  background-color: $fs-blue-1;
+  border: thin solid white;
+  &:hover {
+    color: $fs-blue-1;
+    background-color: white;
+  }
+}

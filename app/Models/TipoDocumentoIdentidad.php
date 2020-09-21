@@ -24,4 +24,14 @@ class TipoDocumentoIdentidad extends Model
     {
         return self::where("IdTipoDocumentoIdentidad", $id)->first();
     }
+
+    /**
+     * Obtiene todos los tipos de documento de identidad
+     *
+     * @return Collection
+     */
+    public function getAll()
+    {
+        return self::all();
+    }
 }

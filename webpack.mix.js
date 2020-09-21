@@ -13,8 +13,19 @@ let mix = require('laravel-mix');
 
 mix
   .sass('resources/assets/sass/intranet/app.scss', 'public/css/intranet.css')
-  .js('resources/assets/js/intranet/app.js', 'public/js/intranet/app.js')
-  .extract([
+  .sass('resources/assets/sass/web/app.scss', 'public/css/web.css')
+
+  .js('resources/assets/js/web/app.js', 'public/js/web/app.js')
+
+  .extract(['bootstrap', '@fortawesome/fontawesome-free'])
+
+  .autoload({
+    jquery: ['$', 'window.jQuery', 'jQuery', 'window.$'],
+  });
+
+//.js('resources/assets/js/intranet/app.js', 'public/js/intranet/app.js')
+//.js('resources/assets/js/web/app.js', 'public/js/web/app.js')
+/*.extract([
     'admin-lte',
     '@fortawesome/fontawesome-free',
     'jquery',
@@ -24,4 +35,4 @@ mix
   ])
   .autoload({
     jquery: ['$', 'window.jQuery', 'jQuery', 'window.$'],
-  });
+  });*/

@@ -24,4 +24,15 @@ class ClaseVehiculo extends Model
     {
         return self::where("IdClaseVehiculo", $id)->first();
     }
+
+
+    /**
+     * Obtiene las clases de vehiculo ordenados segun el nombre
+     *
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function getAll()
+    {
+        return self::orderBy('Descripcion')->get();
+    }
 }

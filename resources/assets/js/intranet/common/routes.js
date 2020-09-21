@@ -1,4 +1,4 @@
-import { getBaseUrl } from './util';
+import { getBaseUrl } from '../../shared/util';
 
 export const ROUTE_LOGIN = getBaseUrl() + '/login';
 export const ROUTE_DASHBOARD = getBaseUrl() + '/intranet';

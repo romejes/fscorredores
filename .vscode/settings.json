@@ -13,5 +13,13 @@
   },
   "[javascript]": {
     "editor.tabSize": 2
-  }
+  },
+  "php.validate.run": "onSave",
+  "php.suggest.basic": false,
+  "php.validate.executablePath": "./docker/php/php.sh",
+
+  "phpcs.standard": "PSR2",
+  "phpcs.showWarnings": true,
+  "phpcs.composerJsonPath": "composer.json",
+  "phpcs.executablePath": "./vendor/bin/phpcs.sh"
 }

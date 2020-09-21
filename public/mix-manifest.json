@@ -1,6 +1,7 @@
 {
-    "/js/intranet/app.js": "/js/intranet/app.js",
+    "/js/web/app.js": "/js/web/app.js",
     "/css/intranet.css": "/css/intranet.css",
-    "/js/intranet/manifest.js": "/js/intranet/manifest.js",
-    "/js/intranet/vendor.js": "/js/intranet/vendor.js"
+    "/css/web.css": "/css/web.css",
+    "/js/web/manifest.js": "/js/web/manifest.js",
+    "/js/web/vendor.js": "/js/web/vendor.js"
 }

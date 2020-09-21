@@ -1,6 +1,6 @@
 import 'bootstrap-table';
 import 'bootstrap-table/src/locale/bootstrap-table-es-ES';
-import { getBaseUrl } from '../common/util';
+import { getBaseUrl } from '../../shared/util';
 import { ROUTE_GET_COMPRAS_SOAT } from '../common/routes';
 
 const commonColumns = [

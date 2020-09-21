@@ -1,7 +1,7 @@
 import { apiLogin } from '../common/api';
 import Swal from 'sweetalert2';
 import { ROUTE_DASHBOARD, ROUTE_LOGOUT } from '../common/routes';
-import { showValidationErrorsFromServer } from '../common/util';
+import { showValidationErrorsFromServer } from '../../shared/util';
 
 export const login = () => {
   if (!$('#frm-login').valid()) {
