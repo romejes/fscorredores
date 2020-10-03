@@ -200,7 +200,10 @@ export function processAfiliacionSeguroEstudianteForm() {
     'estado_civil',
     capitalizeFirstLetter(payload.get('estado_civil')),
   );
-  payload.set('fecha_nacimiento', formatDate(payload.get('fecha_nacimiento')));
+  payload.set(
+    'fecha_nacimiento',
+    formatDate(payload.get('fecha_nacimiento'), 'DD/MM/YYYY', 'YYYY-MM-DD'),
+  );
 
   axios
     .post(urlTarget, payload)
@@ -277,7 +280,7 @@ export function processCotizarSoatForm() {
     return false;
   }
 
-  const urlTarget = getBaseUrl() + '/cotizaciones/soat';
+  const urlTarget = returnUrl('cotizaciones/soat');
   const payload = new FormData(form);
 
   if (payload.get('tiene_soat') == 1) {
@@ -285,6 +288,8 @@ export function processCotizarSoatForm() {
       'fecha_nacimiento',
       formatDate(
         document.getElementById('txt-fecha-vencimiento').getAttribute('value'),
+        'DD/MM/YYYY',
+        'YYYY-MM-DD',
       ),
     );
   } else {
@@ -327,13 +332,17 @@ export function processComprarSoatForm() {
     return false;
   }
 
-  const urlTarget = getBaseUrl() + '/compras/soat';
+  const urlTarget = returnUrl('compras/soat');
   const payload = new FormData(form);
 
   //  Process payload
   payload.set(
     'fecha_nacimiento',
-    formatDate(document.getElementById('txt-fecha-nacimiento').value),
+    formatDate(
+      document.getElementById('txt-fecha-nacimiento').value,
+      'DD/MM/YYYY',
+      'YYYY-MM-DD',
+    ),
   );
 
   axios

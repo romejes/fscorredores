@@ -213,7 +213,7 @@ export function setValidationAfiliacionSeguroEstudianteForm() {
       },
       voucher: {
         required: true,
-        extension: 'pdf|jpeg|gif|bmp',
+        extension: 'pdf|jpeg|jpg|gif|bmp|png',
       },
     },
     messages: {

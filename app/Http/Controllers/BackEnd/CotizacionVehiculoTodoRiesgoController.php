@@ -9,6 +9,8 @@ use App\Models\DetalleCotizacionVtr;
 use App\Http\Requests\DetalleSolicitudRequest;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\DetalleCotizacionVehiculoTodoRiesgoResource;
+use App\Mail\CotizacionSeguroVehiculoTodoRiesgoMail;
+use Illuminate\Support\Facades\Mail;
 
 class CotizacionVehiculoTodoRiesgoController extends Controller
 {
@@ -42,6 +44,12 @@ class CotizacionVehiculoTodoRiesgoController extends Controller
     public function store(CreateCotizacionVehiculoRequest $createCotizacionVehiculoRequest)
     {
         $solicitudRegistrada = $this->detalleCotizacionVehiculo->register($createCotizacionVehiculoRequest);
+
+        if ($solicitudRegistrada) {
+            Mail::to("fllanos@fscorredoresasesores.com")
+                ->send(new CotizacionSeguroVehiculoTodoRiesgoMail(($solicitudRegistrada)));
+        }
+
         return response()->json([
             "statusCode" => Response::HTTP_CREATED,
             "data" => DetalleCotizacionVehiculoTodoRiesgoResource::create($solicitudRegistrada)

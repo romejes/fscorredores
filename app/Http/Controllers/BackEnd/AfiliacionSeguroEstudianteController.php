@@ -8,6 +8,8 @@ use App\Http\Requests\DetalleSolicitudRequest;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\DetalleAfiliacionSeguroEstudiante;
 use App\Http\Resources\DetalleAfiliacionSeguroEstudianteResource;
+use App\Mail\AfiliacionSeguroEstudianteMail;
+use Illuminate\Support\Facades\Mail;
 
 class AfiliacionSeguroEstudianteController extends Controller
 {
@@ -55,6 +57,12 @@ class AfiliacionSeguroEstudianteController extends Controller
     public function store(CreateAfiliacionSeguroEstudianteRequest $createAfiliacionSeguroEstudianteRequest)
     {
         $solicitudRegistrada = $this->detalleAfiliacionSeguroEstudiante->register($createAfiliacionSeguroEstudianteRequest);
+
+        if ($solicitudRegistrada) {
+            Mail::to("fllanos@fscorredoresasesores.com")
+                ->send(new AfiliacionSeguroEstudianteMail($solicitudRegistrada));
+        }
+
         return response()->json([
             "statusCode" => Response::HTTP_CREATED,
             "data" => DetalleAfiliacionSeguroEstudianteResource::create($solicitudRegistrada)

@@ -17,6 +17,7 @@ import {
   setValidationComprarSoatForm,
   setValidationCotizarSeguroVehiculoTodoRiesgoForm,
   setValidationCotizarSoatForm,
+  isValid
 } from '../functions/validation';
 
 import {

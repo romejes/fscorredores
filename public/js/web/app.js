@@ -756,7 +756,7 @@ if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#frm-afi
   //  Valid and process form
   Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["setValidationAfiliacionSeguroEstudianteForm"])();
   document.getElementById('btn-enviar-solicitud').addEventListener('click', function () {
-    if (isValid(document.getElementById('frm-afiliacion-seguro-estudiante'))) {
+    if (Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["isValid"])(document.getElementById('frm-afiliacion-seguro-estudiante'))) {
       Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["processAfiliacionSeguroEstudianteForm"])();
     }
   });
@@ -1068,7 +1068,7 @@ function processAfiliacionSeguroEstudianteForm() {
   var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('afiliaciones/seguro_estudiante');
   var payload = new FormData(document.getElementById('frm-afiliacion-seguro-estudiante'));
   payload.set('estado_civil', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["capitalizeFirstLetter"])(payload.get('estado_civil')));
-  payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(payload.get('fecha_nacimiento')));
+  payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(payload.get('fecha_nacimiento'), 'DD/MM/YYYY', 'YYYY-MM-DD'));
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
     sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
       title: 'Datos de afiliación registrados',
@@ -1135,11 +1135,11 @@ function processCotizarSoatForm() {
     return false;
   }
 
-  var urlTarget = getBaseUrl() + '/cotizaciones/soat';
+  var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('cotizaciones/soat');
   var payload = new FormData(form);
 
   if (payload.get('tiene_soat') == 1) {
-    payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(document.getElementById('txt-fecha-vencimiento').getAttribute('value')));
+    payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(document.getElementById('txt-fecha-vencimiento').getAttribute('value'), 'DD/MM/YYYY', 'YYYY-MM-DD'));
   } else {
     payload["delete"]('fecha_vencimiento');
   }
@@ -1177,10 +1177,10 @@ function processComprarSoatForm() {
     return false;
   }
 
-  var urlTarget = getBaseUrl() + '/compras/soat';
+  var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('compras/soat');
   var payload = new FormData(form); //  Process payload
 
-  payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(document.getElementById('txt-fecha-nacimiento').value));
+  payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(document.getElementById('txt-fecha-nacimiento').value, 'DD/MM/YYYY', 'YYYY-MM-DD'));
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
     sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
       title: 'Datos de compra registrados',
@@ -1644,7 +1644,7 @@ function setValidationAfiliacionSeguroEstudianteForm() {
       },
       voucher: {
         required: true,
-        extension: 'pdf|jpeg|gif|bmp'
+        extension: 'pdf|jpeg|jpg|gif|bmp|png'
       }
     },
     messages: {
@@ -1997,8 +1997,6 @@ function resizeTabContainer(tabPane) {
 
 function toggleWizardProcessButton(currentStepIndex) {
   $('.wizard').on('showStep', function (e, anchorObject, stepIndex, stepDirection) {
-    console.log(currentStepIndex);
-
     if (stepDirection === 'forward' && stepIndex === currentStepIndex) {
       $('#btn-enviar-solicitud').removeAttr('disabled');
     } else {

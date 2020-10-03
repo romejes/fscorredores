@@ -99,7 +99,6 @@ export function resizeTabContainer(tabPane) {
  */
 export function toggleWizardProcessButton(currentStepIndex) {
   $('.wizard').on('showStep', (e, anchorObject, stepIndex, stepDirection) => {
-    console.log(currentStepIndex);
     if (stepDirection === 'forward' && stepIndex === currentStepIndex) {
       $('#btn-enviar-solicitud').removeAttr('disabled');
     } else {

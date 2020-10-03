@@ -8,6 +8,8 @@ use App\Models\DetalleCotizacionSoat;
 use App\Http\Requests\DetalleSolicitudRequest;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\DetalleCotizacionSoatResource;
+use App\Mail\CotizacionSoatMail;
+use Illuminate\Support\Facades\Mail;
 
 class CotizacionSoatController extends Controller
 {
@@ -41,6 +43,12 @@ class CotizacionSoatController extends Controller
     public function store(CreateCotizacionSoatRequest $createCotizacionSoatRequest)
     {
         $solicitudRegistrada = $this->detalleCotizacionSoat->register($createCotizacionSoatRequest);
+
+        if ($solicitudRegistrada) {
+            Mail::to("fllanos@fscorredoresasesores.com")
+                ->send(new CotizacionSoatMail(($solicitudRegistrada)));
+        }
+
         return response()->json([
             "statusCode" => Response::HTTP_CREATED,
             "data" => DetalleCotizacionSoatResource::create($solicitudRegistrada)

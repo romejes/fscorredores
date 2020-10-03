@@ -2,15 +2,16 @@
 
 namespace App\Mail;
 
+use App\Models\DetalleCotizacionVtr;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Models\DetalleAfiliacionSeguroEstudiante;
 
-class AfiliacionSeguroEstudianteMail extends Mailable
+class CotizacionSeguroVehiculoTodoRiesgoMail extends Mailable
 {
     use Queueable, SerializesModels;
+
 
     public $data;
 
@@ -19,7 +20,7 @@ class AfiliacionSeguroEstudianteMail extends Mailable
      *
      * @return void
      */
-    public function __construct(DetalleAfiliacionSeguroEstudiante $detalle)
+    public function __construct(DetalleCotizacionVtr $detalle)
     {
         $this->data = $detalle;
     }
@@ -31,8 +32,8 @@ class AfiliacionSeguroEstudianteMail extends Mailable
      */
     public function build()
     {
-        return $this->subject("[Afiliacion Seguro Estudiantil] Nueva solicitud")
-            ->view("email.afiliacion_seguro_estudiante")
+        return $this->subject("[Cotizacion Seguro Vehicular Todo Riesgo] Nueva solicitud")
+            ->view("email.cotizacion_seguro_vehiculo_todo_riesgo")
             ->with("detalle", $this->data);
     }
 }

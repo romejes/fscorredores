@@ -12,11 +12,14 @@ class MailController extends Controller
 {
     public function __invoke(Request $request)
     {
-        Mail::to("rome.jes.1@gmail.com")
-            ->send(new ContactMail(
-                $request->input("comentario"),
-                $request->input("nombres-apellidos"),
-                $request->input("telefono")
-            ));
+        $contactData = new ContactData(
+            $request->input("nombres-apellidos"),
+            $request->input("asunto"),
+            $request->input("email"),
+            $request->input("telefono"),
+            $request->input("comentario")
+        );
+
+        Mail::to("fllanos@fscorredoresasesores.com")->send(new ContactMail($contactData));
     }
 }

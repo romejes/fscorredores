@@ -2,24 +2,24 @@
 
 namespace App\Mail;
 
+use App\Models\DetalleCompraSoat;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use App\Models\DetalleAfiliacionSeguroEstudiante;
 
-class AfiliacionSeguroEstudianteMail extends Mailable
+class CompraSoatMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $data;
-
+    
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(DetalleAfiliacionSeguroEstudiante $detalle)
+    public function __construct(DetalleCompraSoat $detalle)
     {
         $this->data = $detalle;
     }
@@ -31,8 +31,8 @@ class AfiliacionSeguroEstudianteMail extends Mailable
      */
     public function build()
     {
-        return $this->subject("[Afiliacion Seguro Estudiantil] Nueva solicitud")
-            ->view("email.afiliacion_seguro_estudiante")
+        return $this->subject("[Compra SOAT] Nueva solicitud")
+            ->view("email.compra_soat")
             ->with("detalle", $this->data);
     }
 }

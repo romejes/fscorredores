@@ -8,7 +8,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, setImmediate) {/*!
- * Font Awesome Free 5.14.0 by @fontawesome - https://fontawesome.com
+ * Font Awesome Free 5.15.0 by @fontawesome - https://fontawesome.com
  * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
  */
 (function () {
@@ -196,6 +196,7 @@
     'fal': 'light',
     'fad': 'duotone',
     'fab': 'brands',
+    'fak': 'kit',
     'fa': 'solid'
   };
   var STYLE_TO_PREFIX = {
@@ -203,10 +204,12 @@
     'regular': 'far',
     'light': 'fal',
     'duotone': 'fad',
-    'brands': 'fab'
+    'brands': 'fab',
+    'kit': 'fak'
   };
   var LAYERS_TEXT_CLASSNAME = 'fa-layers-text';
-  var FONT_FAMILY_PATTERN = /Font Awesome 5 (Solid|Regular|Light|Duotone|Brands|Free|Pro)/;
+  var FONT_FAMILY_PATTERN = /Font Awesome ([5 ]*)(Solid|Regular|Light|Duotone|Brands|Free|Pro|Kit).*/; // TODO: do we need to handle font-weight for kit SVG pseudo-elements?
+
   var FONT_WEIGHT_TO_PREFIX = {
     '900': 'fas',
     '400': 'far',
@@ -957,9 +960,12 @@
         width = _ref.width,
         height = _ref.height;
 
-    var widthClass = "fa-w-".concat(Math.ceil(width / height * 16));
+    var isUploadedIcon = prefix === 'fak';
+    var widthClass = isUploadedIcon ? '' : "fa-w-".concat(Math.ceil(width / height * 16));
     var attrClass = [config.replacementClass, iconName ? "".concat(config.familyPrefix, "-").concat(iconName) : '', widthClass].filter(function (c) {
       return extra.classes.indexOf(c) === -1;
+    }).filter(function (c) {
+      return c !== '' || !!c;
     }).concat(extra.classes).join(' ');
     var content = {
       children: [],
@@ -972,6 +978,9 @@
         'viewBox': "0 0 ".concat(width, " ").concat(height)
       })
     };
+    var uploadedIconWidthStyle = isUploadedIcon && !~extra.classes.indexOf('fa-fw') ? {
+      width: "".concat(width / height * 16 * 0.0625, "em")
+    } : {};
 
     if (watchable) {
       content.attributes[DATA_FA_I2SVG] = '';
@@ -993,7 +1002,7 @@
       maskId: maskId,
       transform: transform,
       symbol: symbol,
-      styles: extra.styles
+      styles: _objectSpread({}, uploadedIconWidthStyle, extra.styles)
     });
 
     var _ref2 = mask.found && main.found ? makeIconMasking(args) : makeIconStandard(args),
@@ -1109,7 +1118,7 @@
     mark: noop$1,
     measure: noop$1
   };
-  var preamble = "FA \"5.14.0\"";
+  var preamble = "FA \"5.15.0\"";
 
   var begin = function begin(name) {
     p.mark("".concat(preamble, " ").concat(name, " begins"));
@@ -1185,6 +1194,35 @@
     }
 
     return result;
+  }
+  function codePointAt(string, index) {
+    /*! https://mths.be/codepointat v0.2.0 by @mathias */
+    var size = string.length;
+    var first = string.charCodeAt(index);
+    var second;
+
+    if (first >= 0xD800 && first <= 0xDBFF && size > index + 1) {
+      second = string.charCodeAt(index + 1);
+
+      if (second >= 0xDC00 && second <= 0xDFFF) {
+        return (first - 0xD800) * 0x400 + second - 0xDC00 + 0x10000;
+      }
+    }
+
+    return first;
+  }
+  /**
+   * Used to check that the character is between the E000..F8FF private unicode
+   * range
+   */
+
+  function isPrivateUnicode(iconName) {
+    if (iconName.length !== 1) {
+      return false;
+    } else {
+      var cp = codePointAt(iconName, 0);
+      return cp >= 57344 && cp <= 63743;
+    }
   }
 
   function defineIcons(prefix, icons) {
@@ -1295,7 +1333,7 @@
 
       if (styles$1[cls]) {
         acc.prefix = cls;
-      } else if (config.autoFetchSvg && ['fas', 'far', 'fal', 'fad', 'fab', 'fa'].indexOf(cls) > -1) {
+      } else if (config.autoFetchSvg && Object.keys(PREFIX_TO_STYLE).indexOf(cls) > -1) {
         acc.prefix = cls;
       } else if (iconName) {
         var shim = acc.prefix === 'fa' ? byOldName(iconName) : {};
@@ -1357,7 +1395,7 @@
       }).join('\n');
 
       if (node.parentNode && node.outerHTML) {
-        node.outerHTML = newOuterHTML + (config.keepOriginalSource && node.tagName.toLowerCase() !== 'svg' ? "<!-- ".concat(node.outerHTML, " -->") : '');
+        node.outerHTML = newOuterHTML + (config.keepOriginalSource && node.tagName.toLowerCase() !== 'svg' ? "<!-- ".concat(node.outerHTML, " Font Awesome fontawesome.com -->") : '');
       } else if (node.parentNode) {
         var newNode = document.createElement('span');
         node.parentNode.replaceChild(newNode, node);
@@ -1764,6 +1802,27 @@
   };
 
   var styles$2 = namespace.styles;
+  function resolveCustomIconVersion() {
+    var kitConfig = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var iconName = arguments.length > 1 ? arguments[1] : undefined;
+
+    if (iconName && isPrivateUnicode(iconName)) {
+      if (kitConfig && kitConfig.iconUploads) {
+        var iconUploads = kitConfig.iconUploads;
+        var descriptiveIconName = Object.keys(iconUploads).find(function (key) {
+          return iconUploads[key] && iconUploads[key].u && iconUploads[key].u === toHex(iconName);
+        });
+
+        if (descriptiveIconName) {
+          return iconUploads[descriptiveIconName].v;
+        }
+      }
+    } else {
+      if (kitConfig && kitConfig.iconUploads && kitConfig.iconUploads[iconName] && kitConfig.iconUploads[iconName].v) {
+        return kitConfig.iconUploads[iconName].v;
+      }
+    }
+  }
   function asFoundIcon(icon) {
     var width = icon[0];
     var height = icon[1];
@@ -1826,11 +1885,11 @@
         var icon = styles$2[prefix][iconName];
         return resolve(asFoundIcon(icon));
       }
+      var kitToken = null;
+      var iconVersion = resolveCustomIconVersion(WINDOW.FontAwesomeKitConfig, iconName);
 
-      var headers = {};
-
-      if (_typeof(WINDOW.FontAwesomeKitConfig) === 'object' && typeof window.FontAwesomeKitConfig.token === 'string') {
-        headers['fa-kit-token'] = WINDOW.FontAwesomeKitConfig.token;
+      if (WINDOW.FontAwesomeKitConfig && WINDOW.FontAwesomeKitConfig.token) {
+        kitToken = WINDOW.FontAwesomeKitConfig.token;
       }
 
       if (iconName && prefix && !config.showMissingIcons) {
@@ -2021,8 +2080,10 @@
         node.removeChild(alreadyProcessedPseudoElement);
         return resolve();
       } else if (fontFamily && content !== 'none' && content !== '') {
-        var prefix = ~['Solid', 'Regular', 'Light', 'Duotone', 'Brands'].indexOf(fontFamily[1]) ? STYLE_TO_PREFIX[fontFamily[1].toLowerCase()] : FONT_WEIGHT_TO_PREFIX[fontWeight];
-        var hexValue = toHex(content.length === 3 ? content.substr(1, 1) : content);
+        var _content = styles.getPropertyValue('content');
+
+        var prefix = ~['Solid', 'Regular', 'Light', 'Duotone', 'Brands', 'Kit'].indexOf(fontFamily[2]) ? STYLE_TO_PREFIX[fontFamily[2].toLowerCase()] : FONT_WEIGHT_TO_PREFIX[fontWeight];
+        var hexValue = toHex(_content.length === 3 ? _content.substr(1, 1) : _content);
         var iconName = byUnicode(prefix, hexValue);
         var iconIdentifier = iconName; // Only convert the pseudo element in this :before/:after position into an icon if we haven't
         // already done so with the same prefix and iconName
@@ -57298,7 +57359,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
 /***/ (function(module, exports, __webpack_require__) {
 
 /*!
-* sweetalert2 v9.17.1
+* sweetalert2 v9.17.2
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -58993,7 +59054,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     onDestroy: undefined,
     scrollbarPadding: true
   };
-  var updatableParams = ['title', 'titleText', 'text', 'html', 'footer', 'icon', 'hideClass', 'customClass', 'allowOutsideClick', 'allowEscapeKey', 'showConfirmButton', 'showCancelButton', 'confirmButtonText', 'confirmButtonAriaLabel', 'confirmButtonColor', 'cancelButtonText', 'cancelButtonAriaLabel', 'cancelButtonColor', 'buttonsStyling', 'reverseButtons', 'showCloseButton', 'closeButtonHtml', 'closeButtonAriaLabel', 'imageUrl', 'imageWidth', 'imageHeight', 'imageAlt', 'progressSteps', 'currentProgressStep', 'onClose', 'onAfterClose', 'onDestroy'];
+  var updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'footer', 'hideClass', 'html', 'icon', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'onAfterClose', 'onClose', 'onDestroy', 'progressSteps', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'text', 'title', 'titleText'];
   var deprecatedParams = {
     animation: 'showClass" and "hideClass'
   };
@@ -60466,7 +60527,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '9.17.1';
+  SweetAlert.version = '9.17.2';
 
   var Swal = SweetAlert;
   Swal["default"] = Swal;

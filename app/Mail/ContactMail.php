@@ -2,6 +2,7 @@
 
 namespace App\Mail;
 
+use App\CustomClass\ContactData;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -10,16 +11,16 @@ class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $message;
+    public $contactData;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($_message)
+    public function __construct(ContactData $_contactData)
     {
-        $this->message = trim($_message);
+        $this->contactData = $_contactData;
     }
 
     /**
@@ -29,9 +30,9 @@ class ContactMail extends Mailable
      */
     public function build()
     {
-        return $this->subject("Mensaje enviado desde el formulario de Contacto")
+        return $this->subject($this->contactData->getAsunto())
             ->view("email.contact", [
-                "comment" => $this->message,
+                "contactData" => $this->contactData,
             ]);
     }
 }

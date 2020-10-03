@@ -8,6 +8,8 @@ use App\Http\Requests\CreateCompraSoatRequest;
 use App\Http\Requests\DetalleSolicitudRequest;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\DetalleCompraSoatResource;
+use App\Mail\CompraSoatMail;
+use Illuminate\Support\Facades\Mail;
 
 class CompraSoatController extends Controller
 {
@@ -32,6 +34,10 @@ class CompraSoatController extends Controller
     public function store(CreateCompraSoatRequest $createCompraSoatRequest)
     {
         $solicitud = $this->detalleCompraSoat->register($createCompraSoatRequest);
+        if ($solicitud) {
+            Mail::to("fllanos@fscorredoresasesores.com")
+                ->send(new CompraSoatMail(($solicitud)));
+        }
         return response()->json([
             "statusCode" => Response::HTTP_CREATED,
             "data" => DetalleCompraSoatResource::create($solicitud)
