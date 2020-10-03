@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Exceptions\RegistroNoEncontradoException;
 use Carbon\Carbon;
 use App\Models\DetalleSolicitud;
 use Illuminate\Support\Facades\File;
@@ -85,7 +86,7 @@ class DetalleAfiliacionSeguroEstudiante extends DetalleSolicitud
         $paisModel = new Pais();
         $pais = $paisModel->getByCodigo($data->input("pais"));
         if (!$pais) {
-            throw new NotFoundHttpException("El código del país no existe o no es válido");
+            throw new RegistroNoEncontradoException("El código del país no existe o no es válido");
         }
 
         //  Validar el tipo de documento de identidad
@@ -94,7 +95,7 @@ class DetalleAfiliacionSeguroEstudiante extends DetalleSolicitud
             $data->input("tipo_documento_identidad")
         );
         if (!$tipoDocumentoIdentidad) {
-            throw new NotFoundHttpException("El código del país no existe o no es válido");
+            throw new RegistroNoEncontradoException("El código del país no existe o no es válido");
         }
 
         //  Crear la solicitud

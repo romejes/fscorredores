@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
+use App\Exceptions\RegistroNoEncontradoException;
 use App\Models\DetalleSolicitud;
 use App\Http\Requests\CreateCotizacionSoatRequest;
 use Carbon\Carbon;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DetalleCotizacionSoat extends DetalleSolicitud
 {
@@ -61,7 +61,7 @@ class DetalleCotizacionSoat extends DetalleSolicitud
             $data->input("tipo_documento_identidad")
         );
         if (!$tipoDocumentoIdentidad) {
-            throw new NotFoundHttpException("El tipo de documento de identidad no existe o no es válido");
+            throw new RegistroNoEncontradoException("El tipo de documento de identidad no existe o no es válido");
         }
 
         //  Crear la solicitud

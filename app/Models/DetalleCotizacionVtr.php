@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Exceptions\RegistroNoEncontradoException;
 use App\Models\DetalleSolicitud;
 use App\Http\Requests\CreateCotizacionVehiculoRequest;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DetalleCotizacionVtr extends DetalleSolicitud
 {
@@ -60,7 +60,7 @@ class DetalleCotizacionVtr extends DetalleSolicitud
             $data->input("tipo_documento_identidad")
         );
         if (!$tipoDocumentoIdentidad) {
-            throw new NotFoundHttpException("El código del país no existe o no es válido");
+            throw new RegistroNoEncontradoException("El código del país no existe o no es válido");
         }
 
         //  Validar la clase del vehiculo

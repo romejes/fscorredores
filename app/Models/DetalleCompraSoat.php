@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
+use App\Exceptions\RegistroNoEncontradoException;
 use Carbon\Carbon;
 use App\Models\DetalleSolicitud;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\CreateCompraSoatRequest;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
@@ -70,7 +70,7 @@ class DetalleCompraSoat extends DetalleSolicitud
             $data->input("tipo_documento_identidad")
         );
         if (!$tipoDocumentoIdentidad) {
-            throw new NotFoundHttpException("El tipo de documento de identidad no existe o no es válido");
+            throw new RegistroNoEncontradoException("El tipo de documento de identidad no existe o no es válido");
         }
 
         if ($data->input("tipo_compra") === "renovacion") {

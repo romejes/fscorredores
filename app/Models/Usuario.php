@@ -2,12 +2,12 @@
 
 namespace App\Models;
 
+use App\Exceptions\RegistroNoEncontradoException;
 use App\Http\Requests\LoginRequest;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable as AuthAuthenticatable;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Usuario extends Model implements AuthAuthenticatable
 {
@@ -67,7 +67,7 @@ class Usuario extends Model implements AuthAuthenticatable
         ];
 
         if (!Auth::attempt($credentials, false)) {
-            throw new NotFoundHttpException("El usuario y/o contraseña no son correctos");
+            throw new RegistroNoEncontradoException("El usuario y/o contraseña no son correctos");
         }
     }
 }

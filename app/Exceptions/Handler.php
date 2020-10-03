@@ -3,13 +3,10 @@
 namespace App\Exceptions;
 
 use Exception;
-use Symfony\Component\HttpKernel\Exception\HttpException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -72,11 +69,8 @@ class Handler extends ExceptionHandler
             ], Response::HTTP_BAD_REQUEST);
         }
 
-        if ($exception instanceof HttpException) {
-            return response()->json([
-                "statusCode" => $exception->getStatusCode(),
-                "message" => $exception->getMessage()
-            ], $exception->getStatusCode());
+        if ($exception instanceof RegistroNoEncontradoException) {
+            return $exception->render($request);
         }
 
         return response()->json([

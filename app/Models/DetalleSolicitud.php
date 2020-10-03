@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
+use App\Exceptions\RegistroNoEncontradoException;
 use Illuminate\Database\Eloquent\Model;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class DetalleSolicitud extends Model
@@ -75,7 +75,7 @@ class DetalleSolicitud extends Model
         });
 
         if (!$detalleCompra) {
-            throw new NotFoundHttpException("No se encontró el registro");
+            throw new RegistroNoEncontradoException("No se encontró el registro");
         }
         return $detalleCompra;
     }
