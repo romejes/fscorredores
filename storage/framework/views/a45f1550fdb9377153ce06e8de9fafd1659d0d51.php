@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
   <link rel="stylesheet" href="<?php echo e(asset("css/intranet.css")); ?>">
+
+  <link rel="shortcut icon" href="<?php echo e(asset('favicon/favicon.ico')); ?>" type="image/x-icon">
 </head>
 <?php echo $__env->yieldContent('body-content'); ?>
 
