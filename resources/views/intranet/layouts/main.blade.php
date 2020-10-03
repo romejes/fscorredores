@@ -10,10 +10,13 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ asset("css/intranet.css") }}">
+
+  <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico')}}" type="image/x-icon">
 </head>
 @yield('body-content')
 
 <script src="{{ asset("js/intranet/manifest.js") }}"></script>
 <script src="{{ asset("js/intranet/vendor.js") }}"></script>
 <script src="{{ asset("js/intranet/app.js") }}"></script>
+
 </html>

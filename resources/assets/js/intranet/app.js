@@ -1,11 +1,7 @@
-//  Importar y configurar jQuery
-import 'jquery';
+import './endpoints/general';
+import './endpoints/auth';
 
-//  Importar libreria AdminLTE
-import 'admin-lte';
-
-//  Importar scripts de cada modulo
-import '../intranet/core/login';
-import '../intranet/core/logout';
-import '../intranet/core/afiliacion-seguro-estudiante';
-import '../intranet/core/compra-soat';
+import './endpoints/compras_soat';
+import './endpoints/cotizaciones_soat';
+import './endpoints/afiliacion_seguro_estudiante';
+import './endpoints/cotizacion_vehiculo_todo_riesgo';

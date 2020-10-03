@@ -13,17 +13,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{{ asset('css/web.css')}}">
+
+  <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico')}}" type="image/x-icon">
 </head>
 
 <body>
+  <div class="sidenav">
+  </div>
   <div class="wrapper">
+    <div class="overlay"></div>
     @include('web.layouts._header')
     @yield('content')
     @include('web.layouts._footer')
   </div>
+
   <script src="{{ asset('js/web/vendor.js')}}"></script>
   <script src="{{ asset('js/web/manifest.js')}}"></script>
   <script src="{{ asset('js/web/app.js')}}"></script>
+
+  @stack('scripts')
 </body>
 
 </html>

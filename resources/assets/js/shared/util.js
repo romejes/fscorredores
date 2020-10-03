@@ -1,44 +1,72 @@
+import moment from 'moment';
+
 /**
- * Check if exists DOM element by selector
+ * Check if an DOM element exists
+ *
+ * @author Jesus Romero
+ * @date 30/09/2020
+ * @export
  * @param {string} selector
+ * @returns {boolean}
  */
-export const existsElement = selector => {
+export function existsElement(selector) {
   return document.querySelectorAll(selector).length > 0;
-};
-
-/*export const getBaseUrl = () => {
-  return window.location.protocol + '//' + window.location.hostname;
-};
-
-export function disable(element) {
-  element.setAttribute('disabled', true);
 }
 
-export function enable(element) {
-  element.removeAttribute('disabled');
+/**
+ * Return URI complete with segments concatenated
+ *
+ * @author Jesus Romero
+ * @date 30/09/2020
+ * @export
+ * @param {string | null} [uriSegments=undefined]
+ * @returns {string}
+ */
+export function returnUrl(uriSegments = undefined) {
+  const baseUrl = window.location.protocol + '//' + window.location.hostname;
+  if (typeof uriSegments === 'undefined') {
+    return baseUrl;
+  }
+  return `${baseUrl}/${uriSegments}`;
 }
 
-export const showValidationErrorsFromServer = messages => {
-  for (const key in messages) {
-    const spanMessage = $('<span></span>', {
-      class: 'invalid-feedback',
-      text: messages[key],
-      style: 'display:inline',
-    });
+/**
+ * Return a segment uri from current url
+ *
+ * @author Jesus Romero
+ * @date 01/10/2020
+ * @export
+ * @param {number} indexSegment
+ * @returns {string}
+ */
+export function getUriSegment(indexSegment) {
+  const uri = window.location.href;
+  const segments = uri.split('/');
+  segments.splice(0, 3);
+  return segments[indexSegment];
+}
 
-    $(`input[name=${key}]`)
-      .closest('.form-group')
-      .append(spanMessage);
-
-    $(`input[name=${key}]`).addClass('is-invalid');
-  }
+/**
+ * Change first letter of string to uppercase
+ * @param {string} text
+ */
+export const capitalizeFirstLetter = text => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
 };
 
-export const existsElement = selector => {
-  if (document.querySelectorAll(selector).length > 0) {
-    console.log('si')
-    return true;
-  }
-  return false;
-};
-*/
+/**
+ * Return string date to specified format
+ *
+ * @author Jesus Romero
+ * @date 01/10/2020
+ * @export
+ * @param {string} dateString
+ * @param {string} formatOrigin
+ * @param {string} formatTarget
+ * @returns {string}
+ */
+export function formatDate(dateString, formatOrigin, formatTarget) {
+  return moment(dateString, formatOrigin)
+    .locale('es_MX')
+    .format(formatTarget);
+}

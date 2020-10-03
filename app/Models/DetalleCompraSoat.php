@@ -30,7 +30,7 @@ class DetalleCompraSoat extends DetalleSolicitud
         "Telefono",
         "Email",
         "IdTipoDocumentoIdentidad",
-        "NumeroDocumento",
+        "NumeroDocumentoIdentidad",
         "Direccion",
         "Placa",
         "Asientos",
@@ -38,12 +38,24 @@ class DetalleCompraSoat extends DetalleSolicitud
         "AnioVehiculo",
         "CompaniaSeguro",
         "TipoCompra",
+        "ImagenPoliza",
         "ImagenTarjetaPropiedad",
         "ImagenDni"
     ];
 
     const TIPO_COMPRA_ADQUISICION = "Adquisición";
     const TIPO_COMPRA_RENOVACION = "Renovación";
+
+    /**
+     * Devuelve la fecha de nacimiento en formato largo y de cadena
+     *
+     * @param string $fechaNacimiento
+     * @return string
+     */
+    public function getFechaNacimientoAttribute($fechaNacimiento)
+    {
+        return strftime('%d de %B de %Y', strtotime($fechaNacimiento));
+    }
 
     /**
      * Registrar en la tabla respectiva
@@ -88,7 +100,7 @@ class DetalleCompraSoat extends DetalleSolicitud
         );
 
         //  Procesar imagen
-        $tarjetaPropiedad = $data->file("imagen_tarjeta_propiedad");
+        $tarjetaPropiedad = $data->file("imagen_poliza");
         $extension = $tarjetaPropiedad->getClientOriginalExtension();
         $newFilename = $solicitud->Codigo . "_1.${extension}";
         $isImageUploaded = Storage::disk('local')->put($newFilename, File::get($tarjetaPropiedad));
@@ -107,9 +119,9 @@ class DetalleCompraSoat extends DetalleSolicitud
             "Telefono" => $data->input("telefono"),
             "Email" => $data->input("correo"),
             "IdTipoDocumentoIdentidad" => $data->input("tipo_documento_identidad"),
-            "NumeroDocumento" => $data->input("numero_documento"),
+            "NumeroDocumentoIdentidad" => $data->input("numero_documento_identidad"),
             "TipoCompra" => self::TIPO_COMPRA_RENOVACION,
-            "ImagenTarjetaPropiedad" =>  Storage::url($newFilename)
+            "ImagenPoliza" =>  Storage::url($newFilename)
         ]);
     }
 
@@ -154,7 +166,7 @@ class DetalleCompraSoat extends DetalleSolicitud
             "Telefono" => $data->input("telefono"),
             "Email" => $data->input("correo"),
             "IdTipoDocumentoIdentidad" => $data->input("tipo_documento_identidad"),
-            "NumeroDocumento" => $data->input("numero_documento"),
+            "NumeroDocumentoIdentidad" => $data->input("numero_documento_identidad"),
             "Direccion" => $data->input("direccion"),
             "Placa" => $data->input("placa"),
             "Asientos" => $data->input("asientos"),

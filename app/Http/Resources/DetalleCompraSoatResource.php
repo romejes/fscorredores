@@ -23,6 +23,7 @@ class DetalleCompraSoatResource
             "anio_vehiculo" => $detalleCompraSoat->AnioVehiculo,
             "compania_seguro" => $detalleCompraSoat->CompaniaSeguro,
             "tipo_compra" => $detalleCompraSoat->TipoCompra,
+            "imagen_poliza" => $detalleCompraSoat->ImagenPoliza,
             "imagen_tarjeta_propiedad" => $detalleCompraSoat->ImagenTarjetaPropiedad,
             "imagen_dni" => $detalleCompraSoat->ImagenDni,
             "solicitud" => SolicitudResource::create($detalleCompraSoat->solicitud)

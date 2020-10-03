@@ -12,7 +12,7 @@ $factory->define(App\Models\DetalleCompraSoat::class, function (Faker\Generator 
         "Telefono" => $faker->phoneNumber,
         "Email" => $faker->email,
         "IdTipoDocumentoIdentidad" => 1,
-        "NumeroDocumento" => $faker->numerify("########"),
+        "NumeroDocumentoIdentidad" => $faker->numerify("########"),
     ];
 });
 
@@ -20,7 +20,7 @@ $factory->state(App\Models\DetalleCompraSoat::class, "adquisicion", function (Fa
     return [
         "TipoCompra" => "Adquisicion",
         "Direccion" => $faker->streetAddress,
-        "Placa" => $faker->word(6),
+        "Placa" => substr($faker->word, 0, 6),
         "Asientos" => $faker->randomNumber(2),
         "Uso" => $faker->randomElement(["Particular", "Escolar", "Carga", "Transporte de Personal"]),
         "AnioVehiculo" => $faker->year(),
@@ -33,6 +33,6 @@ $factory->state(App\Models\DetalleCompraSoat::class, "adquisicion", function (Fa
 $factory->state(App\Models\DetalleCompraSoat::class, "renovacion", function (Faker\Generator $faker) {
     return [
         "TipoCompra" => "Renovación",
-        "ImagenTarjetaPropiedad" => $faker->imageUrl(),
+        "ImagenPoliza" => $faker->imageUrl(),
     ];
 });

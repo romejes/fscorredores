@@ -1,7 +1,7 @@
 import 'bootstrap-table';
 import 'bootstrap-table/src/locale/bootstrap-table-es-ES';
-import { getBaseUrl } from '../../shared/util';
-import { ROUTE_GET_COMPRAS_SOAT } from '../common/routes';
+import { formatDate, returnUrl } from '../../shared/util';
+import { routes } from '../routes';
 
 const commonColumns = [
   {
@@ -11,14 +11,22 @@ const commonColumns = [
   {
     title: 'Solicitado Por',
     formatter: (value, row) => {
-      return (
-        row.nombres + ' ' + row.apellido_paterno + ' ' + row.apellido_materno
-      );
+      let fullName = `${row.nombres} ${row.apellido_paterno}`;
+      if (row.apellido_materno) {
+        fullName += ` ${row.apellido_materno}`;
+      }
+      return fullName;
     },
   },
   {
     title: 'Fecha y Hora de Envio',
-    field: 'solicitud.fecha_hora_registro',
+    formatter: (value, row) => {
+      return formatDate(
+        row.solicitud.fecha_hora_registro,
+        'YYYY-MM-DD h:mm:ss',
+        'DD [de] MMMM [de] YYYY h:mm a',
+      );
+    },
   },
   {
     title: 'Estado',
@@ -48,9 +56,16 @@ const commonColumns = [
   },
 ];
 
-export const loadTableCompraSoat = () => {
-  $('#tbl-compra-soat').bootstrapTable({
-    url: ROUTE_GET_COMPRAS_SOAT,
+/**
+ * Load table with Compra SOAT data
+ *
+ * @author Jesus Romero
+ * @date 30/09/2020
+ * @export
+ */
+export function loadTableCompraSoat() {
+  $('#tbl-compras-soat').bootstrapTable({
+    url: routes.ROUTE_GET_COMPRAS_SOAT,
     pagination: true,
     responseHandler: response => {
       return response.data;
@@ -62,8 +77,7 @@ export const loadTableCompraSoat = () => {
         formatter: (value, row) => {
           const detailButton = $('<a></a>', {
             class: 'btn',
-            href:
-              getBaseUrl() + '/intranet/compras/soat/' + row.solicitud.codigo,
+            href: returnUrl(`intranet/compras/soat/${row.solicitud.codigo}`),
             html: '<i class="fas fa-list text-primary"></i>',
             title: 'Ver detalles',
           });
@@ -73,4 +87,109 @@ export const loadTableCompraSoat = () => {
       },
     ],
   });
-};
+}
+
+/**
+ * Load table with Cotizaciones SOAT data
+ *
+ * @author Jesus Romero
+ * @date 30/09/2020
+ * @export
+ */
+export function loadTableCotizacionesSoat() {
+  $('#tbl-cotizaciones-soat').bootstrapTable({
+    url: routes.ROUTE_GET_COTIZACIONES_SOAT,
+    pagination: true,
+    responseHandler: response => {
+      return response.data;
+    },
+    columns: [
+      ...commonColumns,
+      {
+        title: 'Acciones',
+        formatter: (value, row) => {
+          const detailButton = $('<a></a>', {
+            class: 'btn',
+            href: returnUrl(
+              `intranet/cotizaciones/soat/${row.solicitud.codigo}`,
+            ),
+            html: '<i class="fas fa-list text-primary"></i>',
+            title: 'Ver detalles',
+          });
+
+          return detailButton.prop('outerHTML');
+        },
+      },
+    ],
+  });
+}
+
+/**
+ * Load table with Cotizaciones Vehiculo Todo Riego data
+ *
+ * @author Jesus Romero
+ * @date 30/09/2020
+ * @export
+ */
+export function loadTableCotizacionesVehiculoTodoRiesgo() {
+  $('#tbl-cotizaciones-vehiculo-todo-riesgo').bootstrapTable({
+    url: routes.ROUTE_GET_COTIZACIONES_SEGURO_VEHICULO,
+    pagination: true,
+    responseHandler: response => {
+      return response.data;
+    },
+    columns: [
+      ...commonColumns,
+      {
+        title: 'Acciones',
+        formatter: (value, row) => {
+          const detailButton = $('<a></a>', {
+            class: 'btn',
+            href: returnUrl(
+              `intranet/cotizaciones/vehiculo_todo_riesgo/${row.solicitud.codigo}`,
+            ),
+            html: '<i class="fas fa-list text-primary"></i>',
+            title: 'Ver detalles',
+          });
+
+          return detailButton.prop('outerHTML');
+        },
+      },
+    ],
+  });
+}
+
+/**
+ * Load table with Afiliacion Seguro Estudiante data
+ *
+ * @author Jesus Romero
+ * @date 30/09/2020
+ * @export
+ */
+export function loadTableAfiliacionesSeguroEstudiante() {
+  $('#tbl-afiliaciones-seguro-estudiante').bootstrapTable({
+    url: routes.ROUTE_GET_AFILIACION_SEGURO_ESTUDIANTE,
+    pagination: true,
+    responseHandler: response => {
+      return response.data;
+    },
+    columns: [
+      ...commonColumns,
+      {
+        title: 'Acciones',
+        formatter: (value, row) => {
+          const detailButton = $('<a></a>', {
+            class: 'btn',
+            href: returnUrl(
+              `intranet/afiliaciones/seguro_estudiante/${row.solicitud.codigo}`,
+            ),
+            html: '<i class="fas fa-list text-primary"></i>',
+            title: 'Ver detalles',
+          });
+
+          return detailButton.prop('outerHTML');
+        },
+      },
+    ],
+  });
+}

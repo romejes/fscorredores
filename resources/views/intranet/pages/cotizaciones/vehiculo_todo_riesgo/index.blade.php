@@ -43,5 +43,5 @@
   </div>
 </div>
 @endsection @push("scripts")
-<script src="{{ asset('js/tables.js') }}"></script>
+<script src="{{ asset('js/intranet/tables.js') }}"></script>
 @endpush

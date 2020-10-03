@@ -59,9 +59,9 @@ class CreateInitialTables extends Migration
             $table->string("Telefono", 40);
             $table->string("Email", 40)->nullable();
             $table->unsignedInteger("IdTipoDocumentoIdentidad");
-            $table->string("NumeroDocumento", 15);
+            $table->string("NumeroDocumentoIdentidad", 15);
             $table->boolean("TieneSoat");
-            $table->string("Placa");
+            $table->string("Placa", 10);
             $table->tinyInteger("Asientos");
             $table->string("Uso");
             $table->smallInteger("AnioVehiculo");
@@ -78,7 +78,7 @@ class CreateInitialTables extends Migration
             $table->string("Telefono", 40);
             $table->string("Email", 40)->nullable();
             $table->unsignedInteger("IdTipoDocumentoIdentidad");
-            $table->string("NumeroDocumento", 15);
+            $table->string("NumeroDocumentoIdentidad", 15);
             $table->string("Placa", 10);
             $table->tinyInteger("Asientos");
             $table->string("Uso");
@@ -100,7 +100,7 @@ class CreateInitialTables extends Migration
             $table->string("Telefono", 40);
             $table->string("Email", 40)->nullable();
             $table->unsignedInteger("IdTipoDocumentoIdentidad");
-            $table->string("NumeroDocumento", 15);
+            $table->string("NumeroDocumentoIdentidad", 15);
             $table->string("Direccion", 100)->nullable();
             $table->string("Placa", 10)->nullable();
             $table->tinyInteger("Asientos")->nullable();
@@ -108,7 +108,8 @@ class CreateInitialTables extends Migration
             $table->smallInteger("AnioVehiculo")->nullable();
             $table->string("CompaniaSeguro", 25)->nullable();
             $table->string("TipoCompra", 30);
-            $table->string("ImagenTarjetaPropiedad", 300);
+            $table->string("ImagenPoliza", 300)->nullable();
+            $table->string("ImagenTarjetaPropiedad", 300)->nullable();
             $table->string("ImagenDni", 300)->nullable();
         });
 
@@ -125,7 +126,7 @@ class CreateInitialTables extends Migration
             $table->string("Email", 40)->nullable();
             $table->char("CodigoPais", 2);
             $table->unsignedInteger("IdTipoDocumentoIdentidad");
-            $table->string("NumeroDocumento", 15);
+            $table->string("NumeroDocumentoIdentidad", 15);
             $table->string("ImagenVoucher", 300);
         });
         

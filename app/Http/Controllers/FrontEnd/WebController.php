@@ -76,48 +76,60 @@ class WebController extends Controller
     public function seguros($tipoSeguro = null)
     {
         $seguros = array(
-            "persona" => array(
-                array(
-                    "name" => "Seguro contra robos",
-                    "slug" => "seguro_persona_robo"
+            array(
+                "title" => "Seguros para personas",
+                "seguros" => array(
+                    array(
+                        "name" => "Seguro contra robos",
+                        "slug" => "seguro_persona_robo"
+                    )
                 )
             ),
-            "empresas" => array(
-                array(
-                    "name" => "Seguro contra robos y asaltos",
-                    "slug" => "seguro_empresa_robo"
-                ),
-                array(
-                    "name" => "Seguro por responsabilidad civil",
-                    "slug" => "seguro_responsabilidad_civil"
-                ),
-                array(
-                    "name" => "Seguro contra riesgo de montaje",
-                    "slug" => "seguro_riesgo_montaje"
-                ),
-                array(
-                    "name" => "Seguro contra incendios",
-                    "slug" => "seguro_incendio"
-                ),
-                array(
-                    "name" => "EPS",
-                    "slug" => "eps"
-                ),
-            ),
-            "vehiculares" => array(
-                array(
-                    "name" => "SOAT",
-                    "slug" => "soat"
-                ),
-                array(
-                    "name" => "Seguro vehicular todo riesgo",
-                    "slug" => "seguro_vehicular_todo_riesgo"
+            array(
+                "title" => "Seguros para empresas",
+                "seguros" => array(
+                    array(
+                        "name" => "Seguro contra robos y asaltos",
+                        "slug" => "seguro_empresa_robo"
+                    ),
+                    array(
+                        "name" => "Seguro por responsabilidad civil",
+                        "slug" => "seguro_responsabilidad_civil"
+                    ),
+                    array(
+                        "name" => "Seguro contra riesgo de montaje",
+                        "slug" => "seguro_riesgo_montaje"
+                    ),
+                    array(
+                        "name" => "Seguro contra incendios",
+                        "slug" => "seguro_incendio"
+                    ),
+                    array(
+                        "name" => "EPS",
+                        "slug" => "eps"
+                    )
                 )
             ),
-            "otros" => array(
-                array(
-                    "name" => "Seguro contra terremotos",
-                    "slug" => "seguro_terremotos"
+            array(
+                "title" => "Seguros vehiculares",
+                "seguros" => array(
+                    array(
+                        "name" => "SOAT",
+                        "slug" => "soat"
+                    ),
+                    array(
+                        "name" => "Seguro vehicular todo riesgo",
+                        "slug" => "seguro_vehicular_todo_riesgo"
+                    )
+                )
+            ),
+            array(
+                "title" => "Otros seguros",
+                "seguros" => array(
+                    array(
+                        "name" => "Seguro contra terremotos",
+                        "slug" => "seguro_terremotos"
+                    )
                 )
             )
         );
@@ -125,7 +137,7 @@ class WebController extends Controller
         if (!$tipoSeguro) {
             return view("web.pages.seguros.index", compact("seguros"));
         } else {
-            return view("web.pages.seguros.detalle", compact("seguros"));
+            return view("web.pages.seguros." . $tipoSeguro, compact("seguros"));
         }
     }
 

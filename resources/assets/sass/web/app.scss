@@ -4,10 +4,15 @@
 @import '~@fortawesome/fontawesome-free/scss/solid';
 @import '~@fortawesome/fontawesome-free/scss/brands';
 @import '~smartwizard/dist/css/smart_wizard_all.min.css';
+@import '~aos/dist/aos.css';
+@import '~@glidejs/glide/src/assets/sass/glide.core'; 
+@import '~@glidejs/glide/src/assets/sass/glide.theme'; 
 
 //  Components
 @import './components/header';
 @import './components/footer';
+@import './components/sidenav';
+@import './components/wrapper';
 
 //  Pages
 @import './pages/home';
@@ -15,5 +20,9 @@
 @import './pages/seguros';
 @import './pages/clientes';
 @import './pages/contacto';
+@import './pages/solicitudes';
+
+//  Custom
+@import './custom/wizard';
 
 @import './custom';

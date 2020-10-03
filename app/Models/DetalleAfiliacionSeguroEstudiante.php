@@ -32,7 +32,7 @@ class DetalleAfiliacionSeguroEstudiante extends DetalleSolicitud
         "Email",
         "CodigoPais",
         "IdTipoDocumentoIdentidad",
-        "NumeroDocumento",
+        "NumeroDocumentoIdentidad",
         "ImagenVoucher"
     ];
 
@@ -44,6 +44,33 @@ class DetalleAfiliacionSeguroEstudiante extends DetalleSolicitud
     public function pais()
     {
         return $this->hasOne(Pais::class, "Codigo", "CodigoPais");
+    }
+
+    /**
+     * Devuelve el texto entero del sexo
+     *
+     * @return string
+     */
+    public function getSexoDescripcionAttribute()
+    {
+        if ($this->Sexo === 'M') {
+            return "Masculino";
+        }
+
+        if ($this->Sexo === 'F') {
+            return "Femenino";
+        }
+    }
+
+    /**
+     * Devuelve la fecha de nacimiento en formato largo y de cadena
+     *
+     * @param string $fechaNacimiento
+     * @return string
+     */
+    public function getFechaNacimientoAttribute($fechaNacimiento)
+    {
+        return strftime('%d de %B de %Y', strtotime($fechaNacimiento));
     }
 
     /**
@@ -101,7 +128,7 @@ class DetalleAfiliacionSeguroEstudiante extends DetalleSolicitud
             "Email" => $data->input("correo"),
             "CodigoPais" => $pais->Codigo,
             "IdTipoDocumentoIdentidad" => $tipoDocumentoIdentidad->IdTipoDocumentoIdentidad,
-            "NumeroDocumento" => $data->input("numero_documento"),
+            "NumeroDocumentoIdentidad" => $data->input("numero_documento_identidad"),
             "ImagenVoucher" => Storage::url($nombreImagen)
         ]);
         return $detalle;

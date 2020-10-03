@@ -45,7 +45,7 @@ class DetalleSolicitud extends Model
      */
     public function getDocumentoIdentidadAttribute()
     {
-        return "{$this->tipoDocumentoIdentidad->Descripcion} - {$this->NumeroDocumento}";
+        return "{$this->tipoDocumentoIdentidad->Descripcion} - {$this->NumeroDocumentoIdentidad}";
     }
 
     /**
@@ -55,7 +55,11 @@ class DetalleSolicitud extends Model
      */
     public function getDetalleSolicitudes()
     {
-        return self::all();
+        $solicitudes = self::get()->sortByDesc(function($item) {
+            return $item->solicitud->FechaHoraRegistro;
+        });
+        
+        return $solicitudes->values();
     }
 
     /**
@@ -88,10 +92,10 @@ class DetalleSolicitud extends Model
         $detalleSolicitud = $this->getDetalleSolicitudByCodigo($code);
         $actualEstadoSolicitud = $detalleSolicitud->solicitud->IdEstadoSolicitud;
 
-        if ($actualEstadoSolicitud === EstadoSolicitud::SOLICITUD_EN_ESPERA) {
-            $detalleSolicitud->solicitud->IdEstadoSolicitud = EstadoSolicitud::SOLICITUD_EN_ATENCION;
-        } else if ($actualEstadoSolicitud === EstadoSolicitud::SOLICITUD_EN_ATENCION) {
-            $detalleSolicitud->solicitud->IdEstadoSolicitud = $reject ? EstadoSolicitud::SOLICITUD_RECHAZADA : EstadoSolicitud::SOLICITUD_ATENDIDA;
+        if ($reject && $actualEstadoSolicitud === EstadoSolicitud::SOLICITUD_EN_ESPERA) {
+            $detalleSolicitud->solicitud->IdEstadoSolicitud = EstadoSolicitud::SOLICITUD_RECHAZADA;
+        } else if (!$reject && $actualEstadoSolicitud === EstadoSolicitud::SOLICITUD_EN_ESPERA) {
+            $detalleSolicitud->solicitud->IdEstadoSolicitud = EstadoSolicitud::SOLICITUD_ATENDIDA;
         } else {
             throw new UnprocessableEntityHttpException("No es posible cambiar de estado a la solicitud");
         }

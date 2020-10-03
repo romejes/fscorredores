@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-//  TODO: Traduccion de las validaciones
 class CreateAfiliacionSeguroEstudianteRequest extends FormRequest
 {
     /**
@@ -27,11 +26,11 @@ class CreateAfiliacionSeguroEstudianteRequest extends FormRequest
         return [
             "nombres" => "required|string|max:40",
             "apellido_paterno" => "required|string|max:40",
-            "apellido_materno" => "string|max:40",
+            "apellido_materno" => "max:40",
             "sexo" => "required|in:M,F",
             "pais" => "required|string|size:2",
             "tipo_documento_identidad" => "required|integer",
-            "numero_documento" => "required|string|max:15",
+            "numero_documento_identidad" => "required|string|max:15",
             "estado_civil" => "required|in:Casado,Soltero,Divorciado,Viudo",
             "fecha_nacimiento" => "required|date_format:Y-m-d|before:now",
             "telefono" => "required|string|max:40",

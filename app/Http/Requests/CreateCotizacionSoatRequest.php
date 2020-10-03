@@ -5,7 +5,6 @@ namespace App\Http\Requests;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-//  TODO: Traduccion de las validaciones
 class CreateCotizacionSoatRequest extends FormRequest
 {
     /**
@@ -25,12 +24,12 @@ class CreateCotizacionSoatRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             "nombres" => "required|string|max:40",
             "apellido_paterno" => "required|string|max:40",
-            "apellido_materno" => "string|max:40",
+            "apellido_materno" => "max:40",
             "tipo_documento_identidad" => "required|integer",
-            "numero_documento" => "required|string|max:15",
+            "numero_documento_identidad" => "required|string|max:15",
             "telefono" => "required|string|max:40",
             "correo" => "required|email|max:40",
             "anio_vehiculo" => "required|date_format:Y|before_or_equal:now",
@@ -42,10 +41,15 @@ class CreateCotizacionSoatRequest extends FormRequest
             ],
             "compania_seguro" => [
                 "required",
-                Rule::in(['Pacífico', 'MAPFRE', 'La Positiva', 'RIMAC'])
+                Rule::in(['Pacifico', 'MAPFRE', 'La Positiva', 'Rimac'])
             ],
-            "tiene_soat" => "required|boolean",
-            "fecha_vencimiento" => "required_if:tiene_soat,true|date_format:Y-m-d"
+            "tiene_soat" => "required"
         ];
+
+        if ($this->input("tiene_soat") === 1) {
+            $rules["fecha_vencimiento"] = "date_format:Y-m-d";
+        }
+
+        return $rules;
     }
 }

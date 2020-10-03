@@ -40,7 +40,10 @@
                 Ver Listado</a>
             </div>
           </div>
-          <div class="card-body">
+          <div class="card-body" id="detail-compra-soat">
+            @component('intranet.components.status_info_box', ['estadoSolicitud' =>
+            $detalleCompra->solicitud->IdEstadoSolicitud])
+            @endcomponent
             <dl class="row">
               <dt class="col-sm-4">Código</dt>
               <dd class="col-sm-8">{{ $detalleCompra->solicitud->Codigo}}</dd>
@@ -56,7 +59,7 @@
             <dl class="row">
               <dt class="col-sm-4">Teléfono</dt>
               <dd class="col-sm-8">
-                {{ !$detalleCompra->Teléfono ? "-" : $detalleCompra->Telefono}}
+                {{ !$detalleCompra->Telefono ? "-" : $detalleCompra->Telefono}}
               </dd>
             </dl>
             <dl class="row">
@@ -71,16 +74,61 @@
               <dt class="col-sm-4">Tipo de Compra</dt>
               <dd class="col-sm-8">{{ $detalleCompra->TipoCompra}}</dd>
             </dl>
+
+            @if ($detalleCompra->TipoCompra === 'Adquisición')
+            <dl class="row">
+              <dt class="col-sm-4">Dirección de envío</dt>
+              <dd class="col-sm-8">{{ $detalleCompra->Direccion }}</dd>
+            </dl>
+
+            <dl class="row">
+              <dt class="col-sm-4">Placa</dt>
+              <dd class="col-sm-8">{{ $detalleCompra->Placa }}</dd>
+            </dl>
+
+            <dl class="row">
+              <dt class="col-sm-4">Asientos</dt>
+              <dd class="col-sm-8">{{ $detalleCompra->Asientos }}</dd>
+            </dl>
+
+            <dl class="row">
+              <dt class="col-sm-4">Uso</dt>
+              <dd class="col-sm-8">{{ $detalleCompra->Uso }}</dd>
+            </dl>
+
+            <dl class="row">
+              <dt class="col-sm-4">Compañia de Seguros</dt>
+              <dd class="col-sm-8">{{ $detalleCompra->CompaniaSeguro }}</dd>
+            </dl>
+
+            <dl class="row">
+              <dt class="col-sm-4">Documento de Identidad</dt>
+              <dd class="col-sm-8">
+                <a href="{{ url($detalleCompra->ImagenDni)}}" target="_blank">Ver</a>
+              </dd>
+            </dl>
+
+            <dl class="row">
+              <dt class="col-sm-4">Tarjeta de Propiedad</dt>
+              <dd class="col-sm-8">
+                <a href="{{ url($detalleCompra->ImagenTarjetaPropiedad)}}" target="_blank">Ver</a>
+              </dd>
+            </dl>
+            @else
+            <dl class="row">
+              <dt class="col-sm-4">Póliza del seguro</dt>
+              <dd class="col-sm-8">
+                <a href="{{ url($detalleCompra->ImagenPoliza)}}" target="_blank">Ver</a>
+              </dd>
+            </dl>
+            @endif
+
           </div>
           <div class="card-footer">
             <div class="float-sm-right">
               @if ($detalleCompra->solicitud->IdEstadoSolicitud == 1)
-              <button class="btn btn-primary">Atender</button>
-              @endif
-
-              @if ($detalleCompra->solicitud->IdEstadoSolicitud == 2)
-              <button class="btn btn-danger">Rechazar</button>
-              <button class="btn btn-success">Marcar como atendido</button>
+              <button class="btn btn-danger" id="btn-rechazar">Rechazar</button>
+              <button class="btn btn-success" id="btn-marcar-atendido">Marcar como atendido</button>
               @endif
             </div>
           </div>

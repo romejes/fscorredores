@@ -1,9 +1,21 @@
 <footer>
+  <div class="slogan section">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h4 class="section-title color-white">Somos tu mejor opción en seguros</h4>
+        </div>
+      </div>
+    </div>
+    <div class="slogan-overlay"></div>
+  </div>
   <div class="footer-main bg-color-fs-red color-white">
     <div class="container">
       <div class="row">
         <!-- Footer Block Logo-->
-        <div class="footer-main-block col-12 col-md-4"></div>
+        <div class="footer-main-block col-12 col-md-4">
+          <img src="{{ asset('img/logo2.svg')}}" alt="FS Corredores de Seguros" id="img-logo-footer">
+        </div>
         <!-- End Footer Block Logo-->
 
         <!-- Footer Nuestra Oficina Block -->
@@ -36,11 +48,7 @@
         <div class="footer-main-block col-12 col-md-4">
           <h4 class="footer-main-block-title">Supervisados por</h4>
           <div class="footer-main-block-body text-center">
-            <img
-              id="img-logo-sbs"
-              src="{{ asset('img/sbs.png') }}"
-              alt="Superintendencia de Banca y Seguros"
-            />
+            <img id="img-logo-sbs" src="{{ asset('img/sbs.svg') }}" alt="Superintendencia de Banca y Seguros" />
           </div>
         </div>
         <!-- End Footer Supervisados por Block-->

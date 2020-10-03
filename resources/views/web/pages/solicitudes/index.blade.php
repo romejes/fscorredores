@@ -9,13 +9,13 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <div class="wrapper-seguros">
+          <div class="wrapper-solicitudes">
             <!-- SOAT -->
-            <div class="card card-seguro">
+            <div class="card card-solicitud">
               <div class="card-body">
-                <h5 class="card-title-seguro">SOAT</h5>
+                <h5 class="card-title-solicitud">SOAT</h5>
               </div>
-              <div class="card-footer card-seguro-footer">
+              <div class="card-footer card-solicitud-footer">
                 <a
                   href="{{ url('solicitudes/cotizar_soat') }}"
                   class="btn btn-primary"
@@ -31,11 +31,11 @@
             <!-- End SOAT-->
 
             <!-- Seguro Vehicular Todo Riesgo -->
-            <div class="card card-seguro">
+            <div class="card card-solicitud">
               <div class="card-body">
-                <h5 class="card-title-seguro">Seguro Vehicular Todo Riesgo</h5>
+                <h5 class="card-title-solicitud">Seguro Vehicular Todo Riesgo</h5>
               </div>
-              <div class="card-footer card-seguro-footer">
+              <div class="card-footer card-solicitud-footer">
                 <a
                   href="{{
                     url('solicitudes/cotizar_seguro_vehicular_todo_riesgo')
@@ -48,11 +48,11 @@
             <!-- End Seguro Vehicular Todo Riesgo -->
 
             <!-- Seguro Estudiante -->
-            <div class="card card-seguro">
+            <div class="card card-solicitud">
               <div class="card-body">
-                <h5 class="card-title-seguro">Seguro Estudiantil</h5>
+                <h5 class="card-title-solicitud">Seguro Estudiantil</h5>
               </div>
-              <div class="card-footer card-seguro-footer">
+              <div class="card-footer card-solicitud-footer">
                 <a
                   href="{{ url('solicitudes/afiliar_seguro_estudiantil') }}"
                   class="btn btn-primary"

@@ -1,57 +1,42 @@
 <header>
   <div class="container">
-    <div class="row align-items-center py-2">
+    <nav class="navbar">
       <!-- Logo -->
-      <div class="col-auto">
-        <a href="{{ url('/') }}">
-          <img
-            src="{{ asset('img/logo.png') }}"
-            alt="FS Corredores de Seguros"
-            id="img-logo"
-          />
-        </a>
-      </div>
-      <!-- End Logo -->
+      <a href="{{ url('/') }}" class="navbar-brand">
+        <img src="{{ asset('img/logo.svg') }}" alt="FS Corredores de Seguros" id="img-logo" />
+      </a>
+      <!--End Logo -->
 
-      <!-- Nav -->
-      <nav class="col d-none d-lg-flex justify-content-end">
-        <ul class="list-inline mb-0">
-          <li class="list-inline-item">
+      <!-- Menu button -->
+      <button class="btn" id="btn-menu">
+        <i class="fas fa-bars fa-2x color-fs-blue"></i>
+      </button>
+      <!-- End Menu button-->
+
+      <!-- Links -->
+      <div class="menu-content">
+        <ul class="nav-menu-links mb-0">
+          <li class="nav-menu-link-item {{ Request::segment(1) == 'nosotros' ? 'active':''}}">
             <a href="{{ url('nosotros') }}" title="Nosotros">Nosotros</a>
           </li>
-          <li class="list-inline-item">
+          <li class="nav-menu-link-item {{ Request::segment(1) == 'seguros' ? 'active':''}}">
             <a href="{{ url('seguros') }}" title="Seguros">Seguros</a>
           </li>
-          <li class="list-inline-item">
-            <a href="{{ url('solicitudes') }}" title="Solicitudes"
-              >Solicitudes</a
-            >
+          <li class="nav-menu-link-item {{ Request::segment(1) == 'solicitudes' ? 'active':''}}">
+            <a href="{{ url('solicitudes') }}" title="Solicitudes">Solicitudes</a>
           </li>
-          <li class="list-inline-item">
+          <li class="nav-menu-link-item {{ Request::segment(1) == 'clientes' ? 'active':''}}">
             <a href="{{ url('clientes') }}" title="Clientes">Clientes</a>
           </li>
-          <li class="list-inline-item">
+          <li class="nav-menu-link-item {{ Request::segment(1) == 'contacto' ? 'active':''}}">
             <a href="{{ url('contacto') }}" title="Contacto">Contacto</a>
           </li>
-          <li class="list-inline-item">
-            <a
-              href="{{ url('intranet/login') }}"
-              target="_blank"
-              title="Intranet"
-              ><i class="fas fa-lock"></i
-            ></a>
+          <li class="nav-menu-link-item">
+            <a href="{{ url('intranet/login') }}" target="_blank" title="Intranet"><i class="fas fa-lock"></i></a>
           </li>
         </ul>
-      </nav>
-      <!-- End Nav-->
-
-      <!-- Mobile Menu Button-->
-      <div class="col d-lg-none">
-        <button class="btn btn-flat btn-lg" id="btn-menu">
-          <i class="fas fa-bars color-fs-blue"></i>
-        </button>
       </div>
-      <!-- End Mobile Menu Button-->
-    </div>
+      <!-- End Links-->
+    </nav>
   </div>
 </header>

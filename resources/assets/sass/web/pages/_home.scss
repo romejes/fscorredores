@@ -1,6 +1,27 @@
 main {
+  .carousel {
+    ul.glide__slides {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
   a#btn-soat-cotizar,
   a#btn-soat-comprar {
     margin: 0.8rem;
+  }
+
+  .insurance-company-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    img.img-insurance-company {
+      height: auto;
+      width: 160px;
+      margin: 3em 2em;
+    }
   }
 }

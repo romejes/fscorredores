@@ -30,7 +30,7 @@ class CotizacionSoatController extends Controller
      */
     public function detail($code)
     {
-        $detalleCompra = $this->detalleCotizacionSoat->getDetalleCompraByCodigo($code);
-        return view("intranet.pages.cotizaciones.soat.detail", compact("detalleCompra"));
+        $detalleCotizacion = $this->detalleCotizacionSoat->getDetalleSolicitudByCodigo($code);
+        return view("intranet.pages.cotizaciones.soat.detail", compact("detalleCotizacion"));
     }
 }

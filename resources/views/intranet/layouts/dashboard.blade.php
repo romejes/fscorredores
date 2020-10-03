@@ -17,7 +17,3 @@
   </div>
 </body>
 @endsection
-
-@push('scripts')
-<script src="{{ asset("js/intranet/app.js") }}"></script>
-@endpush

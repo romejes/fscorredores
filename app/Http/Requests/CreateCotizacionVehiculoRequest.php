@@ -28,9 +28,9 @@ class CreateCotizacionVehiculoRequest extends FormRequest
         return [
             "nombres" => "required|string|max:40",
             "apellido_paterno" => "required|string|max:40",
-            "apellido_materno" => "string|max:40",
+            "apellido_materno" => "max:40",
             "tipo_documento_identidad" => "required|integer",
-            "numero_documento" => "required|string|max:15",
+            "numero_documento_identidad" => "required|string|max:15",
             "telefono" => "required|string|max:40",
             "correo" => "required|email|max:40",
             "anio_vehiculo" => "required|date_format:Y|before_or_equal:now",
@@ -46,7 +46,7 @@ class CreateCotizacionVehiculoRequest extends FormRequest
             "costo" => "required|numeric|min:100",
             "compania_seguro" => [
                 "required",
-                Rule::in(['Pacífico','MAPFRE','La Positiva','RIMAC'])
+                Rule::in(['Pacifico', 'MAPFRE', 'La Positiva', 'Rimac'])
             ]
         ];
     }

@@ -18,7 +18,7 @@ class RegistrarTest extends TestCase
             "apellido_paterno" => "Romero",
             "apellido_materno" => "Ramos",
             "tipo_documento_identidad" => 1,
-            "numero_documento" => "45747712",
+            "numero_documento_identidad" => "45747712",
             "telefono" => "931850406",
             "correo" => "rome.jes.1@gmail.com",
             "anio_vehiculo" => "2001",
@@ -49,7 +49,7 @@ class RegistrarTest extends TestCase
             "Telefono" => $payload["telefono"],
             "Email" => $payload["correo"],
             "IdTipoDocumentoIdentidad" => 1,
-            "NumeroDocumento" => $payload["numero_documento"],
+            "NumeroDocumentoIdentidad" => $payload["numero_documento_identidad"],
             "Placa" => $payload["placa"],
             "Asientos" => $payload["asientos"],
             "Uso" => $payload["uso"],
@@ -67,7 +67,7 @@ class RegistrarTest extends TestCase
             "apellido_paterno" => "Romero",
             "apellido_materno" => "Ramos",
             "tipo_documento_identidad" => 1,
-            "numero_documento" => "45747712",
+            "numero_documento_identidad" => "45747712",
             "telefono" => "931850406",
             "correo" => "rome.jes.1@gmail.com",
             "anio_vehiculo" => "2001",
@@ -75,7 +75,7 @@ class RegistrarTest extends TestCase
             "asientos" => 10,
             "uso" => "Transporte de Personal",
             "compania_seguro" => "La Positiva",
-            "tiene_soat" => false,
+            "tiene_soat" => 0,
             "fecha_vencimiento" => "2020-05-15"
         ];
         $response = $this->json("POST", "cotizaciones/soat", $payload);
@@ -98,7 +98,7 @@ class RegistrarTest extends TestCase
             "Telefono" => $payload["telefono"],
             "Email" => $payload["correo"],
             "IdTipoDocumentoIdentidad" => 1,
-            "NumeroDocumento" => $payload["numero_documento"],
+            "NumeroDocumentoIdentidad" => $payload["numero_documento_identidad"],
             "Placa" => $payload["placa"],
             "Asientos" => $payload["asientos"],
             "Uso" => $payload["uso"],
@@ -117,7 +117,7 @@ class RegistrarTest extends TestCase
             "apellido_paterno" => "Romero",
             "apellido_materno" => "Ramos",
             "tipo_documento_identidad" => 1,
-            "numero_documento" => "45747712",
+            "numero_documento_identidad" => "45747712",
             "telefono" => "931850406",
             "correo" => "rome.jes.1mail.com",
             "anio_vehiculo" => "2001",
@@ -125,20 +125,15 @@ class RegistrarTest extends TestCase
             "asientos" => "ass44",
             "uso" => "Transporte Personal",
             "compania_seguro" => "Cualquiera",
-            "tiene_soat" => true,
+            "tiene_soat" => 0,
             "fecha_vencimiento" => null
         ];
         $response = $this->json("POST", "cotizaciones/soat", $payload);
         $response->assertStatus(400);
-
-        $response->assertJsonStructure([
-            "messages" => [
-                "correo",
-                "asientos",
-                "uso",
-                "compania_seguro",
-                "fecha_vencimiento"
-            ]
-        ]);
+        $this->assertObjectHasAttribute("correo", $response->getData()->messages);
+        $this->assertObjectHasAttribute("asientos", $response->getData()->messages);
+        $this->assertObjectHasAttribute("uso", $response->getData()->messages);
+        $this->assertObjectHasAttribute("compania_seguro", $response->getData()->messages);
+        $this->assertObjectNotHasAttribute("fecha_vencimiento", $response->getData()->messages);
     }
 }

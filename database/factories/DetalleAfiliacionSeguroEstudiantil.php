@@ -15,7 +15,7 @@ $factory->define(App\Models\DetalleAfiliacionSeguroEstudiante::class, function (
         "Email" => $faker->email,
         "CodigoPais"=> "PE",
         "IdTipoDocumentoIdentidad" => 1,
-        "NumeroDocumento" => $faker->numerify("########"),
+        "NumeroDocumentoIdentidad" => $faker->numerify("########"),
         "ImagenVoucher" => $faker->imageUrl()
     ];
 });

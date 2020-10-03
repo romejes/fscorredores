@@ -29,6 +29,16 @@ RUN docker-php-ext-install gd
 # Install composer
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
+# Set locale
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y locales \
+    && sed -i -e 's/# es_PE.UTF-8 UTF-8/es_PE.UTF-8 UTF-8/' /etc/locale.gen \
+    && dpkg-reconfigure --frontend=noninteractive locales \
+    && update-locale LANG=es_PE.UTF-8
+ENV LANG es_PE.UTF-8  
+ENV LANGUAGE es_PE:es
+ENV LC_ALL es_PE.UTF-8   
+
 # Install PHP CodeSniffer
 RUN curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar && \
     cp /var/www/html/phpcs.phar /usr/local/bin/phpcs && \

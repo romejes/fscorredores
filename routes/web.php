@@ -35,6 +35,8 @@ Route::group(["name" => "web"], function () {
 
 Route::get("/intranet/login", "FrontEnd\IntranetController@login");
 
+Route::post("contacto", "BackEnd\MailController");
+
 Route::group(["middleware" => ["auth"]], function () {
     Route::get(
         "intranet",
@@ -69,11 +71,11 @@ Route::group(["middleware" => ["auth"]], function () {
     );
 
     Route::get(
-        "intranet/afiliaciones/seguro_estudiantil",
+        "intranet/afiliaciones/seguro_estudiante",
         "FrontEnd\AfiliacionSeguroEstudianteController@index"
     );
     Route::get(
-        "intranet/afiliaciones/seguro_estudiantil/{codigo}",
+        "intranet/afiliaciones/seguro_estudiante/{codigo}",
         "FrontEnd\AfiliacionSeguroEstudianteController@detail"
     );
 });

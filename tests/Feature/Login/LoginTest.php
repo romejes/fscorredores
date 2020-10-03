@@ -4,18 +4,17 @@ namespace Tests\Feature\Login;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class LoginTest extends TestCase
 {
+    use WithoutMiddleware;
+
     public function testLoginExitoso()
     {
         $response = $this->json("POST", "login", [
             "usuario" => "fsca",
             "contrasena" => "fsca"
         ]);
-
         $response->assertStatus(200);
     }
 

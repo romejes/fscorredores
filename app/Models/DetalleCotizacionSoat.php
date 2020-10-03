@@ -25,7 +25,7 @@ class DetalleCotizacionSoat extends DetalleSolicitud
         "Telefono",
         "Email",
         "IdTipoDocumentoIdentidad",
-        "NumeroDocumento",
+        "NumeroDocumentoIdentidad",
         "TieneSoat",
         "Placa",
         "Asientos",
@@ -34,6 +34,18 @@ class DetalleCotizacionSoat extends DetalleSolicitud
         "CompaniaSeguro",
         "FechaVencimiento"
     ];
+
+
+    /**
+     * Devuelve la fecha de vencimiento en formato largo y de cadena
+     *
+     * @param string $fechaNacimiento
+     * @return string
+     */
+    public function getFechaVencimientoAttribute($fechaNacimiento)
+    {
+        return strftime('%d de %B de %Y', strtotime($fechaNacimiento));
+    }
 
     /**
      * Registrar en la tabla respectiva
@@ -69,7 +81,7 @@ class DetalleCotizacionSoat extends DetalleSolicitud
             "Telefono" => $data->input("telefono"),
             "Email" => $data->input("correo"),
             "IdTipoDocumentoIdentidad" => $tipoDocumentoIdentidad->IdTipoDocumentoIdentidad,
-            "NumeroDocumento" => $data->input("numero_documento"),
+            "NumeroDocumentoIdentidad" => $data->input("numero_documento_identidad"),
             "Placa" => $data->input("placa"),
             "Asientos" => $data->input("asientos"),
             "Uso" => $data->input("uso"),

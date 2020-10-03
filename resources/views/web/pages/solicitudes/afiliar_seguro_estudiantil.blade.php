@@ -15,159 +15,144 @@
         </div>
       </div>
       <div class="row">
-        <div class="wizard">
+        <div class="wizard" id="wizard-seguro-estudiante">
           <ul class="nav">
             <li>
-              <a class="nav-link" href="#tab-pane-datos-personales"
-                >Paso 1 <br /><small>Datos personales</small></a
-              >
+              <a class="nav-link" href="#tab-pane-datos-personales">Paso 1 <br /><small>Datos personales</small></a>
             </li>
             <li>
-              <a class="nav-link" href="#tab-pane-pago"
-                >Paso 2 <br /><small>Información de pago</small></a
-              >
+              <a class="nav-link" href="#tab-pane-pago">Paso 2 <br /><small>Información de pago</small></a>
             </li>
           </ul>
 
-          <form autocomplete="off">
+          <form autocomplete="off" id="frm-afiliacion-seguro-estudiante">
             <div class="tab-content">
               <!-- Datos personales -->
               <div class="tab-pane" id="tab-pane-datos-personales">
-                <div class="form-group col-12 col-md-6">
-                  <label for="txt-nombres">Nombres</label>
-                  <input
-                    type="text"
-                    name="nombres"
-                    id="txt-nombres"
-                    class="form-control"
-                  />
-                </div>
-
-                <div class="form-group col-12 col-md-6">
-                  <label for="txt-apellido-paterno">Apellido Paterno</label>
-                  <input
-                    type="text"
-                    name="apellido-paterno"
-                    id="txt-apellido-paterno"
-                    class="form-control"
-                  />
-                </div>
-
-                <div class="form-group col-12 col-md-6">
-                  <label for="txt-apellido-materno">Apellido Materno</label>
-                  <input
-                    type="text"
-                    name="apellido-materno"
-                    id="txt-apellido-materno"
-                    class="form-control"
-                  />
-                </div>
-
-                <div class="form-group col-12">
-                  <label>Sexo</label>
-                  <div class="form-check">
-                    <input type="radio" name="sexo" id="rad-masculino" />
-                    <label for="rad-mapfre">Masculino</label>
+                <div class="container">
+                  <div class="form-group row">
+                    <label for="txt-nombres" class="col-sm-5 col-form-label">Nombres</label>
+                    <div class="col-sm-7">
+                      <input type="text" name="nombres" id="txt-nombres" class="form-control" maxlength="40" required />
+                    </div>
                   </div>
-                  <div class="form-check">
-                    <input type="radio" name="sexo" id="rad-femenino" />
-                    <label for="rad-rimac">Femenino</label>
+
+                  <div class="form-group row">
+                    <label for="txt-apellido-paterno" class="col-sm-5 col-form-label">Apellido Paterno</label>
+                    <div class="col-sm-7">
+                      <input type="text" name="apellido_paterno" id="txt-apellido-paterno" maxlength="40"
+                        class="form-control" required />
+                    </div>
                   </div>
-                </div>
 
-                <div class="form-group col-12 col-md-6">
-                  <label for="ddo-pais">Pais de procedencia</label>
-                  <select name="pais" id="ddo-pais" class="form-control">
-                    @foreach ($paises as $pais)
-                    <option value="{{$pais->Codigo}}" {{$pais->Codigo === 'PE' ? 'selected': ''}} >
-                      {{ $pais->Nombre}}
-                    </option>
-                    @endforeach
-                  </select>
-                </div>
+                  <div class="form-group row">
+                    <label for="txt-apellido-materno" class="col-sm-5 col-form-label">Apellido Materno</label>
+                    <div class="col-sm-7">
+                      <input type="text" name="apellido_materno" id="txt-apellido-materno" maxlength="40"
+                        class="form-control" />
+                    </div>
+                  </div>
 
-                <div class="form-group col-12 col-md-6">
-                  <label for="ddo-tipo-documento-identidad"
-                    >Documento de Identidad</label
-                  >
-                  <select
-                    name="tipo-documento-identidad"
-                    id="ddo-tipo-documento-identidad"
-                    class="form-control"
-                  >
-                    @foreach ($tipoDocumentoIdentidad as $tipo)
-                    <option value="{{$tipo->IdTipoDocumentoIdentidad}}"
-                      >{{ $tipo->Descripcion}}
-                    </option>
-                    @endforeach
-                  </select>
-                </div>
+                  <fieldset class="form-group">
+                    <div class="row">
+                      <legend class="col-sm-5 col-form-label">Sexo</legend>
+                      <div class="col-sm-7">
+                        <div class="form-check">
+                          <input type="radio" name="sexo" value="M" id="rad-masculino" class="form-check-input" />
+                          <label for="rad-masculino" class="form-check-label">Masculino</label>
+                        </div>
+                        <div class="form-check">
+                          <input type="radio" name="sexo" value="F" id="rad-femenino" class="form-check-input" />
+                          <label for="rad-femenino" class="form-check-label">Femenino</label>
+                        </div>
+                      </div>
+                    </div>
+                  </fieldset>
 
-                <div class="form-group col-12 col-md-6">
-                  <input
-                    type="text"
-                    name="documento-identidad"
-                    id="txt-numero-documento-identidad"
-                    class="form-control"
-                    placeholder="N° de documento"
-                  />
-                </div>
+                  <div class="form-group row">
+                    <label for="ddo-pais" class="col-sm-5 col-form-label">Pais de procedencia</label>
+                    <div class="col-sm-7">
+                      <select name="pais" id="ddo-pais" class="form-control" required>
+                        @foreach ($paises as $pais)
+                        <option value="{{$pais->Codigo}}" {{$pais->Codigo === 'PE' ? 'selected': ''}}>
+                          {{ $pais->Nombre}}
+                        </option>
+                        @endforeach
+                      </select>
+                    </div>
+                  </div>
 
-                <div class="form-group col-12 col-md-6">
-                  <label for="ddo-estado-civil">Estado Civil</label>
-                  <select
-                    name="estado-civil"
-                    id="ddo-estado-civil"
-                    class="form-control"
-                  >
-                    <option value="">-- Seleccione su estado civil --</option>
-                    <option value="casado">Casado(a)</option>
-                    <option value="soltero">Soltero(a)</option>
-                    <option value="viudo">Viudo(a)</option>
-                    <option value="divorciado">Divorciado(a)</option>
-                  </select>
-                </div>
+                  <div class="form-group row">
+                    <label for="ddo-tipo-documento-identidad" class="col-sm-5 col-form-label">Documento de
+                      Identidad</label>
+                    <div class="col-sm-7">
+                      <div class="form-group">
+                        <select name="tipo_documento_identidad" id="ddo-tipo-documento-identidad" class="form-control"
+                          required>
+                          @foreach ($tipoDocumentoIdentidad as $tipo)
+                          <option value="{{$tipo->IdTipoDocumentoIdentidad}}">{{ $tipo->Descripcion}}
+                          </option>
+                          @endforeach
+                        </select>
+                      </div>
 
-                <div class="form-group col-12 col-md-6">
-                  <label for="txt-fecha-nacimiento">Fecha de Nacimiento</label>
-                  <input
-                    type="text"
-                    name="fecha-nacimiento"
-                    id="txt-fecha-nacimiento"
-                    class="form-control"
-                    placeholder="Ejemplo: {{ date('d/m/Y') }}"
-                  />
-                </div>
+                      <div class="form-group">
+                        <input type="text" name="numero_documento_identidad" id="txt-numero-documento-identidad"
+                          maxlength="15" required class="form-control" placeholder="N° de documento" />
+                      </div>
+                    </div>
+                  </div>
 
-                <div class="form-group col-12 col-md-6">
-                  <label for="txt-telefono">Teléfono/Celular</label>
-                  <input
-                    type="tel"
-                    name="telefono"
-                    id="txt-telefono"
-                    class="form-control"
-                  />
-                </div>
+                  <div class="form-group row">
+                    <label for="ddo-estado-civil" class="col-sm-5 col-form-label">Estado Civil</label>
+                    <div class="col-sm-7">
+                      <select name="estado_civil" id="ddo-estado-civil" class="form-control" required>
+                        <option value="">-- Seleccione su estado civil --</option>
+                        <option value="casado">Casado(a)</option>
+                        <option value="soltero">Soltero(a)</option>
+                        <option value="viudo">Viudo(a)</option>
+                        <option value="divorciado">Divorciado(a)</option>
+                      </select>
+                    </div>
+                  </div>
 
-                <div class="form-group col-12 col-md-6">
-                  <label for="txt-apellido-materno">Correo electrónico</label>
-                  <input
-                    type="email"
-                    name="email"
-                    id="txt-email"
-                    class="form-control"
-                  />
+                  <div class="form-group row">
+                    <label class="col-sm-5 col-form-label" for="txt-fecha-nacimiento">Fecha de Nacimiento
+                      (dia/mes/año)</label>
+                    <div class="col-sm-7">
+                      <input type="text" name="fecha_nacimiento" id="txt-fecha-nacimiento" class="form-control"
+                        required />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="txt-telefono" class="col-form-label col-sm-5">Teléfono/Celular</label>
+                    <div class="col-sm-7">
+                      <input type="tel" name="telefono" id="txt-telefono" class="form-control" maxlength="40"
+                        required />
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label for="txt-correo" class="col-form-label col-sm-5">Correo electrónico</label>
+                    <div class="col-sm-7">
+                      <input type="email" name="correo" id="txt-correo" class="form-control" maxlength="40" required />
+                    </div>
+                  </div>
                 </div>
               </div>
               <!-- End Datos personales -->
 
               <!-- Datos de la cotizacion-->
-              <div class="tab-pane  show active" id="tab-pane-pago">
+              <div class="tab-pane" id="tab-pane-pago">
                 <div class="form-group col-12">
-                  <label for="fil-voucher"
-                    >Adjunta la foto de tu voucher de pago</label
-                  >
-                  <input type="file" name="voucher" id="fil-voucher" />
+                  <label for="fil-voucher">Adjunta la foto de tu voucher de pago</label>
+                  <div class="custom-file">
+                    <input type="file" name="voucher" id="fil-voucher" class="custom-file-input"
+                      accept="image/*,application/pdf" required />
+                    <label class="custom-file-label" for="fil-voucher" data-browse="Examinar">Seleccionar
+                      Archivo</label>
+                  </div>
                 </div>
               </div>
               <!-- End Datos de la cotizacion-->

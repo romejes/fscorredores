@@ -65,8 +65,8 @@
           </a>
           <ul class="nav nav-treeview">
             <li class="nav-item">
-              <a href="{{ URL::to('intranet/afiliaciones/seguro_estudiantil') }}"
-                class="nav-link {{ Request::segment(3) == 'seguro_estudiantil' ? 'active': ''}}">
+              <a href="{{ URL::to('intranet/afiliaciones/seguro_estudiante') }}"
+                class="nav-link {{ Request::segment(3) == 'seguro_estudiante' ? 'active': ''}}">
                 <i class="far fa-circle nav-icon"></i>
                 <p>Seguro Estudiantil</p>
               </a>

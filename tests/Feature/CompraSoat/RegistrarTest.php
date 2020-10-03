@@ -24,11 +24,11 @@ class RegistrarTest extends TestCase
             "apellido_paterno" => "Romero",
             "apellido_materno" => "Ramos",
             "tipo_documento_identidad" => 1,
-            "numero_documento" => "45747712",
+            "numero_documento_identidad" => "45747712",
             "telefono" => "931850406",
             "correo" => "rome.jes.1@gmail.com",
             "fecha_nacimiento" => "1989-06-06",
-            "imagen_tarjeta_propiedad" => $uploadTarjetaPropiedad,
+            "imagen_poliza" => $uploadTarjetaPropiedad,
             "tipo_compra" => "renovacion"
         ];
 
@@ -53,7 +53,7 @@ class RegistrarTest extends TestCase
             "Telefono" => $payload["telefono"],
             "Email" => $payload["correo"],
             "IdTipoDocumentoIdentidad" => 1,
-            "NumeroDocumento" => $payload["numero_documento"],
+            "NumeroDocumentoIdentidad" => $payload["numero_documento_identidad"],
             "Direccion" => null,
             "Placa" => null,
             "Asientos" => null,
@@ -61,7 +61,8 @@ class RegistrarTest extends TestCase
             "AnioVehiculo" => null,
             "CompaniaSeguro" => null,
             "TipoCompra" => "renovacion",
-            "ImagenTarjetaPropiedad" => "/storage/{$expectedCodigo}_1.jpg",
+            "ImagenPoliza" => "/storage/{$expectedCodigo}_1.jpg",
+            "ImagenTarjetaPropiedad" => null,
             "ImagenDni" => null,
         ]);
     }
@@ -77,7 +78,7 @@ class RegistrarTest extends TestCase
             "apellido_paterno" => "Romero",
             "apellido_materno" => "Ramos",
             "tipo_documento_identidad" => 1,
-            "numero_documento" => "45747712",
+            "numero_documento_identidad" => "45747712",
             "telefono" => "931850406",
             "correo" => "rome.jes.1@gmail.com",
             "fecha_nacimiento" => "1989-06-06",
@@ -88,7 +89,7 @@ class RegistrarTest extends TestCase
             "placa" => "DF-8910",
             "asientos" => 2,
             "uso" => "Transporte de Personal",
-            "compania_seguro" => 'MAPFRE',
+            "compania_seguro" => 'Pacifico',
             "imagen_dni" => $uploadTarjetaDni
         ];
 
@@ -113,7 +114,7 @@ class RegistrarTest extends TestCase
             "Telefono" => $payload["telefono"],
             "Email" => $payload["correo"],
             "IdTipoDocumentoIdentidad" => 1,
-            "NumeroDocumento" => $payload["numero_documento"],
+            "NumeroDocumentoIdentidad" => $payload["numero_documento_identidad"],
             "Direccion" =>  $payload["direccion"],
             "Placa" => $payload["placa"],
             "Asientos" => $payload["asientos"],

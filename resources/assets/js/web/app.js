@@ -1,6 +1,4 @@
-import { existsElement } from '../shared/util';
-import { setWizard } from './functions';
-
-if (existsElement('.wizard')) {
-  setWizard('.wizard');
-}
+import './endpoints/template';
+import './endpoints/seguros';
+import './endpoints/contacto';
+import './endpoints/solicitudes';

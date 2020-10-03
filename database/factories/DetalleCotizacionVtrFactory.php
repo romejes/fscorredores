@@ -11,7 +11,7 @@ $factory->define(App\Models\DetalleCotizacionVtr::class, function (Faker\Generat
         "Telefono" => $faker->phoneNumber,
         "Email" => $faker->email,
         "IdTipoDocumentoIdentidad" => 1,
-        "NumeroDocumento" => $faker->numerify("########"),
+        "NumeroDocumentoIdentidad" => $faker->numerify("########"),
         "Placa" => $faker->word(6),
         "Asientos" => $faker->randomNumber(2),
         "Uso" => $faker->randomElement(["Particular", "Escolar", "Carga", "Transporte de Personal"]),
