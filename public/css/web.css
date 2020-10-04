@@ -17655,13 +17655,6 @@ main .wizard form .btn-file {
   padding: 0.375rem 0.75rem;
 }
 
-@media (min-width: 992px) {
-  main .wizard {
-    width: 750px;
-    margin: 0 auto;
-  }
-}
-
 .sw.sw-justified > .nav > li {
   flex: none;
 }

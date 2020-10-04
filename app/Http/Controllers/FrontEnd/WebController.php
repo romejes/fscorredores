@@ -149,22 +149,54 @@ class WebController extends Controller
      */
     public function solicitudes($solicitud = null)
     {
+        $solicitudes = array(
+            array(
+                "seguro" => "SOAT",
+                "opciones" => array(
+                    array(
+                        "name" => "Cotizar",
+                        "slug" => "cotizar_soat"
+                    ),
+                    array(
+                        "name" => "Comprar",
+                        "slug" => "comprar_soat"
+                    )
+                )
+            ),
+            array(
+                "seguro" => "Seguro Vehicular Todo Riesgo",
+                "opciones" => array(
+                    array(
+                        "name" => "Cotizar",
+                        "slug" => "cotizar_seguro_vehicular_todo_riesgo"
+                    )
+                )
+            ),
+            array(
+                "seguro" => "Seguro Estudiantil contra Accidentes",
+                "opciones" => array(
+                    array(
+                        "name" => "Afiliar",
+                        "slug" => "afiliar_seguro_estudiantil"
+                    )
+                )
+            ),
+        );
+
         if (!$solicitud) {
-            return view("web.pages.solicitudes.index");
-        }
+            return view("web.pages.solicitudes.index", compact("solicitudes"));
+        } else {
+            $tipoDocumentoIdentidad = $this->modelTipoDocumentoIdentidad->getAll();
+            $claseVehiculo = $this->modelClaseVehiculo->getAll();
+            $paises = $this->modelPais->getAll();
 
-        $tipoDocumentoIdentidad = $this->modelTipoDocumentoIdentidad->getAll();
-        $claseVehiculo = $this->modelClaseVehiculo->getAll();
-        $paises = $this->modelPais->getAll();
-
-        return view(
-            "web.pages.solicitudes.{$solicitud}",
-            compact([
+            return view("web.pages.solicitudes." . $solicitud,  compact([
+                "solicitudes",
                 "tipoDocumentoIdentidad",
                 "claseVehiculo",
                 "paises"
-            ])
-        );
+            ]));
+        }
     }
 
     /**
