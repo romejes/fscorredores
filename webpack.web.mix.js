@@ -28,7 +28,7 @@ mix
     'bs-custom-file-input',
     'load-google-maps-api',
     'aos',
-    '@glidejs/glide',
+    '@splidejs/splide'
   ])
   .mergeManifest()
   .autoload({

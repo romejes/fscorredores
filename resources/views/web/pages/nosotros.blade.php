@@ -8,36 +8,36 @@
   <!-- End Heading-->
 
   <!-- Mision, Vision, Valores -->
-  <section class="section">
+  <section class="section bg-color-white">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-6 py-3">
+        <div class="col-12 col-lg-6 py-3" id="mision-block">
           <h4 class="section-title color-fs-blue">Nuestra Misión</h4>
-          <p class="text-center">
+          <p class="text-center" data-aos="fade-up">
             Brindar un asesoramiento profesional y confiable en la gestion
             integral de seguros, a través de un eficáz servicio de atención al
             cliente
           </p>
         </div>
-        <div class="col-12 col-lg-6 py-3">
+        <div class="col-12 col-lg-6 py-3" id="vision-block">
           <h4 class="section-title color-fs-blue">Nuestra Visión</h4>
-          <p class="text-center">
+          <p class="text-center" data-aos="fade-up">
             Ser la empresa de asesoría y corretaje en seguros de mayor prestigio
             y confianza en el mercado asegurador peruano, que brinde soluciones
             innovadoras, simples, transparentes y con altos estándares de
             servicio.
           </p>
         </div>
-        <div class="col-12 py-3">
+        <div class="col-12 py-3" id="valores-block">
           <h4 class="section-title color-fs-blue">Valores de la empresa</h4>
           <ul class="list-valores">
-            <li class="list-valores-item">Disciplina</li>
-            <li class="list-valores-item">Autocrítica</li>
-            <li class="list-valores-item">Responsabilidad</li>
-            <li class="list-valores-item">Disponinilidad al cambio</li>
-            <li class="list-valores-item">Perseverancia</li>
-            <li class="list-valores-item">Proactividad</li>
-            <li class="list-valores-item">Aprendizaje</li>
+            <li class="list-valores-item" data-aos="fade-up">Disciplina</li>
+            <li class="list-valores-item" data-aos="fade-up">Autocrítica</li>
+            <li class="list-valores-item" data-aos="fade-up">Responsabilidad</li>
+            <li class="list-valores-item" data-aos="fade-up">Disponibilidad al cambio</li>
+            <li class="list-valores-item" data-aos="fade-up">Perseverancia</li>
+            <li class="list-valores-item" data-aos="fade-up">Proactividad</li>
+            <li class="list-valores-item" data-aos="fade-up">Aprendizaje</li>
           </ul>
         </div>
       </div>
@@ -54,9 +54,9 @@
         </div>
       </div>
       <div class="row my-3">
-        @foreach ($staff as $worker)
-        <div class="col-12 col-sm-6">
-          <div class="card card-staff">
+        <div class="card-staff-wrapper">
+          @foreach ($staff as $worker)
+          <div class="card card-staff" data-aos="fade-up">
             <div class="card-staff-body">
               <div class="card-staff-body-row">
                 <div class="card-staff-icon">
@@ -85,8 +85,8 @@
               </div>
             </div>
           </div>
+          @endforeach
         </div>
-        @endforeach
       </div>
     </div>
   </section>

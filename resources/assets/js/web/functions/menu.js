@@ -76,7 +76,7 @@ function isSidenavShown() {
 export function attachMenuContent() {
   const menu = $('.menu-content').detach();
 
-  if ($(window).innerWidth() >= 992) {
+  if ($(window).outerWidth() >= 992) {
     $('nav.navbar').append(menu);
   } else {
     $('.sidenav').append(menu);

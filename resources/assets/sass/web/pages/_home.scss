@@ -1,8 +1,28 @@
 main {
-  .carousel {
-    ul.glide__slides {
+  .splide__slide img {
+    width: 100%;
+    height: auto;
+  }
+
+  .seguros-card-home-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .seguros-card-home {
+      max-width: 300px;
+      margin: 1.5em;
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
       img {
         width: 100%;
+        height: auto;
       }
     }
   }
@@ -12,16 +32,45 @@ main {
     margin: 0.8rem;
   }
 
-  .insurance-company-wrapper {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
+  section#aseguradoras-section {
+    .section-title {
+      text-align: center;
+    }
 
-    img.img-insurance-company {
-      height: auto;
-      width: 160px;
-      margin: 3em 2em;
+    .insurance-company-wrapper {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      width: 100%;
+
+      img {
+        height: auto;
+        width: 160px;
+        margin: 3em 2em;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    .seguros-card-home-wrapper {
+      .seguros-card-home {
+        margin-left: 1em;
+        margin-right: 1em;
+        &:first-child {
+          margin-top: 1.5em;
+        }
+        &:last-child {
+          margin-bottom: 1.5em;
+        }
+      }
+    }
+
+    section#aseguradoras-section {
+      .section-title {
+        text-align: left;
+      }
     }
   }
 }

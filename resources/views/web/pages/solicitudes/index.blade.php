@@ -11,7 +11,7 @@
         <div class="col">
           <div class="wrapper-solicitudes">
             <!-- SOAT -->
-            <div class="card card-solicitud">
+            <div class="card card-solicitud" data-aos="fade-up">
               <div class="card-body">
                 <h5 class="card-title-solicitud">SOAT</h5>
               </div>
@@ -31,7 +31,7 @@
             <!-- End SOAT-->
 
             <!-- Seguro Vehicular Todo Riesgo -->
-            <div class="card card-solicitud">
+            <div class="card card-solicitud" data-aos="fade-up">
               <div class="card-body">
                 <h5 class="card-title-solicitud">Seguro Vehicular Todo Riesgo</h5>
               </div>
@@ -48,7 +48,7 @@
             <!-- End Seguro Vehicular Todo Riesgo -->
 
             <!-- Seguro Estudiante -->
-            <div class="card card-solicitud">
+            <div class="card card-solicitud" data-aos="fade-up">
               <div class="card-body">
                 <h5 class="card-title-solicitud">Seguro Estudiantil</h5>
               </div>

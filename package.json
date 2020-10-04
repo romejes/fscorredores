@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.0",
-    "@glidejs/glide": "^3.4.1",
+    "@splidejs/splide": "^2.4.14",
     "@sweetalert2/theme-minimal": "^3.2.0",
     "admin-lte": "^3.0.5",
     "aos": "^2.3.4",
@@ -35,7 +35,6 @@
     "imask": "^6.0.5",
     "jquery": "^3.5.1",
     "jquery-validation": "^1.19.2",
-    "jquery.stellar": "^0.6.2",
     "load-google-maps-api": "^2.0.2",
     "moment": "^2.29.0",
     "smartwizard": "^5.1.1",

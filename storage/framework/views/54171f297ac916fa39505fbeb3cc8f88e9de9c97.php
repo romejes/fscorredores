@@ -15,7 +15,7 @@
         <div class="col-12">
           <div class="wrapper-seguros">
             <?php $__currentLoopData = $seguro['seguros']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detalle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="card card-seguro">
+            <div class="card card-seguro" data-aos="fade-up">
               <div class="card-body">
                 <h5 class="card-title-seguro"><?php echo e($detalle['name']); ?></h5>
               </div>

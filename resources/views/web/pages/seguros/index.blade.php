@@ -15,7 +15,7 @@
         <div class="col-12">
           <div class="wrapper-seguros">
             @foreach($seguro['seguros'] as $detalle)
-            <div class="card card-seguro">
+            <div class="card card-seguro" data-aos="fade-up">
               <div class="card-body">
                 <h5 class="card-title-seguro">{{ $detalle['name'] }}</h5>
               </div>

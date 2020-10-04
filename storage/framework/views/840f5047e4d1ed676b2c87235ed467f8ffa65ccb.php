@@ -55,7 +55,7 @@
         </div>
       </div>
     </div>
-    <div id="location-map"></div>
+    <div id="location-map" data-aos="fade-in"></div>
   </section>
   <!-- End Map -->
 </main>
