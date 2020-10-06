@@ -54,6 +54,11 @@ const commonColumns = [
       }).prop('outerHTML');
     },
   },
+  {
+    field: 'solicitud.estado_solicitud.id',
+    searchFormatter: true,
+    visible: false,
+  },
 ];
 
 /**
@@ -192,4 +197,73 @@ export function loadTableAfiliacionesSeguroEstudiante() {
       },
     ],
   });
+}
+
+/**
+ * Apply search filters on each table
+ *
+ * @author Jesus Romero
+ * @date 05/10/2020
+ * @export
+ */
+export function filterTable() {
+  const cliente = $('#txt-cliente').val();
+  const estadoSolicitud = $('#sel-estado_solicitud').val();
+
+  $('.table').bootstrapTable(
+    'filterBy',
+    {
+      estado_solicitud: estadoSolicitud,
+      cliente: cliente,
+    },
+    {
+      filterAlgorithm: (row, filters) => {
+        let clienteIsFound = false;
+        let filterRow = false;
+        const fullName = `${row.nombres} ${row.apellido_paterno} ${row.apellido_materno}`;
+
+        if (filters.cliente == '') {
+          clienteIsFound = true;
+        } else {
+          clienteIsFound = fullName.indexOf(filters.cliente) !== -1;
+        }
+
+        if (clienteIsFound && filters.estado_solicitud == -1) {
+          filterRow = true;
+        } else if (
+          clienteIsFound &&
+          filters.estado_solicitud == row.solicitud.estado_solicitud.id
+        ) {
+          filterRow = true;
+        } else {
+          filterRow = false;
+        }
+        return filterRow;
+      },
+    },
+  );
+}
+
+/**
+ * Delete all values of filter inputs and restore table data
+ *
+ * @author Jesus Romero
+ * @date 05/10/2020
+ * @export
+ */
+export function cleanFilterTable() {
+  $('#txt-cliente').val('');
+  $('#sel-estado_solicitud').val(-1);
+  filterTable();
+}
+
+/**
+ *
+ *
+ * @author Jesus Romero
+ * @date 06/10/2020
+ * @export
+ */
+export function downloadExcelFile() {
+  window.location.href = returnUrl('afiliaciones/seguro_estudiante/reporte');
 }

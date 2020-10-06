@@ -32,6 +32,32 @@
             <h4 class="card-title m-0">Listado de Solicitudes</h4>
           </div>
           <div class="card-body">
+            <fieldset id="filter-afiliacion-seguro-estudiante">
+              <legend><strong><small>Filtros de búsqueda</small></strong></legend>
+              <form class="form-inline mb-5">
+                <label for="txt-cliente" class="my-1 mr-2">Cliente</label>
+                <input type="text" name="cliente" id="txt-cliente" class="form-control mb-2 mr-sm-2">
+
+                <label for="" class="my-1 mx-3">Estado de la solicitud</label>
+                <select name="estado_solicitud" id="sel-estado_solicitud" class="form-control  mb-2 mr-sm-2">
+                  <option value="-1">Todos</option>
+                  <option value="1">En espera</option>
+                  <option value="3">Atendidos</option>
+                  <option value="4">Rechazados</option>
+                </select>
+
+                <button class="btn-primary btn mb-2 mr-2" type="button" id="btn-limpiar">
+                  <i class="fas fa-eraser"></i> Limpiar filtros
+                </button>
+                <button class="btn-primary btn mb-2 mr-2" type="button" id="btn-buscar">
+                  <i class="fas fa-search"></i> Buscar
+                </button>
+                <button class="btn-success btn mb-2" type="button" id="btn-excel">
+                  <i class="fas fa-file-excel"></i> Descargar Reporte
+                </button>
+              </form>
+            </fieldset>
+
             <table class="table table-bordered" id="tbl-afiliaciones-seguro-estudiante">
             </table>
           </div>

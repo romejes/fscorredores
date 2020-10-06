@@ -1,10 +1,22 @@
 import { requestFormConstants } from '../../shared/constants';
 import { existsElement } from '../../shared/util';
 import { processChangeStatus } from '../functions/forms';
-import { loadTableCompraSoat } from '../functions/tables';
+import {
+  cleanFilterTable,
+  filterTable,
+  loadTableCompraSoat,
+} from '../functions/tables';
 
 if (existsElement('#tbl-compras-soat')) {
   loadTableCompraSoat();
+
+  document
+    .getElementById('btn-buscar')
+    .addEventListener('click', () => filterTable());
+
+  document
+    .getElementById('btn-limpiar')
+    .addEventListener('click', () => cleanFilterTable());
 }
 
 if (existsElement('#detail-compra-soat')) {

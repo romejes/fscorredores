@@ -61,6 +61,9 @@ RUN useradd -u 1000 -ms /bin/bash -g devgroup jesus
 # Change current user to www
 USER jesus
 
+# Copy PHP ini file
+COPY php.ini /usr/local/etc/php/
+
 EXPOSE 9000
 
 CMD ["php-fpm"]

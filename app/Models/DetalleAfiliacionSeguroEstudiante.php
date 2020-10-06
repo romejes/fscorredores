@@ -69,7 +69,7 @@ class DetalleAfiliacionSeguroEstudiante extends DetalleSolicitud
      * @param string $fechaNacimiento
      * @return string
      */
-    public function getFechaNacimientoAttribute($fechaNacimiento)
+    public function getFechaNacimientoLargaAttribute($fechaNacimiento)
     {
         return strftime('%d de %B de %Y', strtotime($fechaNacimiento));
     }

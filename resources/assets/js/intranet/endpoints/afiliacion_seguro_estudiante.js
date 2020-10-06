@@ -1,10 +1,27 @@
 import { existsElement } from '../../shared/util';
-import { loadTableAfiliacionesSeguroEstudiante } from '../functions/tables';
+import {
+  cleanFilterTable,
+  downloadExcelFile,
+  filterTable,
+  loadTableAfiliacionesSeguroEstudiante,
+} from '../functions/tables';
 import { processChangeStatus } from '../functions/forms';
 import { requestFormConstants } from '../../shared/constants';
 
 if (existsElement('#tbl-afiliaciones-seguro-estudiante')) {
   loadTableAfiliacionesSeguroEstudiante();
+
+  document
+    .getElementById('btn-buscar')
+    .addEventListener('click', () => filterTable());
+
+  document
+    .getElementById('btn-limpiar')
+    .addEventListener('click', () => cleanFilterTable());
+
+  document
+    .getElementById('btn-excel')
+    .addEventListener('click', () => downloadExcelFile());
 }
 
 if (existsElement('#detail-afiliacion-seguro-estudiante')) {

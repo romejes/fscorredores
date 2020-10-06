@@ -108,7 +108,15 @@ Route::group(["middleware" => ["auth"]], function () {
     Route::put("cotizaciones/vehiculo_todo_riesgo/{code}", "BackEnd\CotizacionVehiculoTodoRiesgoController@update");
     Route::get("cotizaciones/vehiculo_todo_riesgo", "BackEnd\CotizacionVehiculoTodoRiesgoController@index");
 
-    Route::get("afiliaciones/seguro_estudiante/{code}", "BackEnd\AfiliacionSeguroEstudianteController@show");
+
+    Route::get(
+        "afiliaciones/seguro_estudiante/reporte",
+        "BackEnd\AfiliacionSeguroEstudianteController@excel"
+    );
+    Route::get(
+        "afiliaciones/seguro_estudiante/{code}",
+        "BackEnd\AfiliacionSeguroEstudianteController@show"
+    );
     Route::put("afiliaciones/seguro_estudiante/{code}", "BackEnd\AfiliacionSeguroEstudianteController@update");
     Route::get("afiliaciones/seguro_estudiante", "BackEnd\AfiliacionSeguroEstudianteController@index");
 });

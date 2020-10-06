@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateAfiliacionSeguroEstudianteRequest;
+use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Mail\AfiliacionSeguroEstudianteMail;
 use App\Http\Requests\DetalleSolicitudRequest;
 use Symfony\Component\HttpFoundation\Response;
 use App\Models\DetalleAfiliacionSeguroEstudiante;
+use App\Http\Requests\CreateAfiliacionSeguroEstudianteRequest;
 use App\Http\Resources\DetalleAfiliacionSeguroEstudianteResource;
-use App\Mail\AfiliacionSeguroEstudianteMail;
-use Illuminate\Support\Facades\Mail;
 
 class AfiliacionSeguroEstudianteController extends Controller
 {
     private $detalleAfiliacionSeguroEstudiante;
-    private $solicitud;
-
+    
     public function __construct(DetalleAfiliacionSeguroEstudiante $detalleAfiliacionSeguroEstudiante)
     {
         $this->detalleAfiliacionSeguroEstudiante = $detalleAfiliacionSeguroEstudiante;
@@ -67,5 +68,18 @@ class AfiliacionSeguroEstudianteController extends Controller
             "statusCode" => Response::HTTP_CREATED,
             "data" => DetalleAfiliacionSeguroEstudianteResource::create($solicitudRegistrada)
         ], Response::HTTP_CREATED);
+    }
+
+    public function excel()
+    {
+        $fechaEmision = Carbon::now()->format("dmYHis");
+        $nombreArchivo = "reporte_afiliacion_seguro_estudiante_{$fechaEmision}";
+
+        Excel::create($nombreArchivo, function ($excel) {
+            $excel->sheet("Hoja 1", function ($sheet) {
+                $data = $this->detalleAfiliacionSeguroEstudiante->getDetalleSolicitudes();
+                $sheet->loadView("excel.reporte_afiliacion_seguro_estudiante", compact("data"));
+            });
+        })->download();
     }
 }

@@ -605,6 +605,15 @@ __webpack_require__.r(__webpack_exports__);
 
 if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#tbl-afiliaciones-seguro-estudiante')) {
   Object(_functions_tables__WEBPACK_IMPORTED_MODULE_1__["loadTableAfiliacionesSeguroEstudiante"])();
+  document.getElementById('btn-buscar').addEventListener('click', function () {
+    return Object(_functions_tables__WEBPACK_IMPORTED_MODULE_1__["filterTable"])();
+  });
+  document.getElementById('btn-limpiar').addEventListener('click', function () {
+    return Object(_functions_tables__WEBPACK_IMPORTED_MODULE_1__["cleanFilterTable"])();
+  });
+  document.getElementById('btn-excel').addEventListener('click', function () {
+    return Object(_functions_tables__WEBPACK_IMPORTED_MODULE_1__["downloadExcelFile"])();
+  });
 }
 
 if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#detail-afiliacion-seguro-estudiante')) {
@@ -676,6 +685,12 @@ __webpack_require__.r(__webpack_exports__);
 
 if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_1__["existsElement"])('#tbl-compras-soat')) {
   Object(_functions_tables__WEBPACK_IMPORTED_MODULE_3__["loadTableCompraSoat"])();
+  document.getElementById('btn-buscar').addEventListener('click', function () {
+    return Object(_functions_tables__WEBPACK_IMPORTED_MODULE_3__["filterTable"])();
+  });
+  document.getElementById('btn-limpiar').addEventListener('click', function () {
+    return Object(_functions_tables__WEBPACK_IMPORTED_MODULE_3__["cleanFilterTable"])();
+  });
 }
 
 if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_1__["existsElement"])('#detail-compra-soat')) {
@@ -709,6 +724,12 @@ __webpack_require__.r(__webpack_exports__);
 
 if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_1__["existsElement"])('#tbl-cotizaciones-vehiculo-todo-riesgo')) {
   Object(_functions_tables__WEBPACK_IMPORTED_MODULE_3__["loadTableCotizacionesVehiculoTodoRiesgo"])();
+  document.getElementById('btn-buscar').addEventListener('click', function () {
+    return Object(_functions_tables__WEBPACK_IMPORTED_MODULE_3__["filterTable"])();
+  });
+  document.getElementById('btn-limpiar').addEventListener('click', function () {
+    return Object(_functions_tables__WEBPACK_IMPORTED_MODULE_3__["cleanFilterTable"])();
+  });
 }
 
 if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_1__["existsElement"])('#detail-cotizacion-vehiculo-todo-riesgo')) {
@@ -742,6 +763,12 @@ __webpack_require__.r(__webpack_exports__);
 
 if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#tbl-cotizaciones-soat')) {
   Object(_functions_tables__WEBPACK_IMPORTED_MODULE_1__["loadTableCotizacionesSoat"])();
+  document.getElementById('btn-buscar').addEventListener('click', function () {
+    return Object(_functions_tables__WEBPACK_IMPORTED_MODULE_1__["filterTable"])();
+  });
+  document.getElementById('btn-limpiar').addEventListener('click', function () {
+    return Object(_functions_tables__WEBPACK_IMPORTED_MODULE_1__["cleanFilterTable"])();
+  });
 }
 
 if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#detail-cotizacion-soat')) {
@@ -1061,7 +1088,7 @@ function showSuccessAttendDialog() {
 /*!**********************************************************!*\
   !*** ./resources/assets/js/intranet/functions/tables.js ***!
   \**********************************************************/
-/*! exports provided: loadTableCompraSoat, loadTableCotizacionesSoat, loadTableCotizacionesVehiculoTodoRiesgo, loadTableAfiliacionesSeguroEstudiante */
+/*! exports provided: loadTableCompraSoat, loadTableCotizacionesSoat, loadTableCotizacionesVehiculoTodoRiesgo, loadTableAfiliacionesSeguroEstudiante, filterTable, cleanFilterTable, downloadExcelFile */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1070,6 +1097,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadTableCotizacionesSoat", function() { return loadTableCotizacionesSoat; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadTableCotizacionesVehiculoTodoRiesgo", function() { return loadTableCotizacionesVehiculoTodoRiesgo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadTableAfiliacionesSeguroEstudiante", function() { return loadTableAfiliacionesSeguroEstudiante; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "filterTable", function() { return filterTable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "cleanFilterTable", function() { return cleanFilterTable; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "downloadExcelFile", function() { return downloadExcelFile; });
 /* harmony import */ var bootstrap_table__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! bootstrap-table */ "./node_modules/bootstrap-table/dist/bootstrap-table.min.js");
 /* harmony import */ var bootstrap_table__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(bootstrap_table__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var bootstrap_table_src_locale_bootstrap_table_es_ES__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap-table/src/locale/bootstrap-table-es-ES */ "./node_modules/bootstrap-table/src/locale/bootstrap-table-es-ES.js");
@@ -1127,6 +1157,10 @@ var commonColumns = [{
       text: row.solicitud.estado_solicitud.descripcion
     }).prop('outerHTML');
   }
+}, {
+  field: 'solicitud.estado_solicitud.id',
+  searchFormatter: true,
+  visible: false
 }];
 /**
  * Load table with Compra SOAT data
@@ -1243,6 +1277,68 @@ function loadTableAfiliacionesSeguroEstudiante() {
       }
     }])
   });
+}
+/**
+ * Apply search filters on each table
+ *
+ * @author Jesus Romero
+ * @date 05/10/2020
+ * @export
+ */
+
+function filterTable() {
+  var cliente = $('#txt-cliente').val();
+  var estadoSolicitud = $('#sel-estado_solicitud').val();
+  $('.table').bootstrapTable('filterBy', {
+    estado_solicitud: estadoSolicitud,
+    cliente: cliente
+  }, {
+    filterAlgorithm: function filterAlgorithm(row, filters) {
+      var clienteIsFound = false;
+      var filterRow = false;
+      var fullName = "".concat(row.nombres, " ").concat(row.apellido_paterno, " ").concat(row.apellido_materno);
+
+      if (filters.cliente == '') {
+        clienteIsFound = true;
+      } else {
+        clienteIsFound = fullName.indexOf(filters.cliente) !== -1;
+      }
+
+      if (clienteIsFound && filters.estado_solicitud == -1) {
+        filterRow = true;
+      } else if (clienteIsFound && filters.estado_solicitud == row.solicitud.estado_solicitud.id) {
+        filterRow = true;
+      } else {
+        filterRow = false;
+      }
+
+      return filterRow;
+    }
+  });
+}
+/**
+ * Delete all values of filter inputs and restore table data
+ *
+ * @author Jesus Romero
+ * @date 05/10/2020
+ * @export
+ */
+
+function cleanFilterTable() {
+  $('#txt-cliente').val('');
+  $('#sel-estado_solicitud').val(-1);
+  filterTable();
+}
+/**
+ *
+ *
+ * @author Jesus Romero
+ * @date 06/10/2020
+ * @export
+ */
+
+function downloadExcelFile() {
+  window.location.href = Object(_shared_util__WEBPACK_IMPORTED_MODULE_2__["returnUrl"])('afiliaciones/seguro_estudiante/reporte');
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 

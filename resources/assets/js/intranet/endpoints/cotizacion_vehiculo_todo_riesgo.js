@@ -1,10 +1,22 @@
 import { requestFormConstants } from '../../shared/constants';
 import { existsElement } from '../../shared/util';
 import { processChangeStatus } from '../functions/forms';
-import { loadTableCotizacionesVehiculoTodoRiesgo } from '../functions/tables';
+import {
+  cleanFilterTable,
+  filterTable,
+  loadTableCotizacionesVehiculoTodoRiesgo,
+} from '../functions/tables';
 
 if (existsElement('#tbl-cotizaciones-vehiculo-todo-riesgo')) {
   loadTableCotizacionesVehiculoTodoRiesgo();
+
+  document
+    .getElementById('btn-buscar')
+    .addEventListener('click', () => filterTable());
+
+  document
+    .getElementById('btn-limpiar')
+    .addEventListener('click', () => cleanFilterTable());
 }
 
 if (existsElement('#detail-cotizacion-vehiculo-todo-riesgo')) {

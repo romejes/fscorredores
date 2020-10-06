@@ -1,10 +1,22 @@
 import { existsElement } from '../../shared/util';
-import { loadTableCotizacionesSoat } from '../functions/tables';
+import {
+  cleanFilterTable,
+  filterTable,
+  loadTableCotizacionesSoat,
+} from '../functions/tables';
 import { processChangeStatus } from '../functions/forms';
 import { requestFormConstants } from '../../shared/constants';
 
 if (existsElement('#tbl-cotizaciones-soat')) {
   loadTableCotizacionesSoat();
+
+  document
+    .getElementById('btn-buscar')
+    .addEventListener('click', () => filterTable());
+
+  document
+    .getElementById('btn-limpiar')
+    .addEventListener('click', () => cleanFilterTable());
 }
 
 if (existsElement('#detail-cotizacion-soat')) {
