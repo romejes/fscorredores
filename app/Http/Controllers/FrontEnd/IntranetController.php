@@ -3,9 +3,30 @@
 namespace App\Http\Controllers\FrontEnd;
 
 use App\Http\Controllers\Controller;
+use App\Models\DetalleAfiliacionSeguroEstudiante;
+use App\Models\DetalleCompraSoat;
+use App\Models\DetalleCotizacionSoat;
+use App\Models\DetalleCotizacionVtr;
 
 class IntranetController extends Controller
 {
+    private $modelDetalleCotizacionSoat;
+    private $modelDetalleCotizacionVehiculoTodoRiesgo;
+    private $modelDetalleAfiliacionSeguroEstudiante;
+    private $modelDetalleCompraSoat;
+
+    public function __construct(
+        DetalleCotizacionSoat $_detalleCotizacionSoat,
+        DetalleCompraSoat $_detalleCompraSoat,
+        DetalleCotizacionVtr $_detalleCotizacionVehiculoTodoRiesgo,
+        DetalleAfiliacionSeguroEstudiante $_detalleAfiliacionSeguroEstudiante
+    ) {
+        $this->modelDetalleCotizacionSoat = $_detalleCotizacionSoat;
+        $this->modelDetalleCompraSoat = $_detalleCompraSoat;
+        $this->modelDetalleCotizacionVehiculoTodoRiesgo = $_detalleCotizacionVehiculoTodoRiesgo;
+        $this->modelDetalleAfiliacionSeguroEstudiante = $_detalleAfiliacionSeguroEstudiante;
+    }
+
     /**
      * Muestra la vista de inicio de sesion
      *
@@ -23,6 +44,13 @@ class IntranetController extends Controller
      */
     public function dashboard()
     {
-        return view("intranet.pages.inicio");
+        $solicitudesSinAtender = array(
+            "cotizacion_soat" => $this->modelDetalleCotizacionSoat->getNumberOfSolicitudesSinAtender(),
+            "cotizacion_seguro_vehiculo_todo_riesgo" => $this->modelDetalleCotizacionVehiculoTodoRiesgo->getNumberOfSolicitudesSinAtender(),
+            "compra_soat" => $this->modelDetalleCompraSoat->getNumberOfSolicitudesSinAtender(),
+            "afiliacion_seguro_estudiante" => $this->modelDetalleAfiliacionSeguroEstudiante->getNumberOfSolicitudesSinAtender()
+        );
+
+        return view("intranet.pages.inicio", compact("solicitudesSinAtender"));
     }
 }

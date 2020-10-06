@@ -55,10 +55,10 @@ class DetalleSolicitud extends Model
      */
     public function getDetalleSolicitudes()
     {
-        $solicitudes = self::get()->sortByDesc(function($item) {
+        $solicitudes = self::get()->sortByDesc(function ($item) {
             return $item->solicitud->FechaHoraRegistro;
         });
-        
+
         return $solicitudes->values();
     }
 
@@ -102,5 +102,14 @@ class DetalleSolicitud extends Model
 
         $detalleSolicitud->solicitud->save();
         return $detalleSolicitud;
+    }
+
+    public function getNumberOfSolicitudesSinAtender()
+    {
+        $solicitudes = $this->getDetalleSolicitudes();
+
+        return $solicitudes->filter(function ($value, $key) {
+            return $value->solicitud->IdEstadoSolicitud === EstadoSolicitud::SOLICITUD_EN_ESPERA;
+        })->count();
     }
 }
