@@ -40791,3 +40791,9 @@ body.swal2-toast-column .swal2-toast .swal2-validation-message {
   font-size: 1em;
 }
 
+@media (min-width: 992px) {
+  .sidebar-mini .nav-sidebar .nav-link {
+    white-space: normal;
+  }
+}
+

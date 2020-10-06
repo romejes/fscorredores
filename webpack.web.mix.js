@@ -28,9 +28,19 @@ mix
     'bs-custom-file-input',
     'load-google-maps-api',
     'aos',
-    '@splidejs/splide'
+    '@splidejs/splide',
   ])
   .mergeManifest()
   .autoload({
     jquery: ['$', 'window.jQuery', 'jQuery', 'window.$'],
+  })
+
+  /*
+  .options({
+    postCss: [
+      require('autoprefixer')({
+        browsers: ['last 40 versions'],
+      }),
+    ],
   });
+  */

@@ -50,7 +50,7 @@
               <a href="{{ URL::to('intranet/cotizaciones/vehiculo_todo_riesgo') }}"
                 class="nav-link {{ Request::segment(3) == 'vehiculo_todo_riesgo' && Request::segment(2) == 'cotizaciones' ? 'active': ''}}">
                 <i class="far fa-circle nav-icon"></i>
-                <p>Seguro Vehículo Todo Riesgo</p>
+                <p>Seguro Vehícular Todo Riesgo</p>
               </a>
             </li>
           </ul>
