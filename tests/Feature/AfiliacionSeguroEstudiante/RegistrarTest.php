@@ -3,6 +3,7 @@
 namespace Tests\Feature\AfiliacionSeguroEstudiante;
 
 use App\Models\Solicitud;
+use Illuminate\Contracts\Cache\Store;
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
@@ -15,7 +16,7 @@ class RegistrarTest extends TestCase
 
     public function testRegistroExitoso()
     {
-        Storage::fake('local');
+        Storage::fake('upload');
         $uploadImage = UploadedFile::fake()->image("voucher.jpg");
 
         $payload = [
@@ -50,10 +51,9 @@ class RegistrarTest extends TestCase
             "ApellidoMaterno" => $payload["apellido_materno"],
             "FechaNacimiento" => "1989-06-06",
             "CodigoPais" => "PE",
-            "ImagenVoucher" => "/storage/${expectedCodigo}.jpg"
+            "ImagenVoucher" => "${expectedCodigo}.jpg"
         ]);
-
-        Storage::disk('local')->assertExists("${expectedCodigo}.jpg");
+        Storage::disk('local')->assertExists("public/uploads/${expectedCodigo}.jpg");
     }
 
     public function testErroresValidacion()
@@ -82,7 +82,7 @@ class RegistrarTest extends TestCase
         $this->assertObjectHasAttribute("sexo", $response->getData()->messages);
 
         $expectedCodigo = date("Ymd") . "-00001";
-        Storage::disk('local')->assertMissing("${expectedCodigo}.jpg");
+        Storage::disk('local')->assertMissing("uploads/${expectedCodigo}.jpg");
     }
 
     public function testDocumentoIdentidadNoEncontrado()

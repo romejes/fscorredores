@@ -49,6 +49,7 @@
             <li class="nav-item">
               <a href="<?php echo e(URL::to('intranet/cotizaciones/vehiculo_todo_riesgo')); ?>"
                 class="nav-link <?php echo e(Request::segment(3) == 'vehiculo_todo_riesgo' && Request::segment(2) == 'cotizaciones' ? 'active': ''); ?>">
+                <i class="far fa-circle nav-icon"></i>
                 <p>Seguro Vehícular Todo Riesgo</p>
               </a>
             </li>

@@ -109,7 +109,7 @@ class DetalleSolicitud extends Model
         $solicitudes = $this->getDetalleSolicitudes();
 
         return $solicitudes->filter(function ($value, $key) {
-            return $value->solicitud->IdEstadoSolicitud === EstadoSolicitud::SOLICITUD_EN_ESPERA;
+            return $value->solicitud->IdEstadoSolicitud == EstadoSolicitud::SOLICITUD_EN_ESPERA;
         })->count();
     }
 }

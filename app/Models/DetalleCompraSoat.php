@@ -100,14 +100,14 @@ class DetalleCompraSoat extends DetalleSolicitud
         );
 
         //  Procesar imagen
-        $tarjetaPropiedad = $data->file("imagen_poliza");
-        $extension = $tarjetaPropiedad->getClientOriginalExtension();
-        $newFilename = $solicitud->Codigo . "_1.${extension}";
-        $isImageUploaded = Storage::disk('local')->put($newFilename, File::get($tarjetaPropiedad));
-
-        if (!$isImageUploaded) {
+        $poliza = $data->file("imagen_poliza");
+        $extensionArchivo = $poliza->getClientOriginalExtension();
+        $nombreArchivoPoliza = $solicitud->Codigo . "_1.${extensionArchivo}";
+        $rutaSubida = $poliza->storeAs("uploads", $nombreArchivoPoliza, "public");
+        
+        if (!file_exists(storage_path("app/public/" . $rutaSubida))) {
             $solicitud->delete();
-            throw new FileException("No se pudo subir la imagen");
+            throw new FileException("No se pudo subir la imagen");;
         }
 
         return self::create([
@@ -121,7 +121,7 @@ class DetalleCompraSoat extends DetalleSolicitud
             "IdTipoDocumentoIdentidad" => $data->input("tipo_documento_identidad"),
             "NumeroDocumentoIdentidad" => $data->input("numero_documento_identidad"),
             "TipoCompra" => self::TIPO_COMPRA_RENOVACION,
-            "ImagenPoliza" =>  Storage::url($newFilename)
+            "ImagenPoliza" => $nombreArchivoPoliza
         ]);
     }
 
@@ -136,25 +136,24 @@ class DetalleCompraSoat extends DetalleSolicitud
 
         //  Procesar imagen de tarjeta de propiedad y/o poliza
         $tarjetaPropiedad = $data->file("imagen_tarjeta_propiedad");
-        $extension = $tarjetaPropiedad->getClientOriginalExtension();
-        $newTarjetaPropiedadFilename = $solicitud->Codigo . "_1.${extension}";
-        $isTarjetaImageUploaded = Storage::disk('local')
-            ->put($newTarjetaPropiedadFilename, File::get($tarjetaPropiedad));
+        $extensionArchivo = $tarjetaPropiedad->getClientOriginalExtension();
+        $nombreArchivoTarjetaPropiedad = $solicitud->Codigo . "_1.${extensionArchivo}";
+        $rutaSubida = $tarjetaPropiedad->storeAs("uploads", $nombreArchivoTarjetaPropiedad, "public");
 
-        if (!$isTarjetaImageUploaded) {
+        if (!file_exists(storage_path("app/public/" . $rutaSubida))) {
             $solicitud->delete();
-            throw new FileException("No se pudo subir la imagen");
+            throw new FileException("No se pudo subir la imagen");;
         }
 
         //  Procesar imagen de DNI
         $dni = $data->file("imagen_dni");
-        $extension = $dni->getClientOriginalExtension();
-        $newDniFilename = $solicitud->Codigo . "_2.${extension}";
-        $isDniUploaded = Storage::disk('local')->put($newDniFilename, File::get($dni));
+        $extensionArchivo = $dni->getClientOriginalExtension();
+        $nombreArchivoDni = $solicitud->Codigo . "_2.${extensionArchivo}";
+        $rutaSubida = $dni->storeAs("uploads", $nombreArchivoDni, "public");
 
-        if (!$isDniUploaded) {
+        if (!file_exists(storage_path("app/public/" . $rutaSubida))) {
             $solicitud->delete();
-            throw new FileException("No se pudo subir la imagen");
+            throw new FileException("No se pudo subir la imagen");;
         }
 
         return self::create([
@@ -174,8 +173,8 @@ class DetalleCompraSoat extends DetalleSolicitud
             "AnioVehiculo" => $data->input("anio_vehiculo"),
             "CompaniaSeguro" => $data->input("compania_seguro"),
             "TipoCompra" => self::TIPO_COMPRA_ADQUISICION,
-            "ImagenTarjetaPropiedad" =>  Storage::url($newTarjetaPropiedadFilename),
-            "ImagenDni" =>  Storage::url($newDniFilename),
+            "ImagenTarjetaPropiedad" =>  $nombreArchivoTarjetaPropiedad,
+            "ImagenDni" =>  $nombreArchivoDni
         ]);
     }
 }

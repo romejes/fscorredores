@@ -104,21 +104,24 @@
             <dl class="row">
               <dt class="col-sm-4">Documento de Identidad</dt>
               <dd class="col-sm-8">
-                <a href="{{ url($detalleCompra->ImagenDni)}}" target="_blank">Ver</a>
+                <a href="{{ url('intranet/afiliaciones/seguro_estudiante/' . $detalleCompra->solicitud->Codigo . '/adjuntos/' .$detalleCompra->ImagenDni)}}"
+                  target="_blank">Ver</a>
               </dd>
             </dl>
 
             <dl class="row">
               <dt class="col-sm-4">Tarjeta de Propiedad</dt>
               <dd class="col-sm-8">
-                <a href="{{ url($detalleCompra->ImagenTarjetaPropiedad)}}" target="_blank">Ver</a>
+                <a target="_blank"
+                  href="{{ url('intranet/afiliaciones/seguro_estudiante/' . $detalleCompra->solicitud->Codigo . '/adjuntos/' . $detalleCompra->ImagenTarjetaPropiedad)}}">Ver</a>
               </dd>
             </dl>
             @else
             <dl class="row">
               <dt class="col-sm-4">Póliza del seguro</dt>
               <dd class="col-sm-8">
-                <a href="{{ url($detalleCompra->ImagenPoliza)}}" target="_blank">Ver</a>
+                <a href="{{ url('intranet/afiliaciones/seguro_estudiante/' . $detalleCompra->solicitud->Codigo . '/adjuntos/' .$detalleCompra->ImagenPoliza)}}"
+                  target="_blank">Ver</a>
               </dd>
             </dl>
             @endif

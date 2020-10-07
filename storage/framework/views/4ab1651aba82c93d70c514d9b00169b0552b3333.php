@@ -89,7 +89,8 @@
             <dl class="row">
               <dt class="col-sm-4">Voucher de pago</dt>
               <dd class="col-sm-8">
-                <a href="<?php echo e(url($detalleAfiliacion->ImagenVoucher)); ?>" target="_blank">Ver</a>
+                <a href="<?php echo e(url('intranet/afiliaciones/seguro_estudiante/' . $detalleAfiliacion->solicitud->Codigo . '/adjuntos/' . $detalleAfiliacion->ImagenVoucher)); ?>"
+                  target="_blank">Ver</a>
               </dd>
             </dl>
           </div>

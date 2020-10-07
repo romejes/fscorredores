@@ -13,32 +13,9 @@ class EditarTest extends TestCase
 {
     use DatabaseTransactions, WithoutMiddleware;
 
-    public function testPasarAEstadoEnAtencion()
-    {
-        $solicitudEnEspera = factory(Solicitud::class)->states("en_espera")->create();
-
-        $compraSoat = factory(DetalleAfiliacionSeguroEstudiante::class)->create([
-            "IdSolicitud" => $solicitudEnEspera->IdSolicitud
-        ]);
-
-        $response = $this->json("PUT", "afiliaciones/seguro_estudiante/{$compraSoat->solicitud->Codigo}", [
-            "rechazar" => true
-        ]);
-        $response->assertStatus(200);
-        $response->assertJsonStructure([
-            "data",
-            "statusCode"
-        ]);
-
-        $this->assertDatabaseHas("Solicitud", [
-            "IdSolicitud" => $solicitudEnEspera->IdSolicitud,
-            "IdEstadoSolicitud" => EstadoSolicitud::SOLICITUD_EN_ATENCION
-        ]);
-    }
-
     public function testPasarAEstadoAtendido()
     {
-        $solicitudEnEspera = factory(Solicitud::class)->states("en_atencion")->create();
+        $solicitudEnEspera = factory(Solicitud::class)->states("en_espera")->create();
 
         $compraSoat = factory(DetalleAfiliacionSeguroEstudiante::class)->create([
             "IdSolicitud" => $solicitudEnEspera->IdSolicitud
@@ -60,9 +37,9 @@ class EditarTest extends TestCase
         ]);
     }
 
-    public function testRechazarSolicitudCuandoSeHaAtendido()
+    public function testRechazarSolicitud()
     {
-        $solicitudEnEspera = factory(Solicitud::class)->states("en_atencion")->create();
+        $solicitudEnEspera = factory(Solicitud::class)->states("en_espera")->create();
 
         $compraSoat = factory(DetalleAfiliacionSeguroEstudiante::class)->create([
             "IdSolicitud" => $solicitudEnEspera->IdSolicitud
@@ -96,7 +73,7 @@ class EditarTest extends TestCase
             "rechazar" => true
         ]);
         $response->assertStatus(422);
-
+        
         $response->assertJsonStructure([
             "statusCode",
             "message"

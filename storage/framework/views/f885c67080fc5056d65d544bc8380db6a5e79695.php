@@ -1,4 +1,4 @@
-<?php if($estadoSolicitud === 1): ?>
+<?php if($estadoSolicitud == 1): ?>
 <div class="info-box bg-warning">
     <span class="info-box-icon">
         <i class="fas fa-hourglass-start"></i>
@@ -10,7 +10,7 @@
 </div>
 <?php endif; ?>
 
-<?php if($estadoSolicitud === 3): ?>
+<?php if($estadoSolicitud == 3): ?>
 <div class="info-box bg-success">
     <span class="info-box-icon">
         <i class="fas fa-thumbs-up"></i>
@@ -22,7 +22,7 @@
 </div>
 <?php endif; ?>
 
-<?php if($estadoSolicitud === 4): ?>
+<?php if($estadoSolicitud == 4): ?>
 <div class="info-box bg-danger">
     <span class="info-box-icon">
         <i class="fas fa-thumbs-down"></i>

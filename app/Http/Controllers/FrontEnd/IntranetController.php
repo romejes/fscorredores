@@ -51,6 +51,7 @@ class IntranetController extends Controller
             "afiliacion_seguro_estudiante" => $this->modelDetalleAfiliacionSeguroEstudiante->getNumberOfSolicitudesSinAtender()
         );
 
-        return view("intranet.pages.inicio", compact("solicitudesSinAtender"));
+        $totalSolicitudesSinAtender = array_sum($solicitudesSinAtender);
+        return view("intranet.pages.inicio", compact("solicitudesSinAtender", "totalSolicitudesSinAtender"));
     }
 }

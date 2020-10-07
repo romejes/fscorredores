@@ -4,6 +4,7 @@ namespace App\Http\Controllers\FrontEnd;
 
 use App\Models\DetalleCompraSoat;
 use App\Http\Controllers\Controller;
+use App\Exceptions\RegistroNoEncontradoException;
 
 class CompraSoatController extends Controller
 {
@@ -36,5 +37,21 @@ class CompraSoatController extends Controller
     {
         $detalleCompra = $this->detalleCompraSoat->getDetalleSolicitudByCodigo($code);
         return view("intranet.pages.compras.soat.detail", compact("detalleCompra"));
+    }
+
+    /**
+     * Descarga el archivo especificado
+     *
+     * @param string $codigo
+     * @param string $nombreArchivo
+     * @return Response
+     */
+    public function downloadFile($codigo, $nombreArchivo)
+    {
+        $ruta = storage_path("app/public/uploads/{$nombreArchivo}");
+        if (file_exists($ruta)) {
+            return response()->download($ruta);
+        }
+        throw new RegistroNoEncontradoException("El archivo no existe");
     }
 }

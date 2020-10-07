@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,11 @@ Route::group(["middleware" => ["auth"]], function () {
     );
 
     Route::get(
+        "intranet/compras/soat/{codigo}/adjuntos/{archivo}",
+        "FrontEnd\CompraSoatController@downloadFile"
+    );
+
+    Route::get(
         "intranet/cotizaciones/soat",
         "FrontEnd\CotizacionSoatController@index"
     );
@@ -74,6 +80,12 @@ Route::group(["middleware" => ["auth"]], function () {
         "intranet/afiliaciones/seguro_estudiante",
         "FrontEnd\AfiliacionSeguroEstudianteController@index"
     );
+
+    Route::get(
+        "intranet/afiliaciones/seguro_estudiante/{codigo}/adjuntos/{archivo}",
+        "FrontEnd\AfiliacionSeguroEstudianteController@downloadFile"
+    );
+
     Route::get(
         "intranet/afiliaciones/seguro_estudiante/{codigo}",
         "FrontEnd\AfiliacionSeguroEstudianteController@detail"

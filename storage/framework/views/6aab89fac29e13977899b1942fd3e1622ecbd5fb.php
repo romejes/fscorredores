@@ -105,21 +105,24 @@
             <dl class="row">
               <dt class="col-sm-4">Documento de Identidad</dt>
               <dd class="col-sm-8">
-                <a href="<?php echo e(url($detalleCompra->ImagenDni)); ?>" target="_blank">Ver</a>
+                <a href="<?php echo e(url('intranet/afiliaciones/seguro_estudiante/' . $detalleCompra->solicitud->Codigo . '/adjuntos/' .$detalleCompra->ImagenDni)); ?>"
+                  target="_blank">Ver</a>
               </dd>
             </dl>
 
             <dl class="row">
               <dt class="col-sm-4">Tarjeta de Propiedad</dt>
               <dd class="col-sm-8">
-                <a href="<?php echo e(url($detalleCompra->ImagenTarjetaPropiedad)); ?>" target="_blank">Ver</a>
+                <a target="_blank"
+                  href="<?php echo e(url('intranet/afiliaciones/seguro_estudiante/' . $detalleCompra->solicitud->Codigo . '/adjuntos/' . $detalleCompra->ImagenTarjetaPropiedad)); ?>">Ver</a>
               </dd>
             </dl>
             <?php else: ?>
             <dl class="row">
               <dt class="col-sm-4">Póliza del seguro</dt>
               <dd class="col-sm-8">
-                <a href="<?php echo e(url($detalleCompra->ImagenPoliza)); ?>" target="_blank">Ver</a>
+                <a href="<?php echo e(url('intranet/afiliaciones/seguro_estudiante/' . $detalleCompra->solicitud->Codigo . '/adjuntos/' .$detalleCompra->ImagenPoliza)); ?>"
+                  target="_blank">Ver</a>
               </dd>
             </dl>
             <?php endif; ?>

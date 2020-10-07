@@ -6,6 +6,7 @@ use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Validation\ValidationException;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
@@ -71,6 +72,13 @@ class Handler extends ExceptionHandler
 
         if ($exception instanceof RegistroNoEncontradoException) {
             return $exception->render($request);
+        }
+
+        if ($exception instanceof HttpException) {
+            return response()->json([
+                "statusCode" => $exception->getStatusCode(),
+                "message" => $exception->getMessage()
+            ], $exception->getStatusCode());
         }
 
         return response()->json([

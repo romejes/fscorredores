@@ -16,7 +16,7 @@ class RegistrarTest extends TestCase
 
     public function testRenovacionExitosa()
     {
-        Storage::fake('local');
+        Storage::fake('upload');
         $uploadTarjetaPropiedad = UploadedFile::fake()->image("tarjeta_propiedad.jpg");
 
         $payload = [
@@ -61,15 +61,17 @@ class RegistrarTest extends TestCase
             "AnioVehiculo" => null,
             "CompaniaSeguro" => null,
             "TipoCompra" => "renovacion",
-            "ImagenPoliza" => "/storage/{$expectedCodigo}_1.jpg",
+            "ImagenPoliza" => "{$expectedCodigo}_1.jpg",
             "ImagenTarjetaPropiedad" => null,
             "ImagenDni" => null,
         ]);
+
+        Storage::disk('local')->assertExists("public/uploads/${expectedCodigo}_1.jpg");
     }
 
     public function testAdquisicionExitosa()
     {
-        Storage::fake('local');
+        Storage::fake('upload');
         $uploadTarjetaPropiedad = UploadedFile::fake()->image("tarjeta_propiedad.jpg");
         $uploadTarjetaDni = UploadedFile::fake()->image("tarjeta_dni.jpg");
 
@@ -122,8 +124,11 @@ class RegistrarTest extends TestCase
             "AnioVehiculo" =>  $payload["anio_vehiculo"],
             "CompaniaSeguro" => $payload["compania_seguro"],
             "TipoCompra" => "adquisicion",
-            "ImagenTarjetaPropiedad" => "/storage/{$expectedCodigo}_1.jpg",
-            "ImagenDni" => "/storage/{$expectedCodigo}_2.jpg",
+            "ImagenTarjetaPropiedad" => "{$expectedCodigo}_1.jpg",
+            "ImagenDni" => "{$expectedCodigo}_2.jpg",
         ]);
+
+        Storage::disk('local')->assertExists("public/uploads/${expectedCodigo}_1.jpg");
+        Storage::disk('local')->assertExists("public/uploads/${expectedCodigo}_2.jpg");
     }
 }

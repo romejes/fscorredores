@@ -106,14 +106,14 @@ class DetalleAfiliacionSeguroEstudiante extends DetalleSolicitud
         );
 
         //  Procesar imagen
-        $voucher = $data->file("voucher"); 
+        $voucher = $data->file("voucher");
         $extension = $voucher->getClientOriginalExtension();
-        $nombreImagen = $solicitud->Codigo . ".${extension}";        
-        $subirImagen = Storage::disk('local')->put($nombreImagen, File::get($voucher));
+        $nombreImagen = $solicitud->Codigo . ".${extension}";
+        $ruta = $voucher->storeAs("uploads", $nombreImagen, 'public');
 
-        if (!$subirImagen) {
+        if (!file_exists(storage_path("app/public/" . $ruta))) {
             $solicitud->delete();
-            throw new FileException("No se pudo subir la imagen");
+            throw new FileException("No se pudo subir la imagen");;
         }
 
         //  Crear el detalle de la solicitud
@@ -130,7 +130,7 @@ class DetalleAfiliacionSeguroEstudiante extends DetalleSolicitud
             "CodigoPais" => $pais->Codigo,
             "IdTipoDocumentoIdentidad" => $tipoDocumentoIdentidad->IdTipoDocumentoIdentidad,
             "NumeroDocumentoIdentidad" => $data->input("numero_documento_identidad"),
-            "ImagenVoucher" => Storage::url($nombreImagen)
+            "ImagenVoucher" => $nombreImagen
         ]);
         return $detalle;
     }
