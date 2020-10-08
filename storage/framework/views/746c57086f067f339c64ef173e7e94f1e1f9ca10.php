@@ -6,7 +6,7 @@
 </head>
 
 <body>
-    <p>Mensaje enviado a través del formulario de contacto del sitio http://www.fscorredoresasesores.com</p>
+    <p>Mensaje enviado a través del formulario de contacto del sitio web de FS Corredores de Seguros</p>
 
     <br>
     <span><strong>De: </strong><?php echo $contactData->getRemitente(); ?></span><br>

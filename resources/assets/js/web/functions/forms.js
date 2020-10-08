@@ -162,6 +162,8 @@ export function processContactForm() {
   const urlTarget = returnUrl('contacto');
   const payload = new FormData(document.getElementById('frm-contacto'));
 
+  showLoadingMessage();
+
   axios
     .post(urlTarget, payload)
     .then(() => {
@@ -205,6 +207,8 @@ export function processAfiliacionSeguroEstudianteForm() {
     formatDate(payload.get('fecha_nacimiento'), 'DD/MM/YYYY', 'YYYY-MM-DD'),
   );
 
+  showLoadingMessage();
+
   axios
     .post(urlTarget, payload)
     .then(() => {
@@ -244,6 +248,8 @@ export function processCotizarSeguroVehiculoTodoRiesgo() {
 
   const urlTarget = returnUrl('cotizaciones/vehiculo_todo_riesgo');
   const payload = new FormData(form);
+
+  showLoadingMessage();
 
   axios
     .post(urlTarget, payload)
@@ -296,6 +302,8 @@ export function processCotizarSoatForm() {
     payload.delete('fecha_vencimiento');
   }
 
+  showLoadingMessage();
+
   axios
     .post(urlTarget, payload)
     .then(() => {
@@ -345,6 +353,8 @@ export function processComprarSoatForm() {
     ),
   );
 
+  showLoadingMessage();
+
   axios
     .post(urlTarget, payload)
     .then(() => {
@@ -365,4 +375,19 @@ export function processComprarSoatForm() {
         confirmButtonText: 'Aceptar',
       });
     });
+}
+
+/**
+ * Show loader on message
+ *
+ * @author Jesus Romero
+ * @date 08/10/2020
+ */
+export function showLoadingMessage() {
+  swal.fire({
+    title: 'Espere',
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+    onBeforeOpen: () => swal.showLoading(),
+  });
 }

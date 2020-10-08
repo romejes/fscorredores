@@ -894,7 +894,7 @@ window.onscroll = function () {
 /*!****************************************************!*\
   !*** ./resources/assets/js/web/functions/forms.js ***!
   \****************************************************/
-/*! exports provided: initCustomFile, createMaskDate, createMaskMoneyValue, toggleFechaVencimiento, toggleDireccionField, processContactForm, processAfiliacionSeguroEstudianteForm, processCotizarSeguroVehiculoTodoRiesgo, processCotizarSoatForm, processComprarSoatForm */
+/*! exports provided: initCustomFile, createMaskDate, createMaskMoneyValue, toggleFechaVencimiento, toggleDireccionField, processContactForm, processAfiliacionSeguroEstudianteForm, processCotizarSeguroVehiculoTodoRiesgo, processCotizarSoatForm, processComprarSoatForm, showLoadingMessage */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -909,6 +909,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "processCotizarSeguroVehiculoTodoRiesgo", function() { return processCotizarSeguroVehiculoTodoRiesgo; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "processCotizarSoatForm", function() { return processCotizarSoatForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "processComprarSoatForm", function() { return processComprarSoatForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showLoadingMessage", function() { return showLoadingMessage; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
@@ -1065,6 +1066,7 @@ function toggleDireccionField(tipoCompra) {
 function processContactForm() {
   var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('contacto');
   var payload = new FormData(document.getElementById('frm-contacto'));
+  showLoadingMessage();
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
     sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
       title: 'Mensaje enviado',
@@ -1095,6 +1097,7 @@ function processAfiliacionSeguroEstudianteForm() {
   var payload = new FormData(document.getElementById('frm-afiliacion-seguro-estudiante'));
   payload.set('estado_civil', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["capitalizeFirstLetter"])(payload.get('estado_civil')));
   payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(payload.get('fecha_nacimiento'), 'DD/MM/YYYY', 'YYYY-MM-DD'));
+  showLoadingMessage();
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
     sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
       title: 'Datos de afiliación registrados',
@@ -1129,6 +1132,7 @@ function processCotizarSeguroVehiculoTodoRiesgo() {
 
   var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('cotizaciones/vehiculo_todo_riesgo');
   var payload = new FormData(form);
+  showLoadingMessage();
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
     sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
       title: 'Datos de cotización registrados',
@@ -1170,6 +1174,7 @@ function processCotizarSoatForm() {
     payload["delete"]('fecha_vencimiento');
   }
 
+  showLoadingMessage();
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
     sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
       title: 'Datos de cotizacion registrados',
@@ -1207,6 +1212,7 @@ function processComprarSoatForm() {
   var payload = new FormData(form); //  Process payload
 
   payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(document.getElementById('txt-fecha-nacimiento').value, 'DD/MM/YYYY', 'YYYY-MM-DD'));
+  showLoadingMessage();
   axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
     sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
       title: 'Datos de compra registrados',
@@ -1222,6 +1228,23 @@ function processComprarSoatForm() {
       icon: 'error',
       confirmButtonText: 'Aceptar'
     });
+  });
+}
+/**
+ * Show loader on message
+ *
+ * @author Jesus Romero
+ * @date 08/10/2020
+ */
+
+function showLoadingMessage() {
+  sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+    title: 'Espere',
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+    onBeforeOpen: function onBeforeOpen() {
+      return sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.showLoading();
+    }
   });
 }
 

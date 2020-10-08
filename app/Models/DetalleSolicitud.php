@@ -71,7 +71,7 @@ class DetalleSolicitud extends Model
     public function getDetalleSolicitudByCodigo($code)
     {
         $detalleCompra = $this->getDetalleSolicitudes()->first(function ($value, $key) use ($code) {
-            return $value->solicitud->Codigo === $code;
+            return $value->solicitud->Codigo == $code;
         });
 
         if (!$detalleCompra) {
@@ -92,9 +92,9 @@ class DetalleSolicitud extends Model
         $detalleSolicitud = $this->getDetalleSolicitudByCodigo($code);
         $actualEstadoSolicitud = $detalleSolicitud->solicitud->IdEstadoSolicitud;
 
-        if ($reject && $actualEstadoSolicitud === EstadoSolicitud::SOLICITUD_EN_ESPERA) {
+        if ($reject && $actualEstadoSolicitud == EstadoSolicitud::SOLICITUD_EN_ESPERA) {
             $detalleSolicitud->solicitud->IdEstadoSolicitud = EstadoSolicitud::SOLICITUD_RECHAZADA;
-        } else if (!$reject && $actualEstadoSolicitud === EstadoSolicitud::SOLICITUD_EN_ESPERA) {
+        } else if (!$reject && $actualEstadoSolicitud == EstadoSolicitud::SOLICITUD_EN_ESPERA) {
             $detalleSolicitud->solicitud->IdEstadoSolicitud = EstadoSolicitud::SOLICITUD_ATENDIDA;
         } else {
             throw new UnprocessableEntityHttpException("No es posible cambiar de estado a la solicitud");
