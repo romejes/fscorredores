@@ -17,10 +17,11 @@ import {
   setValidationComprarSoatForm,
   setValidationCotizarSeguroVehiculoTodoRiesgoForm,
   setValidationCotizarSoatForm,
-  isValid
+  isValid,
 } from '../functions/validation';
 
 import {
+  resizeTabContainer,
   setStepsOnWizardSoatCompra,
   setWizard,
   toggleWizardProcessButton,
@@ -29,6 +30,18 @@ import {
 if (existsElement('.wizard')) {
   //  Set wizard component
   setWizard();
+
+  //  Focus on first input element
+  window.onload = () => {
+    document.getElementsByClassName('section')[0].scrollIntoView();
+    document.querySelectorAll('input', 'textarea', 'select')[0].focus();
+  };
+
+  window.onresize = () => {
+    resizeTabContainer(
+      document.querySelector(".tab-pane[style*='display: block']"),
+    );
+  };
 }
 
 if (existsElement('input[type="file"]')) {

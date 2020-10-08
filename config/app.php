@@ -76,10 +76,8 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-
-    'locale' => env('APP_LOCALE', 'es_PE'),
-
-    'lc_all' => env('APP_LC_ALL', 'es_PE.UTF-8'), 
+    
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------

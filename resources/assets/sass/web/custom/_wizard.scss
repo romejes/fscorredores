@@ -13,6 +13,7 @@
       font-weight: bold;
       background-color: $fs-blue-1;
       border: thin solid $fs-blue-1;
+      margin-bottom: 5px;
     }
     button.btn:not(:disabled):not(.disabled) {
       &:hover {

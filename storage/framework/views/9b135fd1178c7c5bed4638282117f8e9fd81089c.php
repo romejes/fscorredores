@@ -30,11 +30,11 @@
               <legend class="col-sm-5 col-form-label pt-0">¿Que tipo de operación quiere realizar? </legend>
               <div class="col-sm-7">
                 <div class="form-check">
-                  <input type="radio" name="tipo_compra" id="rad-renovar" value="renovacion" />
+                  <input type="radio" tabindex="0" name="tipo_compra" id="rad-renovar" value="renovacion" />
                   <label for="rad-renovar" class="form-check-label">Renovar</label>
                 </div>
                 <div class="form-check">
-                  <input type="radio" name="tipo_compra" id="rad-adquirir" value="adquisicion" />
+                  <input type="radio" tabindex="1" name="tipo_compra" id="rad-adquirir" value="adquisicion" />
                   <label for="rad-adquirir" class="form-check-label">Adquirir</label>
                 </div>
               </div>

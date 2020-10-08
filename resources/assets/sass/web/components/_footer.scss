@@ -11,38 +11,39 @@ footer {
     padding-bottom: 11em;
     position: relative;
 
-    &::after {
+    &::after,
+    &::before {
       content: '';
       position: absolute;
       display: block;
-      right: 0;
-      z-index: 5;
+      z-index: 3;
       width: 50%;
-      height: 35%;
+      height: 50px;
       background-image: radial-gradient(
         ellipse at top left,
         transparent 71.5%,
-        $fs-red-1 72%
+        $fs-red-1 75%
       );
       bottom: 0;
       background-repeat: no-repeat;
     }
 
+    &::after {
+      right: 0;
+      background-image: radial-gradient(
+        ellipse at top left,
+        transparent 71.5%,
+        $fs-red-1 75%
+      );
+    }
+
     &::before {
-      content: '';
-      position: absolute;
-      display: block;
       left: 0;
-      z-index: 5;
-      width: 50%;
-      height: 35%;
       background-image: radial-gradient(
         ellipse at top right,
         transparent 71.5%,
-        $fs-red-1 72%
+        $fs-red-1 75%
       );
-      bottom: 0;
-      background-repeat: no-repeat;
     }
 
     .slogan-overlay {
@@ -119,6 +120,28 @@ footer {
 
 @media (min-width: 992px) {
   footer {
+    .slogan {
+      &::after {
+        width: 50%;
+        height: 35%;
+        background-image: radial-gradient(
+          ellipse at top left,
+          transparent 71.5%,
+          $fs-red-1 72%
+        );
+      }
+
+      &::before {
+        width: 50%;
+        height: 35%;
+        background-image: radial-gradient(
+          ellipse at top right,
+          transparent 71.5%,
+          $fs-red-1 72%
+        );
+      }
+    }
+
     .footer-main {
       .footer-main-block {
         padding-bottom: 3em;

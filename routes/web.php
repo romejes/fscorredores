@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Storage;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
  * Vistas
  * ==========
  */
+
 Route::group(["name" => "web"], function () {
     Route::get("/", "FrontEnd\WebController@home");
 

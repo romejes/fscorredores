@@ -18,19 +18,19 @@ if (existsElement('#btn-menu')) {
 }
 
 if (existsElement('.carousel')) {
-  //document.addEventListener('DOMContentLoaded', () => {
-  new Splide('.carousel', {
-    cover: true,
-    type: 'loop',
-    fixedHeight: 400,
-    height: 400,
-    breakpoints: {
-      640: {
-        height: 500,
+  document.addEventListener('DOMContentLoaded', () => {
+    new Splide('.carousel', {
+      cover: true,
+      type: 'loop',
+      fixedHeight: 400,
+      height: 400,
+      breakpoints: {
+        640: {
+          height: 500,
+        },
       },
-    },
-  }).mount();
-  //});
+    }).mount();
+  });
 }
 
 //  Init animations

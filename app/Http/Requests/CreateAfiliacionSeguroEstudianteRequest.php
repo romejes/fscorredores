@@ -35,7 +35,16 @@ class CreateAfiliacionSeguroEstudianteRequest extends FormRequest
             "fecha_nacimiento" => "required|date_format:Y-m-d|before:now",
             "telefono" => "required|string|max:40",
             "correo" => "required|email|max:40",
-            "voucher" => "required|file|mimetypes:image/*,application/pdf|max:10280"
+            "voucher" => "required|file|mimetypes:image/*,application/pdf|max:5120"
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            "voucher" => [
+                "max" => "El limite permitido es hasta 5MB"
+            ]
         ];
     }
 }

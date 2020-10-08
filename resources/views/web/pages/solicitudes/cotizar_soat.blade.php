@@ -24,14 +24,14 @@
           <div class="form-group row">
             <label for="txt-nombres" class="col-sm-5 col-form-label">Nombres</label>
             <div class="col-sm-7">
-              <input type="text" name="nombres" id="txt-nombres" class="form-control" maxlength="40" required />
+              <input type="text" tabindex="0" name="nombres" id="txt-nombres" class="form-control" maxlength="40" required />
             </div>
           </div>
 
           <div class="form-group row">
             <label for="txt-apellido-paterno" class="col-sm-5 col-form-label">Apellido Paterno</label>
             <div class="col-sm-7">
-              <input type="text" name="apellido_paterno" id="txt-apellido-paterno" class="form-control" maxlength="40"
+              <input type="text" tabindex="1" name="apellido_paterno" id="txt-apellido-paterno" class="form-control" maxlength="40"
                 required />
             </div>
           </div>
