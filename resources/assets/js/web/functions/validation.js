@@ -69,20 +69,29 @@ export function setErrorPlacement(error, element) {
  * @author Jesus Romero
  * @date 28/09/2020
  * @export
- * @param {HTMLElement} element
- * @returns {boolean|void}
+ * @param {JQuery<HTMLElement>} element
+ * @returns {void}
  */
 export function highlightElement(element) {
-  if (
-    $(element).prop('tagName') === 'INPUT' &&
-    $(element).attr('type') === 'radio'
-  ) {
+  const controlTag = $(element)
+    .prop('tagName')
+    .toLowerCase();
+  let targetIsInvalidClassElement = $(element);
+
+  if (controlTag === 'input' && $(element).attr('type') === 'radio') {
     const elementNameAttribute = $(element).attr('name');
-    $(`input[name=${elementNameAttribute}]`).addClass('is-invalid');
-  } else {
-    $(element).addClass('is-invalid');
+    targetIsInvalidClassElement = $(
+      `input[name=${elementNameAttribute}]`,
+    ).closest('.form-check');
   }
 
+  if (controlTag === 'input' && $(element).attr('type') === 'file') {
+    targetIsInvalidClassElement = $(element).closest('.custom-file');
+  }
+
+  targetIsInvalidClassElement.addClass('is-invalid');
+
+  //  Resize tab pane
   const tabPane = element.closest('.tab-pane');
   resizeTabContainer(tabPane);
 }
@@ -93,22 +102,29 @@ export function highlightElement(element) {
  * @author Jesus Romero
  * @date 28/09/2020
  * @export
- * @param {HTMLElement} element
+ * @param {JQuery<HTMLElement>} element
  * @returns {boolean|void}
  */
 export function unhighlightElement(element) {
-  if (
-    $(element).prop('tagName') === 'INPUT' &&
-    $(element).attr('type') === 'radio'
-  ) {
+  const controlTag = $(element)
+    .prop('tagName')
+    .toLowerCase();
+  let targetIsInvalidClassElement = $(element);
+
+  if (controlTag === 'input' && $(element).attr('type') === 'radio') {
     const elementNameAttribute = $(element).attr('name');
-    $(`input[name=${elementNameAttribute}]`).removeClass('is-invalid');
-    return;
+    targetIsInvalidClassElement = $(
+      `input[name=${elementNameAttribute}]`,
+    ).closest('.form-check');
   }
 
-  $(element).removeClass('is-invalid');
+  if (controlTag === 'input' && $(element).attr('type') === 'file') {
+    targetIsInvalidClassElement = $(element).closest('.custom-file');
+  }
 
-  const tabPane = element.closest('.tab-pane');
+  targetIsInvalidClassElement.removeClass('is-invalid');
+
+  const tabPane = $(element).closest('.tab-pane');
   resizeTabContainer(tabPane);
 }
 
@@ -466,4 +482,37 @@ export function addValidationRulesForComprarSoatForm(tipoCompra) {
     $('#fil-tarjeta-propiedad').rules('remove');
     $('#fil-dni').rules('remove');
   }
+}
+
+/**
+ * Show server validation errors
+ *
+ * @author Jesus Romero
+ * @date 12/10/2020
+ * @export
+ * @param {Array<string>} messages
+ */
+export function showServerErrors(messages) {
+  $('span.invalid-feedback').remove();
+  let firstElementInvalid;
+
+  for (const property in messages) {
+    const element = $(`[name=${property}]`).eq(0);
+    const spanError = $('<span></span>', {
+      text: messages[property][0],
+    });
+
+    if (typeof firstElementInvalid === 'undefined') {
+      firstElementInvalid = element;
+    }
+
+    unhighlightElement(element);
+    highlightElement(element);
+    setErrorPlacement(spanError, element);
+  }
+
+  $('.wizard').smartWizard(
+    'goToStep',
+    firstElementInvalid.closest('.tab-pane').index(),
+  );
 }

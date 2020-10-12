@@ -1106,13 +1106,23 @@ function processAfiliacionSeguroEstudianteForm() {
       confirmButtonText: 'Aceptar'
     });
     Object(_wizard__WEBPACK_IMPORTED_MODULE_6__["resetWizard"])();
-  })["catch"](function () {
-    sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
-      title: 'Algo ocurrió',
-      text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
-      icon: 'error',
-      confirmButtonText: 'Aceptar'
-    });
+  })["catch"](function (error) {
+    if (error.response.status === 400) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+      Object(_validation__WEBPACK_IMPORTED_MODULE_7__["showServerErrors"])(error.response.data.messages);
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
   });
 }
 /**
@@ -1141,13 +1151,23 @@ function processCotizarSeguroVehiculoTodoRiesgo() {
       confirmButtonText: 'Aceptar'
     });
     Object(_wizard__WEBPACK_IMPORTED_MODULE_6__["resetWizard"])();
-  })["catch"](function () {
-    sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
-      title: 'Algo ocurrió',
-      text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
-      icon: 'error',
-      confirmButtonText: 'Aceptar'
-    });
+  })["catch"](function (error) {
+    if (error.response.status === 400) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+      Object(_validation__WEBPACK_IMPORTED_MODULE_7__["showServerErrors"])(error.response.data.messages);
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
   });
 }
 /**
@@ -1183,13 +1203,23 @@ function processCotizarSoatForm() {
       confirmButtonText: 'Aceptar'
     });
     Object(_wizard__WEBPACK_IMPORTED_MODULE_6__["resetWizard"])();
-  })["catch"](function () {
-    sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
-      title: 'Algo ocurrió',
-      text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
-      icon: 'error',
-      confirmButtonText: 'Aceptar'
-    });
+  })["catch"](function (error) {
+    if (error.response.status === 400) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+      Object(_validation__WEBPACK_IMPORTED_MODULE_7__["showServerErrors"])(error.response.data.messages);
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
   });
 }
 /**
@@ -1221,13 +1251,23 @@ function processComprarSoatForm() {
       confirmButtonText: 'Aceptar'
     });
     Object(_wizard__WEBPACK_IMPORTED_MODULE_6__["resetWizard"])();
-  })["catch"](function () {
-    sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
-      title: 'Algo ocurrió',
-      text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
-      icon: 'error',
-      confirmButtonText: 'Aceptar'
-    });
+  })["catch"](function (error) {
+    if (error.response.status === 400) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+      Object(_validation__WEBPACK_IMPORTED_MODULE_7__["showServerErrors"])(error.response.data.messages);
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
   });
 }
 /**
@@ -1494,7 +1534,7 @@ function sticky() {
 /*!*********************************************************!*\
   !*** ./resources/assets/js/web/functions/validation.js ***!
   \*********************************************************/
-/*! exports provided: setDefaultSettings, setErrorPlacement, highlightElement, unhighlightElement, isValid, toggleFechaVencimientoRules, setValidationContactForm, setValidationAfiliacionSeguroEstudianteForm, setValidationCotizarSeguroVehiculoTodoRiesgoForm, setValidationCotizarSoatForm, setValidationComprarSoatForm, addValidationRulesForComprarSoatForm */
+/*! exports provided: setDefaultSettings, setErrorPlacement, highlightElement, unhighlightElement, isValid, toggleFechaVencimientoRules, setValidationContactForm, setValidationAfiliacionSeguroEstudianteForm, setValidationCotizarSeguroVehiculoTodoRiesgoForm, setValidationCotizarSoatForm, setValidationComprarSoatForm, addValidationRulesForComprarSoatForm, showServerErrors */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1511,6 +1551,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setValidationCotizarSoatForm", function() { return setValidationCotizarSoatForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setValidationComprarSoatForm", function() { return setValidationComprarSoatForm; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addValidationRulesForComprarSoatForm", function() { return addValidationRulesForComprarSoatForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showServerErrors", function() { return showServerErrors; });
 /* harmony import */ var jquery_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery-validation */ "./node_modules/jquery-validation/dist/jquery.validate.js");
 /* harmony import */ var jquery_validation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery_validation__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var jquery_validation_dist_localization_messages_es_PE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery-validation/dist/localization/messages_es_PE */ "./node_modules/jquery-validation/dist/localization/messages_es_PE.js");
@@ -1580,17 +1621,24 @@ function setErrorPlacement(error, element) {
  * @author Jesus Romero
  * @date 28/09/2020
  * @export
- * @param {HTMLElement} element
- * @returns {boolean|void}
+ * @param {JQuery<HTMLElement>} element
+ * @returns {void}
  */
 
 function highlightElement(element) {
-  if ($(element).prop('tagName') === 'INPUT' && $(element).attr('type') === 'radio') {
+  var controlTag = $(element).prop('tagName').toLowerCase();
+  var targetIsInvalidClassElement = $(element);
+
+  if (controlTag === 'input' && $(element).attr('type') === 'radio') {
     var elementNameAttribute = $(element).attr('name');
-    $("input[name=".concat(elementNameAttribute, "]")).addClass('is-invalid');
-  } else {
-    $(element).addClass('is-invalid');
+    targetIsInvalidClassElement = $("input[name=".concat(elementNameAttribute, "]")).closest('.form-check');
   }
+
+  if (controlTag === 'input' && $(element).attr('type') === 'file') {
+    targetIsInvalidClassElement = $(element).closest('.custom-file');
+  }
+
+  targetIsInvalidClassElement.addClass('is-invalid'); //  Resize tab pane
 
   var tabPane = element.closest('.tab-pane');
   Object(_wizard__WEBPACK_IMPORTED_MODULE_3__["resizeTabContainer"])(tabPane);
@@ -1601,19 +1649,25 @@ function highlightElement(element) {
  * @author Jesus Romero
  * @date 28/09/2020
  * @export
- * @param {HTMLElement} element
+ * @param {JQuery<HTMLElement>} element
  * @returns {boolean|void}
  */
 
 function unhighlightElement(element) {
-  if ($(element).prop('tagName') === 'INPUT' && $(element).attr('type') === 'radio') {
+  var controlTag = $(element).prop('tagName').toLowerCase();
+  var targetIsInvalidClassElement = $(element);
+
+  if (controlTag === 'input' && $(element).attr('type') === 'radio') {
     var elementNameAttribute = $(element).attr('name');
-    $("input[name=".concat(elementNameAttribute, "]")).removeClass('is-invalid');
-    return;
+    targetIsInvalidClassElement = $("input[name=".concat(elementNameAttribute, "]")).closest('.form-check');
   }
 
-  $(element).removeClass('is-invalid');
-  var tabPane = element.closest('.tab-pane');
+  if (controlTag === 'input' && $(element).attr('type') === 'file') {
+    targetIsInvalidClassElement = $(element).closest('.custom-file');
+  }
+
+  targetIsInvalidClassElement.removeClass('is-invalid');
+  var tabPane = $(element).closest('.tab-pane');
   Object(_wizard__WEBPACK_IMPORTED_MODULE_3__["resizeTabContainer"])(tabPane);
 }
 /**
@@ -1961,6 +2015,36 @@ function addValidationRulesForComprarSoatForm(tipoCompra) {
     $('#fil-tarjeta-propiedad').rules('remove');
     $('#fil-dni').rules('remove');
   }
+}
+/**
+ * Show server validation errors
+ *
+ * @author Jesus Romero
+ * @date 12/10/2020
+ * @export
+ * @param {Array<string>} messages
+ */
+
+function showServerErrors(messages) {
+  $('span.invalid-feedback').remove();
+  var firstElementInvalid;
+
+  for (var property in messages) {
+    var element = $("[name=".concat(property, "]")).eq(0);
+    var spanError = $('<span></span>', {
+      text: messages[property][0]
+    });
+
+    if (typeof firstElementInvalid === 'undefined') {
+      firstElementInvalid = element;
+    }
+
+    unhighlightElement(element);
+    highlightElement(element);
+    setErrorPlacement(spanError, element);
+  }
+
+  $('.wizard').smartWizard('goToStep', firstElementInvalid.closest('.tab-pane').index());
 }
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 

@@ -1,5 +1,5 @@
  <?php $__env->startSection('seguro-content'); ?>
-<h4 class="seguro-title">Seguro contra robos</h4>
+<h4 class="seguro-title">Seguro por responsabilidad civil</h4>
 <article class="seguro-description">
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, voluptas

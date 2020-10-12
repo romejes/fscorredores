@@ -1,5 +1,5 @@
 @extends('web.layouts._detalle-seguro') @section('seguro-content')
-<h4 class="seguro-title">Seguro contra robos</h4>
+<h4 class="seguro-title">Seguro Vehicular Todo Riesgo</h4>
 <article class="seguro-description">
   <p>
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, voluptas

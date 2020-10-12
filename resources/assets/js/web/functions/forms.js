@@ -10,7 +10,11 @@ import {
   returnUrl,
 } from '../../shared/util';
 import { resetWizard, resizeTabContainer } from './wizard';
-import { isValid, toggleFechaVencimientoRules } from './validation';
+import {
+  isValid,
+  showServerErrors,
+  toggleFechaVencimientoRules,
+} from './validation';
 
 /**
  * Init plugin for file inputs
@@ -221,13 +225,24 @@ export function processAfiliacionSeguroEstudianteForm() {
       });
       resetWizard();
     })
-    .catch(() => {
-      swal.fire({
-        title: 'Algo ocurrió',
-        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-      });
+    .catch(error => {
+      if (error.response.status === 400) {
+        swal.fire({
+          title: 'Algo ocurrió',
+          text:
+            'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+        showServerErrors(error.response.data.messages);
+      } else {
+        swal.fire({
+          title: 'Algo ocurrió',
+          text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
     });
 }
 
@@ -263,13 +278,24 @@ export function processCotizarSeguroVehiculoTodoRiesgo() {
       });
       resetWizard();
     })
-    .catch(() => {
-      swal.fire({
-        title: 'Algo ocurrió',
-        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-      });
+    .catch(error => {
+      if (error.response.status === 400) {
+        swal.fire({
+          title: 'Algo ocurrió',
+          text:
+            'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+        showServerErrors(error.response.data.messages);
+      } else {
+        swal.fire({
+          title: 'Algo ocurrió',
+          text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
     });
 }
 
@@ -316,13 +342,24 @@ export function processCotizarSoatForm() {
       });
       resetWizard();
     })
-    .catch(() => {
-      swal.fire({
-        title: 'Algo ocurrió',
-        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-      });
+    .catch(error => {
+      if (error.response.status === 400) {
+        swal.fire({
+          title: 'Algo ocurrió',
+          text:
+            'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+        showServerErrors(error.response.data.messages);
+      } else {
+        swal.fire({
+          title: 'Algo ocurrió',
+          text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
     });
 }
 
@@ -367,13 +404,24 @@ export function processComprarSoatForm() {
       });
       resetWizard();
     })
-    .catch(() => {
-      swal.fire({
-        title: 'Algo ocurrió',
-        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
-        icon: 'error',
-        confirmButtonText: 'Aceptar',
-      });
+    .catch(error => {
+      if (error.response.status === 400) {
+        swal.fire({
+          title: 'Algo ocurrió',
+          text:
+            'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+        showServerErrors(error.response.data.messages);
+      } else {
+        swal.fire({
+          title: 'Algo ocurrió',
+          text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+          icon: 'error',
+          confirmButtonText: 'Aceptar',
+        });
+      }
     });
 }
 
