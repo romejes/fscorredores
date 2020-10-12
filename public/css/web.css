@@ -19457,10 +19457,31 @@ main .wrapper-seguros .card-seguro .card-seguro-footer {
 
 main .seguro-title {
   font-family: "Montserrat", sans-serif;
-  font-size: 1.8rem;
+  font-size: 2.3rem;
   padding-bottom: 1rem;
   font-weight: bold;
   color: #465e89;
+}
+
+main .seguro-description {
+  margin-bottom: 2.5em;
+}
+
+main .seguro-description .seguro-subtitle {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  color: #465e89;
+}
+
+main .seguro-description table thead {
+  background-color: #465e89;
+  color: white;
+}
+
+main .seguro-description table tbody {
+  color: #848688;
 }
 
 @media (min-width: 992px) {
@@ -19577,14 +19598,6 @@ main .wrapper-solicitudes .card-solicitud .card-solicitud-footer {
   border-top: 0px;
   background-color: white;
   text-align: center;
-}
-
-main .seguro-title {
-  font-family: "Montserrat", sans-serif;
-  font-size: 1.8rem;
-  padding-bottom: 1rem;
-  font-weight: bold;
-  color: #465e89;
 }
 
 main .wizard {

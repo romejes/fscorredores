@@ -1,10 +1,14 @@
 @extends('web.layouts._detalle-seguro') @section('seguro-content')
 <h4 class="seguro-title">EPS</h4>
 <article class="seguro-description">
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere, voluptas
-    nisi. Ullam commodi nulla exercitationem facere fugit iste atque qui animi
-    modi. Itaque nisi, impedit placeat provident eligendi voluptatem nam?
+  <h5 class="seguro-subtitle">¿En que consiste?</h5>
+  <p>Es un programa médico que te brinda atención ambulatoria y hospitalaria, consulta médica a domicilio, atención de
+    emergencia accidental y médica, exámenes preventivos anuales, maternidad y control del niño sano entre otros
   </p>
+</article>
+
+<article class="seguro-description">
+  <h5 class="seguro-subtitle">Dirigido a:</h5>
+  <p>Empresas peruanas y MYPES (Micro y Pequeña Empresa), asi como empleadoras de trabajadores en planilla </p>
 </article>
 @endsection

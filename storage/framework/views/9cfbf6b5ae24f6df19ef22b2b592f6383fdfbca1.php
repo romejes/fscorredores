@@ -32,13 +32,12 @@
 
           <!-- ...for small screens -->
           <div class="form-group d-lg-none">
-            <label for="ddo-seguros">Seleccione un seguro para ver su información</label>
             <select name="seguros" id="ddo-seguros" class="form-control ">
+              <option value="" selected>-- Escoja el seguro que desea revisar --</option>
               <?php $__currentLoopData = $seguros; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seguro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
               <optgroup label="<?php echo e($seguro['title']); ?>">
                 <?php $__currentLoopData = $seguro['seguros']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detalle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <option data-href="<?php echo e(url('seguros/'. $detalle['slug'])); ?>"
-                  <?php echo e(Request::segment(2) == $detalle['slug'] ? 'selected':''); ?>><?php echo e($detalle['name']); ?></option>
+                <option data-href="<?php echo e(url('seguros/'. $detalle['slug'])); ?>"><?php echo e($detalle['name']); ?></option>
                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </optgroup>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>

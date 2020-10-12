@@ -32,13 +32,12 @@
 
           <!-- ...for small screens -->
           <div class="form-group d-lg-none">
-            <label for="ddo-seguros">Seleccione un seguro para ver su información</label>
             <select name="seguros" id="ddo-seguros" class="form-control ">
+              <option value="" selected>-- Escoja el seguro que desea revisar --</option>
               @foreach ($seguros as $seguro)
               <optgroup label="{{ $seguro['title']}}">
                 @foreach ($seguro['seguros'] as $detalle)
-                <option data-href="{{ url('seguros/'. $detalle['slug'])}}"
-                  {{ Request::segment(2) == $detalle['slug'] ? 'selected':''}}>{{ $detalle['name']}}</option>
+                <option data-href="{{ url('seguros/'. $detalle['slug'])}}">{{ $detalle['name']}}</option>
                 @endforeach
               </optgroup>
               @endforeach
