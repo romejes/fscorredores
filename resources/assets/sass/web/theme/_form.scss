@@ -1,0 +1,52 @@
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/custom-forms';
+
+@import '../variables';
+
+form {
+  label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-control {
+    &:focus {
+      box-shadow: none;
+      border-color: $blue-primary;
+    }
+    &.is-invalid {
+      &:focus {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+input[type="file"] {
+  &.custom-file-input {
+    &:focus {
+      ~ .custom-file-label {
+        border-color: $blue-primary;
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+label.custom-file-label {
+  &:after {
+    background-color: $blue-primary;
+    color: white;
+    &:hover {
+      background-color: white;
+      color: $blue-primary;
+      transition: 0.5s;
+    }
+  }
+}

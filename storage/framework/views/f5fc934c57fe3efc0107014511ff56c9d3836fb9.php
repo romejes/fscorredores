@@ -1,15 +1,16 @@
- <?php $__env->startSection('seguro-content'); ?>
-<h4 class="seguro-title">Seguro contra riesgo de montaje</h4>
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">¿En que consiste?</h5>
+<?php $__env->startSection('insurance-content'); ?>
+<h2>Seguro contra riesgo de montaje</h2>
+
+<article>
+  <h3>¿En que consiste?</h3>
   <p>Es un seguro que brinda protección frente a riesgos accidentales, súbitos e imprevistos que puedan sufrir el
-    montaje de equipos tales como hornos, cables eléctricos, subestaciones, etc. </p>
+    por un accidente súbito e imprevisto en el cual resultes civilmente responsable. </p>
 </article>
 
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">Dirigido a:</h5>
+<article>
+  <h3>Dirigido a:</h3>
   <p>Empresas comerciales, industriales, de servicios y en general todo tipo de empresas que requieran montar equipos,
-    así como a empresas especialistas en realizar este tipo de montajes. </p>
+    patrimonio. </p>
 </article>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('web.layouts._detalle-seguro', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('web.layouts._insurance-detail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

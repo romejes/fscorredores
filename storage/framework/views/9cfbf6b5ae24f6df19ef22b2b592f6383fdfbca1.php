@@ -44,8 +44,10 @@
             </select>
           </div>
           <!-- ...for small screens -->
+          <div class="divide"></div>
         </div>
         <!--End Navbar -->
+
 
         <!-- Insurance description -->
         <div class="col-lg-8">

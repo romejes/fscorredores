@@ -1,23 +1,21 @@
 @extends('web.layouts.main') @section('content')
 <main>
-  <!-- Heading -->
-  @component('web.components._section-header') Pagina no encontrada
+  <!-- Heading Page -->
+  @component('web.components._heading-page') Pagina no encontrada
   @endcomponent
-  <!-- End Heading-->
+  <!-- End Heading Page -->
 
-  <!-- Customers -->
-  <section class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 py-4 text-center">
-          <i class="far fa-frown fa-10x my-5"></i>
-          <p class="mt-3">
-            Lo sentimos, la página que intenta visitar no existe
-          </p>
+  <!-- Section -->
+  <section id="section-not-found">
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-body col-12">
+          <i class="far fa-frown fa-10x" id="icon-not-found"></i>
+          <p id="message-not-found">Lo sentimos, la página que intenta visitar no existe</p>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Customers-->
+  <!-- End Section -->
 </main>
 @endsection

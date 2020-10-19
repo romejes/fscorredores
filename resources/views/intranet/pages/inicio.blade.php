@@ -71,21 +71,6 @@
             </div>
             @endif
 
-            @if ($solicitudesSinAtender['compra_soat'] > 0)
-            <div class="col-12 col-sm-6 col-md-4">
-              <div class="small-box bg-warning">
-                <div class="inner">
-                  <h3>{{ $solicitudesSinAtender['compra_soat'] }}</h3>
-                  <p>Compra de SOAT</p>
-                </div>
-                <div class="icon">
-                  <i class="fas fa-hourglass-start"></i>
-                </div>
-                <a href="{{ url('intranet/compras/soat') }}" class="small-box-footer">Ver solicitudes</a>
-              </div>
-            </div>
-            @endif
-
             @if ($solicitudesSinAtender['afiliacion_seguro_estudiante'] > 0)
             <div class="col-12 col-sm-6 col-md-4">
               <div class="small-box bg-warning">

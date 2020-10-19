@@ -8,20 +8,16 @@
   <title>FS Corredores de Seguros</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
+  <link rel="stylesheet" href="{{ asset('css/vendor.css')}}">
   <link rel="stylesheet" href="{{ asset('css/web.css')}}">
 
   <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico')}}" type="image/x-icon">
 </head>
 
 <body>
-  <div class="sidenav">
-  </div>
+  <div class="sidenav"> </div>
   <div class="wrapper">
-    <div class="overlay"></div>
+    <div class="wrapper-shadow"></div>
     @include('web.layouts._header')
     @yield('content')
     @include('web.layouts._footer')

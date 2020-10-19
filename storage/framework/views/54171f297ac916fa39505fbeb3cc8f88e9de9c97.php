@@ -1,36 +1,36 @@
  <?php $__env->startSection('content'); ?>
-<main id="seguros-main">
-  <!-- Heading -->
-  <?php $__env->startComponent('web.components._section-header'); ?> Nuestros Seguros <?php echo $__env->renderComponent(); ?>
-  <!-- End Heading-->
+<main>
+  <!-- Heading Page-->
+  <?php $__env->startComponent('web.components._heading-page'); ?> Nuestros Seguros <?php echo $__env->renderComponent(); ?>
+  <!-- End Heading Page-->
 
-  <!-- Content -->
-  <section class="section">
-    <div class="container">
-      <?php $__currentLoopData = $seguros; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seguro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-      <div class="row my-5">
-        <div class="col-12">
-          <h4 class="section-title color-fs-blue"><?php echo e($seguro['title']); ?> </h4>
+  <!-- Section -->
+  <?php $__currentLoopData = $seguros; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seguro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+  <section>
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-heading col-12">
+          <h2 class="section-title"><?php echo e($seguro['title']); ?></h2>
         </div>
-        <div class="col-12">
-          <div class="wrapper-seguros">
+        <div class="section-body col-12">
+          <div class="wrapper-card">
             <?php $__currentLoopData = $seguro['seguros']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detalle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="card card-seguro" data-aos="fade-up">
+            <div class="card" data-aos="fade-up">
+              <img src="<?php echo e(asset('img/seguros/'. $detalle['picture'])); ?>" alt="">
               <div class="card-body">
-                <h5 class="card-title-seguro"><?php echo e($detalle['name']); ?></h5>
+                <h3 class="card-title"><?php echo e($detalle['name']); ?></h3>
               </div>
-              <div class="card-footer card-seguro-footer">
-                <a href="<?php echo e(url('seguros/'.$detalle['slug'])); ?>" class="btn btn-primary">Ver</a>
+              <div class="card-footer">
+                <a href="<?php echo e(url('seguros/'. $detalle['slug'])); ?>" class="button button-primary">Ver</a>
               </div>
             </div>
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
         </div>
       </div>
-      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
     </div>
   </section>
-  <!-- End Content -->
+  <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 </main>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

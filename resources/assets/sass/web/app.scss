@@ -1,33 +1,33 @@
-//  Third-party
-@import '~bootstrap/scss/bootstrap';
+//  Fonts
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
 
-@import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/brands';
-@import '~@fortawesome/fontawesome-free/scss/regular';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
 
-@import '~smartwizard/dist/css/smart_wizard_all.min.css';
+//  Theme
+@import './theme/all';
 
-@import '~aos/dist/aos.css';
-
-@import '~@splidejs/splide/dist/css/splide.min.css';
+//  Layouts
+@import './layout/header';
+@import './layout/sidenav';
+@import './layout/wrapper';
+@import './layout/footer';
 
 //  Components
-@import './components/header';
-@import './components/footer';
-@import './components/sidenav';
-@import './components/wrapper';
+@import './components/section';
+@import './components/heading-page';
+@import './components/description-list';
+@import './components/split-container';
+@import './components/treeview';
+@import './components/wizard';
+@import './components/sw-alert';
 
 //  Pages
 @import './pages/home';
 @import './pages/nosotros';
-@import './pages/seguros';
 @import './pages/clientes';
 @import './pages/contacto';
+@import './pages/seguros';
 @import './pages/solicitudes';
-
-//  Custom
-@import './custom/wizard';
-@import './custom/file';
-
-@import './custom';
+@import './pages/404';

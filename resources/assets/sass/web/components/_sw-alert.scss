@@ -1,0 +1,18 @@
+@import '../theme/button';
+@import '../variables';
+
+.swal2-container {
+  .swal2-header {
+    .swal2-title {
+      color: $blue-primary;
+    }
+  }
+
+  .swal2-actions {
+    .swal2-styled {
+      &.swal2-confirm {
+        @include paint-button($blue-primary, white, $blue-primary);
+      }
+    }
+  }
+}

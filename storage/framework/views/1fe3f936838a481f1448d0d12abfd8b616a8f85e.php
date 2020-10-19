@@ -1,15 +1,15 @@
- <?php $__env->startSection('seguro-content'); ?>
-<h4 class="seguro-title">Seguro vehicular contra todo riesgo</h4>
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">¿En que consiste?</h5>
+<?php $__env->startSection('insurance-content'); ?>
+<h2>Seguro vehicular contra todo riesgo</h2>
+
+<article>
+  <h3>¿En que consiste?</h3>
   <p>En estos tiempos contar con un seguro vehicular nos da la tranquilidad ya que cuando sufrimos un accidente como un
     choque o robo, donde podremos ser respaldados e indemnizados por la compañía de seguros y dejar a nuestro auto en
-    las mismas condiciones como estaba antes del accidente.
-  </p>
+    las mismas condiciones como estaba antes del accidente. </p>
 </article>
 
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">Cobertura del seguro</h5>
+<article>
+  <h3>Cobertura del seguro</h3>
   <ul>
     <li>Daño propio (robo, vuelco, choque, incendio)</li>
     <li>Pago en caso de pérdidas totales </li>
@@ -26,9 +26,9 @@
   </ul>
 </article>
 
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">Dirigido a:</h5>
+<article>
+  <h3>Dirigido a:</h3>
   <p>Publico en general, que posea algun vehiculo motorizado </p>
 </article>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('web.layouts._detalle-seguro', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('web.layouts._insurance-detail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

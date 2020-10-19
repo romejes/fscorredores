@@ -1,75 +1,78 @@
+@import '../variables';
+
 main {
-  #vision-block,
-  #mision-block,
-  #valores-block {
-    margin-bottom: 3em;
-  }
+  section#section-about_us-mision-vision-values {
+    article {
+      text-align: center;
+      margin-bottom: 4em;
 
-  ul.list-valores {
-    list-style: none;
-    margin: 0;
-    padding-left: 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+      img {
+        width: 150px;
+        height: auto;
+      }
 
-    li.list-valores-item {
-      margin: 1em;
+      h2 {
+        color: $blue-primary;
+      }
+
+      .wrapper-company-values {
+        .company-value {
+          display: grid;
+          grid-template-columns: 64px auto;
+          .company-value-icon {
+            color: white;
+            background-color: $grey-primary;
+            padding: 0.5em;
+          }
+          .company-value-text {
+            color: white;
+            background-color: $blue-primary;
+            padding: 0.5em;
+          }
+        }
+      }
     }
   }
 
-  .card-staff-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-
-    .card-staff {
-      border-radius: 0;
-      border: thin solid $fs-blue-1;
-      background-color: $fs-blue-1;
-      color: white;
-      margin: 1.5rem;
+  section#section-about_us-staff {
+    .staff-card {
       max-width: 300px;
-
-      .card-staff-body {
-        padding: 1em;
-
-        .card-staff-body-row {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          margin-top: 0.7rem;
-          margin-bottom: 0.7rem;
-
-          .card-staff-icon {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-          }
-
-          .card-staff-description {
-            margin-left: 0.8rem;
-            min-width: 0;
-            p,
-            i {
-              margin: 0;
-            }
-          }
+      background-color: $blue-primary;
+      color: white;
+      border-color: $blue-primary;
+      dl {
+        margin-top: 0;
+        margin-bottom: 0;
+        p.worker-name {
+          font-size: 1.3rem;
+          margin: 0;
+          font-weight: bold;
+        }
+        i.worker-job {
+          font-weight: lighter;
         }
       }
     }
   }
 }
 
-@media (min-width: 992px) {
-  main{
-    .card-staff-wrapper{
-      .card-staff {
-        width: 400px;
+@media (min-width: 576px) {
+  main {
+    section#section-about_us-staff {
+      .staff-card {
         max-width: none;
+        width: 350px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    section#section-about_us-staff {
+      .staff-card {
+        max-width: none;
+        width: 400px;
       }
     }
   }

@@ -1,0 +1,42 @@
+@import '~bootstrap/scss/card';
+@import '../variables';
+
+.wrapper-card {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .card {
+    max-width: 300px;
+    margin: 1em;
+    border-radius: 0px;
+    background-color: rgb(244, 244, 244);
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    .card-body {
+      .card-title {
+        color: $blue-primary;
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+      }
+    }
+
+    .card-footer {
+      border-top: none;
+      background-color: transparent;
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: 360px) {
+  .wrapper-card {
+    .card {
+      max-width: unset;
+      width: 300px;
+    }
+  }
+}

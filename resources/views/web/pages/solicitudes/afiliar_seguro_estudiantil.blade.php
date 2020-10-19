@@ -1,7 +1,7 @@
-@extends('web.layouts._detalle-solicitud') @section('solicitud_content')
-<h4 class="section-title color-fs-blue text-left">
-  Afiliación a Seguro Estudiantil contra Accidentes
-</h4>
+@extends('web.layouts._detail-request')
+
+@section('request-content')
+<h2> Afiliación a Seguro Estudiantil contra Accidentes</h2>
 <div class="wizard" id="wizard-seguro-estudiante">
   <ul class="nav">
     <li>
@@ -134,8 +134,7 @@
           <div class="custom-file">
             <input type="file" name="voucher" id="fil-voucher" class="custom-file-input"
               accept="image/*,application/pdf" required />
-            <label class="custom-file-label" for="fil-voucher" data-browse="Examinar">Seleccionar
-              Archivo</label>
+            <label class="custom-file-label" for="fil-voucher" data-browse="Examinar">Seleccionar Archivo</label>
           </div>
         </div>
       </div>
@@ -143,4 +142,4 @@
     </div>
   </form>
 </div>
-@endsection('content')
+@endsection

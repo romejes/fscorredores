@@ -18,12 +18,15 @@ export function setDefaultSettings() {
     errorElement: 'span',
     errorPlacement: (error, element) => {
       setErrorPlacement(error, element);
+      resizeTabContainer();
     },
     highlight: (element, errorClass, validClass) => {
       highlightElement(element);
+      //resizeTabContainer();
     },
     unhighlight: (element, errorClass, validClass) => {
       unhighlightElement(element);
+      //resizeTabContainer();
     },
   });
 }
@@ -40,9 +43,6 @@ export function setDefaultSettings() {
 export function setErrorPlacement(error, element) {
   const controlTag = element.prop('tagName').toLowerCase();
 
-  //  Add class for message
-  error.addClass('invalid-feedback');
-
   //  Set validation message according tag and type (if is an input element)
   if (controlTag === 'input' && element.attr('type') === 'radio') {
     element
@@ -57,10 +57,9 @@ export function setErrorPlacement(error, element) {
   } else {
     element.parent().append(error);
   }
-
-  //  Resize height tab container
-  const tabPane = element.closest('.tab-pane');
-  resizeTabContainer(tabPane);
+  
+  //  Add class for message
+  error.addClass('invalid-feedback');
 }
 
 /**
@@ -92,8 +91,8 @@ export function highlightElement(element) {
   targetIsInvalidClassElement.addClass('is-invalid');
 
   //  Resize tab pane
-  const tabPane = element.closest('.tab-pane');
-  resizeTabContainer(tabPane);
+  /*const tabPane = element.closest('.tab-pane');
+  resizeTabContainer(tabPane);*/
 }
 
 /**
@@ -124,8 +123,8 @@ export function unhighlightElement(element) {
 
   targetIsInvalidClassElement.removeClass('is-invalid');
 
-  const tabPane = $(element).closest('.tab-pane');
-  resizeTabContainer(tabPane);
+  /*const tabPane = $(element).closest('.tab-pane');
+  resizeTabContainer(tabPane);*/
 }
 
 /**

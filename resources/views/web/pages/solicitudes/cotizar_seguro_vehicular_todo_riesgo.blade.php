@@ -1,7 +1,8 @@
-@extends('web.layouts._detalle-solicitud') @section('solicitud_content')
-<h4 class="section-title color-fs-blue text-left">
-  Cotizar Seguro Vehicular Todo Riesgo
-</h4>
+@extends('web.layouts._detail-request')
+
+@section('request-content')
+<h2>Cotizar Seguro Vehicular Todo Riesgo</h2>
+
 <div class="wizard" id="wizard-cotizar-seguro-vehicular-todo-riesgo">
   <ul class="nav">
     <li>

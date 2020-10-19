@@ -1,35 +1,56 @@
-@import '../variables/colors';
+@import '../variables';
 
 main {
-  .wrapper-solicitudes {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .card-solicitud {
-      min-width: 250px;
-      margin: 1.1rem;
-
-      .card-title-solicitud {
-        color: $fs-blue-1;
-        font-weight: bold;
-        text-align: center;
+  .split-container {
+    .left-half {
+      #sel-requests {
+        display: block;
       }
 
-      .card-solicitud-footer {
-        border-top: 0px;
-        background-color: white;
-        text-align: center;
+      nav.treeview-requests {
+        display: none;
+      }
+    }
+
+    .right-half {
+      h2 {
+        margin-top: 0;
+      }
+
+      h2,
+      h3 {
+        color: $blue-primary;
+      }
+
+      .wizard {
+        width: 100%;
+        form {
+          margin-top: 1rem;
+          .row {
+            &:last-child {
+              margin-bottom: 0;
+            }
+          }
+          .btn-file {
+            padding: 0.375rem 0.75rem;
+          }
+        }
       }
     }
   }
+}
 
-  .wizard {
-    width: 100%;
-    form {
-      margin-top: 1rem;
-      .btn-file {
-        padding: 0.375rem 0.75rem;
+@media (min-width: 992px) {
+  main {
+    .split-container {
+      .left-half {
+        #sel-requests {
+          display: none;
+        }
+
+        nav.treeview-requests {
+          display: block;
+        }
       }
     }
   }

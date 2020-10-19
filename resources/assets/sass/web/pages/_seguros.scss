@@ -1,54 +1,28 @@
-@import '../variables/colors';
+@import '../variables';
 
 main {
-  .wrapper-seguros {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-    .card-seguro {
-      width: 250px;
-      margin: 1.1rem;
-
-      .card-title-seguro {
-        color: $fs-blue-1;
-        font-weight: bold;
-        text-align: center;
+  .split-container {
+    .left-half {
+      #sel-insurances {
+        display: block;
       }
 
-      .card-seguro-footer {
-        border-top: 0px;
-        background-color: white;
-        text-align: center;
+      nav.treeview-insurances {
+        display: none;
       }
     }
-  }
 
-  .seguro-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.3rem;
-    padding-bottom: 1rem;
-    font-weight: bold;
-    color: $fs-blue-1;
-  }
-
-  .seguro-description {
-    margin-bottom: 2.5em;
-    .seguro-subtitle {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.5rem;
-      margin-bottom: 1.5rem;
-      font-weight: bold;
-      color: $fs-blue-1;
-    }
-
-    table {
-      thead {
-        background-color: $fs-blue-1;
-        color: white;
+    .right-half {
+      h2 {
+        margin-top: 0;
       }
-      tbody {
-        color: $fs-grey-1;
+
+      h2,
+      h3 {
+        color: $blue-primary;
+      }
+      article {
+        margin-bottom: 3em;
       }
     }
   }
@@ -56,33 +30,14 @@ main {
 
 @media (min-width: 992px) {
   main {
-    .nav-seguros {
-      .nav-seguros-item {
-        color: $fs-blue-1;
-        font-weight: bold;
-        font-size: 1.2rem;
-        font-family: 'Montserrat', sans-serif;
-        margin-bottom: 1.2rem;
-      }
-
-      ul.nav-seguros-item-children {
-        list-style: none;
-        margin-top: 1rem;
-        .nav-seguros-link {
-          color: $fs-blue-1;
-          font-weight: normal;
-          font-family: 'Nunito', sans-serif;
-          margin: 0.8rem 0;
-          display: block;
-          &:hover {
-            text-decoration: none;
-            cursor: pointer;
-          }
+    .split-container {
+      .left-half {
+        #sel-insurances {
+          display: none;
         }
 
-        .nav-seguros-link.active {
-          color: $fs-red-1;
-          font-weight: bold;
+        nav.treeview-insurances {
+          display: block;
         }
       }
     }

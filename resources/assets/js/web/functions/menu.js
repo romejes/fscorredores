@@ -29,7 +29,7 @@ export function toggleSidenav() {
 function showSidenav() {
   $('.sidenav').addClass('open');
   $('.wrapper').addClass('is-menu-open');
-  $('.wrapper .overlay').addClass('active');
+  $('.wrapper-shadow').addClass('active');
 
   //  When sidenav is shown, replaces icon on button menu
   $('#btn-menu i')
@@ -46,7 +46,7 @@ function showSidenav() {
 function hideSidenav() {
   $('.sidenav').removeClass('open');
   $('.wrapper').removeClass('is-menu-open');
-  $('.wrapper .overlay').removeClass('active');
+  $('.wrapper-shadow').removeClass('active');
 
   //  When sidenav is hidden, replaces icon on button menu
   $('#btn-menu i')
@@ -74,7 +74,7 @@ function isSidenavShown() {
  * @date 28/09/2020
  */
 export function attachMenuContent() {
-  const menu = $('.menu-content').detach();
+  const menu = $('.navbar-links-container').detach();
 
   if ($(window).outerWidth() >= 992) {
     $('nav.navbar').append(menu);

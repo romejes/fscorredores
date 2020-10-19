@@ -33,14 +33,15 @@ if (existsElement('.wizard')) {
 
   //  Focus on first input element
   window.onload = () => {
-    document.getElementsByClassName('section')[0].scrollIntoView();
+    document.getElementsByTagName('section')[0].scrollIntoView();
     document.querySelectorAll('input', 'textarea', 'select')[0].focus();
   };
 
   window.onresize = () => {
-    resizeTabContainer(
-      document.querySelector(".tab-pane[style*='display: block']"),
-    );
+    /*resizeTabContainer(
+      document.querySelector(".tab-pane:not([style*='display: none'])"),
+    );*/
+    resizeTabContainer();
   };
 }
 

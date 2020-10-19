@@ -1,16 +1,17 @@
-@extends('web.layouts._detalle-seguro') @section('seguro-content')
-<h4 class="seguro-title">Seguro contra incendios</h4>
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">¿En que consiste?</h5>
+@extends('web.layouts._insurance-detail')
+
+@section('insurance-content')
+<h2>Seguro contra incendios</h2>
+
+<article>
+  <h3>¿En que consiste?</h3>
   <p>Es un seguro que cubre los daños sobre la edificación, contenidos, existencias, y en general todos los bienes
-    afectados de tu empresa a causa de un incendio, terremoto, maremoto, rayo, explosión, huelga, conmoción civil,
-    vandalismo, terrorismo, etc. </p>
+    por un accidente súbito e imprevisto en el cual resultes civilmente responsable. </p>
 </article>
 
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">Dirigido a:</h5>
+<article>
+  <h3>Dirigido a:</h3>
   <p>Empresas comerciales, industriales, de servicios y en general todo tipo de empresas que requieran asegurar su
-    patrimonio.
-  </p>
+    patrimonio.</p>
 </article>
 @endsection

@@ -1,53 +1,85 @@
 @extends('web.layouts.main') @section('content')
 <main>
-  <!-- Heading -->
-  @component('web.components._section-header')
+  <!-- Heading Page-->
+  @component('web.components._heading-page')
   Nuestros clientes
   @endcomponent
-  <!-- End Heading-->
+  <!-- End Heading Page -->
 
-  <!-- Customers -->
-  <section class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 py-4">
-          <h4 class="section-title color-fs-blue">Municipalidades</h4>
-          <ul class="list-clientes {{ count($clientes["municipalidades"]) > 7 ? 'list-clientes-divide' :'' }}">
+  <!-- Section Clientes Municipalidades -->
+  <section>
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-heading col-12">
+          <h2 class="section-title">Municipalidades</h2>
+        </div>
+        <div class="section-body col-12">
+          <ul class="wrapper-customers {{ count($clientes["municipalidades"]) > 7 ? 'list-clientes-divide' :'' }}">
             @foreach ($clientes["municipalidades"] as $municipalidad)
-            <li class="list-clientes-item" data-aos="fade-up">{{ $municipalidad }}</li>
-            @endforeach
-          </ul>
-        </div>
-
-        <div class="col-12 py-4">
-          <h4 class="section-title color-fs-blue">Universidades</h4>
-          <ul class="list-clientes {{ count($clientes["universidades"]) > 7 ? 'list-clientes-divide' :'' }}">
-            @foreach ($clientes["universidades"] as $universidad)
-            <li class="list-clientes-item" data-aos="fade-up">{{ $universidad }}</li>
-            @endforeach
-          </ul>
-        </div>
-
-        <div class="col-12 py-4">
-          <h4 class="section-title color-fs-blue">Gobiernos Regionales</h4>
-          <ul class="list-clientes {{ count($clientes["gobiernos_regionales"]) > 7 ? 'list-clientes-divide' :'' }}">
-            @foreach ($clientes["gobiernos_regionales"] as $gobiernoRegional)
-            <li class="list-clientes-item" data-aos="fade-up">{{ $gobiernoRegional }}</li>
-            @endforeach
-          </ul>
-        </div>
-
-        <div class="col-12 py-4">
-          <h4 class="section-title color-fs-blue">Otros</h4>
-          <ul class="list-clientes {{ count($clientes["otros"]) > 7 ? 'list-clientes-divide' :'' }}">
-            @foreach ($clientes["otros"] as $otro)
-            <li class="list-clientes-item" data-aos="fade-up">{{ $otro }}</li>
+            <li class="customer-item" data-aos="fade-up">{{ $municipalidad }}</li>
             @endforeach
           </ul>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Customers-->
+  <!-- End Section Clientes Municipalidades -->
+
+  <!-- Section Clientes Universidades -->
+  <section>
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-heading col-12">
+          <h2 class="section-title">Universidades</h2>
+        </div>
+        <div class="section-body col-12">
+          <ul class="wrapper-customers {{ count($clientes["universidades"]) > 7 ? 'list-clientes-divide' :'' }}">
+            @foreach ($clientes["universidades"] as $universidad)
+            <li class="customer-item" data-aos="fade-up">{{ $universidad }}</li>
+            @endforeach
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Section Clientes Universidades -->
+
+  <!-- Section Clientes Gobiernos Regionales -->
+  <section>
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-heading col-12">
+          <h2 class="section-title">Gobiernos Regionales</h2>
+        </div>
+        <div class="section-body col-12">
+          <ul class="wrapper-customers {{ count($clientes["gobiernos_regionales"]) > 7 ? 'list-clientes-divide' :'' }}">
+            @foreach ($clientes["gobiernos_regionales"] as $gobiernoRegional)
+            <li class="customer-item" data-aos="fade-up">{{ $gobiernoRegional }}</li>
+            @endforeach
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Section Clientes Gobiernos Regionales -->
+
+  <!-- Section Clientes Otros -->
+  <section>
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-heading col-12">
+          <h2 class="section-title">Otros</h2>
+        </div>
+        <div class="section-body col-12">
+          <ul class="wrapper-customers {{ count($clientes["otros"]) > 7 ? 'list-clientes-divide' :'' }}">
+            @foreach ($clientes["otros"] as $otro)
+            <li class="customer-item" data-aos="fade-up">{{ $otro }}</li>
+            @endforeach
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Section Clientes Otros -->
 </main>
 @endsection

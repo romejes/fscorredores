@@ -1,0 +1,19 @@
+@import '../variables';
+
+h1 {
+  font-size: $heading1;
+  margin-bottom: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+  font-size: $heading2;
+  margin-bottom: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+h3 {
+  font-size: $heading3;
+  margin-bottom: 1.5rem;
+  font-family: 'Montserrat', sans-serif;
+}

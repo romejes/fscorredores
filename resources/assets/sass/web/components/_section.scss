@@ -1,0 +1,49 @@
+@import '~bootstrap/scss/bootstrap-grid';
+
+@import '../variables';
+
+//  Apply colors to section
+@mixin paint-section($bg-color, $text-color) {
+  background-color: $bg-color;
+
+  .section-heading {
+    color: $text-color;
+  }
+}
+
+section {
+  padding-top: 4em;
+  padding-bottom: 4em;
+  @include paint-section(white, $blue-primary);
+  .section-container {
+    @extend .container;
+
+    .section-row {
+      @extend .row;
+      align-items: center;
+    }
+
+    .section-heading {
+      h2.section-title {
+        font-family: 'Montserrat', sans-serif;
+        text-align: center;
+      }
+    }
+
+    .section-body {
+      margin-bottom: 3em;
+    }
+
+    .section-footer {
+      text-align: center;
+    }
+  }
+}
+
+section.section-blue {
+  @include paint-section($blue-primary, white);
+}
+
+section.section-grey {
+  @include paint-section($grey-primary, white);
+}

@@ -1,96 +1,95 @@
  <?php $__env->startSection('content'); ?>
 
 <main>
-  <!-- Heading -->
-  <?php $__env->startComponent('web.components._section-header'); ?>
+  <!-- Heading Page -->
+  <?php $__env->startComponent('web.components._heading-page'); ?>
   Conoce nuestra empresa
   <?php echo $__env->renderComponent(); ?>
-  <!-- End Heading-->
+  <!-- End Heading Page -->
 
-  <!-- Mision, Vision, Valores -->
-  <section class="section bg-color-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-6 py-3" id="mision-block">
-          <h4 class="section-title color-fs-blue">Nuestra Misión</h4>
-          <p class="text-center" data-aos="fade-up">
-            Brindar un asesoramiento profesional y confiable en la gestion
-            integral de seguros, a través de un eficáz servicio de atención al
-            cliente
-          </p>
+  <section id="section-about_us-mision-vision-values">
+    <div class="section-container">
+      <div class="section-row align-items-stretch">
+        <div class="col-12 col-md-6">
+          <article data-aos="fade-up">
+            <img src="<?php echo e(asset('img/mision.svg')); ?>" alt="">
+            <h2>Nuestra Misión</h2>
+            <p> Brindar un asesoramiento profesional y confiable en la gestion integral de seguros, a
+              través de un eficáz servicio de atención al cliente </p>
+          </article>
         </div>
-        <div class="col-12 col-lg-6 py-3" id="vision-block">
-          <h4 class="section-title color-fs-blue">Nuestra Visión</h4>
-          <p class="text-center" data-aos="fade-up">
-            Ser la empresa de asesoría y corretaje en seguros de mayor prestigio
-            y confianza en el mercado asegurador peruano, que brinde soluciones
-            innovadoras, simples, transparentes y con altos estándares de
-            servicio.
-          </p>
+        <div class="col-12 col-md-6">
+          <article data-aos="fade-up">
+            <img src="<?php echo e(asset('img/vision.svg')); ?>" alt="">
+            <h2>Nuestra Visión</h2>
+            <p>Ser la empresa de asesoría y corretaje en seguros de mayor prestigio y confianza en el
+              mercado asegurador peruano, que brinde soluciones innovadoras, simples, transparentes y con altos
+              estándares de servicio.</p>
+          </article>
         </div>
-        <div class="col-12 py-3" id="valores-block">
-          <h4 class="section-title color-fs-blue">Valores de la empresa</h4>
-          <ul class="list-valores">
-            <li class="list-valores-item" data-aos="fade-up">Disciplina</li>
-            <li class="list-valores-item" data-aos="fade-up">Autocrítica</li>
-            <li class="list-valores-item" data-aos="fade-up">Responsabilidad</li>
-            <li class="list-valores-item" data-aos="fade-up">Disponibilidad al cambio</li>
-            <li class="list-valores-item" data-aos="fade-up">Perseverancia</li>
-            <li class="list-valores-item" data-aos="fade-up">Proactividad</li>
-            <li class="list-valores-item" data-aos="fade-up">Aprendizaje</li>
-          </ul>
+        <div class="col-12">
+          <article>
+            <h2>Valores de la empresa</h2>
+            <div class="wrapper-card wrapper-company-values">
+              <?php $__currentLoopData = $values; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $value): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+              <div class="card company-value" data-aos="fade-up">
+                <div class="company-value-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="company-value-text">
+                  <span><?php echo e($value); ?></span>
+                </div>
+              </div>    
+              <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Mision, Vision, Valores -->
 
-  <!-- Staff-->
-  <section class="section bg-color-fs-grey color-white">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h4 class="section-title">Nuestro Equipo</h4>
+  <!-- Section: El equipo -->
+  <section class="section-grey" id="section-about_us-staff">
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-heading col-12">
+          <h2 class="section-title">Nuestro equipo</h2>
         </div>
-      </div>
-      <div class="row my-3">
-        <div class="card-staff-wrapper">
-          <?php $__currentLoopData = $staff; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $worker): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-          <div class="card card-staff" data-aos="fade-up">
-            <div class="card-staff-body">
-              <div class="card-staff-body-row">
-                <div class="card-staff-icon">
-                  <i class="fas fa-user fa-2x"></i>
-                </div>
-                <div class="card-staff-description">
-                  <p><?php echo e($worker["name"]); ?></p>
-                  <i><?php echo e($worker["charge"]); ?></i>
-                </div>
-              </div>
-              <div class="card-staff-body-row">
-                <div class="card-staff-icon">
-                  <i class="fas fa-envelope fa-2x"></i>
-                </div>
-                <div class="card-staff-description">
-                  <p><?php echo e($worker["email"]); ?></p>
-                </div>
-              </div>
-              <div class="card-staff-body-row">
-                <div class="card-staff-icon">
-                  <i class="fab fa-whatsapp fa-2x"></i>
-                </div>
-                <div class="card-staff-description">
-                  <p><?php echo e($worker["phone"]); ?></p>
-                </div>
+        <div class="section-body col-12">
+          <div class="wrapper-card">
+            <?php $__currentLoopData = $staff; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $worker): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <div class="card staff-card" data-aos="fade-up">
+              <div class="card-body">
+                <dl>
+                  <div class="dl-row">
+                    <dt class="dt-icon"><i class="fas fa-user fa-2x"></i></dt>
+                    <dd>
+                      <p class="worker-name"> <?php echo e($worker["name"]); ?></p>
+                      <i class="worker-job"><?php echo e($worker["charge"]); ?></i>
+                    </dd>
+                  </div>
+                  <div class="dl-row">
+                    <dt class="dt-icon"> <i class="fas fa-envelope fa-2x"></i></dt>
+                    <dd>
+                      <p><?php echo e($worker["email"]); ?></p>
+                    </dd>
+                  </div>
+                  <div class="dl-row">
+                    <dt class="dt-icon"> <i class="fab fa-whatsapp fa-2x"></i></dt>
+                    <dd>
+                      <p><?php echo e($worker["phone"]); ?></p>
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </div>
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Staff-->
+  <!-- End Section: El equipo -->
 </main>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

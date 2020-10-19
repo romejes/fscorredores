@@ -164,7 +164,7 @@ export function toggleDireccionField(tipoCompra) {
  */
 export function processContactForm() {
   const urlTarget = returnUrl('contacto');
-  const payload = new FormData(document.getElementById('frm-contacto'));
+  const payload = new FormData(document.getElementById('frm-contact'));
 
   showLoadingMessage();
 
@@ -177,7 +177,7 @@ export function processContactForm() {
         icon: 'success',
         confirmButtonText: 'Aceptar',
       });
-      document.getElementById('frm-contacto').reset();
+      document.getElementById('frm-contact').reset();
     })
     .catch(() => {
       swal.fire({

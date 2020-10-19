@@ -16,13 +16,13 @@ if (existsElement('form')) {
   setDefaultSettings();
 }
 
-if (existsElement('#frm-contacto')) {
+if (existsElement('#frm-contact')) {
   //  Apply validation rules to form
   setValidationContactForm();
 
   //  Process form
-  document.getElementById('btn-enviar').addEventListener('click', () => {
-    if (isValid('#frm-contacto')) {
+  document.getElementById('btn-send').addEventListener('click', () => {
+    if (isValid('#frm-contact')) {
       processContactForm();
     }
   });

@@ -1,42 +1,36 @@
+@import '../variables';
+@import '../theme/button';
+
 main {
-  .splide__slide img {
-    width: 100%;
-    height: auto;
-  }
-
-  .seguros-card-home-wrapper {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    width: 100%;
-
-    .seguros-card-home {
-      max-width: 300px;
-      margin: 1.5em;
-      &:first-child {
-        margin-top: 0;
-      }
-      &:last-child {
-        margin-bottom: 0;
-      }
-      img {
+  .carousel {
+    .splide__slide {
+      position: relative;
+      .carousel-image-caption {
+        position: absolute;
+        background-color: $blue-primary;
+        color: white;
+        padding: 1.5em;
+        bottom: 0;
         width: 100%;
         height: auto;
+        h2 {
+          margin-top: 0;
+        }
       }
     }
   }
 
-  a#btn-soat-cotizar,
-  a#btn-soat-comprar {
-    margin: 0.8rem;
+  section#section-home-look-for-soat {
+    overflow-x: hidden;
+    text-align: center;
+    #btn-quote-soat,
+    #btn-buy-soat {
+      margin: 1em;
+    }
   }
 
-  section#aseguradoras-section {
-    .section-title {
-      text-align: center;
-    }
-
-    .insurance-company-wrapper {
+  section#section-home-insurance-companies {
+    .insurance-companies-wrapper {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -51,24 +45,52 @@ main {
   }
 }
 
+@media (min-width: 768px) {
+  main {
+    .carousel {
+      .splide__slide {
+        .carousel-image-caption {
+          max-width: 450px;
+          top: 1.5em;
+          left: calc((100% - 720px) / 2);
+          height: auto;
+          bottom: unset;
+        }
+      }
+    }
+  }
+}
+
 @media (min-width: 992px) {
   main {
-    .seguros-card-home-wrapper {
-      .seguros-card-home {
-        margin-left: 1em;
-        margin-right: 1em;
-        &:first-child {
-          margin-top: 1.5em;
-        }
-        &:last-child {
-          margin-bottom: 1.5em;
+    .carousel {
+      .splide__slide {
+        .carousel-image-caption {
+          left: calc((100% - 960px) / 2);
         }
       }
     }
 
-    section#aseguradoras-section {
-      .section-title {
-        text-align: left;
+    section#section-home-insurance-companies {
+      .section-heading {
+        .section-title {
+          text-align: left;
+        }
+      }
+      .section-body {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    .carousel {
+      .splide__slide {
+        .carousel-image-caption {
+          left: calc((100% - 1140px) / 2);
+        }
       }
     }
   }

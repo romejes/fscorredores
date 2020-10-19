@@ -12,24 +12,6 @@
             <p>Panel de Control</p>
           </a>
         </li>
-        <li class="nav-item has-treeview  {{Request::segment(2) == 'compras' ? 'menu-open' : ''}}">
-          <a href="#" class="nav-link">
-            <i class="nav-icon fas fa-money-check-alt"></i>
-            <p>
-              Compras
-              <i class="right fas fa-angle-left"></i>
-            </p>
-          </a>
-          <ul class="nav nav-treeview">
-            <li class="nav-item">
-              <a href="{{ URL::to('intranet/compras/soat') }}"
-                class="nav-link {{ Request::segment(3) == 'soat' && Request::segment(2) == 'compras' ? 'active': ''}}">
-                <i class=" far fa-circle nav-icon"></i>
-                <p>SOAT</p>
-              </a>
-            </li>
-          </ul>
-        </li>
         <li class="nav-item has-treeview {{Request::segment(2) == 'cotizaciones' ? 'menu-open' : ''}}">
           <a href="#" class="nav-link">
             <i class="nav-icon fas fa-comment-dollar"></i>

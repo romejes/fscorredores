@@ -1,0 +1,124 @@
+@import '../variables';
+
+footer {
+  .wrapper_slogan {
+    background: url('../../../images/backgrounds/bg-footer.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 400px;
+    position: relative;
+
+    .overlay_slogan {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color: #000000, $alpha: 0.8);
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      h4.slogan_text {
+        text-align: center;
+        color: white;
+        font-size: $heading2;
+        font-family: 'Montserrat', sans-serif;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  .wrapper_main_footer {
+    background-color: $red-primary;
+    color: white;
+
+    #container_company_logo_footer {
+      text-align: center;
+      img#company_logo_footer {
+        max-width: 250px;
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    #container_supervised_by {
+      text-align: center;
+      img#sbs_logo {
+        height: auto;
+        width: 100%;
+        max-width: 250px;
+      }
+    }
+
+    #container_our_office,
+    #container_supervised_by {
+      h3 {
+        font-family: 'Montserrat', sans-serif;
+        padding-bottom: 0.3em;
+        color: white;
+        position: relative;
+        text-align: center;
+        &::after {
+          content: '';
+          position: absolute;
+          display: block;
+          background-color: $grey-primary;
+          width: 40%;
+          height: 3px;
+          left: 30%;
+          bottom: 0px;
+        }
+      }
+    }
+
+    .main_footer_section {
+      margin-top: 1em;
+      margin-bottom: 1em;
+    }
+  }
+
+  .wrapper_copyright {
+    background-color: $red-secondary;
+    color: white;
+    p {
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9em;
+      text-align: center;
+      margin: 1em 0;
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  footer {
+    .wrapper_main_footer {
+      #container_company_logo_footer {
+        img#company_logo_footer {
+          max-width: 200px;
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      #container_supervised_by {
+        img#sbs_logo {
+          height: auto;
+          width: 100%;
+          max-width: 200px;
+        }
+      }
+
+      #container_our_office,
+      #container_supervised_by {
+        h3 {
+          text-align: left;
+          &::after {
+            content: '';
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+}

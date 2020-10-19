@@ -1,7 +1,9 @@
-@extends('web.layouts._detalle-solicitud') @section('solicitud_content')
+@extends('web.layouts._detail-request')
+
+@section('request-content')
 
 <!-- Form -->
-<h4 class="section-title color-fs-blue text-left">Cotizar SOAT</h4>
+<h2>Cotizar SOAT</h2>
 <div class="wizard" id="wizard-cotizar-soat">
   <ul class="nav">
     <li>
@@ -11,8 +13,7 @@
       <a class="nav-link" href="#tab-pane-datos-vehiculo">Paso 2 <br /><small>Datos del vehículo</small></a>
     </li>
     <li>
-      <a class="nav-link" href="#tab-pane-datos-cotizacion">Paso 3 <br /><small>Datos de la
-          cotización</small></a>
+      <a class="nav-link" href="#tab-pane-datos-cotizacion">Paso 3 <br /><small>Datos de la cotización</small></a>
     </li>
   </ul>
 
@@ -24,14 +25,14 @@
           <div class="form-group row">
             <label for="txt-nombres" class="col-sm-5 col-form-label">Nombres</label>
             <div class="col-sm-7">
-              <input type="text" tabindex="0" name="nombres" id="txt-nombres" class="form-control" maxlength="40" required />
+              <input type="text" name="nombres" id="txt-nombres" class="form-control" maxlength="40" required />
             </div>
           </div>
 
           <div class="form-group row">
             <label for="txt-apellido-paterno" class="col-sm-5 col-form-label">Apellido Paterno</label>
             <div class="col-sm-7">
-              <input type="text" tabindex="1" name="apellido_paterno" id="txt-apellido-paterno" class="form-control" maxlength="40"
+              <input type="text" name="apellido_paterno" id="txt-apellido-paterno" class="form-control" maxlength="40"
                 required />
             </div>
           </div>

@@ -22,11 +22,14 @@ if (existsElement('.carousel')) {
     new Splide('.carousel', {
       cover: true,
       type: 'loop',
+      pauseOnHover: false,
       fixedHeight: 400,
-      height: 400,
+      autoplay: true,
+      arrows: false,
+      height: 450,
       breakpoints: {
-        640: {
-          height: 500,
+        768: {
+          height: 600,
         },
       },
     }).mount();

@@ -1,7 +1,6 @@
- <?php $__env->startSection('solicitud_content'); ?>
-<h4 class="section-title color-fs-blue text-left">
-  Cotizar Seguro Vehicular Todo Riesgo
-</h4>
+<?php $__env->startSection('request-content'); ?>
+<h2>Cotizar Seguro Vehicular Todo Riesgo</h2>
+
 <div class="wizard" id="wizard-cotizar-seguro-vehicular-todo-riesgo">
   <ul class="nav">
     <li>
@@ -181,4 +180,4 @@
   </form>
 </div>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('web.layouts._detalle-solicitud', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('web.layouts._detail-request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

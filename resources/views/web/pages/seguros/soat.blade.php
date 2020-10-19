@@ -1,49 +1,52 @@
-@extends('web.layouts._detalle-seguro') @section('seguro-content')
-<h4 class="seguro-title">Seguro obligatorio contra accidentes de tránsito (SOAT)</h4>
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">¿En que consiste?</h5>
+@extends('web.layouts._insurance-detail')
+
+@section('insurance-content')
+<h2>Seguro obligatorio contra accidentes de tránsito (SOAT)</h2>
+
+<article>
+  <h3>¿En que consiste?</h3>
   <p>El SOAT (Seguro Obligatorio de Accidentes de Tránsito) cubre no solo al conductor del vehículo, sino también a
     ocupantes o terceros no ocupantes de un vehículo automotor, este vela por tu bienestar y beneficia a la sociedad de
     manera inmediata e incondicional. </p>
 </article>
 
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">Cobertura del seguro</h5>
+<article>
+  <h3>Cobertura del seguro</h3>
   <p>Trabajadores que laboran en empresas que desarrollan actividades económicas del alto riesgo, descritas en el anexo
     5 del Decreto Supremo N° 009-97-SA "Reglamento de la Ley de Modernización de la Seguridad Social". </p>
 
-  <table class="table color-fs-grey">
+  <table class="table">
     <thead>
-      <th class="center">Descripción</th>
-      <th class="center">Cobertura por persona</th>
+      <th>Descripción</th>
+      <th>Cobertura por persona</th>
     </thead>
     <tbody>
       <tr>
-        <td class="left">Muerte</td>
-        <td class="valor">4 UIT</td>
+        <td>Muerte</td>
+        <td>4 UIT</td>
       </tr>
       <tr>
-        <td class="left">Invalidez permanente</td>
-        <td class="valor">Hasta 4 UIT</td>
+        <td>Invalidez permanente</td>
+        <td>Hasta 4 UIT</td>
       </tr>
       <tr>
-        <td class="left">Incapacidad temporal</td>
-        <td class="valor">Hasta 1 UIT</td>
+        <td>Incapacidad temporal</td>
+        <td>Hasta 1 UIT</td>
       </tr>
       <tr>
-        <td class="left">Gastos médicos</td>
-        <td class="valor">Hasta 5 UIT</td>
+        <td>Gastos médicos</td>
+        <td>Hasta 5 UIT</td>
       </tr>
       <tr>
-        <td class="left">Gastos de sepelio</td>
-        <td class="valor">Hasta 1 UIT</td>
+        <td>Gastos de sepelio</td>
+        <td>Hasta 1 UIT</td>
       </tr>
     </tbody>
   </table>
 </article>
 
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">No cobertura del seguro</h5>
+<article>
+  <h3>No cobertura del seguro</h3>
   <p>Quedan excluidas de la cobertura de esta póliza la muerte y/o lesiones corporales producidas como consecuencia de
     la ocurrencia de los siguientes eventos:</p>
   <ul>
@@ -55,8 +58,8 @@
   </ul>
 </article>
 
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">Dirigido a:</h5>
+<article>
+  <h3>Dirigido a:</h3>
   <p>Publico en general, que posea algun vehiculo motorizado </p>
 </article>
 @endsection

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ClaseVehiculo;
 use App\Models\Pais;
 use App\Models\TipoDocumentoIdentidad;
+use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class WebController extends Controller
 {
@@ -64,7 +65,17 @@ class WebController extends Controller
             )
         );
 
-        return view("web.pages.nosotros", compact("staff"));
+        $values = array(
+            "Disciplina",
+            "Autocrítica",
+            "Responsabilidad",
+            "Disponibilidad al cambio",
+            "Perseverancia",
+            "Proactividad",
+            "Aprendizaje"
+        );
+
+        return view("web.pages.nosotros", compact("staff", "values"));
     }
 
     /**
@@ -81,7 +92,8 @@ class WebController extends Controller
                 "seguros" => array(
                     array(
                         "name" => "Seguro contra robos",
-                        "slug" => "seguro_persona_robo"
+                        "slug" => "seguro_persona_robo",
+                        "picture" => "seguro_robo_domicilio.jpg"
                     )
                 )
             ),
@@ -90,23 +102,28 @@ class WebController extends Controller
                 "seguros" => array(
                     array(
                         "name" => "Seguro contra robos y asaltos",
-                        "slug" => "seguro_empresa_robo"
+                        "slug" => "seguro_empresa_robo",
+                        "picture" => "seguro_robo_negocio.jpg"
                     ),
                     array(
                         "name" => "Seguro por responsabilidad civil",
-                        "slug" => "seguro_responsabilidad_civil"
+                        "slug" => "seguro_responsabilidad_civil",
+                        "picture" => "seguro_responsabilidad_civil.jpg"
                     ),
                     array(
                         "name" => "Seguro contra riesgo de montaje",
-                        "slug" => "seguro_riesgo_montaje"
+                        "slug" => "seguro_riesgo_montaje",
+                        "picture" => "seguro_montaje.jpg"
                     ),
                     array(
                         "name" => "Seguro contra incendios",
-                        "slug" => "seguro_incendio"
+                        "slug" => "seguro_incendio",
+                        "picture" => "seguro_incendio.jpg"
                     ),
                     array(
                         "name" => "EPS",
-                        "slug" => "eps"
+                        "slug" => "eps",
+                        "picture" => "seguro_eps.jpg"
                     )
                 )
             ),
@@ -115,11 +132,13 @@ class WebController extends Controller
                 "seguros" => array(
                     array(
                         "name" => "SOAT",
-                        "slug" => "soat"
+                        "slug" => "soat",
+                        "picture" => "seguro_soat.jpg"
                     ),
                     array(
                         "name" => "Seguro vehicular todo riesgo",
-                        "slug" => "seguro_vehicular_todo_riesgo"
+                        "slug" => "seguro_vehicular_todo_riesgo",
+                        "picture" => "seguro_vehiculo.jpg"
                     )
                 )
             ),
@@ -128,7 +147,8 @@ class WebController extends Controller
                 "seguros" => array(
                     array(
                         "name" => "Seguro contra terremotos",
-                        "slug" => "seguro_terremotos"
+                        "slug" => "seguro_terremotos",
+                        "picture" => "seguro_terremoto.jpg"
                     )
                 )
             )
@@ -156,10 +176,6 @@ class WebController extends Controller
                     array(
                         "name" => "Cotizar",
                         "slug" => "cotizar_soat"
-                    ),
-                    array(
-                        "name" => "Comprar",
-                        "slug" => "comprar_soat"
                     )
                 )
             ),
@@ -185,18 +201,18 @@ class WebController extends Controller
 
         if (!$solicitud) {
             return view("web.pages.solicitudes.index", compact("solicitudes"));
-        } else {
-            $tipoDocumentoIdentidad = $this->modelTipoDocumentoIdentidad->getAll();
-            $claseVehiculo = $this->modelClaseVehiculo->getAll();
-            $paises = $this->modelPais->getAll();
-
-            return view("web.pages.solicitudes." . $solicitud,  compact([
-                "solicitudes",
-                "tipoDocumentoIdentidad",
-                "claseVehiculo",
-                "paises"
-            ]));
         }
+
+        $tipoDocumentoIdentidad = $this->modelTipoDocumentoIdentidad->getAll();
+        $claseVehiculo = $this->modelClaseVehiculo->getAll();
+        $paises = $this->modelPais->getAll();
+
+        return view("web.pages.solicitudes." . $solicitud,  compact([
+            "solicitudes",
+            "tipoDocumentoIdentidad",
+            "claseVehiculo",
+            "paises"
+        ]));
     }
 
     /**

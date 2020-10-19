@@ -14,6 +14,7 @@ require('laravel-mix-merge-manifest');
 
 mix
   .sass('resources/assets/sass/web/app.scss', 'public/css/web.css')
+  .sass('resources/assets/sass/web/vendor.scss', 'public/css/vendor.css')
   .js('resources/assets/js/web/app.js', 'public/js/web')
   .extract([
     'jquery',
@@ -33,9 +34,9 @@ mix
   .mergeManifest()
   .autoload({
     jquery: ['$', 'window.jQuery', 'jQuery', 'window.$'],
-  })
+  });
 
-  /*
+/*
   .options({
     postCss: [
       require('autoprefixer')({

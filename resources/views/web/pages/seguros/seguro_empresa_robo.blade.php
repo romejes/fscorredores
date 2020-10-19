@@ -1,14 +1,17 @@
-@extends('web.layouts._detalle-seguro') @section('seguro-content')
-<h4 class="seguro-title">Seguro empresarial contra robos y asaltos</h4>
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">¿En que consiste?</h5>
+@extends('web.layouts._insurance-detail')
+
+@section('insurance-content')
+<h2>Seguro empresarial contra robos y asaltos</h2>
+
+<article>
+  <h3>¿En que consiste?</h3>
   <p>Es un seguro que cubre los daños o pérdidas dentro de tu local a consecuencia de un robo, asalto o intento de robo.
     Todos tus bienes estarán asegurados, así como también, el dinero dentro del local, dinero en tránsito a los bancos y
     el dinero en poder de los cobradores o vendedores. </p>
 </article>
 
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">Dirigido a:</h5>
+<article>
+  <h3>Dirigido a:</h3>
   <p>Empresas comerciales, industriales, de servicios y en general todo tipo de empresas que requieran asegurar su
     patrimonio. </p>
 </article>

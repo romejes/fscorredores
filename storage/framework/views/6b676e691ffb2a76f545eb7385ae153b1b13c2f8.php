@@ -1,7 +1,8 @@
- <?php $__env->startSection('seguro-content'); ?>
-<h4 class="seguro-title">Seguro contra terremotos</h4>
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">¿En que consiste?</h5>
+<?php $__env->startSection('insurance-content'); ?>
+<h2>Seguro contra terremotos</h2>
+
+<article>
+  <h3>¿En que consiste?</h3>
   <p>Es un seguro que cubre lacubre el inmueble descrito como Materia Asegurada en las Condiciones Particulares o
     Certificado de Seguro contra los daños materiales que le ocurran durante la vigencia de la Póliza, siempre y cuando
     dichos daños materiales sucedan en forma accidental, súbita e imprevista, como consecuencia directa de: </p>
@@ -15,11 +16,11 @@
   </ul>
 </article>
 
-<article class="seguro-description">
-  <h5 class="seguro-subtitle">Dirigido a:</h5>
+<article>
+  <h3>Dirigido a:</h3>
   <p>Personas habitantes de departamentos en edificios, destinados y efectivamente utilizados únicamente para vivienda.
     No aplica para casas ni cuando el edificio, del que forma parte el departamento asegurado, sea de propiedad de una
     sola persona, natural o jurídica, o del ASEGURADO. </p>
 </article>
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('web.layouts._detalle-seguro', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('web.layouts._insurance-detail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

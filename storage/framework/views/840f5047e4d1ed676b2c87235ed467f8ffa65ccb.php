@@ -1,20 +1,20 @@
 <?php $__env->startSection('content'); ?>
 <main>
-  <!-- Heading -->
-  <?php $__env->startComponent('web.components._section-header'); ?>
+  <!-- Heading Page -->
+  <?php $__env->startComponent('web.components._heading-page'); ?>
   Contáctanos
   <?php echo $__env->renderComponent(); ?>
-  <!-- End Heading-->
+  <!-- End Heading Page -->
 
-  <!-- Contact Form -->
-  <section class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h4 class="section-title color-fs-blue">Deja tus preguntas o sugerencias</h4>
+  <!-- Section: Formulario de Contacto -->
+  <section>
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-heading col-12">
+          <h2 class="section-title">Envíanos tus preguntas o sugerencias</h2>
         </div>
-        <div class="col-12">
-          <form method="POST" id="frm-contacto" class="form-row" novalidate>
+        <div class="section-body col-12">
+          <form method="POST" id="frm-contact" class="form-row" novalidate>
             <div class="form-group col-lg-6">
               <label for="txt-nombres">Nombres y Apellidos</label>
               <input type="text" name="nombres-apellidos" id="txt-nombres-apellidos" class="form-control" required>
@@ -36,28 +36,26 @@
               <textarea name="comentario" id="txt-comentario" cols="30" rows="5" class="form-control"
                 required></textarea>
             </div>
-            <div class="form-group col text-center">
-              <button class="btn btn-primary" type="button" id="btn-enviar">Enviar</button>
-            </div>
+            <button class="button button-primary" type="button" id="btn-send">Enviar</button>
           </form>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Contact Form -->
+  <!-- End Section: Formulario de Contacto -->
 
-  <!-- Map -->
-  <section class="section pb-0">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h4 class="section-title color-fs-blue">...o visita nuestra oficina</h4>
+  <!-- Section: Ubicacion -->
+  <section id="section-contact-map">
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-heading col-12">
+          <h2 class="section-title">... o visita nuestra oficina</h2>
         </div>
       </div>
     </div>
     <div id="location-map" data-aos="fade-in"></div>
   </section>
-  <!-- End Map -->
+  <!-- End Section: Ubicacion -->
 </main>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

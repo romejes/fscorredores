@@ -1,23 +1,34 @@
 main {
-  form#frm-contacto {
+  form#frm-contact {
+    margin-top: 2em;
     width: 100%;
+
+    button#btn-send {
+      margin: 1.5em auto 0 auto;
+    }
   }
 
-  #location-map {
-    width: 100%;
-    height: 550px;
+  section#section-contact-map {
+    padding-bottom: 0px;
+    #location-map {
+      margin-top: 2em;
+      width: 100%;
+      height: 550px;
+    }
   }
 }
 
 @media (min-width: 992px) {
   main {
-    form#frm-contacto {
+    form#frm-contact {
       width: 80%;
-      margin: 0 auto;
+      margin: 1.5em auto 0 auto;
     }
 
-    #location-map {
-      height: 450px;
+    section#section-contact-map {
+      #location-map {
+        height: 450px;
+      }
     }
   }
 }

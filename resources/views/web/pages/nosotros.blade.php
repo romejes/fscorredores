@@ -1,95 +1,94 @@
 @extends('web.layouts.main') @section('content')
 
 <main>
-  <!-- Heading -->
-  @component('web.components._section-header')
+  <!-- Heading Page -->
+  @component('web.components._heading-page')
   Conoce nuestra empresa
   @endcomponent
-  <!-- End Heading-->
+  <!-- End Heading Page -->
 
-  <!-- Mision, Vision, Valores -->
-  <section class="section bg-color-white">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-lg-6 py-3" id="mision-block">
-          <h4 class="section-title color-fs-blue">Nuestra Misión</h4>
-          <p class="text-center" data-aos="fade-up">
-            Brindar un asesoramiento profesional y confiable en la gestion
-            integral de seguros, a través de un eficáz servicio de atención al
-            cliente
-          </p>
+  <section id="section-about_us-mision-vision-values">
+    <div class="section-container">
+      <div class="section-row align-items-stretch">
+        <div class="col-12 col-md-6">
+          <article data-aos="fade-up">
+            <img src="{{ asset('img/mision.svg') }}" alt="">
+            <h2>Nuestra Misión</h2>
+            <p> Brindar un asesoramiento profesional y confiable en la gestion integral de seguros, a
+              través de un eficáz servicio de atención al cliente </p>
+          </article>
         </div>
-        <div class="col-12 col-lg-6 py-3" id="vision-block">
-          <h4 class="section-title color-fs-blue">Nuestra Visión</h4>
-          <p class="text-center" data-aos="fade-up">
-            Ser la empresa de asesoría y corretaje en seguros de mayor prestigio
-            y confianza en el mercado asegurador peruano, que brinde soluciones
-            innovadoras, simples, transparentes y con altos estándares de
-            servicio.
-          </p>
+        <div class="col-12 col-md-6">
+          <article data-aos="fade-up">
+            <img src="{{ asset('img/vision.svg') }}" alt="">
+            <h2>Nuestra Visión</h2>
+            <p>Ser la empresa de asesoría y corretaje en seguros de mayor prestigio y confianza en el
+              mercado asegurador peruano, que brinde soluciones innovadoras, simples, transparentes y con altos
+              estándares de servicio.</p>
+          </article>
         </div>
-        <div class="col-12 py-3" id="valores-block">
-          <h4 class="section-title color-fs-blue">Valores de la empresa</h4>
-          <ul class="list-valores">
-            <li class="list-valores-item" data-aos="fade-up">Disciplina</li>
-            <li class="list-valores-item" data-aos="fade-up">Autocrítica</li>
-            <li class="list-valores-item" data-aos="fade-up">Responsabilidad</li>
-            <li class="list-valores-item" data-aos="fade-up">Disponibilidad al cambio</li>
-            <li class="list-valores-item" data-aos="fade-up">Perseverancia</li>
-            <li class="list-valores-item" data-aos="fade-up">Proactividad</li>
-            <li class="list-valores-item" data-aos="fade-up">Aprendizaje</li>
-          </ul>
+        <div class="col-12">
+          <article>
+            <h2>Valores de la empresa</h2>
+            <div class="wrapper-card wrapper-company-values">
+              @foreach ($values as $value)
+              <div class="card company-value" data-aos="fade-up">
+                <div class="company-value-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="company-value-text">
+                  <span>{{ $value }}</span>
+                </div>
+              </div>    
+              @endforeach
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Mision, Vision, Valores -->
 
-  <!-- Staff-->
-  <section class="section bg-color-fs-grey color-white">
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <h4 class="section-title">Nuestro Equipo</h4>
+  <!-- Section: El equipo -->
+  <section class="section-grey" id="section-about_us-staff">
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-heading col-12">
+          <h2 class="section-title">Nuestro equipo</h2>
         </div>
-      </div>
-      <div class="row my-3">
-        <div class="card-staff-wrapper">
-          @foreach ($staff as $worker)
-          <div class="card card-staff" data-aos="fade-up">
-            <div class="card-staff-body">
-              <div class="card-staff-body-row">
-                <div class="card-staff-icon">
-                  <i class="fas fa-user fa-2x"></i>
-                </div>
-                <div class="card-staff-description">
-                  <p>{{ $worker["name"] }}</p>
-                  <i>{{ $worker["charge"] }}</i>
-                </div>
-              </div>
-              <div class="card-staff-body-row">
-                <div class="card-staff-icon">
-                  <i class="fas fa-envelope fa-2x"></i>
-                </div>
-                <div class="card-staff-description">
-                  <p>{{ $worker["email"]}}</p>
-                </div>
-              </div>
-              <div class="card-staff-body-row">
-                <div class="card-staff-icon">
-                  <i class="fab fa-whatsapp fa-2x"></i>
-                </div>
-                <div class="card-staff-description">
-                  <p>{{ $worker["phone"]}}</p>
-                </div>
+        <div class="section-body col-12">
+          <div class="wrapper-card">
+            @foreach ($staff as $worker)
+            <div class="card staff-card" data-aos="fade-up">
+              <div class="card-body">
+                <dl>
+                  <div class="dl-row">
+                    <dt class="dt-icon"><i class="fas fa-user fa-2x"></i></dt>
+                    <dd>
+                      <p class="worker-name"> {{ $worker["name"] }}</p>
+                      <i class="worker-job">{{ $worker["charge"] }}</i>
+                    </dd>
+                  </div>
+                  <div class="dl-row">
+                    <dt class="dt-icon"> <i class="fas fa-envelope fa-2x"></i></dt>
+                    <dd>
+                      <p>{{ $worker["email"]}}</p>
+                    </dd>
+                  </div>
+                  <div class="dl-row">
+                    <dt class="dt-icon"> <i class="fab fa-whatsapp fa-2x"></i></dt>
+                    <dd>
+                      <p>{{ $worker["phone"]}}</p>
+                    </dd>
+                  </div>
+                </dl>
               </div>
             </div>
+            @endforeach
           </div>
-          @endforeach
         </div>
       </div>
     </div>
   </section>
-  <!-- End Staff-->
+  <!-- End Section: El equipo -->
 </main>
 @endsection

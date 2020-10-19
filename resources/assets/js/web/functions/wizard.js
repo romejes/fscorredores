@@ -11,6 +11,7 @@ import { isValid } from './validation';
  */
 export function setWizard() {
   $('.wizard').smartWizard({
+    theme: 'dots',
     lang: {
       previous: 'Anterior',
       next: 'Siguiente',
@@ -23,7 +24,7 @@ export function setWizard() {
       toolbarExtraButtons: [
         $('<button></button>', {
           text: 'Enviar solicitud',
-          class: 'btn btn-primary',
+          class: 'button button-primary',
           id: 'btn-enviar-solicitud',
           type: 'button',
           disabled: true,
@@ -82,10 +83,10 @@ function validStep(stepIndex) {
  * @param {HTMLElement} tabPane
  */
 export function resizeTabContainer(tabPane) {
-  const heightTabPane = $(tabPane).height();
+  const activeTab = $(".tab-pane:not([style*='display: none'])");
   $('.tab-content')
     .eq(0)
-    .height(heightTabPane);
+    .height(activeTab.innerHeight());
 }
 
 /**

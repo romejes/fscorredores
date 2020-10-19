@@ -1,35 +1,35 @@
 @extends('web.layouts.main') @section('content')
-<main id="seguros-main">
-  <!-- Heading -->
-  @component('web.components._section-header') Nuestros Seguros @endcomponent
-  <!-- End Heading-->
+<main>
+  <!-- Heading Page-->
+  @component('web.components._heading-page') Nuestros Seguros @endcomponent
+  <!-- End Heading Page-->
 
-  <!-- Content -->
-  <section class="section">
-    <div class="container">
-      @foreach ($seguros as $seguro)
-      <div class="row my-5">
-        <div class="col-12">
-          <h4 class="section-title color-fs-blue">{{ $seguro['title']}} </h4>
+  <!-- Section -->
+  @foreach ($seguros as $seguro)
+  <section>
+    <div class="section-container">
+      <div class="section-row">
+        <div class="section-heading col-12">
+          <h2 class="section-title">{{ $seguro['title']}}</h2>
         </div>
-        <div class="col-12">
-          <div class="wrapper-seguros">
-            @foreach($seguro['seguros'] as $detalle)
-            <div class="card card-seguro" data-aos="fade-up">
+        <div class="section-body col-12">
+          <div class="wrapper-card">
+            @foreach ($seguro['seguros'] as $detalle)
+            <div class="card" data-aos="fade-up">
+              <img src="{{ asset('img/seguros/'. $detalle['picture']) }}" alt="">
               <div class="card-body">
-                <h5 class="card-title-seguro">{{ $detalle['name'] }}</h5>
+                <h3 class="card-title">{{ $detalle['name'] }}</h3>
               </div>
-              <div class="card-footer card-seguro-footer">
-                <a href="{{ url('seguros/'.$detalle['slug']) }}" class="btn btn-primary">Ver</a>
+              <div class="card-footer">
+                <a href="{{ url('seguros/'. $detalle['slug'])}}" class="button button-primary">Ver</a>
               </div>
             </div>
             @endforeach
           </div>
         </div>
       </div>
-      @endforeach
     </div>
   </section>
-  <!-- End Content -->
+  @endforeach
 </main>
 @endsection
