@@ -14,6 +14,8 @@ class DetalleCotizacionSoatResource
             "nombres" => $detalleCotizacionSoat->Nombres,
             "apellido_paterno" => $detalleCotizacionSoat->ApellidoPaterno,
             "apellido_materno" => $detalleCotizacionSoat->ApellidoMaterno,
+            "razon_social" => $detalleCotizacionSoat->RazonSocial,
+            "tipo_cliente" => $detalleCotizacionSoat->TipoCliente,
             "fecha_nacimiento" => $detalleCotizacionSoat->FechaNacimiento,
             "telefono" => $detalleCotizacionSoat->Telefono,
             "email" => $detalleCotizacionSoat->Email,

@@ -5,6 +5,7 @@ $factory->define(App\Models\DetalleCotizacionVtr::class, function (Faker\Generat
         "IdSolicitud" => function () {
             return factory(\App\Models\Solicitud::class)->states("en_atencion")->create()->IdSolicitud;
         },
+        "TipoCliente" => "N",
         "Nombres" => $faker->name,
         "ApellidoPaterno" => $faker->lastName,
         "ApellidoMaterno" => $faker->lastName,

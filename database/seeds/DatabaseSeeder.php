@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Schema;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,17 +14,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
+
+        DB::table("Perfil")->truncate();
         DB::table("Perfil")->insert([
             "IdPerfil" => 1,
             "Descripcion" => "Administrador"
         ]);
 
+        DB::table("Usuario")->truncate();
         DB::table("Usuario")->insert([
             "NombreUsuario" => "fsca",
             "Clave" => Hash::make("fsca"),
             "IdPerfil" => 1
         ]);
 
+        DB::table("TipoDocumentoIdentidad")->truncate();
         DB::table("TipoDocumentoIdentidad")->insert([
             [
                 "IdTipoDocumentoIdentidad" => 1,
@@ -33,8 +39,21 @@ class DatabaseSeeder extends Seeder
                 "IdTipoDocumentoIdentidad" => 2,
                 "Descripcion" => "Carnet de Extranjería",
             ],
+            [
+                "IdTipoDocumentoIdentidad" => 3,
+                "Descripcion" => "Pasaporte",
+            ],
+            [
+                "IdTipoDocumentoIdentidad" => 4,
+                "Descripcion" => "Registro Unico de Contribuyente (RUC)",
+            ],
+            [
+                "IdTipoDocumentoIdentidad" => 5,
+                "Descripcion" => "Otro",
+            ],
         ]);
 
+        DB::table("Pais")->truncate();
         DB::table("Pais")->insert([
             [
                 "Codigo" => "AR",
@@ -90,6 +109,7 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
+        DB::table("EstadoSolicitud")->truncate();
         DB::table("EstadoSolicitud")->insert([
             [
                 "IdEstadoSolicitud" => 1,
@@ -109,6 +129,7 @@ class DatabaseSeeder extends Seeder
             ],
         ]);
 
+        DB::table("ClaseVehiculo")->truncate();
         DB::table("ClaseVehiculo")->insert([
             [
                 "IdClaseVehiculo" => 1,
@@ -187,5 +208,7 @@ class DatabaseSeeder extends Seeder
                 "Descripcion" => "Volquete > 12 Toneladas"
             ],
         ]);
+
+        Schema::enableForeignKeyConstraints();
     }
 }

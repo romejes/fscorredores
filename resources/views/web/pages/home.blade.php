@@ -1,6 +1,35 @@
 @extends('web.layouts.main') @section('content')
 <main>
   <!-- Carousel -->
+  <!--div class="owl-carousel owl-theme">
+    <picture>
+      <source class="owl-lazy" media="(min-width: 720px)"
+        data-srcset="{{ asset('img/carousel/seguro_estudiante_banner.jpg') }}" />
+      <source class="owl-lazy" media="(min-width: 320px)"
+        data-srcset="{{ asset('img/carousel/seguro_estudiante_banner_2.jpg') }}" />
+      <img class="owl-lazy" data-src="{{ asset('img/carousel/seguro_estudiante_banner.jpg') }}" />
+    </picture>
+    <picture>
+      <source class="owl-lazy" media="(min-width: 320px)"
+        data-srcset="{{ asset('img/carousel/seguro_soat_banner_2.jpg') }}" />
+      <source class="owl-lazy" media="(min-width: 720px)" data-srcset="{{ asset('img/carousel/soat_banner.jpg') }}" />
+
+      <img class="owl-lazy" data-src="{{ asset('img/carousel/soat_banner.jpg') }}" />
+    </picture>
+  </div-->
+  <!--div class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-none d-md-block" src="{{ asset('img/carousel/seguro_estudiante_banner.jpg') }}" />
+        <img class="d-block d-md-none" src="{{ asset('img/carousel/seguro_estudiante_banner_2.jpg') }}" />
+      </div>
+      <div class="carousel-item">
+        <img class="d-block d-md-none" src="{{ asset('img/carousel/seguro_soat_banner_2.jpg') }}" />
+        <img class="d-none d-md-block" src="{{ asset('img/carousel/soat_banner.jpg') }}" />
+      </div>
+    </div>
+  </div-->
+
   <div class="carousel splide">
     <div class="splide__track">
       <ul class="splide__list">
@@ -9,11 +38,13 @@
           <div class="carousel-image-caption">
             <h2>No permitas que le pase esto a tu auto</h2>
             <p>Protégelo con nosotros</p>
-            <a class="button button-alt" href="{{ asset('solicitudes/cotizar_seguro_vehicular_todo_riesgo') }}">Cotizar Seguro Vehicular</a>
+            <a class="button button-alt" href="{{ asset('solicitudes/cotizar_seguro_vehicular_todo_riesgo') }}">Cotizar
+              Seguro Vehicular</a>
           </div>
         </li>
         <li class="splide__slide">
           <img src="{{ asset('img/carousel/soat_banner.jpg') }}" />
+
           <div class="carousel-image-caption">
             <h2>Tu SOAT en un instante</h2>
             <p>Cotizalo y adquierelo en menos de un minuto</p>

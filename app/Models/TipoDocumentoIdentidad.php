@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Config;
 
 class TipoDocumentoIdentidad extends Model
 {
@@ -13,6 +14,12 @@ class TipoDocumentoIdentidad extends Model
     public $incrementing = true;
 
     public $timestamps = false;
+
+    const DNI = 1;
+    const CE = 2;
+    const PASAPORTE = 3;
+    const RUC = 4;
+    const OTROS = 5;
 
     /**
      * Obtiene el pais segun su codigo
@@ -33,5 +40,22 @@ class TipoDocumentoIdentidad extends Model
     public function getAll()
     {
         return self::all();
+    }
+
+    public function getByTipoCliente($tipoCliente)
+    {
+        if ($tipoCliente === Config::get("constants.tipo_cliente.persona_juridica")) {
+            return self::whereIn("IdTipoDocumentoIdentidad", [
+                self::RUC,
+                self::OTROS
+            ])->get();
+        } else if ($tipoCliente === Config::get("constants.tipo_cliente.persona_natural")) {
+            return self::whereIn("IdTipoDocumentoIdentidad", [
+                self::DNI,
+                self::CE,
+                self::PASAPORTE,
+                self::OTROS
+            ])->get();
+        }
     }
 }

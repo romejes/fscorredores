@@ -6,6 +6,7 @@ use App\Exceptions\RegistroNoEncontradoException;
 use App\Models\DetalleSolicitud;
 use App\Http\Requests\CreateCotizacionSoatRequest;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Config;
 
 class DetalleCotizacionSoat extends DetalleSolicitud
 {
@@ -19,9 +20,6 @@ class DetalleCotizacionSoat extends DetalleSolicitud
 
     public $fillable = [
         "IdSolicitud",
-        "Nombres",
-        "ApellidoPaterno",
-        "ApellidoMaterno",
         "Telefono",
         "Email",
         "IdTipoDocumentoIdentidad",
@@ -32,7 +30,8 @@ class DetalleCotizacionSoat extends DetalleSolicitud
         "Uso",
         "AnioVehiculo",
         "CompaniaSeguro",
-        "FechaVencimiento"
+        "FechaVencimiento",
+        "TipoCliente"
     ];
 
 
@@ -72,24 +71,34 @@ class DetalleCotizacionSoat extends DetalleSolicitud
         );
 
         //  Crear el detalle de la solicitud
+        $detalle = new self();
         $tieneSoat = $data->input("tiene_soat");
-        $detalle = self::create([
-            "IdSolicitud" => $solicitud->IdSolicitud,
-            "Nombres" => $data->input("nombres"),
-            "ApellidoPaterno" => $data->input("apellido_paterno"),
-            "ApellidoMaterno" => $data->input("apellido_materno"),
-            "Telefono" => $data->input("telefono"),
-            "Email" => $data->input("correo"),
-            "IdTipoDocumentoIdentidad" => $tipoDocumentoIdentidad->IdTipoDocumentoIdentidad,
-            "NumeroDocumentoIdentidad" => $data->input("numero_documento_identidad"),
-            "Placa" => $data->input("placa"),
-            "Asientos" => $data->input("asientos"),
-            "Uso" => $data->input("uso"),
-            "AnioVehiculo" => $data->input("anio_vehiculo"),
-            "CompaniaSeguro" => $data->input("compania_seguro"),
-            "TieneSoat" => $tieneSoat,
-            "FechaVencimiento" => $tieneSoat ? Carbon::parse($data->input("fecha_vencimiento")) : null
-        ]);
+
+        if ($data->input("tipo_cliente") === Config::get("constants.tipo_cliente.persona_natural")) {
+            $detalle->Nombres = $data->input("nombres");
+            $detalle->ApellidoPaterno = $data->input("apellido_paterno");
+            $detalle->ApellidoMaterno = $data->input("apellido_materno");
+        }
+
+        if ($data->input("tipo_cliente") === Config::get("constants.tipo_cliente.persona_juridica")) {
+            $detalle->RazonSocial = $data->input("razon_social");
+        }
+
+        $detalle->TipoCliente = $data->input("tipo_cliente");
+        $detalle->IdSolicitud = $solicitud->IdSolicitud;
+        $detalle->Telefono = $data->input("telefono");
+        $detalle->Email = $data->input("correo");
+        $detalle->IdTipoDocumentoIdentidad = $tipoDocumentoIdentidad->IdTipoDocumentoIdentidad;
+        $detalle->NumeroDocumentoIdentidad = $data->input("numero_documento_identidad");
+        $detalle->Placa = $data->input("placa");
+        $detalle->Asientos = $data->input("asientos");
+        $detalle->Uso = $data->input("uso");
+        $detalle->AnioVehiculo = $data->input("anio_vehiculo");
+        $detalle->CompaniaSeguro = $data->input("compania_seguro");
+        $detalle->TieneSoat = $tieneSoat;
+        $detalle->FechaVencimiento = $tieneSoat ? Carbon::parse($data->input("fecha_vencimiento")) : null;
+        
+        $detalle->save();
         return $detalle;
     }
 }

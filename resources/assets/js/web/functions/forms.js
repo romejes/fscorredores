@@ -15,6 +15,7 @@ import {
   showServerErrors,
   toggleFechaVencimientoRules,
 } from './validation';
+import { tipoClienteConstants } from '../../shared/constants';
 
 /**
  * Init plugin for file inputs
@@ -153,6 +154,93 @@ export function toggleDireccionField(tipoCompra) {
       .closest('.form-group')
       .classList.add('d-none');
   }
+}
+
+/**
+ * Show or hide following controls:
+ * -  If customer type is Persona Natural, only show Nombres, Apellido Paterno and Apellido Materno input fields
+ * -  Otherwise only show Razon Social input field
+ *
+ * @author Jesus Romero
+ * @date 20/10/2020
+ * @export
+ * @param {string} tipoCliente
+ */
+export function toggleTipoClienteFields(tipoCliente) {
+  if (tipoCliente === tipoClienteConstants.PERSONA_NATURAL) {
+    document
+      .getElementById('txt-nombres')
+      .closest('.form-group')
+      .classList.remove('d-none');
+
+    document
+      .getElementById('txt-apellido-paterno')
+      .closest('.form-group')
+      .classList.remove('d-none');
+
+    document
+      .getElementById('txt-apellido-materno')
+      .closest('.form-group')
+      .classList.remove('d-none');
+
+    document
+      .getElementById('txt-razon-social')
+      .closest('.form-group')
+      .classList.add('d-none');
+  }
+
+  if (tipoCliente === tipoClienteConstants.PERSONA_JURIDICA) {
+    document
+      .getElementById('txt-nombres')
+      .closest('.form-group')
+      .classList.add('d-none');
+
+    document
+      .getElementById('txt-apellido-paterno')
+      .closest('.form-group')
+      .classList.add('d-none');
+
+    document
+      .getElementById('txt-apellido-materno')
+      .closest('.form-group')
+      .classList.add('d-none');
+
+    document
+      .getElementById('txt-razon-social')
+      .closest('.form-group')
+      .classList.remove('d-none');
+  }
+}
+
+/**
+ * Refresh list of Tipos Documento Identidad
+ *
+ * @author Jesus Romero
+ * @date 20/10/2020
+ * @export
+ * @param {*} tipoCliente
+ */
+export function loadSelectTipoDocumentoIdentidad(tipoCliente) {
+  const urlTarget =
+    returnUrl('tipos-documento-identidad') + '?tipo_cliente=' + tipoCliente;
+
+  axios.get(urlTarget).then(response => {
+    const data = response.data.data;
+    const selectTipoDocumentoIdentidad = document.getElementById(
+      'ddo-tipo-documento-identidad',
+    );
+
+    for (let i = selectTipoDocumentoIdentidad.options.length - 1; i >= 0; i--) {
+      selectTipoDocumentoIdentidad.options[i].remove();
+    }
+
+    data.forEach(item => {
+      const option = document.createElement('option');
+      option.value = item.id;
+      option.text = item.descripcion;
+      selectTipoDocumentoIdentidad.options.add(option);
+    });
+  });
 }
 
 /**

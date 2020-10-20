@@ -99,6 +99,9 @@ Route::group(["middleware" => ["auth"]], function () {
  */
 
 Route::post("login", "BackEnd\AuthController@login");
+
+Route::get('tipos-documento-identidad', "BackEnd\TipoDocumentoIdentidadController");
+
 Route::post("afiliaciones/seguro_estudiante", "BackEnd\AfiliacionSeguroEstudianteController@store");
 Route::post("compras/soat", "BackEnd\CompraSoatController@store");
 Route::post("cotizaciones/vehiculo_todo_riesgo", "BackEnd\CotizacionVehiculoTodoRiesgoController@store");

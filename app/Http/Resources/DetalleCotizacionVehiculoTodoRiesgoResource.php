@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Resources;
 
 use App\Http\Resources\SolicitudResource;
@@ -13,6 +14,8 @@ class DetalleCotizacionVehiculoTodoRiesgoResource
             "nombres" => $detalleCotizacionVehiculo->Nombres,
             "apellido_paterno" => $detalleCotizacionVehiculo->ApellidoPaterno,
             "apellido_materno" => $detalleCotizacionVehiculo->ApellidoMaterno,
+            "razon_social" => $detalleCotizacionVehiculo->RazonSocial,
+            "tipo_cliente" => $detalleCotizacionVehiculo->TipoCliente,
             "fecha_nacimiento" => $detalleCotizacionVehiculo->FechaNacimiento,
             "telefono" => $detalleCotizacionVehiculo->Telefono,
             "email" => $detalleCotizacionVehiculo->Email,

@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Exceptions\RegistroNoEncontradoException;
 use App\Models\DetalleSolicitud;
 use App\Http\Requests\CreateCotizacionVehiculoRequest;
+use Illuminate\Support\Facades\Config;
 
 class DetalleCotizacionVtr extends DetalleSolicitud
 {
@@ -18,9 +19,6 @@ class DetalleCotizacionVtr extends DetalleSolicitud
 
     public $fillable = [
         "IdSolicitud",
-        "Nombres",
-        "ApellidoPaterno",
-        "ApellidoMaterno",
         "Telefono",
         "Email",
         "IdTipoDocumentoIdentidad",
@@ -33,7 +31,8 @@ class DetalleCotizacionVtr extends DetalleSolicitud
         "Marca",
         "Modelo",
         "CostoVehiculo",
-        "CompaniaSeguro"
+        "CompaniaSeguro",
+        "TipoCliente",
     ];
 
     /**
@@ -75,25 +74,35 @@ class DetalleCotizacionVtr extends DetalleSolicitud
         );
 
         //  Crear el detalle de la solicitud
-        $detalle = self::create([
-            "IdSolicitud" => $solicitud->IdSolicitud,
-            "Nombres" => $data->input("nombres"),
-            "ApellidoPaterno" => $data->input("apellido_paterno"),
-            "ApellidoMaterno" => $data->input("apellido_materno"),
-            "Telefono" => $data->input("telefono"),
-            "Email" => $data->input("correo"),
-            "IdTipoDocumentoIdentidad" => $tipoDocumentoIdentidad->IdTipoDocumentoIdentidad,
-            "NumeroDocumentoIdentidad" => $data->input("numero_documento_identidad"),
-            "Placa" => $data->input("placa"),
-            "Asientos" => $data->input("asientos"),
-            "Uso" => $data->input("uso"),
-            "AnioVehiculo" => $data->input("anio_vehiculo"),
-            "IdClaseVehiculo" => $claseVehiculo->IdClaseVehiculo,
-            "Marca" => $data->input("marca"),
-            "Modelo" => $data->input("modelo"),
-            "CostoVehiculo" => $data->input("costo"),
-            "CompaniaSeguro" => $data->input("compania_seguro"),
-        ]);
+        $detalle = new self();
+
+        if ($data->input("tipo_cliente") === Config::get("constants.tipo_cliente.persona_natural")) {
+            $detalle->Nombres = $data->input("nombres");
+            $detalle->ApellidoPaterno = $data->input("apellido_paterno");
+            $detalle->ApellidoMaterno = $data->input("apellido_materno");
+        }
+
+        if ($data->input("tipo_cliente") === Config::get("constants.tipo_cliente.persona_juridica")) {
+            $detalle->RazonSocial = $data->input("razon_social");
+        }
+        
+        $detalle->TipoCliente = $data->input("tipo_cliente");
+        $detalle->IdSolicitud = $solicitud->IdSolicitud;
+        $detalle->Telefono = $data->input("telefono");
+        $detalle->Email = $data->input("correo");
+        $detalle->IdTipoDocumentoIdentidad = $tipoDocumentoIdentidad->IdTipoDocumentoIdentidad;
+        $detalle->NumeroDocumentoIdentidad = $data->input("numero_documento_identidad");
+        $detalle->Placa = $data->input("placa");
+        $detalle->Asientos = $data->input("asientos");
+        $detalle->Uso = $data->input("uso");
+        $detalle->AnioVehiculo = $data->input("anio_vehiculo");
+        $detalle->IdClaseVehiculo = $claseVehiculo->IdClaseVehiculo;
+        $detalle->Marca = $data->input("marca");
+        $detalle->Modelo = $data->input("modelo");
+        $detalle->CostoVehiculo = $data->input("costo");
+        $detalle->CompaniaSeguro = $data->input("compania_seguro");
+        
+        $detalle->save();
         return $detalle;
     }
 }

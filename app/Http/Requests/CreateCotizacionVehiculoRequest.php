@@ -2,10 +2,11 @@
 
 namespace App\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use App\Models\TipoDocumentoIdentidad;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Foundation\Http\FormRequest;
 
-//  TODO: Traduccion de las validaciones
 class CreateCotizacionVehiculoRequest extends FormRequest
 {
     /**
@@ -25,11 +26,7 @@ class CreateCotizacionVehiculoRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            "nombres" => "required|string|max:40",
-            "apellido_paterno" => "required|string|max:40",
-            "apellido_materno" => "max:40",
-            "tipo_documento_identidad" => "required|integer",
+        $rules = [
             "numero_documento_identidad" => "required|string|max:15",
             "telefono" => "required|string|max:40",
             "correo" => "required|email|max:40",
@@ -49,5 +46,37 @@ class CreateCotizacionVehiculoRequest extends FormRequest
                 Rule::in(['Pacifico', 'MAPFRE', 'La Positiva', 'Rimac'])
             ]
         ];
+
+        if ($this->input("tipo_cliente") === Config::get("constants.tipo_cliente.persona_natural")) {
+            $rules = array_merge($rules, [
+                "nombres" => "required|string|max:40",
+                "apellido_paterno" => "required|string|max:40",
+                "apellido_materno" => "max:40",
+                "tipo_documento_identidad" => [
+                    "required",
+                    Rule::in([
+                        TipoDocumentoIdentidad::DNI,
+                        TipoDocumentoIdentidad::CE,
+                        TipoDocumentoIdentidad::PASAPORTE,
+                        TipoDocumentoIdentidad::OTROS
+                    ])
+                ]
+            ]);
+        }
+
+        if ($this->input("tipo_cliente") === Config::get("constants.tipo_cliente.persona_juridica")) {
+            $rules = array_merge($rules, [
+                "razon_social" => "required|string|max:100",
+                "tipo_documento_identidad" => [
+                    "required",
+                    Rule::in([
+                        TipoDocumentoIdentidad::RUC,
+                        TipoDocumentoIdentidad::OTROS
+                    ])
+                ]
+            ]);
+        }
+
+        return $rules;
     }
 }

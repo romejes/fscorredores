@@ -4,3 +4,8 @@ export const requestFormConstants = {
   REQUEST_COTIZAR_SEGURO_VEHICULO: 'frm-cotizar-seguro-vehiculo',
   REQUEST_AFILIAR_SEGURO_ESTUDIANTE: 'frm-afiliar-seguro-estudiante',
 };
+
+export const tipoClienteConstants = {
+  PERSONA_NATURAL: 'N',
+  PERSONA_JURIDICA: 'J',
+};

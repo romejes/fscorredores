@@ -1,6 +1,7 @@
 import { existsElement } from '../../shared/util';
 import { toggleSidenav, attachMenuContent } from '../functions/menu';
-
+//import 'owl.carousel';
+//import 'bootstrap/js/src/carousel';
 import Splide from '@splidejs/splide';
 
 import AOS from 'aos';
@@ -23,18 +24,23 @@ if (existsElement('.carousel')) {
       cover: true,
       type: 'loop',
       pauseOnHover: false,
-      fixedHeight: 400,
       autoplay: true,
       arrows: false,
       height: 450,
       breakpoints: {
         768: {
-          height: 600,
+          height: 728,
         },
       },
     }).mount();
   });
+  //$('.carousel').carousel();
 }
+/*$('.owl-carousel').owlCarousel({
+  lazyLoad: true,
+  loop: true,
+  items: 1,
+});*/
 
 //  Init animations
 AOS.init();

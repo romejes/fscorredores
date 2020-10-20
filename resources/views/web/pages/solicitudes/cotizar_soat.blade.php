@@ -22,6 +22,22 @@
       <!-- Datos personales -->
       <div class="tab-pane" id="tab-pane-datos-personales">
         <div class="container">
+          <fieldset class="form-group">
+            <div class="row">
+              <legend class="col-sm-5 col-form-label pt-0">¿Que tipo de persona es Usted?</legend>
+              <div class="col-sm-7">
+                @include('web.components._radiobutton-tipo-cliente')
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form-group row d-none">
+            <label for="txt-razon-social" class="col-sm-5 col-form-label">Razon Social</label>
+            <div class="col-sm-7">
+              <input type="text" name="razon_social" id="txt-razon-social" class="form-control" maxlength="100" required />
+            </div>
+          </div>
+
           <div class="form-group row">
             <label for="txt-nombres" class="col-sm-5 col-form-label">Nombres</label>
             <div class="col-sm-7">

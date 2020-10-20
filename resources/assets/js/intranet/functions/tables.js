@@ -11,6 +11,10 @@ const commonColumns = [
   {
     title: 'Solicitado Por',
     formatter: (value, row) => {
+      if (row.tipo_cliente === 'J') {
+        return row.razon_social;
+      }
+
       let fullName = `${row.nombres} ${row.apellido_paterno}`;
       if (row.apellido_materno) {
         fullName += ` ${row.apellido_materno}`;

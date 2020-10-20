@@ -46,6 +46,9 @@
             </div>
           </div>
           <div class="card-body" id="detail-cotizacion-vehiculo-todo-riesgo">
+            <?php $__env->startComponent('intranet.components.status_info_box', ['estadoSolicitud' =>
+            $detalleCotizacion->solicitud->IdEstadoSolicitud]); ?>
+            <?php echo $__env->renderComponent(); ?>
             <dl class="row">
               <dt class="col-sm-4">Código</dt>
               <dd class="col-sm-8">

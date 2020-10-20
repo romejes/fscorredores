@@ -1,4 +1,5 @@
 import 'smartwizard';
+import { loadSelectTipoDocumentoIdentidad } from './forms';
 
 import { isValid } from './validation';
 
@@ -80,9 +81,8 @@ function validStep(stepIndex) {
  * @author Jesus Romero
  * @date 28/09/2020
  * @export
- * @param {HTMLElement} tabPane
  */
-export function resizeTabContainer(tabPane) {
+export function resizeTabContainer() {
   const activeTab = $(".tab-pane:not([style*='display: none'])");
   $('.tab-content')
     .eq(0)
@@ -118,6 +118,10 @@ export function toggleWizardProcessButton(currentStepIndex) {
 export function resetWizard() {
   const formOnWizard = document.querySelector('.wizard form');
   formOnWizard.reset();
+
+  //  Refresh tipo documento identidad dropdown-list
+  loadSelectTipoDocumentoIdentidad('N');
+
   $('.wizard').smartWizard('reset');
 }
 

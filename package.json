@@ -37,6 +37,7 @@
     "jquery-validation": "^1.19.2",
     "load-google-maps-api": "^2.0.2",
     "moment": "^2.29.0",
+    "owl.carousel": "^2.3.4",
     "smartwizard": "^5.1.1",
     "sweetalert2": "^9.17.2"
   },

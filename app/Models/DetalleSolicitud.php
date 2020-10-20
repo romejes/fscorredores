@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Exceptions\RegistroNoEncontradoException;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Config;
 use Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException;
 
 class DetalleSolicitud extends Model
@@ -35,7 +36,15 @@ class DetalleSolicitud extends Model
      */
     public function getSolicitadoPorAttribute()
     {
-        return "{$this->Nombres} {$this->ApellidoPaterno} {$this->ApellidoMaterno}";
+        if ($this->TipoCliente === Config::get("constants.tipo_cliente.persona_natural")) {
+            return "{$this->Nombres} {$this->ApellidoPaterno} {$this->ApellidoMaterno}";
+        }
+
+        if ($this->TipoCliente === Config::get("constants.tipo_cliente.persona_juridica")) {
+            return $this->RazonSocial;
+        }
+
+        return null;
     }
 
     /**

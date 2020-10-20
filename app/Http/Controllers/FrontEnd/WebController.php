@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ClaseVehiculo;
 use App\Models\Pais;
 use App\Models\TipoDocumentoIdentidad;
+use Illuminate\Support\Facades\Config;
 use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class WebController extends Controller
@@ -203,7 +204,9 @@ class WebController extends Controller
             return view("web.pages.solicitudes.index", compact("solicitudes"));
         }
 
-        $tipoDocumentoIdentidad = $this->modelTipoDocumentoIdentidad->getAll();
+        $tipoDocumentoIdentidad = $this->modelTipoDocumentoIdentidad->getByTipoCliente(
+            Config::get("constants.tipo_cliente.persona_natural")
+        );
         $claseVehiculo = $this->modelClaseVehiculo->getAll();
         $paises = $this->modelPais->getAll();
 

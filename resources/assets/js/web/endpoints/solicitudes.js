@@ -3,12 +3,14 @@ import { existsElement } from '../../shared/util';
 import {
   createMaskDate,
   initCustomFile,
+  loadSelectTipoDocumentoIdentidad,
   processAfiliacionSeguroEstudianteForm,
   processComprarSoatForm,
   processCotizarSeguroVehiculoTodoRiesgo,
   processCotizarSoatForm,
   toggleDireccionField,
   toggleFechaVencimiento,
+  toggleTipoClienteFields,
 } from '../functions/forms';
 
 import {
@@ -38,9 +40,6 @@ if (existsElement('.wizard')) {
   };
 
   window.onresize = () => {
-    /*resizeTabContainer(
-      document.querySelector(".tab-pane:not([style*='display: none'])"),
-    );*/
     resizeTabContainer();
   };
 }
@@ -140,6 +139,18 @@ if (existsElement('input[name=tipo_compra]')) {
       setStepsOnWizardSoatCompra(ev.target.value);
       toggleDireccionField(ev.target.value);
       addValidationRulesForComprarSoatForm(ev.target.value);
+    });
+  });
+}
+
+if (existsElement('input[name=tipo_cliente]')) {
+  const optionsTipoCliente = document.getElementsByName('tipo_cliente');
+
+  optionsTipoCliente.forEach(element => {
+    element.addEventListener('change', ev => {
+      toggleTipoClienteFields(ev.target.value);
+      loadSelectTipoDocumentoIdentidad(ev.target.value);
+      resizeTabContainer();
     });
   });
 }
