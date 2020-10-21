@@ -12,7 +12,7 @@
       <div class="section-row align-items-stretch">
         <div class="col-12 col-md-6">
           <article data-aos="fade-up">
-            <img src="<?php echo e(asset('img/mision.svg')); ?>" alt="">
+            <img src="<?php echo e(asset('images/mision.svg')); ?>" alt="">
             <h2>Nuestra Misión</h2>
             <p> Brindar un asesoramiento profesional y confiable en la gestion integral de seguros, a
               través de un eficáz servicio de atención al cliente </p>
@@ -20,7 +20,7 @@
         </div>
         <div class="col-12 col-md-6">
           <article data-aos="fade-up">
-            <img src="<?php echo e(asset('img/vision.svg')); ?>" alt="">
+            <img src="<?php echo e(asset('images/vision.svg')); ?>" alt="">
             <h2>Nuestra Visión</h2>
             <p>Ser la empresa de asesoría y corretaje en seguros de mayor prestigio y confianza en el
               mercado asegurador peruano, que brinde soluciones innovadoras, simples, transparentes y con altos

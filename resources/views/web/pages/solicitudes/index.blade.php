@@ -12,6 +12,7 @@
           <div class="wrapper-card">
             @foreach ($solicitudes as $solicitud)
             <div class="card" data-aos="fade-up">
+              <img src="{{ asset('images/seguros/'. $solicitud['picture']) }}" alt="">
               <div class="card-body">
                 <h3 class="card-title">{{ $solicitud['seguro'] }}</h3>
               </div>

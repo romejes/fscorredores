@@ -16,7 +16,7 @@
           <div class="wrapper-card">
             @foreach ($seguro['seguros'] as $detalle)
             <div class="card" data-aos="fade-up">
-              <img src="{{ asset('img/seguros/'. $detalle['picture']) }}" alt="">
+              <img src="{{ asset('images/seguros/'. $detalle['picture']) }}" alt="">
               <div class="card-body">
                 <h3 class="card-title">{{ $detalle['name'] }}</h3>
               </div>

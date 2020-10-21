@@ -9,7 +9,7 @@
     <div class="container">
       <div class="row">
         <div class="col-12 col-lg-4 main_footer_section" id="container_company_logo_footer">
-          <img src="{{ asset('img/logo2.svg')}}" alt="FS Corredores de Seguros" id="company_logo_footer">
+          <img src="{{ asset('images/logo2.svg')}}" alt="FS Corredores de Seguros" id="company_logo_footer">
         </div>
         <div class="col-12 col-md-6 col-lg-4 main_footer_section" id="container_our_office">
           <h3>Nuestra Oficina</h3>
@@ -33,7 +33,7 @@
         </div>
         <div class="col-12 col-md-6 col-lg-4 main_footer_section" id="container_supervised_by">
           <h3>Supervisados por</h3>
-          <img id="sbs_logo" src="{{ asset('img/sbs.svg') }}" alt="Superintendencia de Banca y Seguros" />
+          <img id="sbs_logo" src="{{ asset('images/sbs.svg') }}" alt="Superintendencia de Banca y Seguros" />
         </div>
       </div>
     </div>

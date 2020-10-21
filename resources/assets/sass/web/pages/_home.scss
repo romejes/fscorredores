@@ -2,24 +2,6 @@
 @import '../theme/button';
 
 main {
-  .carousel {
-    .splide__slide {
-      position: relative;
-      .carousel-image-caption {
-        position: absolute;
-        background-color: $blue-primary;
-        color: white;
-        padding: 1.5em;
-        bottom: 0;
-        width: 100%;
-        height: auto;
-        h2 {
-          margin-top: 0;
-        }
-      }
-    }
-  }
-
   section#section-home-look-for-soat {
     overflow-x: hidden;
     text-align: center;
@@ -45,32 +27,8 @@ main {
   }
 }
 
-@media (min-width: 768px) {
-  main {
-    .carousel {
-      .splide__slide {
-        .carousel-image-caption {
-          max-width: 450px;
-          top: 1.5em;
-          left: calc((100% - 720px) / 2);
-          height: auto;
-          bottom: unset;
-        }
-      }
-    }
-  }
-}
-
 @media (min-width: 992px) {
   main {
-    .carousel {
-      .splide__slide {
-        .carousel-image-caption {
-          left: calc((100% - 960px) / 2);
-        }
-      }
-    }
-
     section#section-home-insurance-companies {
       .section-heading {
         .section-title {
@@ -79,18 +37,6 @@ main {
       }
       .section-body {
         margin-bottom: 0;
-      }
-    }
-  }
-}
-
-@media (min-width: 992px) {
-  main {
-    .carousel {
-      .splide__slide {
-        .carousel-image-caption {
-          left: calc((100% - 1140px) / 2);
-        }
       }
     }
   }

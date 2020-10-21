@@ -1,66 +1,36 @@
 @extends('web.layouts.main') @section('content')
 <main>
   <!-- Carousel -->
-  <!--div class="owl-carousel owl-theme">
-    <picture>
-      <source class="owl-lazy" media="(min-width: 720px)"
-        data-srcset="{{ asset('img/carousel/seguro_estudiante_banner.jpg') }}" />
-      <source class="owl-lazy" media="(min-width: 320px)"
-        data-srcset="{{ asset('img/carousel/seguro_estudiante_banner_2.jpg') }}" />
-      <img class="owl-lazy" data-src="{{ asset('img/carousel/seguro_estudiante_banner.jpg') }}" />
-    </picture>
-    <picture>
-      <source class="owl-lazy" media="(min-width: 320px)"
-        data-srcset="{{ asset('img/carousel/seguro_soat_banner_2.jpg') }}" />
-      <source class="owl-lazy" media="(min-width: 720px)" data-srcset="{{ asset('img/carousel/soat_banner.jpg') }}" />
-
-      <img class="owl-lazy" data-src="{{ asset('img/carousel/soat_banner.jpg') }}" />
-    </picture>
-  </div-->
-  <!--div class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img class="d-none d-md-block" src="{{ asset('img/carousel/seguro_estudiante_banner.jpg') }}" />
-        <img class="d-block d-md-none" src="{{ asset('img/carousel/seguro_estudiante_banner_2.jpg') }}" />
-      </div>
-      <div class="carousel-item">
-        <img class="d-block d-md-none" src="{{ asset('img/carousel/seguro_soat_banner_2.jpg') }}" />
-        <img class="d-none d-md-block" src="{{ asset('img/carousel/soat_banner.jpg') }}" />
+  <div class="carousel owl-carousel">
+    <div class="carousel-slide" data-img="{{ asset('images/carousel/banner_soat_small.jpg') }}"
+      data-md-img="{{asset('images/carousel/banner_soat_large.jpg')}}">
+      <div class="carousel-slide-text">
+        <h2 class="carousel-text-animated">Tu SOAT en un instante</h2>
+        <p class="carousel-text-animated">Cotizalo y adquierelo en menos de un minuto</p>
+        <a class="carousel-text-animated button button-alt"
+          href="{{ asset('solicitudes/comprar_soat') }}">Comprar</a>
+        <a class="carousel-text-animated button button-alt"
+          href="{{ asset('solicitudes/cotizar_soat') }}">Cotizar</a>
       </div>
     </div>
-  </div-->
-
-  <div class="carousel splide">
-    <div class="splide__track">
-      <ul class="splide__list">
-        <li class="splide__slide">
-          <img src="{{ asset('img/carousel/seguro_vehiculo_banner.jpg') }}" />
-          <div class="carousel-image-caption">
-            <h2>No permitas que le pase esto a tu auto</h2>
-            <p>Protégelo con nosotros</p>
-            <a class="button button-alt" href="{{ asset('solicitudes/cotizar_seguro_vehicular_todo_riesgo') }}">Cotizar
-              Seguro Vehicular</a>
-          </div>
-        </li>
-        <li class="splide__slide">
-          <img src="{{ asset('img/carousel/soat_banner.jpg') }}" />
-
-          <div class="carousel-image-caption">
-            <h2>Tu SOAT en un instante</h2>
-            <p>Cotizalo y adquierelo en menos de un minuto</p>
-            <a class="button button-alt" href="{{ asset('solicitudes/comprar_soat') }}">Comprar</a>
-            <a class="button button-alt" href="{{ asset('solicitudes/cotizar_soat') }}">Cotizar</a>
-          </div>
-        </li>
-        <li class="splide__slide">
-          <img src="{{ asset('img/carousel/seguro_estudiante_banner.jpg') }}" />
-          <div class="carousel-image-caption">
-            <h2>Estudia protegido</h2>
-            <p>Si eres estudiante de la UNJBG, asegúrate y estudia con total tranquilidad</p>
-            <a class="button button-alt" href="{{ asset('solicitudes/afiliar_seguro_estudiantil') }}">Afiliar</a>
-          </div>
-        </li>
-      </ul>
+    <div class="carousel-slide" data-img="{{ asset('images/carousel/banner_seguro_vehiculo_small.jpg') }}"
+      data-md-img="{{asset('images/carousel/banner_seguro_vehiculo_large.jpg')}}">
+      <div class="carousel-slide-text">
+        <h2 class="carousel-text-animated">No permitas que le pase esto a tu auto</h2>
+        <p class="carousel-text-animated">Protégelo con nosotros</p>
+        <a class="carousel-text-animated button button-alt"
+          href="{{ asset('solicitudes/cotizar_seguro_vehicular_todo_riesgo') }}">Cotizar
+          Seguro Vehicular</a>
+      </div>
+    </div>
+    <div class="carousel-slide" data-img="{{ asset('images/carousel/banner_seguro_estudiante_small.jpg') }}"
+      data-md-img="{{asset('images/carousel/banner_seguro_estudiante_large.jpg')}}">
+      <div class="carousel-slide-text">
+        <h2 class="carousel-text-animated">Estudia protegido</h2>
+        <p class="carousel-text-animated">Si eres estudiante de la UNJBG, asegúrate y estudia con total tranquilidad</p>
+        <a class="carousel-text-animated button button-alt"
+          href="{{ asset('solicitudes/afiliar_seguro_estudiantil') }}">Afiliar</a>
+      </div>
     </div>
   </div>
   <!-- End Carousel -->
@@ -75,7 +45,7 @@
         <div class="section-body col-12">
           <div class="wrapper-card">
             <div class="card" data-aos="fade-up">
-              <img src="{{ asset('img/seguros/seguro_soat.jpg') }}" alt="">
+              <img src="{{ asset('images/seguros/seguro_soat.jpg') }}" alt="">
               <div class="card-body">
                 <h3 class="card-title">SOAT</h3>
                 <p class="card-text">El SOAT (Seguro Obligatorio de Accidentes de Tránsito) cubre no solo al conductor
@@ -89,7 +59,7 @@
             </div>
 
             <div class="card" data-aos="fade-up">
-              <img src="{{ asset('img/seguros/seguro_vehiculo.jpg') }}" alt="">
+              <img src="{{ asset('images/seguros/seguro_vehiculo.jpg') }}" alt="">
               <div class="card-body">
                 <h3 class="card-title">Seguro Vehicular</h3>
                 <p class="card-text">En estos tiempos contar con un seguro vehicular nos da la tranquilidad ya que
@@ -104,7 +74,7 @@
             </div>
 
             <div class="card" data-aos="fade-up">
-              <img src="{{ asset('img/seguros/seguro_eps.jpg') }}" alt="">
+              <img src="{{ asset('images/seguros/seguro_eps.jpg') }}" alt="">
               <div class="card-body">
                 <h3 class="card-title">EPS</h3>
                 <p class="card-text">Es un programa médico que te brinda atención ambulatoria y hospitalaria, consulta
@@ -153,10 +123,10 @@
         </div>
         <div class="section-body col-12 col-lg-7">
           <div class="insurance-companies-wrapper">
-            <img data-aos="fade-up" src="{{ asset('img/aseguradoras/mapfre.svg') }}" alt="MAPFRE" />
-            <img data-aos="fade-up" src="{{ asset('img/aseguradoras/lapositivaseguros.svg') }}" alt="La Positiva" />
-            <img data-aos="fade-up" src="{{ asset('img/aseguradoras/pacifico.svg') }}" alt="Pacífico" />
-            <img data-aos="fade-up" src="{{ asset('img/aseguradoras/rimac.svg') }}" alt="Rimac" />
+            <img data-aos="fade-up" src="{{ asset('images/aseguradoras/mapfre.svg') }}" alt="MAPFRE" />
+            <img data-aos="fade-up" src="{{ asset('images/aseguradoras/lapositivaseguros.svg') }}" alt="La Positiva" />
+            <img data-aos="fade-up" src="{{ asset('images/aseguradoras/pacifico.svg') }}" alt="Pacífico" />
+            <img data-aos="fade-up" src="{{ asset('images/aseguradoras/rimac.svg') }}" alt="Rimac" />
           </div>
         </div>
       </div>

@@ -173,28 +173,31 @@ class WebController extends Controller
         $solicitudes = array(
             array(
                 "seguro" => "SOAT",
+                "picture" => "seguro_soat.jpg",
                 "opciones" => array(
                     array(
                         "name" => "Cotizar",
-                        "slug" => "cotizar_soat"
+                        "slug" => "cotizar_soat",
                     )
                 )
             ),
             array(
                 "seguro" => "Seguro Vehicular Todo Riesgo",
+                "picture" => "seguro_vehiculo.jpg",
                 "opciones" => array(
                     array(
                         "name" => "Cotizar",
-                        "slug" => "cotizar_seguro_vehicular_todo_riesgo"
+                        "slug" => "cotizar_seguro_vehicular_todo_riesgo",
                     )
                 )
             ),
             array(
                 "seguro" => "Seguro Estudiantil contra Accidentes",
+                "picture" => "seguro_estudiante.jpg",
                 "opciones" => array(
                     array(
                         "name" => "Afiliar",
-                        "slug" => "afiliar_seguro_estudiantil"
+                        "slug" => "afiliar_seguro_estudiantil",
                     )
                 )
             ),

@@ -16,7 +16,7 @@
           <div class="wrapper-card">
             <?php $__currentLoopData = $seguro['seguros']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $detalle): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="card" data-aos="fade-up">
-              <img src="<?php echo e(asset('img/seguros/'. $detalle['picture'])); ?>" alt="">
+              <img src="<?php echo e(asset('images/seguros/'. $detalle['picture'])); ?>" alt="">
               <div class="card-body">
                 <h3 class="card-title"><?php echo e($detalle['name']); ?></h3>
               </div>

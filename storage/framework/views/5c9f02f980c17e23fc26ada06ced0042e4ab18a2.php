@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Logo -->
     <a href="<?php echo e(url('/')); ?>">
-      <img src="<?php echo e(asset('img/logo.svg')); ?>" alt="FS Corredores de Seguros" id="company-logo-header">
+      <img src="<?php echo e(asset('images/logo.svg')); ?>" alt="FS Corredores de Seguros" id="company-logo-header">
     </a>
     <!-- End logo -->
 

@@ -12,6 +12,7 @@
           <div class="wrapper-card">
             <?php $__currentLoopData = $solicitudes; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $solicitud): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <div class="card" data-aos="fade-up">
+              <img src="<?php echo e(asset('images/seguros/'. $solicitud['picture'])); ?>" alt="">
               <div class="card-body">
                 <h3 class="card-title"><?php echo e($solicitud['seguro']); ?></h3>
               </div>

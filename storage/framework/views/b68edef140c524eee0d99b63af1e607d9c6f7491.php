@@ -5,7 +5,7 @@
     <div class="login-box">
       <!-- Logo -->
       <div class="login-logo">
-        <img src="<?php echo e(asset('img/logo.svg')); ?>" alt="FS Corredores de Seguros" width="200">
+        <img src="<?php echo e(asset('images/logo.svg')); ?>" alt="FS Corredores de Seguros" width="200">
       </div>
       <!-- End Logo -->
 

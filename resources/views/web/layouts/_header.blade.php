@@ -2,7 +2,7 @@
   <div class="container">
     <!-- Logo -->
     <a href="{{ url('/') }}">
-      <img src="{{ asset('img/logo.svg') }}" alt="FS Corredores de Seguros" id="company-logo-header">
+      <img src="{{ asset('images/logo.svg') }}" alt="FS Corredores de Seguros" id="company-logo-header">
     </a>
     <!-- End logo -->
 
