@@ -7,10 +7,8 @@
       <div class="carousel-slide-text">
         <h2 class="carousel-text-animated">Tu SOAT en un instante</h2>
         <p class="carousel-text-animated">Cotizalo y adquierelo en menos de un minuto</p>
-        <a class="carousel-text-animated button button-alt"
-          href="<?php echo e(asset('solicitudes/comprar_soat')); ?>">Comprar</a>
-        <a class="carousel-text-animated button button-alt"
-          href="<?php echo e(asset('solicitudes/cotizar_soat')); ?>">Cotizar</a>
+        <a class="carousel-text-animated button button-alt" href="<?php echo e(asset('solicitudes/comprar_soat')); ?>">Comprar</a>
+        <a class="carousel-text-animated button button-alt" href="<?php echo e(asset('solicitudes/cotizar_soat')); ?>">Cotizar</a>
       </div>
     </div>
     <div class="carousel-slide" data-img="<?php echo e(asset('images/carousel/banner_seguro_vehiculo_small.jpg')); ?>"
@@ -134,5 +132,10 @@
   </section>
   <!-- End Section: Compañias de Seguros -->
 </main>
+<?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('title'); ?>
+Pagina de Inicio
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

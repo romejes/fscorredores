@@ -15,3 +15,8 @@
     patrimonio.</p>
 </article>
 @endsection
+
+
+@section('title')
+Seguro contra incendios
+@endsection

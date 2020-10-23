@@ -7,10 +7,8 @@
       <div class="carousel-slide-text">
         <h2 class="carousel-text-animated">Tu SOAT en un instante</h2>
         <p class="carousel-text-animated">Cotizalo y adquierelo en menos de un minuto</p>
-        <a class="carousel-text-animated button button-alt"
-          href="{{ asset('solicitudes/comprar_soat') }}">Comprar</a>
-        <a class="carousel-text-animated button button-alt"
-          href="{{ asset('solicitudes/cotizar_soat') }}">Cotizar</a>
+        <a class="carousel-text-animated button button-alt" href="{{ asset('solicitudes/comprar_soat') }}">Comprar</a>
+        <a class="carousel-text-animated button button-alt" href="{{ asset('solicitudes/cotizar_soat') }}">Cotizar</a>
       </div>
     </div>
     <div class="carousel-slide" data-img="{{ asset('images/carousel/banner_seguro_vehiculo_small.jpg') }}"
@@ -134,4 +132,9 @@
   </section>
   <!-- End Section: Compañias de Seguros -->
 </main>
+@endsection
+
+
+@section('title')
+Pagina de Inicio
 @endsection

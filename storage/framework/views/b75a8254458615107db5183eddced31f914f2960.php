@@ -5,8 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>FS Corredores de Seguros</title>
+  <title>FS Corredores de Seguros | <?php echo $__env->yieldContent('title'); ?></title>
 
+  <meta name="description" content="">
+  
   <!-- Fonts -->
   <link rel="stylesheet" href="<?php echo e(asset('css/vendor.css')); ?>">
   <link rel="stylesheet" href="<?php echo e(asset('css/web.css')); ?>">
@@ -15,7 +17,7 @@
 </head>
 
 <body>
-  <div class="sidenav"> </div>
+  <?php echo $__env->make('web.layouts._sidenav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   <div class="wrapper">
     <div class="wrapper-shadow"></div>
     <?php echo $__env->make('web.layouts._header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

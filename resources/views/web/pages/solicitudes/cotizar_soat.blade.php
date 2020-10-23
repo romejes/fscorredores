@@ -189,3 +189,7 @@
 </div>
 <!-- End Form -->
 @endsection
+
+@section('title')
+Solicitudes - Cotizar SOAT
+@endsection

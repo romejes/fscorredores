@@ -25,3 +25,8 @@
     sola persona, natural o jurídica, o del ASEGURADO. </p>
 </article>
 @endsection
+
+
+@section('title')
+Seguro contra terremotos
+@endsection

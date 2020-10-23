@@ -63,3 +63,8 @@
   <p>Publico en general, que posea algun vehiculo motorizado </p>
 </article>
 @endsection
+
+
+@section('title')
+SOAT
+@endsection

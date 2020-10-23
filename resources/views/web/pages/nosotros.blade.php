@@ -39,7 +39,7 @@
                 <div class="company-value-text">
                   <span>{{ $value }}</span>
                 </div>
-              </div>    
+              </div>
               @endforeach
             </div>
           </article>
@@ -91,4 +91,8 @@
   </section>
   <!-- End Section: El equipo -->
 </main>
+@endsection
+
+@section('title')
+Nosotros
 @endsection

@@ -6,80 +6,61 @@
   @endcomponent
   <!-- End Heading Page -->
 
-  <!-- Section Clientes Municipalidades -->
+  <!-- Section Entidades Publicas -->
   <section>
     <div class="section-container">
       <div class="section-row">
         <div class="section-heading col-12">
-          <h2 class="section-title">Municipalidades</h2>
+          <h2 class="section-title">Entidades Públicas</h2>
         </div>
         <div class="section-body col-12">
-          <ul class="wrapper-customers {{ count($clientes["municipalidades"]) > 7 ? 'list-clientes-divide' :'' }}">
-            @foreach ($clientes["municipalidades"] as $municipalidad)
-            <li class="customer-item" data-aos="fade-up">{{ $municipalidad }}</li>
+          <div class="wrapper-card wrapper-customer">
+            @foreach ($clientes["publicas"] as $entidadPublica)
+            <div class="card customer-card" data-aos="fade-up">
+              <img src="{{ asset("images/clientes/" . $entidadPublica["logo"]) }}" alt="{{$entidadPublica['nombre'] }}">
+              <div class="card-body">
+                <p>{{$entidadPublica['nombre'] }}</p>
+              </div>
+            </div>
             @endforeach
-          </ul>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Section Clientes Municipalidades -->
+  <!-- End Section Entidades Publicas -->
 
-  <!-- Section Clientes Universidades -->
+  <!-- Section Entidades Privadas -->
   <section>
     <div class="section-container">
       <div class="section-row">
         <div class="section-heading col-12">
-          <h2 class="section-title">Universidades</h2>
+          <h2 class="section-title">Entidades Públicas</h2>
         </div>
         <div class="section-body col-12">
-          <ul class="wrapper-customers {{ count($clientes["universidades"]) > 7 ? 'list-clientes-divide' :'' }}">
-            @foreach ($clientes["universidades"] as $universidad)
-            <li class="customer-item" data-aos="fade-up">{{ $universidad }}</li>
+          <div class="wrapper-card wrapper-customer">
+            @foreach ($clientes["privadas"] as $entidadPrivada)
+            <div class="card customer-card" data-aos="fade-up">
+              @if (is_null($entidadPrivada["logo"]))
+              <img src="{{ asset("images/no_logo.png") }}" alt="Sin logo disponible">    
+              @else
+              <img src="{{ asset("images/clientes/" . $entidadPrivada["logo"]) }}" alt="{{$entidadPrivada['nombre'] }}">
+              @endif
+              <div class="card-body">
+                <p>{{$entidadPrivada['nombre'] }}</p>
+              </div>
+            </div>
             @endforeach
-          </ul>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Section Clientes Universidades -->
-
-  <!-- Section Clientes Gobiernos Regionales -->
-  <section>
-    <div class="section-container">
-      <div class="section-row">
-        <div class="section-heading col-12">
-          <h2 class="section-title">Gobiernos Regionales</h2>
-        </div>
-        <div class="section-body col-12">
-          <ul class="wrapper-customers {{ count($clientes["gobiernos_regionales"]) > 7 ? 'list-clientes-divide' :'' }}">
-            @foreach ($clientes["gobiernos_regionales"] as $gobiernoRegional)
-            <li class="customer-item" data-aos="fade-up">{{ $gobiernoRegional }}</li>
-            @endforeach
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Section Clientes Gobiernos Regionales -->
-
-  <!-- Section Clientes Otros -->
-  <section>
-    <div class="section-container">
-      <div class="section-row">
-        <div class="section-heading col-12">
-          <h2 class="section-title">Otros</h2>
-        </div>
-        <div class="section-body col-12">
-          <ul class="wrapper-customers {{ count($clientes["otros"]) > 7 ? 'list-clientes-divide' :'' }}">
-            @foreach ($clientes["otros"] as $otro)
-            <li class="customer-item" data-aos="fade-up">{{ $otro }}</li>
-            @endforeach
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- End Section Clientes Otros -->
+  <!-- End Section Entidades Publicas -->
 </main>
+@endsection
+
+
+@section('title')
+Clientes
 @endsection

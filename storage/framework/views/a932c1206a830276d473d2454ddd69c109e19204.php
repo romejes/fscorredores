@@ -14,4 +14,9 @@
     patrimonio. </p>
 </article>
 <?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('title'); ?>
+Seguro empresarial contra robos y asaltos
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts._insurance-detail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

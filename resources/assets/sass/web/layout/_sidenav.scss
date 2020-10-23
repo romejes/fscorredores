@@ -9,44 +9,105 @@
   right: 0;
   background-color: $red-primary;
   overflow-x: hidden;
+  overflow-y: auto;
   transition: 0.5s;
-  padding-top: 60px;
+  padding-top: 1em;
+  color: white;
+
+  a#btn-close-menu {
+    display: block;
+    width: 100%;
+    color: white;
+    padding: 1em;
+  }
 
   ul.navbar-links-container {
-    margin-right: 0;
+    margin: 0;
     padding-left: 0;
     list-style: none;
 
     li.navbar-link {
-      margin-bottom: 5px;
+      height: 100%;
       a {
-        color: white;
-        font-family: 'Nunito';
-        padding: 0.5em 1em;
-        font-weight: bold;
+        text-decoration: none;
         display: block;
+        cursor: pointer;
+      }
+
+      > a {
+        color: white;
+        font-family: 'Montserrat', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5em 1em;
         font-size: 1.2rem;
         text-decoration: none;
         border-radius: 0px;
         &:hover {
           text-decoration: none;
-          background-color: $red-secondary;
-          color: white;
+          color: $red-primary;
+          background-color: #eee;
           transition: 0.3s;
+        }
+        i {
+          display: block;
+          pointer-events: none;
+        }
+      }
+
+      &.has-children {
+        .navbar-submenu {
+          height: 0;
+          overflow-y: hidden;
+          background-color: $red-secondary;
+          transition: height 0.5s ease-out;
+
+          .submenu-group {
+            ul {
+              list-style: none;
+              padding: 1em 1em 1em 1.5em;
+              li {
+                &.submenu-group-title {
+                  font-family: 'Montserrat', sans-serif;
+                  color: white;
+                  font-size: $heading4;
+                }
+                a {
+                  font-family: 'Nunito', sans-serif;
+                  color: $grey-primary;
+                  display: block;
+                  font-weight: bold;
+                  padding-top: 0.5em;
+                  padding-bottom: 0.5em;
+                  transition: color 0.5s;
+                  &:hover {
+                    color: white;
+                    transition: color 0.5s;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
 
     li.navbar-link.active {
-      a {
-        color: $blue-primary;
-        background-color: white;
+      > a {
+        background-color: $grey-primary;
+        color: white;
       }
     }
   }
 }
 
 .sidenav.open {
-  width: 250px;
+  width: 100%;
   box-shadow: -6px 0px -6px -2px rgba(0, 0, 0, 0.4);
+}
+
+.wrapper.is-menu-open {
+  margin-left: -100%;
+  margin-right: 100%;
 }

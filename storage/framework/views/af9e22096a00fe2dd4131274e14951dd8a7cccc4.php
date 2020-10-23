@@ -39,7 +39,7 @@
                 <div class="company-value-text">
                   <span><?php echo e($value); ?></span>
                 </div>
-              </div>    
+              </div>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </div>
           </article>
@@ -91,5 +91,9 @@
   </section>
   <!-- End Section: El equipo -->
 </main>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('title'); ?>
+Nosotros
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

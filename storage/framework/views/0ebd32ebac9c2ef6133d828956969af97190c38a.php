@@ -14,4 +14,8 @@
   <p>Publico en general, no aplica para locales destinados a negocios. </p>
 </article>
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('title'); ?>
+Seguro contra robo domiciliario
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts._insurance-detail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -19,3 +19,8 @@
   <!-- End Section -->
 </main>
 @endsection
+
+
+@section('title')
+Página no encontrada
+@endsection

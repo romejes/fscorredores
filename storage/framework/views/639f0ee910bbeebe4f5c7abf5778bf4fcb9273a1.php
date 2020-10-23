@@ -19,4 +19,9 @@
   <!-- End Section -->
 </main>
 <?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('title'); ?>
+Página no encontrada
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

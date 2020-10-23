@@ -15,3 +15,8 @@
     patrimonio. </p>
 </article>
 @endsection
+
+
+@section('title')
+Seguro por Responsabilidad Civil
+@endsection

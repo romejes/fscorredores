@@ -1,7 +1,13 @@
 <footer>
   <div class="wrapper_slogan">
     <div class="overlay_slogan">
-      <h4 class="slogan_text" data-aos="fade-in">Somos tu mejor opción en seguros</h4>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h4 class="slogan_text" data-aos="fade-in">Somos tu mejor opción en seguros</h4>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 

@@ -60,3 +60,8 @@
   <!-- End Section: Ubicacion -->
 </main>
 @endsection
+
+
+@section('title')
+Contacto
+@endsection

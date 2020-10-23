@@ -5,8 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>FS Corredores de Seguros</title>
+  <title>FS Corredores de Seguros | @yield('title')</title>
 
+  <meta name="description" content="">
+  
   <!-- Fonts -->
   <link rel="stylesheet" href="{{ asset('css/vendor.css')}}">
   <link rel="stylesheet" href="{{ asset('css/web.css')}}">
@@ -15,7 +17,7 @@
 </head>
 
 <body>
-  <div class="sidenav"> </div>
+  @include('web.layouts._sidenav')
   <div class="wrapper">
     <div class="wrapper-shadow"></div>
     @include('web.layouts._header')

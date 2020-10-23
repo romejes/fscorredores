@@ -16,3 +16,8 @@
     patrimonio. </p>
 </article>
 @endsection
+
+
+@section('title')
+Seguro empresarial contra robos y asaltos
+@endsection

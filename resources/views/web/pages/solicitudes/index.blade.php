@@ -32,3 +32,8 @@
   <!-- End Section -->
 </main>
 @endsection
+
+
+@section('title')
+Solicitudes
+@endsection

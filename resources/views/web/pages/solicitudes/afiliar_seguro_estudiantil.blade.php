@@ -143,3 +143,7 @@
   </form>
 </div>
 @endsection
+
+@section('title')
+Solicitudes - Afiliacion a Seguro Estudiantil contra Accidentes
+@endsection

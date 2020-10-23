@@ -15,3 +15,7 @@
     patrimonio. </p>
 </article>
 @endsection
+
+@section('title')
+Seguro contra riesgo de montaje
+@endsection

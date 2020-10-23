@@ -12,4 +12,10 @@
   <p>Empresas peruanas y MYPES (Micro y Pequeña Empresa), asi como empleadoras de trabajadores en planilla </p>
 </article>
 <?php $__env->stopSection(); ?>
+
+
+
+<?php $__env->startSection('title'); ?>
+EPS
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts._insurance-detail', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

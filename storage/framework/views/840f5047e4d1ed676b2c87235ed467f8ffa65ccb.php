@@ -58,4 +58,9 @@
   <!-- End Section: Ubicacion -->
 </main>
 <?php $__env->stopSection(); ?>
+
+
+<?php $__env->startSection('title'); ?>
+Contacto
+<?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

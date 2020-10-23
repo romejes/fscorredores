@@ -14,3 +14,9 @@
   <p>Empresas peruanas y MYPES (Micro y Pequeña Empresa), asi como empleadoras de trabajadores en planilla </p>
 </article>
 @endsection
+
+
+
+@section('title')
+EPS
+@endsection

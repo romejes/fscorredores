@@ -16,3 +16,7 @@
   <p>Publico en general, no aplica para locales destinados a negocios. </p>
 </article>
 @endsection
+
+@section('title')
+Seguro contra robo domiciliario
+@endsection

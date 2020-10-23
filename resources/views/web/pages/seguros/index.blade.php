@@ -33,3 +33,7 @@
   @endforeach
 </main>
 @endsection
+
+@section('title')
+Seguros
+@endsection

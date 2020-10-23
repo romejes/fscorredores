@@ -198,3 +198,7 @@
   </form>
 </div>
 @endsection
+
+@section('title')
+Solicitudes - Cotizar Seguro Vehicular Todo Riesgo
+@endsection
