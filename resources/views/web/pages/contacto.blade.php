@@ -4,7 +4,10 @@
 <main>
   <!-- Heading Page -->
   @component('web.components._heading-page')
-  Contáctanos
+    <img src="{{ asset('images/banners/banner_contacto.jpg')}}" alt="">
+    @slot('headingTitle')
+      Contáctanos
+    @endslot
   @endcomponent
   <!-- End Heading Page -->
 

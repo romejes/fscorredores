@@ -3,7 +3,10 @@
 <main>
   <!-- Heading Page -->
   @component('web.components._heading-page')
-  Conoce nuestra empresa
+    <img src="{{ asset('images/banners/banner_nosotros.jpg')}}" alt="">
+    @slot('headingTitle')
+      Conoce nuestra empresa
+    @endslot
   @endcomponent
   <!-- End Heading Page -->
 

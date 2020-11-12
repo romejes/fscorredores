@@ -1,9 +1,7 @@
 <div class="heading-page">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <h1><?php echo e($slot); ?></h1>
-      </div>
-    </div>
+  <?php echo e($slot); ?>
+
+  <div class="heading-page-content-container">
+    <h1 data-aos="fade-in"><?php echo e($headingTitle); ?></h1>
   </div>
 </div>

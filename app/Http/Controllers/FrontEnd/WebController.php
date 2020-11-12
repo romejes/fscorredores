@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
+use App\CustomClass\Seguro;
 use App\Http\Controllers\Controller;
 use App\Models\ClaseVehiculo;
 use App\Models\Pais;
@@ -88,73 +89,7 @@ class WebController extends Controller
      */
     public function seguros($tipoSeguro = null)
     {
-        $seguros = array(
-            array(
-                "title" => "Seguros para personas",
-                "seguros" => array(
-                    array(
-                        "name" => "Seguro contra robos",
-                        "slug" => "seguro_persona_robo",
-                        "picture" => "seguro_robo_domicilio.jpg"
-                    )
-                )
-            ),
-            array(
-                "title" => "Seguros para empresas",
-                "seguros" => array(
-                    array(
-                        "name" => "Seguro contra robos y asaltos",
-                        "slug" => "seguro_empresa_robo",
-                        "picture" => "seguro_robo_negocio.jpg"
-                    ),
-                    array(
-                        "name" => "Seguro por responsabilidad civil",
-                        "slug" => "seguro_responsabilidad_civil",
-                        "picture" => "seguro_responsabilidad_civil.jpg"
-                    ),
-                    array(
-                        "name" => "Seguro contra riesgo de montaje",
-                        "slug" => "seguro_riesgo_montaje",
-                        "picture" => "seguro_montaje.jpg"
-                    ),
-                    array(
-                        "name" => "Seguro contra incendios",
-                        "slug" => "seguro_incendio",
-                        "picture" => "seguro_incendio.jpg"
-                    ),
-                    array(
-                        "name" => "EPS",
-                        "slug" => "eps",
-                        "picture" => "seguro_eps.jpg"
-                    )
-                )
-            ),
-            array(
-                "title" => "Seguros vehiculares",
-                "seguros" => array(
-                    array(
-                        "name" => "SOAT",
-                        "slug" => "soat",
-                        "picture" => "seguro_soat.jpg"
-                    ),
-                    array(
-                        "name" => "Seguro vehicular todo riesgo",
-                        "slug" => "seguro_vehicular_todo_riesgo",
-                        "picture" => "seguro_vehiculo.jpg"
-                    )
-                )
-            ),
-            array(
-                "title" => "Otros seguros",
-                "seguros" => array(
-                    array(
-                        "name" => "Seguro contra terremotos",
-                        "slug" => "seguro_terremotos",
-                        "picture" => "seguro_terremoto.jpg"
-                    )
-                )
-            )
-        );
+        $seguros = Seguro::getData();
 
         //  Si no se especifica el tipo de seguro, muestra la pagina principal de la seccion Seguros
         if (!$tipoSeguro) {
@@ -175,7 +110,7 @@ class WebController extends Controller
         if (!$seguroExiste) {
             throw new NotFoundHttpException();
         }
-        
+
         return view("web.pages.seguros." . $tipoSeguro, compact("seguros"));
     }
 

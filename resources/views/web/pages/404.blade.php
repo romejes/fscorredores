@@ -1,7 +1,10 @@
 @extends('web.layouts.main') @section('content')
 <main>
   <!-- Heading Page -->
-  @component('web.components._heading-page') Pagina no encontrada
+  @component('web.components._heading-page') 
+    @slot('title')
+    Pagina no encontrada  
+    @endslot
   @endcomponent
   <!-- End Heading Page -->
 

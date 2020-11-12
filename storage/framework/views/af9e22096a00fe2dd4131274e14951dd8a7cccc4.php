@@ -3,7 +3,10 @@
 <main>
   <!-- Heading Page -->
   <?php $__env->startComponent('web.components._heading-page'); ?>
-  Conoce nuestra empresa
+    <img src="<?php echo e(asset('images/banners/banner_nosotros.jpg')); ?>" alt="">
+    <?php $__env->slot('headingTitle'); ?>
+      Conoce nuestra empresa
+    <?php $__env->endSlot(); ?>
   <?php echo $__env->renderComponent(); ?>
   <!-- End Heading Page -->
 

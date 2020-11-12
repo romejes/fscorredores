@@ -77,8 +77,7 @@
                 <h3 class="card-title">EPS</h3>
                 <p class="card-text">Es un programa médico que te brinda atención ambulatoria y hospitalaria, consulta
                   médica a domicilio, atención de emergencia accidental y médica, exámenes preventivos anuales,
-                  maternidad
-                  y control del niño sano entre otros. </p>
+                  maternidad y control del niño sano entre otros. </p>
               </div>
               <div class="card-footer">
                 <a href="{{ url('seguros/eps') }}" class="button button-primary">Ver más</a>
@@ -87,7 +86,7 @@
           </div>
         </div>
         <div class="section-footer col-12">
-          <a href="{{ url('seguros') }}" class="button button-primary" data-aos="fade-up">Mostrar todos</a>
+          <a href="{{ url('seguros') }}" class="button button-primary">Mostrar todos</a>
         </div>
       </div>
     </div>

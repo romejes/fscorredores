@@ -2,7 +2,10 @@
 <main>
   <!-- Heading Page-->
   <?php $__env->startComponent('web.components._heading-page'); ?>
-  Nuestros clientes
+    <img src="<?php echo e(asset('images/banners/banner_clientes.jpg')); ?>" alt="">
+    <?php $__env->slot('headingTitle'); ?>
+      Nuestros clientes
+    <?php $__env->endSlot(); ?>
   <?php echo $__env->renderComponent(); ?>
   <!-- End Heading Page -->
 

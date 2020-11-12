@@ -1,7 +1,13 @@
- <?php $__env->startSection('content'); ?>
+ 
+<?php $__env->startSection('content'); ?>
 <main>
   <!-- Heading Page-->
-  <?php $__env->startComponent('web.components._heading-page'); ?> Solicite su seguro <?php echo $__env->renderComponent(); ?>
+  <?php $__env->startComponent('web.components._heading-page'); ?>
+    <img src="<?php echo e(asset('images/banners/banner_servicios.jpg')); ?>" alt="">
+    <?php $__env->slot('headingTitle'); ?>
+      Solicite su seguro
+    <?php $__env->endSlot(); ?>
+  <?php echo $__env->renderComponent(); ?>
   <!-- End Heading Page-->
 
   <!-- Section -->
@@ -31,5 +37,9 @@
   </section>
   <!-- End Section -->
 </main>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('title'); ?>
+Solicitudes
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.layouts.main', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -2,7 +2,10 @@
 <main>
   <!-- Heading Page-->
   @component('web.components._heading-page')
-  Nuestros clientes
+    <img src="{{ asset('images/banners/banner_clientes.jpg')}}" alt="">
+    @slot('headingTitle')
+      Nuestros clientes
+    @endslot
   @endcomponent
   <!-- End Heading Page -->
 

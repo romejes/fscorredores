@@ -2,7 +2,10 @@
 <main>
   <!-- Heading Page -->
   <?php $__env->startComponent('web.components._heading-page'); ?>
-  Contáctanos
+    <img src="<?php echo e(asset('images/banners/banner_contacto.jpg')); ?>" alt="">
+    <?php $__env->slot('headingTitle'); ?>
+      Contáctanos
+    <?php $__env->endSlot(); ?>
   <?php echo $__env->renderComponent(); ?>
   <!-- End Heading Page -->
 

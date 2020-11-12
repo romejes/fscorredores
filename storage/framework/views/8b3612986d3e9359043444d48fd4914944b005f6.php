@@ -1,7 +1,12 @@
  <?php $__env->startSection('content'); ?>
 <main>
   <!-- Heading -->
-  <?php $__env->startComponent('web.components._heading-page'); ?> Nuestros Seguros <?php echo $__env->renderComponent(); ?>
+  <?php $__env->startComponent('web.components._heading-page'); ?>
+    <img src="<?php echo e(asset('images/banners/banner_seguros.jpg')); ?>" alt="">
+    <?php $__env->slot('headingTitle'); ?>
+      Nuestros seguros
+    <?php $__env->endSlot(); ?>
+  <?php echo $__env->renderComponent(); ?>
   <!-- End Heading-->
 
   <!-- Section -->

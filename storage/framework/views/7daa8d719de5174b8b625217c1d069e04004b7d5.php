@@ -1,7 +1,12 @@
  <?php $__env->startSection('content'); ?>
 <main>
   <!-- Heading -->
-  <?php $__env->startComponent('web.components._heading-page'); ?> Solicite su seguro <?php echo $__env->renderComponent(); ?>
+  <?php $__env->startComponent('web.components._heading-page'); ?>
+    <img src="<?php echo e(asset('images/banners/banner_servicios.jpg')); ?>" alt="">
+    <?php $__env->slot('headingTitle'); ?>
+      Solicite su seguro
+    <?php $__env->endSlot(); ?>
+  <?php echo $__env->renderComponent(); ?>
   <!-- End Heading-->
 
   <!-- Section -->

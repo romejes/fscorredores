@@ -1,7 +1,14 @@
-@extends('web.layouts.main') @section('content')
+@extends('web.layouts.main') 
+
+@section('content')
 <main>
   <!-- Heading Page-->
-  @component('web.components._heading-page') Nuestros Seguros @endcomponent
+  @component('web.components._heading-page')
+    <img src="{{ asset('images/banners/banner_seguros.jpg')}}" alt="">
+    @slot('headingTitle')
+      Nuestros Seguros
+    @endslot
+  @endcomponent
   <!-- End Heading Page-->
 
   <!-- Section -->
@@ -19,9 +26,10 @@
               <img src="{{ asset('images/seguros/'. $detalle['picture']) }}" alt="">
               <div class="card-body">
                 <h3 class="card-title">{{ $detalle['name'] }}</h3>
+                <p class="card-text">{{ $detalle['resumen'] }}</p>
               </div>
               <div class="card-footer">
-                <a href="{{ url('seguros/'. $detalle['slug'])}}" class="button button-primary">Ver</a>
+                <a href="{{ url('seguros/'. $detalle['slug'])}}" class="button button-primary">Más información</a>
               </div>
             </div>
             @endforeach

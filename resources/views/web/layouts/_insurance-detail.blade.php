@@ -1,7 +1,12 @@
 @extends('web.layouts.main') @section('content')
 <main>
   <!-- Heading -->
-  @component('web.components._heading-page') Nuestros Seguros @endcomponent
+  @component('web.components._heading-page')
+    <img src="{{ asset('images/banners/banner_seguros.jpg')}}" alt="">
+    @slot('headingTitle')
+      Nuestros seguros
+    @endslot
+  @endcomponent
   <!-- End Heading-->
 
   <!-- Section -->

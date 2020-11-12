@@ -91,7 +91,7 @@ header {
               cursor: pointer;
             }
 
-            i {
+            i:not(.fa-lock) {
               display: none;
             }
 

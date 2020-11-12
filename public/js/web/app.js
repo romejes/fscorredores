@@ -1,1 +1,2474 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[0],{1:function(e,t,n){"use strict";n.d(t,"b",(function(){return a})),n.d(t,"d",(function(){return i})),n.d(t,"a",(function(){return c})),n.d(t,"c",(function(){return s}));var o=n(0),r=n.n(o);function a(e){return document.querySelectorAll(e).length>0}function i(){var e=arguments.length>0&&void 0!==arguments[0]?arguments[0]:void 0,t=window.location.protocol+"//"+window.location.hostname;return void 0===e?t:"".concat(t,"/").concat(e)}var c=function(e){return e.charAt(0).toUpperCase()+e.slice(1)};function s(e,t,n){return r()(e,t).locale("es_MX").format(n)}},148:function(e,t,n){"use strict";n.d(t,"a",(function(){return o}));var o=function(){return/^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/}},149:function(e,t){var n,o,r=e.exports={};function a(){throw new Error("setTimeout has not been defined")}function i(){throw new Error("clearTimeout has not been defined")}function c(e){if(n===setTimeout)return setTimeout(e,0);if((n===a||!n)&&setTimeout)return n=setTimeout,setTimeout(e,0);try{return n(e,0)}catch(t){try{return n.call(null,e,0)}catch(t){return n.call(this,e,0)}}}!function(){try{n="function"==typeof setTimeout?setTimeout:a}catch(e){n=a}try{o="function"==typeof clearTimeout?clearTimeout:i}catch(e){o=i}}();var s,u=[],d=!1,l=-1;function m(){d&&s&&(d=!1,s.length?u=s.concat(u):l=-1,u.length&&f())}function f(){if(!d){var e=c(m);d=!0;for(var t=u.length;t;){for(s=u,u=[];++l<t;)s&&s[l].run();l=-1,t=u.length}s=null,d=!1,function(e){if(o===clearTimeout)return clearTimeout(e);if((o===i||!o)&&clearTimeout)return o=clearTimeout,clearTimeout(e);try{o(e)}catch(t){try{return o.call(null,e)}catch(t){return o.call(this,e)}}}(e)}}function p(e,t){this.fun=e,this.array=t}function g(){}r.nextTick=function(e){var t=new Array(arguments.length-1);if(arguments.length>1)for(var n=1;n<arguments.length;n++)t[n-1]=arguments[n];u.push(new p(e,t)),1!==u.length||d||c(f)},p.prototype.run=function(){this.fun.apply(null,this.array)},r.title="browser",r.browser=!0,r.env={},r.argv=[],r.version="",r.versions={},r.on=g,r.addListener=g,r.once=g,r.off=g,r.removeListener=g,r.removeAllListeners=g,r.emit=g,r.prependListener=g,r.prependOnceListener=g,r.listeners=function(e){return[]},r.binding=function(e){throw new Error("process.binding is not supported")},r.cwd=function(){return"/"},r.chdir=function(e){throw new Error("process.chdir is not supported")},r.umask=function(){return 0}},153:function(e,t){e.exports=function(e){return e.webpackPolyfill||(e.deprecate=function(){},e.paths=[],e.children||(e.children=[]),Object.defineProperty(e,"loaded",{enumerable:!0,get:function(){return e.l}}),Object.defineProperty(e,"id",{enumerable:!0,get:function(){return e.i}}),e.webpackPolyfill=1),e}},154:function(e,t,n){var o={"./af":11,"./af.js":11,"./ar":12,"./ar-dz":13,"./ar-dz.js":13,"./ar-kw":14,"./ar-kw.js":14,"./ar-ly":15,"./ar-ly.js":15,"./ar-ma":16,"./ar-ma.js":16,"./ar-sa":17,"./ar-sa.js":17,"./ar-tn":18,"./ar-tn.js":18,"./ar.js":12,"./az":19,"./az.js":19,"./be":20,"./be.js":20,"./bg":21,"./bg.js":21,"./bm":22,"./bm.js":22,"./bn":23,"./bn-bd":24,"./bn-bd.js":24,"./bn.js":23,"./bo":25,"./bo.js":25,"./br":26,"./br.js":26,"./bs":27,"./bs.js":27,"./ca":28,"./ca.js":28,"./cs":29,"./cs.js":29,"./cv":30,"./cv.js":30,"./cy":31,"./cy.js":31,"./da":32,"./da.js":32,"./de":33,"./de-at":34,"./de-at.js":34,"./de-ch":35,"./de-ch.js":35,"./de.js":33,"./dv":36,"./dv.js":36,"./el":37,"./el.js":37,"./en-au":38,"./en-au.js":38,"./en-ca":39,"./en-ca.js":39,"./en-gb":40,"./en-gb.js":40,"./en-ie":41,"./en-ie.js":41,"./en-il":42,"./en-il.js":42,"./en-in":43,"./en-in.js":43,"./en-nz":44,"./en-nz.js":44,"./en-sg":45,"./en-sg.js":45,"./eo":46,"./eo.js":46,"./es":47,"./es-do":48,"./es-do.js":48,"./es-mx":49,"./es-mx.js":49,"./es-us":50,"./es-us.js":50,"./es.js":47,"./et":51,"./et.js":51,"./eu":52,"./eu.js":52,"./fa":53,"./fa.js":53,"./fi":54,"./fi.js":54,"./fil":55,"./fil.js":55,"./fo":56,"./fo.js":56,"./fr":57,"./fr-ca":58,"./fr-ca.js":58,"./fr-ch":59,"./fr-ch.js":59,"./fr.js":57,"./fy":60,"./fy.js":60,"./ga":61,"./ga.js":61,"./gd":62,"./gd.js":62,"./gl":63,"./gl.js":63,"./gom-deva":64,"./gom-deva.js":64,"./gom-latn":65,"./gom-latn.js":65,"./gu":66,"./gu.js":66,"./he":67,"./he.js":67,"./hi":68,"./hi.js":68,"./hr":69,"./hr.js":69,"./hu":70,"./hu.js":70,"./hy-am":71,"./hy-am.js":71,"./id":72,"./id.js":72,"./is":73,"./is.js":73,"./it":74,"./it-ch":75,"./it-ch.js":75,"./it.js":74,"./ja":76,"./ja.js":76,"./jv":77,"./jv.js":77,"./ka":78,"./ka.js":78,"./kk":79,"./kk.js":79,"./km":80,"./km.js":80,"./kn":81,"./kn.js":81,"./ko":82,"./ko.js":82,"./ku":83,"./ku.js":83,"./ky":84,"./ky.js":84,"./lb":85,"./lb.js":85,"./lo":86,"./lo.js":86,"./lt":87,"./lt.js":87,"./lv":88,"./lv.js":88,"./me":89,"./me.js":89,"./mi":90,"./mi.js":90,"./mk":91,"./mk.js":91,"./ml":92,"./ml.js":92,"./mn":93,"./mn.js":93,"./mr":94,"./mr.js":94,"./ms":95,"./ms-my":96,"./ms-my.js":96,"./ms.js":95,"./mt":97,"./mt.js":97,"./my":98,"./my.js":98,"./nb":99,"./nb.js":99,"./ne":100,"./ne.js":100,"./nl":101,"./nl-be":102,"./nl-be.js":102,"./nl.js":101,"./nn":103,"./nn.js":103,"./oc-lnc":104,"./oc-lnc.js":104,"./pa-in":105,"./pa-in.js":105,"./pl":106,"./pl.js":106,"./pt":107,"./pt-br":108,"./pt-br.js":108,"./pt.js":107,"./ro":109,"./ro.js":109,"./ru":110,"./ru.js":110,"./sd":111,"./sd.js":111,"./se":112,"./se.js":112,"./si":113,"./si.js":113,"./sk":114,"./sk.js":114,"./sl":115,"./sl.js":115,"./sq":116,"./sq.js":116,"./sr":117,"./sr-cyrl":118,"./sr-cyrl.js":118,"./sr.js":117,"./ss":119,"./ss.js":119,"./sv":120,"./sv.js":120,"./sw":121,"./sw.js":121,"./ta":122,"./ta.js":122,"./te":123,"./te.js":123,"./tet":124,"./tet.js":124,"./tg":125,"./tg.js":125,"./th":126,"./th.js":126,"./tk":127,"./tk.js":127,"./tl-ph":128,"./tl-ph.js":128,"./tlh":129,"./tlh.js":129,"./tr":130,"./tr.js":130,"./tzl":131,"./tzl.js":131,"./tzm":132,"./tzm-latn":133,"./tzm-latn.js":133,"./tzm.js":132,"./ug-cn":134,"./ug-cn.js":134,"./uk":135,"./uk.js":135,"./ur":136,"./ur.js":136,"./uz":137,"./uz-latn":138,"./uz-latn.js":138,"./uz.js":137,"./vi":139,"./vi.js":139,"./x-pseudo":140,"./x-pseudo.js":140,"./yo":141,"./yo.js":141,"./zh-cn":142,"./zh-cn.js":142,"./zh-hk":143,"./zh-hk.js":143,"./zh-mo":144,"./zh-mo.js":144,"./zh-tw":145,"./zh-tw.js":145};function r(e){var t=a(e);return n(t)}function a(e){if(!n.o(o,e)){var t=new Error("Cannot find module '"+e+"'");throw t.code="MODULE_NOT_FOUND",t}return o[e]}r.keys=function(){return Object.keys(o)},r.resolve=a,e.exports=r,r.id=154},165:function(e,t,n){"use strict";(function(e){n.d(t,"a",(function(){return o}));n(155);function o(){e(".carousel").owlCarousel({items:1,loop:!0,autoplay:!0,dots:!0,autoplayTimeout:6e3,autoplayHoverPause:!0,dotsClass:"carousel-dots",dotClass:"carousel-dot",onInitialize:function(){r()},onInitialized:function(){setTimeout((function(){e(".owl-item.active .carousel-text-animated").addClass("is-transitioned")}),200)},onResize:function(){r()},onChanged:function(t){e(".carousel-text-animated").removeClass("is-transitioned"),e(".carousel-slide").eq(t.item.index).find(".carousel-text-animated").addClass("is-transitioned")}})}function r(){document.querySelectorAll(".carousel-slide").forEach((function(t){var n;n=e(window).width()>=768?"url(".concat(t.dataset.mdImg,")"):"url(".concat(t.dataset.img,")"),t.style.backgroundImage=n}))}}).call(this,n(6))},166:function(e,t,n){n(191),n(193),e.exports=n(200)},185:function(e,t,n){"use strict";(function(e){var t=n(1),o=n(4),r=n(2),a=n(5);if(Object(t.b)(".wizard")&&(Object(a.d)(),window.onload=function(){document.getElementsByTagName("section")[0].scrollIntoView(),document.querySelectorAll("input","textarea","select")[0].focus()},window.onresize=function(){Object(a.b)()}),Object(t.b)('input[type="file"]')&&Object(o.b)(),Object(t.b)("#wizard-seguro-estudiante")&&Object(a.e)(0),Object(t.b)("#wizard-cotizar-seguro-vehicular-todo-riesgo")&&Object(a.e)(1),Object(t.b)("#wizard-cotizar-soat")&&Object(a.e)(1),Object(t.b)("#wizard-comprar-soat")&&e("#wizard-comprar-soat").smartWizard("setOptions",{hiddenSteps:[2,3,4]}),Object(t.b)("#frm-afiliacion-seguro-estudiante")&&(Object(r.d)(),document.getElementById("btn-enviar-solicitud").addEventListener("click",(function(){Object(r.b)(document.getElementById("frm-afiliacion-seguro-estudiante"))&&Object(o.d)()}))),Object(t.b)("#frm-cotizar-seguro-vehicular-todo-riesgo")&&(Object(r.g)(),document.getElementById("btn-enviar-solicitud").addEventListener("click",(function(){return Object(o.g)()}))),Object(t.b)("#frm-cotizar-soat")&&(Object(r.h)(),document.getElementById("rad-tengo-soat").addEventListener("click",(function(){return Object(o.j)()})),document.getElementById("rad-no-tengo-soat").addEventListener("click",(function(){return Object(o.j)()})),document.getElementById("btn-enviar-solicitud").addEventListener("click",(function(){return Object(o.h)()}))),Object(t.b)("#frm-comprar-soat")&&(Object(r.e)(),document.getElementById("btn-enviar-solicitud").addEventListener("click",(function(){return Object(o.e)()}))),Object(t.b)("#txt-fecha-nacimiento")){var i=new Date(1970,0,1),c=new Date((new Date).getFullYear()-18,0,1);Object(o.a)("txt-fecha-nacimiento",i,c)}if(Object(t.b)("#txt-fecha-vencimiento")){var s=new Date,u=new Date((new Date).getFullYear()+10,11,31);Object(o.a)("txt-fecha-vencimiento",s,u)}Object(t.b)("input[name=tipo_compra]")&&document.getElementsByName("tipo_compra").forEach((function(e){e.addEventListener("click",(function(e){Object(a.c)(e.target.value),Object(o.i)(e.target.value),Object(r.a)(e.target.value)}))}));Object(t.b)("input[name=tipo_cliente]")&&document.getElementsByName("tipo_cliente").forEach((function(e){e.addEventListener("change",(function(e){Object(o.k)(e.target.value),Object(o.c)(e.target.value),Object(a.b)()}))}))}).call(this,n(6))},191:function(e,t,n){"use strict";n.r(t);var o=n(1),r=n(9),a=n(150),i=n.n(a);var c=n(165);function s(){var e=document.querySelectorAll(" li.navbar-link.has-children");if(window.innerWidth<992)for(var t=0;t<e.length;t++)e[t].removeEventListener("click",r.c),e[t].addEventListener("click",r.c);else for(var n=0;n<e.length;n++)e[n].removeEventListener("click",r.c)}document.getElementById("btn-menu").addEventListener("click",(function(){return Object(r.b)()})),document.getElementById("btn-close-menu").addEventListener("click",(function(){return Object(r.b)()})),window.addEventListener("load",(function(){Object(r.a)(),s()})),window.addEventListener("resize",(function(){Object(r.a)(),s()})),window.onscroll=function(){!function(){var e=document.getElementsByTagName("header")[0],t=e.offsetTop;window.pageYOffset>t?e.classList.add("sticky"):e.classList.remove("sticky")}()},document.addEventListener("readystatechange",(function(){i.a.init(),Object(o.b)(".carousel")&&Object(c.a)()})),Object(o.b)("#sel-insurances")&&document.getElementById("sel-insurances").addEventListener("change",(function(e){var t=e.target.options[e.target.selectedIndex];e.target.setAttribute("disabled","disabled"),window.location.href=t.getAttribute("data-href")}));var u=n(151),d=n.n(u);var l,m,f,p=n(2),g=n(4);Object(o.b)("#location-map")&&(l="location-map",m=-18.018382982450568,f=-70.25518439834747,d()({key:"AIzaSyD7v81-YqJPCL_Qen8t4QVqtIqYcU4LrfY"}).then((function(e){var t=function(e,t,n,o){var r={zoom:18,center:{lat:t,lng:n},mapTypeId:"roadmap",mapTypeControl:!1,disableDefaultUI:!0,gestureHandling:"none"};return new o.Map(document.getElementById(e),r)}(l,m,f,e),n=function(e,t){return new e.Marker({map:t,position:t.getCenter()})}(e,t),o=new e.InfoWindow({content:"<b>FS Corredores de Seguros</b><br/>Agrup. Rosa Ara A-12<br/> Tacna - Perú"});o.open(t,n),e.event.addListener(n,"click",(function(){return o.open(t,n)}))}))),Object(o.b)("form")&&Object(p.c)(),Object(o.b)("#frm-contact")&&(Object(p.f)(),document.getElementById("btn-send").addEventListener("click",(function(){Object(p.b)("#frm-contact")&&Object(g.f)()})));n(185)},193:function(e,t){},2:function(e,t,n){"use strict";(function(e){n.d(t,"c",(function(){return a})),n.d(t,"b",(function(){return u})),n.d(t,"j",(function(){return d})),n.d(t,"f",(function(){return l})),n.d(t,"d",(function(){return m})),n.d(t,"g",(function(){return f})),n.d(t,"h",(function(){return p})),n.d(t,"e",(function(){return g})),n.d(t,"a",(function(){return v})),n.d(t,"i",(function(){return j}));n(146),n(167),n(168);var o=n(5),r=n(148);function a(){e.validator.setDefaults({lang:"es",errorElement:"span",errorPlacement:function(e,t){i(e,t),Object(o.b)()},highlight:function(e,t,n){c(e)},unhighlight:function(e,t,n){s(e)}})}function i(e,t){var n=t.prop("tagName").toLowerCase();"input"===n&&"radio"===t.attr("type")?t.closest('[class^="col-"]').eq(0).append(e):"input"===n&&"file"===t.attr("type")?t.closest(".form-group").eq(0).append(e):t.parent().append(e),e.addClass("invalid-feedback")}function c(t){var n=e(t).prop("tagName").toLowerCase(),o=e(t);if("input"===n&&"radio"===e(t).attr("type")){var r=e(t).attr("name");o=e("input[name=".concat(r,"]")).closest(".form-check")}"input"===n&&"file"===e(t).attr("type")&&(o=e(t).closest(".custom-file")),o.addClass("is-invalid")}function s(t){var n=e(t).prop("tagName").toLowerCase(),o=e(t);if("input"===n&&"radio"===e(t).attr("type")){var r=e(t).attr("name");o=e("input[name=".concat(r,"]")).closest(".form-check")}"input"===n&&"file"===e(t).attr("type")&&(o=e(t).closest(".custom-file")),o.removeClass("is-invalid")}function u(t){return e(t).valid()}function d(){var t=!(arguments.length>0&&void 0!==arguments[0])||arguments[0];t?e("#txt-fecha-vencimiento").rules("add",{required:!0,pattern:Object(r.a)()},{pattern:"No es una fecha válida"}):e("#txt-fecha-vencimiento").rules("remove")}function l(){e("#frm-contacto").validate()}function m(){e("#frm-afiliacion-seguro-estudiante").validate({rules:{nombres:{required:!0,maxlength:40},apellido_paterno:{required:!0,maxlength:40},apellido_materno:{required:!1,maxlength:40},sexo:{required:!0},pais:{required:!0},tipo_documento_identidad:{required:!0},numero_documento_identidad:{required:!0,maxlength:15,digits:!0},estado_civil:{required:!0},fecha_nacimiento:{pattern:Object(r.a)()},correo:{required:!0,email:!0,maxlength:40},telefono:{required:!0},voucher:{required:!0,extension:"pdf|jpeg|jpg|gif|bmp|png"}},messages:{fecha_nacimiento:"No es una fecha válida"}})}function f(){e("#frm-cotizar-seguro-vehicular-todo-riesgo").validate({rules:{nombres:{required:!0,maxlength:40},apellido_paterno:{required:!0,maxlength:40},apellido_materno:{required:!1,maxlength:40},tipo_documento_identidad:{required:!0},numero_documento_identidad:{required:!0,maxlength:15,digits:!0},correo:{required:!0,email:!0,maxlength:40},telefono:{required:!0},anio_vehiculo:{required:!0},placa:{required:!0,maxlength:15},uso:{required:!0},asientos:{required:!0,min:1},clase_vehiculo:{required:!0},marca:{required:!0},modelo:{required:!0},costo:{required:!0,number:!0},compania_seguro:{required:!0}}})}function p(){e("#frm-cotizar-soat").validate({nombres:{required:!0,maxlength:40},apellido_paterno:{required:!0,maxlength:40},apellido_materno:{required:!1,maxlength:40},tipo_documento_identidad:{required:!0},numero_documento_identidad:{required:!0,maxlength:15,digits:!0},correo:{required:!0,email:!0,maxlength:40},telefono:{required:!0},anio_vehiculo:{required:!0},placa:{required:!0,maxlength:15},uso:{required:!0},asientos:{required:!0,min:1},compania_seguro:{required:!0},tiene_soat:{required:!0}})}function g(t){e("#frm-comprar-soat").validate({rules:{tipo_compra:{required:!0},nombres:{required:!0,maxlength:40},apellido_paterno:{required:!0,maxlength:40},apellido_materno:{required:!1,maxlength:40},tipo_documento_identidad:{required:!0},numero_documento_identidad:{required:!0,maxlength:15,digits:!0},fecha_nacimiento:{required:!0,pattern:Object(r.a)()},correo:{required:!0,email:!0,maxlength:40},telefono:{required:!0}},messages:{fecha_nacimiento:{pattern:"No es una fecha válida"}}})}function v(t){"adquisicion"===t&&(e("#txt-direccion").rules("add",{required:!0,maxlength:100}),e("#fil-imagen-poliza").rules("add",{required:!0,extension:"png|bmp|gif|jpg|pdf"}),e("#ddo-anio-vehiculo").rules("add","required"),e("#txt-placa").rules("add",{required:!0,maxlength:15}),e("#txt-uso").rules("add","required"),e("#txt-asientos").rules("add",{required:!0,min:1}),e("[name=compania_seguro]").rules("add","required"),e("#fil-tarjeta-propiedad").rules("add",{required:!0,extension:"png|bmp|gif|jpg|pdf"}),e("#fil-dni").rules("add",{required:!0,extension:"png|bmp|gif|jpg|pdf"})),"renovacion"===t&&(e("#txt-direccion").rules("remove"),e("#fil-imagen-poliza").rules("remove"),e("#ddo-anio-vehiculo").rules("remove"),e("#txt-placa").rules("remove"),e("#txt-uso").rules("remove"),e("#txt-asientos").rules("remove"),e("[name=compania_seguro]").rules("remove"),e("#fil-tarjeta-propiedad").rules("remove"),e("#fil-dni").rules("remove"))}function j(t){var n;for(var o in e("span.invalid-feedback").remove(),t){var r=e("[name=".concat(o,"]")).eq(0),a=e("<span></span>",{text:t[o][0]});void 0===n&&(n=r),s(r),c(r),i(a,r)}e(".wizard").smartWizard("goToStep",n.closest(".tab-pane").index())}}).call(this,n(6))},200:function(e,t){},4:function(e,t,n){"use strict";n.d(t,"b",(function(){return j})),n.d(t,"a",(function(){return b})),n.d(t,"j",(function(){return h})),n.d(t,"i",(function(){return y})),n.d(t,"k",(function(){return x})),n.d(t,"c",(function(){return w})),n.d(t,"f",(function(){return O})),n.d(t,"d",(function(){return q})),n.d(t,"g",(function(){return E})),n.d(t,"h",(function(){return z})),n.d(t,"e",(function(){return k}));var o=n(8),r=n.n(o),a=n(3),i=n.n(a),c=n(10),s=n(0),u=n.n(s),d=n(152),l=n.n(d),m=n(1),f=n(5),p=n(2),g="N",v="J";function j(){l.a.init()}function b(e,t,n){Object(c.default)(document.getElementById(e),{mask:Date,lazy:!1,pattern:"DD/MM/YYYY",min:t,max:n,overwrite:!0,format:function(e){return u()(e).format("DD/MM/YYYY")},parse:function(e){return u()(e,"DD/MM/YYYY")},blocks:{DD:{mask:c.default.MaskedRange,from:1,to:31,maxLength:2,placeholderChar:"_"},MM:{mask:c.default.MaskedRange,from:1,to:12,maxLength:2,placeholderChar:"_"},YYYY:{mask:c.default.MaskedRange,from:t.getFullYear(),to:n.getFullYear(),maxLength:4,placeholderChar:"_"}}})}function h(){var e=document.getElementById("txt-fecha-vencimiento").closest(".form-group");1==document.querySelector("input[name=tiene_soat]:checked").value?(e.classList.remove("d-none"),Object(p.j)()):(e.classList.add("d-none"),Object(p.j)(!1));var t=document.getElementById("txt-fecha-vencimiento").closest(".tab-pane");Object(f.b)(t)}function y(e){"adquisicion"===e&&document.getElementById("txt-direccion").closest(".form-group").classList.remove("d-none"),"renovacion"===e&&document.getElementById("txt-direccion").closest(".form-group").classList.add("d-none")}function x(e){e===g&&(document.getElementById("txt-nombres").closest(".form-group").classList.remove("d-none"),document.getElementById("txt-apellido-paterno").closest(".form-group").classList.remove("d-none"),document.getElementById("txt-apellido-materno").closest(".form-group").classList.remove("d-none"),document.getElementById("txt-razon-social").closest(".form-group").classList.add("d-none")),e===v&&(document.getElementById("txt-nombres").closest(".form-group").classList.add("d-none"),document.getElementById("txt-apellido-paterno").closest(".form-group").classList.add("d-none"),document.getElementById("txt-apellido-materno").closest(".form-group").classList.add("d-none"),document.getElementById("txt-razon-social").closest(".form-group").classList.remove("d-none"))}function w(e){var t=Object(m.d)("tipos-documento-identidad")+"?tipo_cliente="+e;r.a.get(t).then((function(e){for(var t=e.data.data,n=document.getElementById("ddo-tipo-documento-identidad"),o=n.options.length-1;o>=0;o--)n.options[o].remove();t.forEach((function(e){var t=document.createElement("option");t.value=e.id,t.text=e.descripcion,n.options.add(t)}))}))}function O(){var e=Object(m.d)("contacto"),t=new FormData(document.getElementById("frm-contact"));_(),r.a.post(e,t).then((function(){i.a.fire({title:"Mensaje enviado",text:"Tu mensaje está en camino. Gracias por comunicarte con nosotros",icon:"success",confirmButtonText:"Aceptar"}),document.getElementById("frm-contact").reset()})).catch((function(){i.a.fire({title:"Algo ocurrió",text:"Tu mensaje no se pudo enviar. Por favor inténtalo mas tarde",icon:"error",confirmButtonText:"Aceptar"})}))}function q(){var e=Object(m.d)("afiliaciones/seguro_estudiante"),t=new FormData(document.getElementById("frm-afiliacion-seguro-estudiante"));t.set("estado_civil",Object(m.a)(t.get("estado_civil"))),t.set("fecha_nacimiento",Object(m.c)(t.get("fecha_nacimiento"),"DD/MM/YYYY","YYYY-MM-DD")),_(),r.a.post(e,t).then((function(){i.a.fire({title:"Datos de afiliación registrados",text:"Gracias por enviar tu solicitud de afiliación al seguro estudiantil contra accidentes. Nos comunicaremos contigo en breve",icon:"success",confirmButtonText:"Aceptar"}),Object(f.a)()})).catch((function(e){400===e.response.status?(i.a.fire({title:"Algo ocurrió",text:"Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo",icon:"error",confirmButtonText:"Aceptar"}),Object(p.i)(e.response.data.messages)):i.a.fire({title:"Algo ocurrió",text:"Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde",icon:"error",confirmButtonText:"Aceptar"})}))}function E(){var e=document.getElementById("frm-cotizar-seguro-vehicular-todo-riesgo");if(!Object(p.b)(e))return!1;var t=Object(m.d)("cotizaciones/vehiculo_todo_riesgo"),n=new FormData(e);_(),r.a.post(t,n).then((function(){i.a.fire({title:"Datos de cotización registrados",text:"Gracias por enviar tu solicitud de cotización de seguro vehicular todo riesgo. Nos comunicaremos contigo en breve",icon:"success",confirmButtonText:"Aceptar"}),Object(f.a)()})).catch((function(e){400===e.response.status?(i.a.fire({title:"Algo ocurrió",text:"Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo",icon:"error",confirmButtonText:"Aceptar"}),Object(p.i)(e.response.data.messages)):i.a.fire({title:"Algo ocurrió",text:"Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde",icon:"error",confirmButtonText:"Aceptar"})}))}function z(){var e=document.getElementById("frm-cotizar-soat");if(!Object(p.b)(e))return!1;var t=Object(m.d)("cotizaciones/soat"),n=new FormData(e);1==n.get("tiene_soat")?n.set("fecha_nacimiento",Object(m.c)(document.getElementById("txt-fecha-vencimiento").getAttribute("value"),"DD/MM/YYYY","YYYY-MM-DD")):n.delete("fecha_vencimiento"),_(),r.a.post(t,n).then((function(){i.a.fire({title:"Datos de cotizacion registrados",text:"Gracias por enviar tu solicitud de cotización de SOAT. Nos comunicaremos contigo en breve",icon:"success",confirmButtonText:"Aceptar"}),Object(f.a)()})).catch((function(e){400===e.response.status?(i.a.fire({title:"Algo ocurrió",text:"Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo",icon:"error",confirmButtonText:"Aceptar"}),Object(p.i)(e.response.data.messages)):i.a.fire({title:"Algo ocurrió",text:"Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde",icon:"error",confirmButtonText:"Aceptar"})}))}function k(){var e=document.getElementById("frm-comprar-soat");if(!Object(p.b)(e))return!1;var t=Object(m.d)("compras/soat"),n=new FormData(e);n.set("fecha_nacimiento",Object(m.c)(document.getElementById("txt-fecha-nacimiento").value,"DD/MM/YYYY","YYYY-MM-DD")),_(),r.a.post(t,n).then((function(){i.a.fire({title:"Datos de compra registrados",text:"Gracias por enviar tu solicitud de compra de SOAT. Nos comunicaremos contigo en breve",icon:"success",confirmButtonText:"Aceptar"}),Object(f.a)()})).catch((function(e){400===e.response.status?(i.a.fire({title:"Algo ocurrió",text:"Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo",icon:"error",confirmButtonText:"Aceptar"}),Object(p.i)(e.response.data.messages)):i.a.fire({title:"Algo ocurrió",text:"Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde",icon:"error",confirmButtonText:"Aceptar"})}))}function _(){i.a.fire({title:"Espere",allowEscapeKey:!1,allowOutsideClick:!1,onBeforeOpen:function(){return i.a.showLoading()}})}},5:function(e,t,n){"use strict";(function(e){n.d(t,"d",(function(){return a})),n.d(t,"b",(function(){return i})),n.d(t,"e",(function(){return c})),n.d(t,"a",(function(){return s})),n.d(t,"c",(function(){return u}));n(156);var o=n(4),r=n(2);function a(){e(".wizard").smartWizard({theme:"dots",lang:{previous:"Anterior",next:"Siguiente"},anchorSettings:{markAllPreviousStepsAsDone:!1},selected:0,toolbarSettings:{toolbarExtraButtons:[e("<button></button>",{text:"Enviar solicitud",class:"button button-primary",id:"btn-enviar-solicitud",type:"button",disabled:!0})]}}),e(".wizard").smartWizard("reset"),e(".wizard").on("leaveStep",(function(t,n,o,a,c){if(s=o,u=e(".tab-pane").eq(s).find("input, select, textarea"),d=0,u.each((function(e,t){Object(r.b)(t)||d++})),d>0&&"forward"===c){document.getElementsByClassName("tab-pane")[o];return i(),!1}var s,u,d})),document.querySelectorAll("form input, form select, form textarea")[0].focus()}function i(){var t=e(".tab-pane:not([style*='display: none'])");e(".tab-content").eq(0).height(t.innerHeight())}function c(t){e(".wizard").on("showStep",(function(n,o,r,a){"forward"===a&&r===t?e("#btn-enviar-solicitud").removeAttr("disabled"):e("#btn-enviar-solicitud").attr("disabled","disabled")}))}function s(){document.querySelector(".wizard form").reset(),Object(o.c)("N"),e(".wizard").smartWizard("reset")}function u(t){"adquisicion"===t&&(e("#wizard-comprar-soat").smartWizard("stepState",[2,4],"show"),e("#wizard-comprar-soat").smartWizard("stepState",[3],"hide"),c(2)),"renovacion"===t&&(e("#wizard-comprar-soat").smartWizard("stepState",[2,4],"hide"),e("#wizard-comprar-soat").smartWizard("stepState",[3],"show"),c(1))}}).call(this,n(6))},9:function(e,t,n){"use strict";(function(e){function o(){a()?r():(e(".sidenav").addClass("open"),e(".wrapper").addClass("is-menu-open"),e(".wrapper-shadow").addClass("active"))}function r(){e(".sidenav").removeClass("open"),e(".wrapper").removeClass("is-menu-open"),e(".wrapper-shadow").removeClass("active")}function a(){return e(".sidenav").hasClass("open")}function i(){var t=e(".navbar-links-container").detach();e(window).outerWidth()>=992?e("nav.navbar").append(t):e(".sidenav").append(t),a()&&(r(),document.querySelectorAll(".sidenav .navbar-link.has-children").forEach((function(e){s(e.getElementsByClassName("navbar-submenu")[0],e.getElementsByTagName("i")[0])})))}function c(e){var t=e.target.nextElementSibling,n=e.target.getElementsByTagName("i")[0];t.style.height?s(t,n):function(e,t){t.classList.contains("fa-angle-down")&&(t.classList.remove("fa-angle-down"),t.classList.add("fa-angle-up"));e.style.height=e.scrollHeight+"px"}(t,n)}function s(e,t){t.classList.contains("fa-angle-up")&&(t.classList.remove("fa-angle-up"),t.classList.add("fa-angle-down")),e.style.height=null}n.d(t,"b",(function(){return o})),n.d(t,"a",(function(){return i})),n.d(t,"c",(function(){return c}))}).call(this,n(6))}},[[166,1,2]]]);
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([["/js/web/app"],{
+
+/***/ "./node_modules/moment/locale sync recursive ^\\.\\/.*$":
+/*!**************************************************!*\
+  !*** ./node_modules/moment/locale sync ^\.\/.*$ ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"./af": "./node_modules/moment/locale/af.js",
+	"./af.js": "./node_modules/moment/locale/af.js",
+	"./ar": "./node_modules/moment/locale/ar.js",
+	"./ar-dz": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-dz.js": "./node_modules/moment/locale/ar-dz.js",
+	"./ar-kw": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-kw.js": "./node_modules/moment/locale/ar-kw.js",
+	"./ar-ly": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ly.js": "./node_modules/moment/locale/ar-ly.js",
+	"./ar-ma": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-ma.js": "./node_modules/moment/locale/ar-ma.js",
+	"./ar-sa": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-sa.js": "./node_modules/moment/locale/ar-sa.js",
+	"./ar-tn": "./node_modules/moment/locale/ar-tn.js",
+	"./ar-tn.js": "./node_modules/moment/locale/ar-tn.js",
+	"./ar.js": "./node_modules/moment/locale/ar.js",
+	"./az": "./node_modules/moment/locale/az.js",
+	"./az.js": "./node_modules/moment/locale/az.js",
+	"./be": "./node_modules/moment/locale/be.js",
+	"./be.js": "./node_modules/moment/locale/be.js",
+	"./bg": "./node_modules/moment/locale/bg.js",
+	"./bg.js": "./node_modules/moment/locale/bg.js",
+	"./bm": "./node_modules/moment/locale/bm.js",
+	"./bm.js": "./node_modules/moment/locale/bm.js",
+	"./bn": "./node_modules/moment/locale/bn.js",
+	"./bn-bd": "./node_modules/moment/locale/bn-bd.js",
+	"./bn-bd.js": "./node_modules/moment/locale/bn-bd.js",
+	"./bn.js": "./node_modules/moment/locale/bn.js",
+	"./bo": "./node_modules/moment/locale/bo.js",
+	"./bo.js": "./node_modules/moment/locale/bo.js",
+	"./br": "./node_modules/moment/locale/br.js",
+	"./br.js": "./node_modules/moment/locale/br.js",
+	"./bs": "./node_modules/moment/locale/bs.js",
+	"./bs.js": "./node_modules/moment/locale/bs.js",
+	"./ca": "./node_modules/moment/locale/ca.js",
+	"./ca.js": "./node_modules/moment/locale/ca.js",
+	"./cs": "./node_modules/moment/locale/cs.js",
+	"./cs.js": "./node_modules/moment/locale/cs.js",
+	"./cv": "./node_modules/moment/locale/cv.js",
+	"./cv.js": "./node_modules/moment/locale/cv.js",
+	"./cy": "./node_modules/moment/locale/cy.js",
+	"./cy.js": "./node_modules/moment/locale/cy.js",
+	"./da": "./node_modules/moment/locale/da.js",
+	"./da.js": "./node_modules/moment/locale/da.js",
+	"./de": "./node_modules/moment/locale/de.js",
+	"./de-at": "./node_modules/moment/locale/de-at.js",
+	"./de-at.js": "./node_modules/moment/locale/de-at.js",
+	"./de-ch": "./node_modules/moment/locale/de-ch.js",
+	"./de-ch.js": "./node_modules/moment/locale/de-ch.js",
+	"./de.js": "./node_modules/moment/locale/de.js",
+	"./dv": "./node_modules/moment/locale/dv.js",
+	"./dv.js": "./node_modules/moment/locale/dv.js",
+	"./el": "./node_modules/moment/locale/el.js",
+	"./el.js": "./node_modules/moment/locale/el.js",
+	"./en-au": "./node_modules/moment/locale/en-au.js",
+	"./en-au.js": "./node_modules/moment/locale/en-au.js",
+	"./en-ca": "./node_modules/moment/locale/en-ca.js",
+	"./en-ca.js": "./node_modules/moment/locale/en-ca.js",
+	"./en-gb": "./node_modules/moment/locale/en-gb.js",
+	"./en-gb.js": "./node_modules/moment/locale/en-gb.js",
+	"./en-ie": "./node_modules/moment/locale/en-ie.js",
+	"./en-ie.js": "./node_modules/moment/locale/en-ie.js",
+	"./en-il": "./node_modules/moment/locale/en-il.js",
+	"./en-il.js": "./node_modules/moment/locale/en-il.js",
+	"./en-in": "./node_modules/moment/locale/en-in.js",
+	"./en-in.js": "./node_modules/moment/locale/en-in.js",
+	"./en-nz": "./node_modules/moment/locale/en-nz.js",
+	"./en-nz.js": "./node_modules/moment/locale/en-nz.js",
+	"./en-sg": "./node_modules/moment/locale/en-sg.js",
+	"./en-sg.js": "./node_modules/moment/locale/en-sg.js",
+	"./eo": "./node_modules/moment/locale/eo.js",
+	"./eo.js": "./node_modules/moment/locale/eo.js",
+	"./es": "./node_modules/moment/locale/es.js",
+	"./es-do": "./node_modules/moment/locale/es-do.js",
+	"./es-do.js": "./node_modules/moment/locale/es-do.js",
+	"./es-mx": "./node_modules/moment/locale/es-mx.js",
+	"./es-mx.js": "./node_modules/moment/locale/es-mx.js",
+	"./es-us": "./node_modules/moment/locale/es-us.js",
+	"./es-us.js": "./node_modules/moment/locale/es-us.js",
+	"./es.js": "./node_modules/moment/locale/es.js",
+	"./et": "./node_modules/moment/locale/et.js",
+	"./et.js": "./node_modules/moment/locale/et.js",
+	"./eu": "./node_modules/moment/locale/eu.js",
+	"./eu.js": "./node_modules/moment/locale/eu.js",
+	"./fa": "./node_modules/moment/locale/fa.js",
+	"./fa.js": "./node_modules/moment/locale/fa.js",
+	"./fi": "./node_modules/moment/locale/fi.js",
+	"./fi.js": "./node_modules/moment/locale/fi.js",
+	"./fil": "./node_modules/moment/locale/fil.js",
+	"./fil.js": "./node_modules/moment/locale/fil.js",
+	"./fo": "./node_modules/moment/locale/fo.js",
+	"./fo.js": "./node_modules/moment/locale/fo.js",
+	"./fr": "./node_modules/moment/locale/fr.js",
+	"./fr-ca": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ca.js": "./node_modules/moment/locale/fr-ca.js",
+	"./fr-ch": "./node_modules/moment/locale/fr-ch.js",
+	"./fr-ch.js": "./node_modules/moment/locale/fr-ch.js",
+	"./fr.js": "./node_modules/moment/locale/fr.js",
+	"./fy": "./node_modules/moment/locale/fy.js",
+	"./fy.js": "./node_modules/moment/locale/fy.js",
+	"./ga": "./node_modules/moment/locale/ga.js",
+	"./ga.js": "./node_modules/moment/locale/ga.js",
+	"./gd": "./node_modules/moment/locale/gd.js",
+	"./gd.js": "./node_modules/moment/locale/gd.js",
+	"./gl": "./node_modules/moment/locale/gl.js",
+	"./gl.js": "./node_modules/moment/locale/gl.js",
+	"./gom-deva": "./node_modules/moment/locale/gom-deva.js",
+	"./gom-deva.js": "./node_modules/moment/locale/gom-deva.js",
+	"./gom-latn": "./node_modules/moment/locale/gom-latn.js",
+	"./gom-latn.js": "./node_modules/moment/locale/gom-latn.js",
+	"./gu": "./node_modules/moment/locale/gu.js",
+	"./gu.js": "./node_modules/moment/locale/gu.js",
+	"./he": "./node_modules/moment/locale/he.js",
+	"./he.js": "./node_modules/moment/locale/he.js",
+	"./hi": "./node_modules/moment/locale/hi.js",
+	"./hi.js": "./node_modules/moment/locale/hi.js",
+	"./hr": "./node_modules/moment/locale/hr.js",
+	"./hr.js": "./node_modules/moment/locale/hr.js",
+	"./hu": "./node_modules/moment/locale/hu.js",
+	"./hu.js": "./node_modules/moment/locale/hu.js",
+	"./hy-am": "./node_modules/moment/locale/hy-am.js",
+	"./hy-am.js": "./node_modules/moment/locale/hy-am.js",
+	"./id": "./node_modules/moment/locale/id.js",
+	"./id.js": "./node_modules/moment/locale/id.js",
+	"./is": "./node_modules/moment/locale/is.js",
+	"./is.js": "./node_modules/moment/locale/is.js",
+	"./it": "./node_modules/moment/locale/it.js",
+	"./it-ch": "./node_modules/moment/locale/it-ch.js",
+	"./it-ch.js": "./node_modules/moment/locale/it-ch.js",
+	"./it.js": "./node_modules/moment/locale/it.js",
+	"./ja": "./node_modules/moment/locale/ja.js",
+	"./ja.js": "./node_modules/moment/locale/ja.js",
+	"./jv": "./node_modules/moment/locale/jv.js",
+	"./jv.js": "./node_modules/moment/locale/jv.js",
+	"./ka": "./node_modules/moment/locale/ka.js",
+	"./ka.js": "./node_modules/moment/locale/ka.js",
+	"./kk": "./node_modules/moment/locale/kk.js",
+	"./kk.js": "./node_modules/moment/locale/kk.js",
+	"./km": "./node_modules/moment/locale/km.js",
+	"./km.js": "./node_modules/moment/locale/km.js",
+	"./kn": "./node_modules/moment/locale/kn.js",
+	"./kn.js": "./node_modules/moment/locale/kn.js",
+	"./ko": "./node_modules/moment/locale/ko.js",
+	"./ko.js": "./node_modules/moment/locale/ko.js",
+	"./ku": "./node_modules/moment/locale/ku.js",
+	"./ku.js": "./node_modules/moment/locale/ku.js",
+	"./ky": "./node_modules/moment/locale/ky.js",
+	"./ky.js": "./node_modules/moment/locale/ky.js",
+	"./lb": "./node_modules/moment/locale/lb.js",
+	"./lb.js": "./node_modules/moment/locale/lb.js",
+	"./lo": "./node_modules/moment/locale/lo.js",
+	"./lo.js": "./node_modules/moment/locale/lo.js",
+	"./lt": "./node_modules/moment/locale/lt.js",
+	"./lt.js": "./node_modules/moment/locale/lt.js",
+	"./lv": "./node_modules/moment/locale/lv.js",
+	"./lv.js": "./node_modules/moment/locale/lv.js",
+	"./me": "./node_modules/moment/locale/me.js",
+	"./me.js": "./node_modules/moment/locale/me.js",
+	"./mi": "./node_modules/moment/locale/mi.js",
+	"./mi.js": "./node_modules/moment/locale/mi.js",
+	"./mk": "./node_modules/moment/locale/mk.js",
+	"./mk.js": "./node_modules/moment/locale/mk.js",
+	"./ml": "./node_modules/moment/locale/ml.js",
+	"./ml.js": "./node_modules/moment/locale/ml.js",
+	"./mn": "./node_modules/moment/locale/mn.js",
+	"./mn.js": "./node_modules/moment/locale/mn.js",
+	"./mr": "./node_modules/moment/locale/mr.js",
+	"./mr.js": "./node_modules/moment/locale/mr.js",
+	"./ms": "./node_modules/moment/locale/ms.js",
+	"./ms-my": "./node_modules/moment/locale/ms-my.js",
+	"./ms-my.js": "./node_modules/moment/locale/ms-my.js",
+	"./ms.js": "./node_modules/moment/locale/ms.js",
+	"./mt": "./node_modules/moment/locale/mt.js",
+	"./mt.js": "./node_modules/moment/locale/mt.js",
+	"./my": "./node_modules/moment/locale/my.js",
+	"./my.js": "./node_modules/moment/locale/my.js",
+	"./nb": "./node_modules/moment/locale/nb.js",
+	"./nb.js": "./node_modules/moment/locale/nb.js",
+	"./ne": "./node_modules/moment/locale/ne.js",
+	"./ne.js": "./node_modules/moment/locale/ne.js",
+	"./nl": "./node_modules/moment/locale/nl.js",
+	"./nl-be": "./node_modules/moment/locale/nl-be.js",
+	"./nl-be.js": "./node_modules/moment/locale/nl-be.js",
+	"./nl.js": "./node_modules/moment/locale/nl.js",
+	"./nn": "./node_modules/moment/locale/nn.js",
+	"./nn.js": "./node_modules/moment/locale/nn.js",
+	"./oc-lnc": "./node_modules/moment/locale/oc-lnc.js",
+	"./oc-lnc.js": "./node_modules/moment/locale/oc-lnc.js",
+	"./pa-in": "./node_modules/moment/locale/pa-in.js",
+	"./pa-in.js": "./node_modules/moment/locale/pa-in.js",
+	"./pl": "./node_modules/moment/locale/pl.js",
+	"./pl.js": "./node_modules/moment/locale/pl.js",
+	"./pt": "./node_modules/moment/locale/pt.js",
+	"./pt-br": "./node_modules/moment/locale/pt-br.js",
+	"./pt-br.js": "./node_modules/moment/locale/pt-br.js",
+	"./pt.js": "./node_modules/moment/locale/pt.js",
+	"./ro": "./node_modules/moment/locale/ro.js",
+	"./ro.js": "./node_modules/moment/locale/ro.js",
+	"./ru": "./node_modules/moment/locale/ru.js",
+	"./ru.js": "./node_modules/moment/locale/ru.js",
+	"./sd": "./node_modules/moment/locale/sd.js",
+	"./sd.js": "./node_modules/moment/locale/sd.js",
+	"./se": "./node_modules/moment/locale/se.js",
+	"./se.js": "./node_modules/moment/locale/se.js",
+	"./si": "./node_modules/moment/locale/si.js",
+	"./si.js": "./node_modules/moment/locale/si.js",
+	"./sk": "./node_modules/moment/locale/sk.js",
+	"./sk.js": "./node_modules/moment/locale/sk.js",
+	"./sl": "./node_modules/moment/locale/sl.js",
+	"./sl.js": "./node_modules/moment/locale/sl.js",
+	"./sq": "./node_modules/moment/locale/sq.js",
+	"./sq.js": "./node_modules/moment/locale/sq.js",
+	"./sr": "./node_modules/moment/locale/sr.js",
+	"./sr-cyrl": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr-cyrl.js": "./node_modules/moment/locale/sr-cyrl.js",
+	"./sr.js": "./node_modules/moment/locale/sr.js",
+	"./ss": "./node_modules/moment/locale/ss.js",
+	"./ss.js": "./node_modules/moment/locale/ss.js",
+	"./sv": "./node_modules/moment/locale/sv.js",
+	"./sv.js": "./node_modules/moment/locale/sv.js",
+	"./sw": "./node_modules/moment/locale/sw.js",
+	"./sw.js": "./node_modules/moment/locale/sw.js",
+	"./ta": "./node_modules/moment/locale/ta.js",
+	"./ta.js": "./node_modules/moment/locale/ta.js",
+	"./te": "./node_modules/moment/locale/te.js",
+	"./te.js": "./node_modules/moment/locale/te.js",
+	"./tet": "./node_modules/moment/locale/tet.js",
+	"./tet.js": "./node_modules/moment/locale/tet.js",
+	"./tg": "./node_modules/moment/locale/tg.js",
+	"./tg.js": "./node_modules/moment/locale/tg.js",
+	"./th": "./node_modules/moment/locale/th.js",
+	"./th.js": "./node_modules/moment/locale/th.js",
+	"./tk": "./node_modules/moment/locale/tk.js",
+	"./tk.js": "./node_modules/moment/locale/tk.js",
+	"./tl-ph": "./node_modules/moment/locale/tl-ph.js",
+	"./tl-ph.js": "./node_modules/moment/locale/tl-ph.js",
+	"./tlh": "./node_modules/moment/locale/tlh.js",
+	"./tlh.js": "./node_modules/moment/locale/tlh.js",
+	"./tr": "./node_modules/moment/locale/tr.js",
+	"./tr.js": "./node_modules/moment/locale/tr.js",
+	"./tzl": "./node_modules/moment/locale/tzl.js",
+	"./tzl.js": "./node_modules/moment/locale/tzl.js",
+	"./tzm": "./node_modules/moment/locale/tzm.js",
+	"./tzm-latn": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm-latn.js": "./node_modules/moment/locale/tzm-latn.js",
+	"./tzm.js": "./node_modules/moment/locale/tzm.js",
+	"./ug-cn": "./node_modules/moment/locale/ug-cn.js",
+	"./ug-cn.js": "./node_modules/moment/locale/ug-cn.js",
+	"./uk": "./node_modules/moment/locale/uk.js",
+	"./uk.js": "./node_modules/moment/locale/uk.js",
+	"./ur": "./node_modules/moment/locale/ur.js",
+	"./ur.js": "./node_modules/moment/locale/ur.js",
+	"./uz": "./node_modules/moment/locale/uz.js",
+	"./uz-latn": "./node_modules/moment/locale/uz-latn.js",
+	"./uz-latn.js": "./node_modules/moment/locale/uz-latn.js",
+	"./uz.js": "./node_modules/moment/locale/uz.js",
+	"./vi": "./node_modules/moment/locale/vi.js",
+	"./vi.js": "./node_modules/moment/locale/vi.js",
+	"./x-pseudo": "./node_modules/moment/locale/x-pseudo.js",
+	"./x-pseudo.js": "./node_modules/moment/locale/x-pseudo.js",
+	"./yo": "./node_modules/moment/locale/yo.js",
+	"./yo.js": "./node_modules/moment/locale/yo.js",
+	"./zh-cn": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-cn.js": "./node_modules/moment/locale/zh-cn.js",
+	"./zh-hk": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-hk.js": "./node_modules/moment/locale/zh-hk.js",
+	"./zh-mo": "./node_modules/moment/locale/zh-mo.js",
+	"./zh-mo.js": "./node_modules/moment/locale/zh-mo.js",
+	"./zh-tw": "./node_modules/moment/locale/zh-tw.js",
+	"./zh-tw.js": "./node_modules/moment/locale/zh-tw.js"
+};
+
+
+function webpackContext(req) {
+	var id = webpackContextResolve(req);
+	return __webpack_require__(id);
+}
+function webpackContextResolve(req) {
+	if(!__webpack_require__.o(map, req)) {
+		var e = new Error("Cannot find module '" + req + "'");
+		e.code = 'MODULE_NOT_FOUND';
+		throw e;
+	}
+	return map[req];
+}
+webpackContext.keys = function webpackContextKeys() {
+	return Object.keys(map);
+};
+webpackContext.resolve = webpackContextResolve;
+module.exports = webpackContext;
+webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
+
+/***/ }),
+
+/***/ "./node_modules/process/browser.js":
+/*!*****************************************!*\
+  !*** ./node_modules/process/browser.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ "./node_modules/webpack/buildin/module.js":
+/*!***********************************!*\
+  !*** (webpack)/buildin/module.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function(module) {
+	if (!module.webpackPolyfill) {
+		module.deprecate = function() {};
+		module.paths = [];
+		// module.parent = undefined by default
+		if (!module.children) module.children = [];
+		Object.defineProperty(module, "loaded", {
+			enumerable: true,
+			get: function() {
+				return module.l;
+			}
+		});
+		Object.defineProperty(module, "id", {
+			enumerable: true,
+			get: function() {
+				return module.i;
+			}
+		});
+		module.webpackPolyfill = 1;
+	}
+	return module;
+};
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/shared/constants.js":
+/*!*************************************************!*\
+  !*** ./resources/assets/js/shared/constants.js ***!
+  \*************************************************/
+/*! exports provided: requestFormConstants, tipoClienteConstants */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "requestFormConstants", function() { return requestFormConstants; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "tipoClienteConstants", function() { return tipoClienteConstants; });
+var requestFormConstants = {
+  REQUEST_COMPRA_SOAT: 'frm-comprar-soat',
+  REQUEST_COTIZAR_SOAT: 'frm-cotizar-soat',
+  REQUEST_COTIZAR_SEGURO_VEHICULO: 'frm-cotizar-seguro-vehiculo',
+  REQUEST_AFILIAR_SEGURO_ESTUDIANTE: 'frm-afiliar-seguro-estudiante'
+};
+var tipoClienteConstants = {
+  PERSONA_NATURAL: 'N',
+  PERSONA_JURIDICA: 'J'
+};
+
+/***/ }),
+
+/***/ "./resources/assets/js/shared/util.js":
+/*!********************************************!*\
+  !*** ./resources/assets/js/shared/util.js ***!
+  \********************************************/
+/*! exports provided: existsElement, returnUrl, getUriSegment, capitalizeFirstLetter, formatDate */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "existsElement", function() { return existsElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "returnUrl", function() { return returnUrl; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getUriSegment", function() { return getUriSegment; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "capitalizeFirstLetter", function() { return capitalizeFirstLetter; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "formatDate", function() { return formatDate; });
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * Check if an DOM element exists
+ *
+ * @author Jesus Romero
+ * @date 30/09/2020
+ * @export
+ * @param {string} selector
+ * @returns {boolean}
+ */
+
+function existsElement(selector) {
+  return document.querySelectorAll(selector).length > 0;
+}
+/**
+ * Return URI complete with segments concatenated
+ *
+ * @author Jesus Romero
+ * @date 30/09/2020
+ * @export
+ * @param {string | null} [uriSegments=undefined]
+ * @returns {string}
+ */
+
+function returnUrl() {
+  var uriSegments = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : undefined;
+  var baseUrl = window.location.protocol + '//' + window.location.hostname;
+
+  if (typeof uriSegments === 'undefined') {
+    return baseUrl;
+  }
+
+  return "".concat(baseUrl, "/").concat(uriSegments);
+}
+/**
+ * Return a segment uri from current url
+ *
+ * @author Jesus Romero
+ * @date 01/10/2020
+ * @export
+ * @param {number} indexSegment
+ * @returns {string}
+ */
+
+function getUriSegment(indexSegment) {
+  var uri = window.location.href;
+  var segments = uri.split('/');
+  segments.splice(0, 3);
+  return segments[indexSegment];
+}
+/**
+ * Change first letter of string to uppercase
+ * @param {string} text
+ */
+
+var capitalizeFirstLetter = function capitalizeFirstLetter(text) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+};
+/**
+ * Return string date to specified format
+ *
+ * @author Jesus Romero
+ * @date 01/10/2020
+ * @export
+ * @param {string} dateString
+ * @param {string} formatOrigin
+ * @param {string} formatTarget
+ * @returns {string}
+ */
+
+function formatDate(dateString, formatOrigin, formatTarget) {
+  return moment__WEBPACK_IMPORTED_MODULE_0___default()(dateString, formatOrigin).locale('es_MX').format(formatTarget);
+}
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/app.js":
+/*!****************************************!*\
+  !*** ./resources/assets/js/web/app.js ***!
+  \****************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _endpoints_template__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./endpoints/template */ "./resources/assets/js/web/endpoints/template.js");
+/* harmony import */ var _endpoints_seguros__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./endpoints/seguros */ "./resources/assets/js/web/endpoints/seguros.js");
+/* harmony import */ var _endpoints_contacto__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./endpoints/contacto */ "./resources/assets/js/web/endpoints/contacto.js");
+/* harmony import */ var _endpoints_solicitudes__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./endpoints/solicitudes */ "./resources/assets/js/web/endpoints/solicitudes.js");
+
+
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/endpoints/contacto.js":
+/*!*******************************************************!*\
+  !*** ./resources/assets/js/web/endpoints/contacto.js ***!
+  \*******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions_map__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/map */ "./resources/assets/js/web/functions/map.js");
+/* harmony import */ var _shared_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../shared/util */ "./resources/assets/js/shared/util.js");
+/* harmony import */ var _functions_validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../functions/validation */ "./resources/assets/js/web/functions/validation.js");
+/* harmony import */ var _functions_forms__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../functions/forms */ "./resources/assets/js/web/functions/forms.js");
+
+
+
+ //  Load map on website
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_1__["existsElement"])('#location-map')) {
+  Object(_functions_map__WEBPACK_IMPORTED_MODULE_0__["init"])('location-map', -18.018382982450568, -70.25518439834747);
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_1__["existsElement"])('form')) {
+  Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["setDefaultSettings"])();
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_1__["existsElement"])('#frm-contact')) {
+  //  Apply validation rules to form
+  Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["setValidationContactForm"])(); //  Process form
+
+  document.getElementById('btn-send').addEventListener('click', function () {
+    if (Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["isValid"])('#frm-contact')) {
+      Object(_functions_forms__WEBPACK_IMPORTED_MODULE_3__["processContactForm"])();
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/endpoints/seguros.js":
+/*!******************************************************!*\
+  !*** ./resources/assets/js/web/endpoints/seguros.js ***!
+  \******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _shared_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/util */ "./resources/assets/js/shared/util.js");
+
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#sel-insurances')) {
+  document.getElementById('sel-insurances').addEventListener('change', function (event) {
+    var chosenOption = event.target.options[event.target.selectedIndex];
+    event.target.setAttribute('disabled', 'disabled');
+    window.location.href = chosenOption.getAttribute('data-href');
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/endpoints/solicitudes.js":
+/*!**********************************************************!*\
+  !*** ./resources/assets/js/web/endpoints/solicitudes.js ***!
+  \**********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony import */ var _shared_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/util */ "./resources/assets/js/shared/util.js");
+/* harmony import */ var _functions_forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions/forms */ "./resources/assets/js/web/functions/forms.js");
+/* harmony import */ var _functions_validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../functions/validation */ "./resources/assets/js/web/functions/validation.js");
+/* harmony import */ var _functions_wizard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../functions/wizard */ "./resources/assets/js/web/functions/wizard.js");
+
+
+
+
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('.wizard')) {
+  //  Set wizard component
+  Object(_functions_wizard__WEBPACK_IMPORTED_MODULE_3__["setWizard"])(); //  Focus on first input element
+
+  window.onload = function () {
+    document.getElementsByTagName('section')[0].scrollIntoView();
+    document.querySelectorAll('input', 'textarea', 'select')[0].focus();
+  };
+
+  window.onresize = function () {
+    Object(_functions_wizard__WEBPACK_IMPORTED_MODULE_3__["resizeTabContainer"])();
+  };
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('input[type="file"]')) {
+  //  Set custom file input component
+  Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["initCustomFile"])();
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#wizard-seguro-estudiante')) {
+  //  Toggle button on wizard
+  Object(_functions_wizard__WEBPACK_IMPORTED_MODULE_3__["toggleWizardProcessButton"])(0);
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#wizard-cotizar-seguro-vehicular-todo-riesgo')) {
+  //  Toggle button on wizard
+  Object(_functions_wizard__WEBPACK_IMPORTED_MODULE_3__["toggleWizardProcessButton"])(1);
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#wizard-cotizar-soat')) {
+  //  Toggle button on wizard
+  Object(_functions_wizard__WEBPACK_IMPORTED_MODULE_3__["toggleWizardProcessButton"])(1);
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#wizard-comprar-soat')) {
+  $('#wizard-comprar-soat').smartWizard('setOptions', {
+    hiddenSteps: [2, 3, 4]
+  });
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#frm-afiliacion-seguro-estudiante')) {
+  //  Valid and process form
+  Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["setValidationAfiliacionSeguroEstudianteForm"])();
+  document.getElementById('btn-enviar-solicitud').addEventListener('click', function () {
+    if (Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["isValid"])(document.getElementById('frm-afiliacion-seguro-estudiante'))) {
+      Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["processAfiliacionSeguroEstudianteForm"])();
+    }
+  });
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#frm-cotizar-seguro-vehicular-todo-riesgo')) {
+  //  Valid and process form
+  Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["setValidationCotizarSeguroVehiculoTodoRiesgoForm"])();
+  document.getElementById('btn-enviar-solicitud').addEventListener('click', function () {
+    return Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["processCotizarSeguroVehiculoTodoRiesgo"])();
+  });
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#frm-cotizar-soat')) {
+  Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["setValidationCotizarSoatForm"])();
+  document.getElementById('rad-tengo-soat').addEventListener('click', function () {
+    return Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["toggleFechaVencimiento"])();
+  });
+  document.getElementById('rad-no-tengo-soat').addEventListener('click', function () {
+    return Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["toggleFechaVencimiento"])();
+  });
+  document.getElementById('btn-enviar-solicitud').addEventListener('click', function () {
+    return Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["processCotizarSoatForm"])();
+  });
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#frm-comprar-soat')) {
+  Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["setValidationComprarSoatForm"])();
+  document.getElementById('btn-enviar-solicitud').addEventListener('click', function () {
+    return Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["processComprarSoatForm"])();
+  });
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#txt-fecha-nacimiento')) {
+  //  Set a mask date on input
+  var minDate = new Date(1970, 0, 1);
+  var maxDate = new Date(new Date().getFullYear() - 18, 0, 1);
+  Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["createMaskDate"])('txt-fecha-nacimiento', minDate, maxDate);
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#txt-fecha-vencimiento')) {
+  //  Set a mask date on input
+  var _minDate = new Date();
+
+  var _maxDate = new Date(new Date().getFullYear() + 10, 11, 31);
+
+  Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["createMaskDate"])('txt-fecha-vencimiento', _minDate, _maxDate);
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('input[name=tipo_compra]')) {
+  var optionsTipoCompra = document.getElementsByName('tipo_compra');
+  optionsTipoCompra.forEach(function (element) {
+    element.addEventListener('click', function (ev) {
+      Object(_functions_wizard__WEBPACK_IMPORTED_MODULE_3__["setStepsOnWizardSoatCompra"])(ev.target.value);
+      Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["toggleDireccionField"])(ev.target.value);
+      Object(_functions_validation__WEBPACK_IMPORTED_MODULE_2__["addValidationRulesForComprarSoatForm"])(ev.target.value);
+    });
+  });
+}
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('input[name=tipo_cliente]')) {
+  var optionsTipoCliente = document.getElementsByName('tipo_cliente');
+  optionsTipoCliente.forEach(function (element) {
+    element.addEventListener('change', function (ev) {
+      Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["toggleTipoClienteFields"])(ev.target.value);
+      Object(_functions_forms__WEBPACK_IMPORTED_MODULE_1__["loadSelectTipoDocumentoIdentidad"])(ev.target.value);
+      Object(_functions_wizard__WEBPACK_IMPORTED_MODULE_3__["resizeTabContainer"])();
+    });
+  });
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/endpoints/template.js":
+/*!*******************************************************!*\
+  !*** ./resources/assets/js/web/endpoints/template.js ***!
+  \*******************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _shared_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../shared/util */ "./resources/assets/js/shared/util.js");
+/* harmony import */ var _functions_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions/menu */ "./resources/assets/js/web/functions/menu.js");
+/* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! aos */ "./node_modules/aos/dist/aos.js");
+/* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _functions_sticky__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../functions/sticky */ "./resources/assets/js/web/functions/sticky.js");
+/* harmony import */ var _functions_carousel__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../functions/carousel */ "./resources/assets/js/web/functions/carousel.js");
+
+
+
+
+ //  Toggles sidenav bar
+
+document.getElementById('btn-menu').addEventListener('click', function () {
+  return Object(_functions_menu__WEBPACK_IMPORTED_MODULE_1__["toggleSidenav"])();
+});
+document.getElementById('btn-close-menu').addEventListener('click', function () {
+  return Object(_functions_menu__WEBPACK_IMPORTED_MODULE_1__["toggleSidenav"])();
+});
+window.addEventListener('load', function () {
+  //  Set location of menu links
+  Object(_functions_menu__WEBPACK_IMPORTED_MODULE_1__["attachMenuContent"])();
+  eventToggleSubmenu();
+});
+window.addEventListener('resize', function () {
+  //  Set location of menu links
+  Object(_functions_menu__WEBPACK_IMPORTED_MODULE_1__["attachMenuContent"])();
+  eventToggleSubmenu();
+});
+
+window.onscroll = function () {
+  //  Init sticky header
+  Object(_functions_sticky__WEBPACK_IMPORTED_MODULE_3__["sticky"])();
+};
+
+document.addEventListener('readystatechange', function () {
+  //  Init animations
+  aos__WEBPACK_IMPORTED_MODULE_2___default.a.init(); //  Init carousel
+
+  if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('.carousel')) {
+    Object(_functions_carousel__WEBPACK_IMPORTED_MODULE_4__["initCarouselHome"])();
+  }
+});
+
+function eventToggleSubmenu() {
+  var links = document.querySelectorAll(' li.navbar-link.has-children');
+
+  if (window.innerWidth < 992) {
+    for (var i = 0; i < links.length; i++) {
+      links[i].removeEventListener('click', _functions_menu__WEBPACK_IMPORTED_MODULE_1__["toggleSubmenu"]);
+      links[i].addEventListener('click', _functions_menu__WEBPACK_IMPORTED_MODULE_1__["toggleSubmenu"]);
+    }
+  } else {
+    for (var _i = 0; _i < links.length; _i++) {
+      links[_i].removeEventListener('click', _functions_menu__WEBPACK_IMPORTED_MODULE_1__["toggleSubmenu"]);
+    }
+  }
+}
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/functions/carousel.js":
+/*!*******************************************************!*\
+  !*** ./resources/assets/js/web/functions/carousel.js ***!
+  \*******************************************************/
+/*! exports provided: initCarouselHome */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initCarouselHome", function() { return initCarouselHome; });
+/* harmony import */ var owl_carousel__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! owl.carousel */ "./node_modules/owl.carousel/dist/owl.carousel.js");
+/* harmony import */ var owl_carousel__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(owl_carousel__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * Init carousel component on Home page
+ *
+ * @author Jesus Romero
+ * @date 20/10/2020
+ * @export
+ */
+
+function initCarouselHome() {
+  $('.carousel').owlCarousel({
+    items: 1,
+    loop: true,
+    autoplay: true,
+    dots: true,
+    autoplayTimeout: 6000,
+    autoplayHoverPause: true,
+    dotsClass: 'carousel-dots',
+    dotClass: 'carousel-dot',
+    onInitialize: function onInitialize() {
+      loadImages();
+    },
+    onInitialized: function onInitialized() {
+      setTimeout(function () {
+        $('.owl-item.active .carousel-text-animated').addClass('is-transitioned');
+      }, 200);
+    },
+    onResize: function onResize() {
+      loadImages();
+    },
+    onChanged: function onChanged(ev) {
+      $('.carousel-text-animated').removeClass('is-transitioned');
+      var currentSlide = $('.carousel-slide').eq(ev.item.index);
+      currentSlide.find('.carousel-text-animated').addClass('is-transitioned');
+    }
+  });
+}
+/**
+ * Load images according to window size screen
+ *
+ * @author Jesus Romero
+ * @date 20/10/2020
+ * @export
+ */
+
+function loadImages() {
+  var items = document.querySelectorAll('.carousel-slide');
+  items.forEach(function (slide) {
+    var urlBackground;
+
+    if ($(window).width() >= 768) {
+      urlBackground = "url(".concat(slide.dataset.mdImg, ")");
+    } else {
+      urlBackground = "url(".concat(slide.dataset.img, ")");
+    }
+
+    slide.style.backgroundImage = urlBackground;
+  });
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/functions/forms.js":
+/*!****************************************************!*\
+  !*** ./resources/assets/js/web/functions/forms.js ***!
+  \****************************************************/
+/*! exports provided: initCustomFile, createMaskDate, createMaskMoneyValue, toggleFechaVencimiento, toggleDireccionField, toggleTipoClienteFields, loadSelectTipoDocumentoIdentidad, processContactForm, processAfiliacionSeguroEstudianteForm, processCotizarSeguroVehiculoTodoRiesgo, processCotizarSoatForm, processComprarSoatForm, showLoadingMessage */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "initCustomFile", function() { return initCustomFile; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMaskDate", function() { return createMaskDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMaskMoneyValue", function() { return createMaskMoneyValue; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleFechaVencimiento", function() { return toggleFechaVencimiento; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleDireccionField", function() { return toggleDireccionField; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleTipoClienteFields", function() { return toggleTipoClienteFields; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loadSelectTipoDocumentoIdentidad", function() { return loadSelectTipoDocumentoIdentidad; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "processContactForm", function() { return processContactForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "processAfiliacionSeguroEstudianteForm", function() { return processAfiliacionSeguroEstudianteForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "processCotizarSeguroVehiculoTodoRiesgo", function() { return processCotizarSeguroVehiculoTodoRiesgo; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "processCotizarSoatForm", function() { return processCotizarSoatForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "processComprarSoatForm", function() { return processComprarSoatForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showLoadingMessage", function() { return showLoadingMessage; });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var imask__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! imask */ "./node_modules/imask/esm/index.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var bs_custom_file_input__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! bs-custom-file-input */ "./node_modules/bs-custom-file-input/dist/bs-custom-file-input.js");
+/* harmony import */ var bs_custom_file_input__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(bs_custom_file_input__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _shared_util__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../shared/util */ "./resources/assets/js/shared/util.js");
+/* harmony import */ var _wizard__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./wizard */ "./resources/assets/js/web/functions/wizard.js");
+/* harmony import */ var _validation__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./validation */ "./resources/assets/js/web/functions/validation.js");
+/* harmony import */ var _shared_constants__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../shared/constants */ "./resources/assets/js/shared/constants.js");
+
+
+
+
+
+
+
+
+
+/**
+ * Init plugin for file inputs
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ */
+
+function initCustomFile() {
+  bs_custom_file_input__WEBPACK_IMPORTED_MODULE_4___default.a.init();
+}
+/**
+ *  Build a mask date input
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ * @param {string} elementId
+ * @param {Date} minDate
+ * @param {Date} maxDate
+ */
+
+function createMaskDate(elementId, minDate, maxDate) {
+  var momentFormat = 'DD/MM/YYYY';
+  Object(imask__WEBPACK_IMPORTED_MODULE_2__["default"])(document.getElementById(elementId), {
+    mask: Date,
+    lazy: false,
+    pattern: momentFormat,
+    min: minDate,
+    max: maxDate,
+    overwrite: true,
+    format: function format(date) {
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(date).format(momentFormat);
+    },
+    parse: function parse(str) {
+      return moment__WEBPACK_IMPORTED_MODULE_3___default()(str, momentFormat);
+    },
+    blocks: {
+      DD: {
+        mask: imask__WEBPACK_IMPORTED_MODULE_2__["default"].MaskedRange,
+        from: 1,
+        to: 31,
+        maxLength: 2,
+        placeholderChar: '_'
+      },
+      MM: {
+        mask: imask__WEBPACK_IMPORTED_MODULE_2__["default"].MaskedRange,
+        from: 1,
+        to: 12,
+        maxLength: 2,
+        placeholderChar: '_'
+      },
+      YYYY: {
+        mask: imask__WEBPACK_IMPORTED_MODULE_2__["default"].MaskedRange,
+        from: minDate.getFullYear(),
+        to: maxDate.getFullYear(),
+        maxLength: 4,
+        placeholderChar: '_'
+      }
+    }
+  });
+}
+/**
+ * Build a mask money input
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ * @param {string} elementId
+ */
+
+function createMaskMoneyValue(elementId) {
+  Object(imask__WEBPACK_IMPORTED_MODULE_2__["default"])(document.getElementById(elementId), {
+    mask: Number,
+    scale: 2,
+    signed: false,
+    thousandsSeparator: ',',
+    padFractionalZeros: true,
+    normalizeZeros: true,
+    radix: '.',
+    mapToRadix: ['.']
+  });
+}
+/**
+ * Show "fecha_vencimiento" field if user choose "Si" option
+ * If "no" is chosem, "fecha_vencimiento" field hides
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ */
+
+function toggleFechaVencimiento() {
+  var parentElement = document.getElementById('txt-fecha-vencimiento').closest('.form-group');
+  var valueTengoSoat = document.querySelector('input[name=tiene_soat]:checked').value;
+
+  if (valueTengoSoat == 1) {
+    parentElement.classList.remove('d-none');
+    Object(_validation__WEBPACK_IMPORTED_MODULE_7__["toggleFechaVencimientoRules"])();
+  } else {
+    parentElement.classList.add('d-none');
+    Object(_validation__WEBPACK_IMPORTED_MODULE_7__["toggleFechaVencimientoRules"])(false);
+  }
+
+  var tabPane = document.getElementById('txt-fecha-vencimiento').closest('.tab-pane');
+  Object(_wizard__WEBPACK_IMPORTED_MODULE_6__["resizeTabContainer"])(tabPane);
+}
+/**
+ * Show or hide "direccion" field according to tipoCompra value
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ * @param {string} tipoCompra
+ */
+
+function toggleDireccionField(tipoCompra) {
+  if (tipoCompra === 'adquisicion') {
+    document.getElementById('txt-direccion').closest('.form-group').classList.remove('d-none');
+  }
+
+  if (tipoCompra === 'renovacion') {
+    document.getElementById('txt-direccion').closest('.form-group').classList.add('d-none');
+  }
+}
+/**
+ * Show or hide following controls:
+ * -  If customer type is Persona Natural, only show Nombres, Apellido Paterno and Apellido Materno input fields
+ * -  Otherwise only show Razon Social input field
+ *
+ * @author Jesus Romero
+ * @date 20/10/2020
+ * @export
+ * @param {string} tipoCliente
+ */
+
+function toggleTipoClienteFields(tipoCliente) {
+  if (tipoCliente === _shared_constants__WEBPACK_IMPORTED_MODULE_8__["tipoClienteConstants"].PERSONA_NATURAL) {
+    document.getElementById('txt-nombres').closest('.form-group').classList.remove('d-none');
+    document.getElementById('txt-apellido-paterno').closest('.form-group').classList.remove('d-none');
+    document.getElementById('txt-apellido-materno').closest('.form-group').classList.remove('d-none');
+    document.getElementById('txt-razon-social').closest('.form-group').classList.add('d-none');
+  }
+
+  if (tipoCliente === _shared_constants__WEBPACK_IMPORTED_MODULE_8__["tipoClienteConstants"].PERSONA_JURIDICA) {
+    document.getElementById('txt-nombres').closest('.form-group').classList.add('d-none');
+    document.getElementById('txt-apellido-paterno').closest('.form-group').classList.add('d-none');
+    document.getElementById('txt-apellido-materno').closest('.form-group').classList.add('d-none');
+    document.getElementById('txt-razon-social').closest('.form-group').classList.remove('d-none');
+  }
+}
+/**
+ * Refresh list of Tipos Documento Identidad
+ *
+ * @author Jesus Romero
+ * @date 20/10/2020
+ * @export
+ * @param {*} tipoCliente
+ */
+
+function loadSelectTipoDocumentoIdentidad(tipoCliente) {
+  var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('tipos-documento-identidad') + '?tipo_cliente=' + tipoCliente;
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.get(urlTarget).then(function (response) {
+    var data = response.data.data;
+    var selectTipoDocumentoIdentidad = document.getElementById('ddo-tipo-documento-identidad');
+
+    for (var i = selectTipoDocumentoIdentidad.options.length - 1; i >= 0; i--) {
+      selectTipoDocumentoIdentidad.options[i].remove();
+    }
+
+    data.forEach(function (item) {
+      var option = document.createElement('option');
+      option.value = item.id;
+      option.text = item.descripcion;
+      selectTipoDocumentoIdentidad.options.add(option);
+    });
+  });
+}
+/**
+ * Send data from contact form to server
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ */
+
+function processContactForm() {
+  var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('contacto');
+  var payload = new FormData(document.getElementById('frm-contact'));
+  showLoadingMessage();
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+      title: 'Mensaje enviado',
+      text: 'Tu mensaje está en camino. Gracias por comunicarte con nosotros',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+    document.getElementById('frm-contact').reset();
+  })["catch"](function () {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+      title: 'Algo ocurrió',
+      text: 'Tu mensaje no se pudo enviar. Por favor inténtalo mas tarde',
+      icon: 'error',
+      confirmButtonText: 'Aceptar'
+    });
+  });
+}
+/**
+ * Process frmAfiliacionSeguroEstudiante
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ */
+
+function processAfiliacionSeguroEstudianteForm() {
+  var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('afiliaciones/seguro_estudiante');
+  var payload = new FormData(document.getElementById('frm-afiliacion-seguro-estudiante'));
+  payload.set('estado_civil', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["capitalizeFirstLetter"])(payload.get('estado_civil')));
+  payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(payload.get('fecha_nacimiento'), 'DD/MM/YYYY', 'YYYY-MM-DD'));
+  showLoadingMessage();
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+      title: 'Datos de afiliación registrados',
+      text: 'Gracias por enviar tu solicitud de afiliación al seguro estudiantil contra accidentes. Nos comunicaremos contigo en breve',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+    Object(_wizard__WEBPACK_IMPORTED_MODULE_6__["resetWizard"])();
+  })["catch"](function (error) {
+    if (error.response.status === 400) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+      Object(_validation__WEBPACK_IMPORTED_MODULE_7__["showServerErrors"])(error.response.data.messages);
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+  });
+}
+/**
+ * Process frmCotizarSegurroVehiculo
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ */
+
+function processCotizarSeguroVehiculoTodoRiesgo() {
+  var form = document.getElementById('frm-cotizar-seguro-vehicular-todo-riesgo');
+
+  if (!Object(_validation__WEBPACK_IMPORTED_MODULE_7__["isValid"])(form)) {
+    return false;
+  }
+
+  var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('cotizaciones/vehiculo_todo_riesgo');
+  var payload = new FormData(form);
+  showLoadingMessage();
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+      title: 'Datos de cotización registrados',
+      text: 'Gracias por enviar tu solicitud de cotización de seguro vehicular todo riesgo. Nos comunicaremos contigo en breve',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+    Object(_wizard__WEBPACK_IMPORTED_MODULE_6__["resetWizard"])();
+  })["catch"](function (error) {
+    if (error.response.status === 400) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+      Object(_validation__WEBPACK_IMPORTED_MODULE_7__["showServerErrors"])(error.response.data.messages);
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+  });
+}
+/**
+ * Process frmCotizarSoat form
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ */
+
+function processCotizarSoatForm() {
+  var form = document.getElementById('frm-cotizar-soat');
+
+  if (!Object(_validation__WEBPACK_IMPORTED_MODULE_7__["isValid"])(form)) {
+    return false;
+  }
+
+  var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('cotizaciones/soat');
+  var payload = new FormData(form);
+
+  if (payload.get('tiene_soat') == 1) {
+    payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(document.getElementById('txt-fecha-vencimiento').getAttribute('value'), 'DD/MM/YYYY', 'YYYY-MM-DD'));
+  } else {
+    payload["delete"]('fecha_vencimiento');
+  }
+
+  showLoadingMessage();
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+      title: 'Datos de cotizacion registrados',
+      text: 'Gracias por enviar tu solicitud de cotización de SOAT. Nos comunicaremos contigo en breve',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+    Object(_wizard__WEBPACK_IMPORTED_MODULE_6__["resetWizard"])();
+  })["catch"](function (error) {
+    if (error.response.status === 400) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+      Object(_validation__WEBPACK_IMPORTED_MODULE_7__["showServerErrors"])(error.response.data.messages);
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+  });
+}
+/**
+ * Process frmComprarSoat form
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ * @returns {*}
+ */
+
+function processComprarSoatForm() {
+  var form = document.getElementById('frm-comprar-soat');
+
+  if (!Object(_validation__WEBPACK_IMPORTED_MODULE_7__["isValid"])(form)) {
+    return false;
+  }
+
+  var urlTarget = Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["returnUrl"])('compras/soat');
+  var payload = new FormData(form); //  Process payload
+
+  payload.set('fecha_nacimiento', Object(_shared_util__WEBPACK_IMPORTED_MODULE_5__["formatDate"])(document.getElementById('txt-fecha-nacimiento').value, 'DD/MM/YYYY', 'YYYY-MM-DD'));
+  showLoadingMessage();
+  axios__WEBPACK_IMPORTED_MODULE_0___default.a.post(urlTarget, payload).then(function () {
+    sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+      title: 'Datos de compra registrados',
+      text: 'Gracias por enviar tu solicitud de compra de SOAT. Nos comunicaremos contigo en breve',
+      icon: 'success',
+      confirmButtonText: 'Aceptar'
+    });
+    Object(_wizard__WEBPACK_IMPORTED_MODULE_6__["resetWizard"])();
+  })["catch"](function (error) {
+    if (error.response.status === 400) {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Algunos datos no son válidos. Por favor corrija las observaciones y vuelva a intentarlo',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+      Object(_validation__WEBPACK_IMPORTED_MODULE_7__["showServerErrors"])(error.response.data.messages);
+    } else {
+      sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+        title: 'Algo ocurrió',
+        text: 'Tu solicitud no se pudo enviar. Por favor inténtalo mas tarde',
+        icon: 'error',
+        confirmButtonText: 'Aceptar'
+      });
+    }
+  });
+}
+/**
+ * Show loader on message
+ *
+ * @author Jesus Romero
+ * @date 08/10/2020
+ */
+
+function showLoadingMessage() {
+  sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.fire({
+    title: 'Espere',
+    allowEscapeKey: false,
+    allowOutsideClick: false,
+    onBeforeOpen: function onBeforeOpen() {
+      return sweetalert2__WEBPACK_IMPORTED_MODULE_1___default.a.showLoading();
+    }
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/functions/map.js":
+/*!**************************************************!*\
+  !*** ./resources/assets/js/web/functions/map.js ***!
+  \**************************************************/
+/*! exports provided: init */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "init", function() { return init; });
+/* harmony import */ var load_google_maps_api__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! load-google-maps-api */ "./node_modules/load-google-maps-api/index.js");
+/* harmony import */ var load_google_maps_api__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(load_google_maps_api__WEBPACK_IMPORTED_MODULE_0__);
+
+/**
+ * Call and load Google Maps API in order to render maps
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ * @param {string} mapContainerId
+ * @param {number} latitude
+ * @param {number} longitude
+ */
+
+function init(mapContainerId, latitude, longitude) {
+  load_google_maps_api__WEBPACK_IMPORTED_MODULE_0___default()({
+    key: 'AIzaSyD7v81-YqJPCL_Qen8t4QVqtIqYcU4LrfY'
+  }).then(function (googleMaps) {
+    var map = buildMap(mapContainerId, latitude, longitude, googleMaps);
+    var marker = addMarker(googleMaps, map);
+    var infoWindow = buildInfoWindow(googleMaps); //  Attach infowindow to a marker
+
+    infoWindow.open(map, marker); //  Delegates click event on marker to show info window
+
+    googleMaps.event.addListener(marker, 'click', function () {
+      return infoWindow.open(map, marker);
+    });
+  });
+}
+/**
+ * Build a map using Google Maps API
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @param {string} mapContainerId
+ * @param {number} latitude
+ * @param {number} longitude
+ * @param {google.maps} objGoogleMaps
+ * @returns {google.maps.Map}
+ */
+
+function buildMap(mapContainerId, latitude, longitude, objGoogleMaps) {
+  var locationCoordinates = {
+    lat: latitude,
+    lng: longitude
+  };
+  var mapSettings = {
+    zoom: 18,
+    center: locationCoordinates,
+    mapTypeId: 'roadmap',
+    mapTypeControl: false,
+    disableDefaultUI: true,
+    gestureHandling: 'none'
+  };
+  return new objGoogleMaps.Map(document.getElementById(mapContainerId), mapSettings);
+}
+/**
+ * Add a marker on map
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @param {google.maps} objGoogleMaps
+ * @param {google.maps.Map} map
+ * @returns {google.maps.Marker}
+ */
+
+
+function addMarker(objGoogleMaps, map) {
+  return new objGoogleMaps.Marker({
+    map: map,
+    position: map.getCenter()
+  });
+}
+/**
+ * Build info window will be used on marker
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @param {google.maps} objGoogleMaps
+ * @returns {google.maps.InfoWindow}
+ */
+
+
+function buildInfoWindow(objGoogleMaps) {
+  return new objGoogleMaps.InfoWindow({
+    content: '<b>FS Corredores de Seguros</b><br/>Agrup. Rosa Ara A-12<br/> Tacna - Perú'
+  });
+}
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/functions/menu.js":
+/*!***************************************************!*\
+  !*** ./resources/assets/js/web/functions/menu.js ***!
+  \***************************************************/
+/*! exports provided: toggleSidenav, attachMenuContent, toggleSubmenu, closeSubmenu, openSubmenu */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleSidenav", function() { return toggleSidenav; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "attachMenuContent", function() { return attachMenuContent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleSubmenu", function() { return toggleSubmenu; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "closeSubmenu", function() { return closeSubmenu; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "openSubmenu", function() { return openSubmenu; });
+/**
+ * Functions related to menu and sidenav bar
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ *
+ * ============================================
+ *
+ */
+
+/**
+ * Show or hide sidenav bar when window horizontal size is small or less than 992px
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ */
+function toggleSidenav() {
+  isSidenavShown() ? hideSidenav() : showSidenav();
+}
+/**
+ * Shows sidenav bar
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ */
+
+function showSidenav() {
+  $('.sidenav').addClass('open');
+  $('.wrapper').addClass('is-menu-open');
+  $('.wrapper-shadow').addClass('active');
+}
+/**
+ * Hides sidenav bar
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ */
+
+
+function hideSidenav() {
+  $('.sidenav').removeClass('open');
+  $('.wrapper').removeClass('is-menu-open');
+  $('.wrapper-shadow').removeClass('active');
+}
+/**
+ * Check if sidenav bar is shown or not
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @returns {boolean}
+ */
+
+
+function isSidenavShown() {
+  return $('.sidenav').hasClass('open');
+}
+/**
+ * Detach menu content and attach to another position:
+ * - On small screens (width less than 992 px), menu content is attached on sidenav bar
+ * - On large screens (width more than 992 px), menu content is attached to header position
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ */
+
+
+function attachMenuContent() {
+  var menu = $('.navbar-links-container').detach();
+
+  if ($(window).outerWidth() >= 992) {
+    $('nav.navbar').append(menu);
+  } else {
+    $('.sidenav').append(menu);
+  } //  Hide sidenav if it is opened during resize event
+
+
+  if (isSidenavShown()) {
+    hideSidenav();
+    document.querySelectorAll('.sidenav .navbar-link.has-children').forEach(function (link) {
+      var submenu = link.getElementsByClassName('navbar-submenu')[0];
+      var icon = link.getElementsByTagName('i')[0];
+      closeSubmenu(submenu, icon);
+    });
+  }
+}
+/**
+ * Open or hide submenu on small screens
+ *
+ * @author Jesus Romero
+ * @date 21/10/2020
+ * @export
+ * @param {HTMLElement} link
+ */
+
+function toggleSubmenu(ev) {
+  var submenu = ev.target.nextElementSibling;
+  var elementIconSubmenu = ev.target.getElementsByTagName('i')[0];
+
+  if (submenu.style.height) {
+    closeSubmenu(submenu, elementIconSubmenu);
+  } else {
+    openSubmenu(submenu, elementIconSubmenu);
+  }
+}
+/**
+ *
+ *
+ * @author Jesus Romero
+ * @date 22/10/2020
+ * @export
+ * @param {*} submenu
+ * @param {*} icon
+ */
+
+function closeSubmenu(submenu, icon) {
+  if (icon.classList.contains('fa-angle-up')) {
+    icon.classList.remove('fa-angle-up');
+    icon.classList.add('fa-angle-down');
+  }
+
+  submenu.style.height = null;
+}
+/**
+ *
+ *
+ * @author Jesus Romero
+ * @date 22/10/2020
+ * @export
+ * @param {HTMLElement} submenu
+ * @param {HTMLElement} icon
+ */
+
+function openSubmenu(submenu, icon) {
+  if (icon.classList.contains('fa-angle-down')) {
+    icon.classList.remove('fa-angle-down');
+    icon.classList.add('fa-angle-up');
+  }
+
+  submenu.style.height = submenu.scrollHeight + 'px';
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/functions/rules.js":
+/*!****************************************************!*\
+  !*** ./resources/assets/js/web/functions/rules.js ***!
+  \****************************************************/
+/*! exports provided: regexDate */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "regexDate", function() { return regexDate; });
+var regexDate = function regexDate() {
+  return /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+};
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/functions/sticky.js":
+/*!*****************************************************!*\
+  !*** ./resources/assets/js/web/functions/sticky.js ***!
+  \*****************************************************/
+/*! exports provided: sticky */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "sticky", function() { return sticky; });
+function sticky() {
+  var header = document.getElementsByTagName('header')[0];
+  var sticky = header.offsetTop;
+
+  if (window.pageYOffset > sticky) {
+    header.classList.add('sticky');
+  } else {
+    header.classList.remove('sticky');
+  }
+}
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/functions/validation.js":
+/*!*********************************************************!*\
+  !*** ./resources/assets/js/web/functions/validation.js ***!
+  \*********************************************************/
+/*! exports provided: setDefaultSettings, setErrorPlacement, highlightElement, unhighlightElement, isValid, toggleFechaVencimientoRules, setValidationContactForm, setValidationAfiliacionSeguroEstudianteForm, setValidationCotizarSeguroVehiculoTodoRiesgoForm, setValidationCotizarSoatForm, setValidationComprarSoatForm, addValidationRulesForComprarSoatForm, showServerErrors */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setDefaultSettings", function() { return setDefaultSettings; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setErrorPlacement", function() { return setErrorPlacement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "highlightElement", function() { return highlightElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "unhighlightElement", function() { return unhighlightElement; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "isValid", function() { return isValid; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleFechaVencimientoRules", function() { return toggleFechaVencimientoRules; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setValidationContactForm", function() { return setValidationContactForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setValidationAfiliacionSeguroEstudianteForm", function() { return setValidationAfiliacionSeguroEstudianteForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setValidationCotizarSeguroVehiculoTodoRiesgoForm", function() { return setValidationCotizarSeguroVehiculoTodoRiesgoForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setValidationCotizarSoatForm", function() { return setValidationCotizarSoatForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setValidationComprarSoatForm", function() { return setValidationComprarSoatForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "addValidationRulesForComprarSoatForm", function() { return addValidationRulesForComprarSoatForm; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "showServerErrors", function() { return showServerErrors; });
+/* harmony import */ var jquery_validation__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery-validation */ "./node_modules/jquery-validation/dist/jquery.validate.js");
+/* harmony import */ var jquery_validation__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery_validation__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var jquery_validation_dist_localization_messages_es_PE__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! jquery-validation/dist/localization/messages_es_PE */ "./node_modules/jquery-validation/dist/localization/messages_es_PE.js");
+/* harmony import */ var jquery_validation_dist_localization_messages_es_PE__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(jquery_validation_dist_localization_messages_es_PE__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var jquery_validation_dist_additional_methods__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! jquery-validation/dist/additional-methods */ "./node_modules/jquery-validation/dist/additional-methods.js");
+/* harmony import */ var jquery_validation_dist_additional_methods__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(jquery_validation_dist_additional_methods__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _wizard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./wizard */ "./resources/assets/js/web/functions/wizard.js");
+/* harmony import */ var _rules__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./rules */ "./resources/assets/js/web/functions/rules.js");
+
+
+
+
+
+/**
+ * Set default configuration for jQuery Validation Plugin
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ */
+
+function setDefaultSettings() {
+  $.validator.setDefaults({
+    lang: 'es',
+    errorElement: 'span',
+    errorPlacement: function errorPlacement(error, element) {
+      setErrorPlacement(error, element);
+      Object(_wizard__WEBPACK_IMPORTED_MODULE_3__["resizeTabContainer"])();
+    },
+    highlight: function highlight(element, errorClass, validClass) {
+      highlightElement(element); //resizeTabContainer();
+    },
+    unhighlight: function unhighlight(element, errorClass, validClass) {
+      unhighlightElement(element); //resizeTabContainer();
+    }
+  });
+}
+/**
+ * Set how error messages will be placed on form
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ * @param {HTMLElement} error
+ * @param {JQuery<HTMLElement>} element
+ */
+
+function setErrorPlacement(error, element) {
+  var controlTag = element.prop('tagName').toLowerCase(); //  Set validation message according tag and type (if is an input element)
+
+  if (controlTag === 'input' && element.attr('type') === 'radio') {
+    element.closest('[class^="col-"]').eq(0).append(error);
+  } else if (controlTag === 'input' && element.attr('type') === 'file') {
+    element.closest('.form-group').eq(0).append(error);
+  } else {
+    element.parent().append(error);
+  } //  Add class for message
+
+
+  error.addClass('invalid-feedback');
+}
+/**
+ * Set how invalid element must be highlight
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ * @param {JQuery<HTMLElement>} element
+ * @returns {void}
+ */
+
+function highlightElement(element) {
+  var controlTag = $(element).prop('tagName').toLowerCase();
+  var targetIsInvalidClassElement = $(element);
+
+  if (controlTag === 'input' && $(element).attr('type') === 'radio') {
+    var elementNameAttribute = $(element).attr('name');
+    targetIsInvalidClassElement = $("input[name=".concat(elementNameAttribute, "]")).closest('.form-check');
+  }
+
+  if (controlTag === 'input' && $(element).attr('type') === 'file') {
+    targetIsInvalidClassElement = $(element).closest('.custom-file');
+  }
+
+  targetIsInvalidClassElement.addClass('is-invalid'); //  Resize tab pane
+
+  /*const tabPane = element.closest('.tab-pane');
+  resizeTabContainer(tabPane);*/
+}
+/**
+ * Set how element was invalid must be unhighlight
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ * @param {JQuery<HTMLElement>} element
+ * @returns {boolean|void}
+ */
+
+function unhighlightElement(element) {
+  var controlTag = $(element).prop('tagName').toLowerCase();
+  var targetIsInvalidClassElement = $(element);
+
+  if (controlTag === 'input' && $(element).attr('type') === 'radio') {
+    var elementNameAttribute = $(element).attr('name');
+    targetIsInvalidClassElement = $("input[name=".concat(elementNameAttribute, "]")).closest('.form-check');
+  }
+
+  if (controlTag === 'input' && $(element).attr('type') === 'file') {
+    targetIsInvalidClassElement = $(element).closest('.custom-file');
+  }
+
+  targetIsInvalidClassElement.removeClass('is-invalid');
+  /*const tabPane = $(element).closest('.tab-pane');
+  resizeTabContainer(tabPane);*/
+}
+/**
+ * Return if control is valid or not
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ * @param {HTMLElement} element
+ * @returns {boolean}
+ */
+
+function isValid(element) {
+  return $(element).valid();
+}
+/**
+ * Add or remove validation rules for "fecha vencimiento" field
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ * @param {boolean} [addRules=true]
+ */
+
+function toggleFechaVencimientoRules() {
+  var addRules = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+
+  if (addRules) {
+    $('#txt-fecha-vencimiento').rules('add', {
+      required: true,
+      pattern: Object(_rules__WEBPACK_IMPORTED_MODULE_4__["regexDate"])()
+    }, {
+      pattern: 'No es una fecha válida'
+    });
+  } else {
+    $('#txt-fecha-vencimiento').rules('remove');
+  }
+}
+/**
+ * Validation settings for contact form
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ */
+
+function setValidationContactForm() {
+  $('#frm-contacto').validate();
+}
+/**
+ * Validation settings for "Afiliacion de Seguro Estudiantil" form
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ */
+
+function setValidationAfiliacionSeguroEstudianteForm() {
+  $('#frm-afiliacion-seguro-estudiante').validate({
+    rules: {
+      nombres: {
+        required: true,
+        maxlength: 40
+      },
+      apellido_paterno: {
+        required: true,
+        maxlength: 40
+      },
+      apellido_materno: {
+        required: false,
+        maxlength: 40
+      },
+      sexo: {
+        required: true
+      },
+      pais: {
+        required: true
+      },
+      tipo_documento_identidad: {
+        required: true
+      },
+      numero_documento_identidad: {
+        required: true,
+        maxlength: 15,
+        digits: true
+      },
+      estado_civil: {
+        required: true
+      },
+      fecha_nacimiento: {
+        pattern: Object(_rules__WEBPACK_IMPORTED_MODULE_4__["regexDate"])()
+      },
+      correo: {
+        required: true,
+        email: true,
+        maxlength: 40
+      },
+      telefono: {
+        required: true
+      },
+      voucher: {
+        required: true,
+        extension: 'pdf|jpeg|jpg|gif|bmp|png'
+      }
+    },
+    messages: {
+      fecha_nacimiento: 'No es una fecha válida'
+    }
+  });
+}
+/**
+ * Validation settings for "Cotizar Seguro Vehicular Todo Riesgo" form
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ */
+
+function setValidationCotizarSeguroVehiculoTodoRiesgoForm() {
+  $('#frm-cotizar-seguro-vehicular-todo-riesgo').validate({
+    rules: {
+      nombres: {
+        required: true,
+        maxlength: 40
+      },
+      apellido_paterno: {
+        required: true,
+        maxlength: 40
+      },
+      apellido_materno: {
+        required: false,
+        maxlength: 40
+      },
+      tipo_documento_identidad: {
+        required: true
+      },
+      numero_documento_identidad: {
+        required: true,
+        maxlength: 15,
+        digits: true
+      },
+      correo: {
+        required: true,
+        email: true,
+        maxlength: 40
+      },
+      telefono: {
+        required: true
+      },
+      anio_vehiculo: {
+        required: true
+      },
+      placa: {
+        required: true,
+        maxlength: 15
+      },
+      uso: {
+        required: true
+      },
+      asientos: {
+        required: true,
+        min: 1
+      },
+      clase_vehiculo: {
+        required: true
+      },
+      marca: {
+        required: true
+      },
+      modelo: {
+        required: true
+      },
+      costo: {
+        required: true,
+        number: true
+      },
+      compania_seguro: {
+        required: true
+      }
+    }
+  });
+}
+/**
+ * Validation settings for "Cotizar SOAT" form
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ */
+
+function setValidationCotizarSoatForm() {
+  $('#frm-cotizar-soat').validate({
+    nombres: {
+      required: true,
+      maxlength: 40
+    },
+    apellido_paterno: {
+      required: true,
+      maxlength: 40
+    },
+    apellido_materno: {
+      required: false,
+      maxlength: 40
+    },
+    tipo_documento_identidad: {
+      required: true
+    },
+    numero_documento_identidad: {
+      required: true,
+      maxlength: 15,
+      digits: true
+    },
+    correo: {
+      required: true,
+      email: true,
+      maxlength: 40
+    },
+    telefono: {
+      required: true
+    },
+    anio_vehiculo: {
+      required: true
+    },
+    placa: {
+      required: true,
+      maxlength: 15
+    },
+    uso: {
+      required: true
+    },
+    asientos: {
+      required: true,
+      min: 1
+    },
+    compania_seguro: {
+      required: true
+    },
+    tiene_soat: {
+      required: true
+    }
+  });
+}
+/**
+ * Validation settings for "Comprar SOAT" form
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ */
+
+function setValidationComprarSoatForm(tipoCompra) {
+  $('#frm-comprar-soat').validate({
+    rules: {
+      tipo_compra: {
+        required: true
+      },
+      nombres: {
+        required: true,
+        maxlength: 40
+      },
+      apellido_paterno: {
+        required: true,
+        maxlength: 40
+      },
+      apellido_materno: {
+        required: false,
+        maxlength: 40
+      },
+      tipo_documento_identidad: {
+        required: true
+      },
+      numero_documento_identidad: {
+        required: true,
+        maxlength: 15,
+        digits: true
+      },
+      fecha_nacimiento: {
+        required: true,
+        pattern: Object(_rules__WEBPACK_IMPORTED_MODULE_4__["regexDate"])()
+      },
+      correo: {
+        required: true,
+        email: true,
+        maxlength: 40
+      },
+      telefono: {
+        required: true
+      }
+    },
+    messages: {
+      fecha_nacimiento: {
+        pattern: 'No es una fecha válida'
+      }
+    }
+  });
+}
+/**
+ * Add and remove some validation rules according "tipoCompra" value
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ * @param {string} tipoCompra
+ */
+
+function addValidationRulesForComprarSoatForm(tipoCompra) {
+  if (tipoCompra === 'adquisicion') {
+    $('#txt-direccion').rules('add', {
+      required: true,
+      maxlength: 100
+    });
+    $('#fil-imagen-poliza').rules('add', {
+      required: true,
+      extension: 'png|bmp|gif|jpg|pdf'
+    });
+    $('#ddo-anio-vehiculo').rules('add', 'required');
+    $('#txt-placa').rules('add', {
+      required: true,
+      maxlength: 15
+    });
+    $('#txt-uso').rules('add', 'required');
+    $('#txt-asientos').rules('add', {
+      required: true,
+      min: 1
+    });
+    $('[name=compania_seguro]').rules('add', 'required');
+    $('#fil-tarjeta-propiedad').rules('add', {
+      required: true,
+      extension: 'png|bmp|gif|jpg|pdf'
+    });
+    $('#fil-dni').rules('add', {
+      required: true,
+      extension: 'png|bmp|gif|jpg|pdf'
+    });
+  }
+
+  if (tipoCompra === 'renovacion') {
+    $('#txt-direccion').rules('remove');
+    $('#fil-imagen-poliza').rules('remove');
+    $('#ddo-anio-vehiculo').rules('remove');
+    $('#txt-placa').rules('remove');
+    $('#txt-uso').rules('remove');
+    $('#txt-asientos').rules('remove');
+    $('[name=compania_seguro]').rules('remove');
+    $('#fil-tarjeta-propiedad').rules('remove');
+    $('#fil-dni').rules('remove');
+  }
+}
+/**
+ * Show server validation errors
+ *
+ * @author Jesus Romero
+ * @date 12/10/2020
+ * @export
+ * @param {Array<string>} messages
+ */
+
+function showServerErrors(messages) {
+  $('span.invalid-feedback').remove();
+  var firstElementInvalid;
+
+  for (var property in messages) {
+    var element = $("[name=".concat(property, "]")).eq(0);
+    var spanError = $('<span></span>', {
+      text: messages[property][0]
+    });
+
+    if (typeof firstElementInvalid === 'undefined') {
+      firstElementInvalid = element;
+    }
+
+    unhighlightElement(element);
+    highlightElement(element);
+    setErrorPlacement(spanError, element);
+  }
+
+  $('.wizard').smartWizard('goToStep', firstElementInvalid.closest('.tab-pane').index());
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/assets/js/web/functions/wizard.js":
+/*!*****************************************************!*\
+  !*** ./resources/assets/js/web/functions/wizard.js ***!
+  \*****************************************************/
+/*! exports provided: setWizard, resizeTabContainer, toggleWizardProcessButton, resetWizard, setStepsOnWizardSoatCompra */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function($) {/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setWizard", function() { return setWizard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resizeTabContainer", function() { return resizeTabContainer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "toggleWizardProcessButton", function() { return toggleWizardProcessButton; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "resetWizard", function() { return resetWizard; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "setStepsOnWizardSoatCompra", function() { return setStepsOnWizardSoatCompra; });
+/* harmony import */ var smartwizard__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! smartwizard */ "./node_modules/smartwizard/dist/js/jquery.smartWizard.js");
+/* harmony import */ var smartwizard__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(smartwizard__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _forms__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./forms */ "./resources/assets/js/web/functions/forms.js");
+/* harmony import */ var _validation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./validation */ "./resources/assets/js/web/functions/validation.js");
+
+
+
+/**
+ * Set common settings to apply for wizard
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ */
+
+function setWizard() {
+  $('.wizard').smartWizard({
+    theme: 'dots',
+    lang: {
+      previous: 'Anterior',
+      next: 'Siguiente'
+    },
+    anchorSettings: {
+      markAllPreviousStepsAsDone: false
+    },
+    selected: 0,
+    toolbarSettings: {
+      toolbarExtraButtons: [$('<button></button>', {
+        text: 'Enviar solicitud',
+        "class": 'button button-primary',
+        id: 'btn-enviar-solicitud',
+        type: 'button',
+        disabled: true
+      })]
+    }
+  });
+  $('.wizard').smartWizard('reset');
+  $('.wizard').on('leaveStep', function (e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) {
+    if (!validStep(currentStepIndex) && stepDirection === 'forward') {
+      var tabPane = document.getElementsByClassName('tab-pane')[currentStepIndex];
+      resizeTabContainer(tabPane);
+      return false;
+    }
+  });
+  document.querySelectorAll('form input, form select, form textarea')[0].focus();
+}
+/**
+ * Check if controls of an step have a valid state
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @param {number} stepIndex
+ * @returns {boolean}
+ */
+
+function validStep(stepIndex) {
+  var tab = $('.tab-pane').eq(stepIndex);
+  var controls = tab.find('input, select, textarea');
+  var invalidControls = 0;
+  controls.each(function (index, control) {
+    if (!Object(_validation__WEBPACK_IMPORTED_MODULE_2__["isValid"])(control)) {
+      invalidControls++;
+    }
+  });
+  return invalidControls > 0 ? false : true;
+}
+/**
+ * Change height of tab container according to height of current tab pane
+ *
+ * @author Jesus Romero
+ * @date 28/09/2020
+ * @export
+ */
+
+
+function resizeTabContainer() {
+  var activeTab = $(".tab-pane:not([style*='display: none'])");
+  $('.tab-content').eq(0).height(activeTab.innerHeight());
+}
+/**
+ * Enable process button when final step is reached
+ * Otherwise, button becomes disable
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ * @param {number} currentStepIndex
+ */
+
+function toggleWizardProcessButton(currentStepIndex) {
+  $('.wizard').on('showStep', function (e, anchorObject, stepIndex, stepDirection) {
+    if (stepDirection === 'forward' && stepIndex === currentStepIndex) {
+      $('#btn-enviar-solicitud').removeAttr('disabled');
+    } else {
+      $('#btn-enviar-solicitud').attr('disabled', 'disabled');
+    }
+  });
+}
+/**
+ * Delete all data on inputs and returns to first step of wizard
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ */
+
+function resetWizard() {
+  var formOnWizard = document.querySelector('.wizard form');
+  formOnWizard.reset(); //  Refresh tipo documento identidad dropdown-list
+
+  Object(_forms__WEBPACK_IMPORTED_MODULE_1__["loadSelectTipoDocumentoIdentidad"])('N');
+  $('.wizard').smartWizard('reset');
+}
+/**
+ * Show or hide steps according option selected on first step of "Compra SOAT" wizard
+ *
+ * @author Jesus Romero
+ * @date 29/09/2020
+ * @export
+ * @param {string} tipoCompra
+ */
+
+function setStepsOnWizardSoatCompra(tipoCompra) {
+  if (tipoCompra === 'adquisicion') {
+    $('#wizard-comprar-soat').smartWizard('stepState', [2, 4], 'show');
+    $('#wizard-comprar-soat').smartWizard('stepState', [3], 'hide');
+    toggleWizardProcessButton(2);
+  }
+
+  if (tipoCompra === 'renovacion') {
+    $('#wizard-comprar-soat').smartWizard('stepState', [2, 4], 'hide');
+    $('#wizard-comprar-soat').smartWizard('stepState', [3], 'show');
+    toggleWizardProcessButton(1);
+  }
+}
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
+
+/***/ }),
+
+/***/ "./resources/assets/sass/web/app.scss":
+/*!********************************************!*\
+  !*** ./resources/assets/sass/web/app.scss ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ "./resources/assets/sass/web/vendor.scss":
+/*!***********************************************!*\
+  !*** ./resources/assets/sass/web/vendor.scss ***!
+  \***********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 0:
+/*!***************************************************************************************************************************!*\
+  !*** multi ./resources/assets/js/web/app.js ./resources/assets/sass/web/app.scss ./resources/assets/sass/web/vendor.scss ***!
+  \***************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! /home/romejes/Projects/FsCorredores/resources/assets/js/web/app.js */"./resources/assets/js/web/app.js");
+__webpack_require__(/*! /home/romejes/Projects/FsCorredores/resources/assets/sass/web/app.scss */"./resources/assets/sass/web/app.scss");
+module.exports = __webpack_require__(/*! /home/romejes/Projects/FsCorredores/resources/assets/sass/web/vendor.scss */"./resources/assets/sass/web/vendor.scss");
+
+
+/***/ })
+
+},[[0,"/js/web/manifest","/js/web/vendor"]]]);

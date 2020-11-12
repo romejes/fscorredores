@@ -1,7 +1,10 @@
  <?php $__env->startSection('content'); ?>
 <main>
   <!-- Heading Page -->
-  <?php $__env->startComponent('web.components._heading-page'); ?> Pagina no encontrada
+  <?php $__env->startComponent('web.components._heading-page'); ?> 
+    <?php $__env->slot('title'); ?>
+    Pagina no encontrada  
+    <?php $__env->endSlot(); ?>
   <?php echo $__env->renderComponent(); ?>
   <!-- End Heading Page -->
 
