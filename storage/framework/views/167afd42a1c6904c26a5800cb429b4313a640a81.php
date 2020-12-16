@@ -201,4 +201,4 @@
 <?php $__env->startSection('title'); ?>
 Solicitudes - Cotizar Seguro Vehicular Todo Riesgo
 <?php $__env->stopSection(); ?>
-<?php echo $__env->make('web.layouts._detail-request', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('web.layouts.detalle_solicitud', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -154,3 +154,14 @@ if (existsElement('input[name=tipo_cliente]')) {
     });
   });
 }
+
+if (existsElement('#sel-requests')) {
+  document
+    .getElementById('sel-requests')
+    .addEventListener('change', event => {
+      const chosenOption = event.target.options[event.target.selectedIndex];
+      event.target.setAttribute('disabled', 'disabled');
+
+      window.location.href = chosenOption.getAttribute('data-href');
+    });
+}

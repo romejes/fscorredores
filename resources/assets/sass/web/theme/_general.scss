@@ -1,6 +1,8 @@
+@import '../variables';
+
 body {
   font-family: 'Nunito', sans-serif;
-  color: #676767;
+  color: $text-color;
   margin: 0;
   font-size: 1rem;
 }

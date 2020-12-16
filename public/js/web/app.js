@@ -860,6 +860,14 @@ if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('input[na
     });
   });
 }
+
+if (Object(_shared_util__WEBPACK_IMPORTED_MODULE_0__["existsElement"])('#sel-requests')) {
+  document.getElementById('sel-requests').addEventListener('change', function (event) {
+    var chosenOption = event.target.options[event.target.selectedIndex];
+    event.target.setAttribute('disabled', 'disabled');
+    window.location.href = chosenOption.getAttribute('data-href');
+  });
+}
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js")))
 
 /***/ }),

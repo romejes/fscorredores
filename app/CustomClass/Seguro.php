@@ -9,88 +9,89 @@ class Seguro
      *
      * @return array
      */
-    public static function getData()
+    public static function obtenerDataDeSeguros()
     {
-        return array(
-            array(
-                "title" => "Seguros para personas",
-                "seguros" => array(
-                    array(
-                        "name" => "Seguro contra robos",
-                        "slug" => "seguro_persona_robo",
-                        "picture" => "seguro_robo_domicilio.jpg",
-                        "resumen" => "Este tipo de contrato permite asegurar cualquier casa habitación de uso particular (no para negocios) no solo en caso de robo o actos de vandalismo"
-                    )
-                )
-            ),
-            array(
-                "title" => "Seguros para empresas",
-                "seguros" => array(
-                    array(
-                        "name" => "Seguro contra robos y asaltos",
-                        "slug" => "seguro_empresa_robo",
-                        "picture" => "seguro_robo_negocio.jpg",
-                        "resumen" => "Es un seguro que cubre los daños o pérdidas dentro de tu local a consecuencia de un robo, asalto o intento de robo."
-                    ),
-                    array(
-                        "name" => "Seguro por responsabilidad civil",
-                        "slug" => "seguro_responsabilidad_civil",
-                        "picture" => "seguro_responsabilidad_civil.jpg",
-                        "resumen" => "Es un seguro que cubre la Responsabilidad Civil Extracontractual por los daños materiales y/o personales producidos
-                            por un accidente súbito e imprevisto en el cual resultes civilmente responsable."
-                    ),
-                    array(
-                        "name" => "Seguro contra riesgo de montaje",
-                        "slug" => "seguro_riesgo_montaje",
-                        "picture" => "seguro_montaje.jpg",
-                        "resumen" => "Es un seguro que brinda protección frente a riesgos accidentales, súbitos e imprevistos que puedas sufrir
-                            por un accidente súbito"
-                    ),
-                    array(
-                        "name" => "Seguro contra incendios",
-                        "slug" => "seguro_incendio",
-                        "picture" => "seguro_incendio.jpg",
-                        "resumen" => "Es un seguro que cubre los daños sobre la edificación, contenidos, existencias, y en general todos los bienes
-                            por un accidente súbito"
-                    ),
-                    array(
-                        "name" => "EPS",
-                        "slug" => "eps",
-                        "picture" => "seguro_eps.jpg",
-                        "resumen" => "Es un programa médico que te brinda atención ambulatoria y hospitalaria, consulta médica a domicilio, atención de
-                            emergencia accidental y médica"
-                    )
-                )
-            ),
-            array(
-                "title" => "Seguros vehiculares",
-                "seguros" => array(
-                    array(
-                        "name" => "SOAT",
+        return [
+            [
+                "titulo" => "Seguros para Personas",
+                "seguros" => [
+                    [
+                        "nombre" => "SOAT",
                         "slug" => "soat",
-                        "picture" => "seguro_soat.jpg",
-                        "resumen" => "Cubre no solo al conductor del vehículo, sino también a ocupantes o terceros no ocupantes de un vehículo automotor"
-                    ),
-                    array(
-                        "name" => "Seguro vehicular todo riesgo",
-                        "slug" => "seguro_vehicular_todo_riesgo",
-                        "picture" => "seguro_vehiculo.jpg",
-                        "resumen" => "En estos tiempos contar con un seguro vehicular nos da la tranquilidad ya que cuando sufrimos un accidente como un
-                            choque o robo, donde podremos ser respaldados e indemnizados por la compañía de seguros."
-                    )
-                )
-            ),
-            array(
-                "title" => "Otros seguros",
-                "seguros" => array(
-                    array(
-                        "name" => "Seguro contra terremotos",
-                        "slug" => "seguro_terremotos",
-                        "picture" => "seguro_terremoto.jpg",
-                        "resumen" => "Es un seguro que cubre el inmueble contra los daños materiales producto de terremotos"
-                    )
-                )
-            )
-        );
+                        "imagen_miniatura" => 'seguro_soat.jpg'
+                    ],
+                    [
+                        "nombre" => "Seguro Vehicular",
+                        "slug" => "seguro_vehicular",
+                        "imagen_miniatura" => 'seguro_vehiculo.jpg'
+                    ],
+                    [
+                        "nombre" => "Seguro de Vida",
+                        "slug" => "seguro_vida",
+                        "imagen_miniatura" => 'seguro_vida.jpg'
+                    ],
+                    [
+                        "nombre" => "Seguro de Salud",
+                        "slug" => "seguro_salud",
+                        "imagen_miniatura" => 'seguro_salud.jpg'
+                    ],
+                    [
+                        "nombre" => "Seguro de Hogar",
+                        "slug" => "seguro_hogar",
+                        "imagen_miniatura" => 'seguro_hogar.jpg'
+                    ],
+                    [
+                        "nombre" => "Seguro de Viajes",
+                        "slug" => "seguro_viaje",
+                        "imagen_miniatura" => 'seguro_viaje.jpg'
+                    ],
+                ]
+            ],
+            [
+                "titulo" => "Seguros para Empresas",
+                "seguros" => [
+                    [
+                        "nombre" => "Seguro contra COVID-19",
+                        "slug" => "seguro_covid19",
+                        "imagen_miniatura" => 'seguro_covid19.jpg'
+                    ],
+                    [
+                        "nombre" => "EPS",
+                        "slug" => "eps",
+                        "imagen_miniatura" => 'seguro_eps.jpg'
+                    ],
+                    [
+                        "nombre" => "SCTR",
+                        "slug" => "sctr",
+                        "imagen_miniatura" => 'seguro_sctr.jpg'
+                    ],
+                    [
+                        "nombre" => "Seguro de Transporte de Mercadería",
+                        "slug" => "seguro_transporte_mercaderia",
+                        "imagen_miniatura" => 'seguro_transporte_mercaderia.jpg'
+                    ],
+                    [
+                        "nombre" => "Seguro contra Incendios",
+                        "slug" => "seguro_incendio",
+                        "imagen_miniatura" => 'seguro_incendio.jpg'
+                    ],
+                    [
+                        "nombre" => "Seguro por Responsabilidad Civil",
+                        "slug" => "seguro_responsabilidad_civil",
+                        "imagen_miniatura" => 'seguro_responsabilidad_civil.jpg'
+                    ],
+                    [
+                        "nombre" => "Seguro por Deshonestidad",
+                        "slug" => "seguro_deshonestidad",
+                        "imagen_miniatura" => 'seguro_deshonestidad.jpg'
+                    ],
+                    [
+                        "nombre" => "Seguro contra Robo y/o Asalto",
+                        "slug" => "seguro_robo_negocio",
+                        "imagen_miniatura" => 'seguro_robo_negocio.jpg'
+                    ]
+                ]
+            ]
+        ];
     }
 }

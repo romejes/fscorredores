@@ -1,0 +1,32 @@
+@import '../variables';
+
+.banner-page {
+  background-color: $blue-primary;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  height: 350px;
+  text-align: center;
+  position: relative;
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .banner-page-content-container {
+    position: absolute;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    h1, h3 {
+      margin-top: 0;
+      width: 100%;
+    }
+  }
+}

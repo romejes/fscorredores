@@ -17,12 +17,12 @@
 </head>
 
 <body>
-  <?php echo $__env->make('web.layouts._sidenav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  <?php echo $__env->make('web.layouts.main.sidenav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   <div class="wrapper">
     <div class="wrapper-shadow"></div>
-    <?php echo $__env->make('web.layouts._header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <?php echo $__env->yieldContent('content'); ?>
-    <?php echo $__env->make('web.layouts._footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('web.layouts.main.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->yieldContent('main_content'); ?>
+    <?php echo $__env->make('web.layouts.main.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   </div>
 
   <script src="<?php echo e(asset('js/web/vendor.js')); ?>"></script>

@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::group(["name" => "web"], function () {
-    Route::get("/", "FrontEnd\WebController@home");
+    Route::get("/", "FrontEnd\WebController@inicio");
 
     Route::get("nosotros", "FrontEnd\WebController@nosotros");
 

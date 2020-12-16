@@ -40,7 +40,7 @@
 
           <fieldset class="form-group">
             <div class="row">
-              <legend class="col-sm-5 col-form-label">Sexo</legend>
+              <legend class="col-sm-5 col-form-label pt-0">Sexo</legend>
               <div class="col-sm-7">
                 <div class="form-check">
                   <input type="radio" name="sexo" value="M" id="rad-masculino" class="form-check-input" />

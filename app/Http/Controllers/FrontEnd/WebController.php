@@ -9,7 +9,6 @@ use App\Models\Pais;
 use App\Models\TipoDocumentoIdentidad;
 use Illuminate\Support\Facades\Config;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
-use Symfony\Component\Routing\Exception\RouteNotFoundException;
 
 class WebController extends Controller
 {
@@ -29,9 +28,9 @@ class WebController extends Controller
      *
      * @return View
      */
-    public function home()
+    public function inicio()
     {
-        return view("web.pages.home");
+        return view("web.paginas.inicio");
     }
 
     /**
@@ -78,7 +77,7 @@ class WebController extends Controller
             "Aprendizaje"
         );
 
-        return view("web.pages.nosotros", compact("staff", "values"));
+        return view("web.paginas.nosotros", compact("staff", "values"));
     }
 
     /**
@@ -89,13 +88,13 @@ class WebController extends Controller
      */
     public function seguros($tipoSeguro = null)
     {
-        $seguros = Seguro::getData();
+        $seguros = Seguro::obtenerDataDeSeguros();
 
         //  Si no se especifica el tipo de seguro, muestra la pagina principal de la seccion Seguros
         if (!$tipoSeguro) {
-            return view("web.pages.seguros.index", compact("seguros"));
+            return view("web.paginas.seguros.index", compact("seguros"));
         }
-
+        
         //  Comprueba que el parametro enviado coincida dentro del elemento slug del arreglo de solicitudes
         //  que se muestra al inicio de la funcion.
         //  Si no existe, se lanzará una excepcion.
@@ -111,7 +110,7 @@ class WebController extends Controller
             throw new NotFoundHttpException();
         }
 
-        return view("web.pages.seguros." . $tipoSeguro, compact("seguros"));
+        return view("web.paginas.seguros." . $tipoSeguro, compact("seguros"));
     }
 
     /**
@@ -161,7 +160,7 @@ class WebController extends Controller
 
         //  Si no se especifica el tipo de solicitud, muestra la pagina principal de la seccion Solicitudes
         if (!$solicitud) {
-            return view("web.pages.solicitudes.index", compact("solicitudes"));
+            return view("web.paginas.solicitudes.index", compact("solicitudes"));
         }
 
         //  Comprueba que el parametro enviado coincida dentro del elemento slug del arreglo de solicitudes
@@ -186,7 +185,7 @@ class WebController extends Controller
         $claseVehiculo = $this->modelClaseVehiculo->getAll();
         $paises = $this->modelPais->getAll();
 
-        return view("web.pages.solicitudes." . $solicitud,  compact([
+        return view("web.paginas.solicitudes." . $solicitud,  compact([
             "solicitudes",
             "tipoDocumentoIdentidad",
             "claseVehiculo",
@@ -284,7 +283,7 @@ class WebController extends Controller
             )
         );
 
-        return view("web.pages.clientes", compact("clientes"));
+        return view("web.paginas.clientes", compact("clientes"));
     }
 
     /**
@@ -294,6 +293,6 @@ class WebController extends Controller
      */
     public function contacto()
     {
-        return view("web.pages.contacto");
+        return view("web.paginas.contacto");
     }
 }
