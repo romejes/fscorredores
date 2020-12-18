@@ -7,5 +7,8 @@
     "/css/web.css": "/css/web.css",
     "/js/web/manifest.js": "/js/web/manifest.js",
     "/js/web/vendor.js": "/js/web/vendor.js",
-    "/css/vendor.css": "/css/vendor.css"
+    "/css/vendor.css": "/css/vendor.css",
+    "/js/web/inicio.js": "/js/web/inicio.js",
+    "/js/web/contacto.js": "/js/web/contacto.js",
+    "/js/web/servicios.js": "/js/web/servicios.js"
 }

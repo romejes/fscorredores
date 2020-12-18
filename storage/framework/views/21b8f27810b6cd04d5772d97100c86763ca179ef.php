@@ -1,7 +1,7 @@
  
 
 <?php $__env->startSection('bannerSeguro'); ?>
-  <?php $__env->startComponent('web.componentes.banner_pagina', [
+  <?php $__env->startComponent('web.componentes.banner', [
     "imagenBanner" => 'banner_seguro_vehiculo.jpg', 
     "tituloBanner" => "Nuestros Seguros", 
     "subtituloBanner" => "Seguro Vehicular"
@@ -48,4 +48,4 @@
 </article>
 <?php $__env->stopSection(); ?> <?php $__env->startSection('title'); ?> SOAT <?php $__env->stopSection(); ?>
 
-<?php echo $__env->make('web.plantillas.seguro_detalle', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('web.plantillas.seguro', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

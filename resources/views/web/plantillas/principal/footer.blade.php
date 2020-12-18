@@ -1,57 +1,63 @@
 <footer>
-  <div class="wrapper_slogan">
-    <div class="overlay_slogan">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <h4 class="slogan_text" data-aos="fade-in">Somos tu mejor opción en seguros</h4>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="wrapper_main_footer">
+  <!-- Contenido principal del pie de pagina -->
+  <section id="footer-main">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-lg-4 main_footer_section" id="container_company_logo_footer">
-          <img src="{{ asset('images/logo2.svg')}}" alt="FS Corredores de Seguros" id="company_logo_footer">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+          <h3>Seguros para Personas</h3>
+          <ul>
+            @foreach($seguros[0]['seguros'] as $seguro)
+              <li><a
+                  href="{{ url('seguros/'. $seguro['slug']) }}">{{ $seguro['nombre'] }}</a>
+              </li>
+            @endforeach
+          </ul>
         </div>
-        <div class="col-12 col-md-6 col-lg-4 main_footer_section" id="container_our_office">
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+          <h3>Seguros para Empresas</h3>
+          <ul>
+            @foreach($seguros[1]['seguros'] as $seguro)
+              <li><a
+                  href="{{ url('seguros/'. $seguro['slug']) }}">{{ $seguro['nombre'] }}</a>
+              </li>
+            @endforeach
+          </ul>
+        </div>
+        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
           <h3>Nuestra Oficina</h3>
-          <dl>
-            <div class="dl-row">
-              <dt class="dt-icon"><i class="fas fa-map-marker-alt fa-lg"></i></dt>
-              <dd>
-                <p>Agrupación Rosa Ara A-12 2da Etapa - Tacna, Perú</p>
-              </dd>
+          <div class="office-grid">
+            <div class="office-icon-cell">
+              <i class="fas fa-map-marker"></i>
             </div>
-            <div class="dl-row">
-              <dt class="dt-icon"><i class="fas fa-phone fa-lg"></i></dt>
-              <dd>+51 (052) 285846</dd>
+            <div class="office-info-cell">
+              <span>Agrup. J. Rosa Ara A-12 (a 2da. Cdra. Ovalo Callao por la Av. Grau)</span>
             </div>
-            <div class="dl-row">
-              <dt class="dt-icon"><i class="fas fa-clock fa-lg"></i></dt>
-              <dd>Lun. a Vie:<br> 8:30 am - 1:00 pm (mañana)<br> 3:30 pm - 7:00 pm (tarde)<br> Sabados: 9:00 am - 1:00
-                pm </dd>
+            <div class="office-icon-cell">
+              <i class="fas fa-phone"></i>
             </div>
-          </dl>
-        </div>
-        <div class="col-12 col-md-6 col-lg-4 main_footer_section" id="container_supervised_by">
-          <h3>Supervisados por</h3>
-          <img id="sbs_logo" src="{{ asset('images/sbs.svg') }}" alt="Superintendencia de Banca y Seguros" />
+            <div class="office-info-cell">
+              <span>+51 052-285846</span>
+            </div>
+          </div>
+          <!--img src="{{ asset('images/logo2.svg') }}" id="footer-logo" alt="FS Corredores de Seguros">
+          
+          <img src="{{ asset('images/sbs.svg') }}" id="sbs-logo" alt="Superintendencia de Banca y Seguros"-->
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  <!-- Fin Contenido principal del pie de pagina -->
 
-  <div class="wrapper_copyright">
+  <!-- Texto de copyright -->
+  <section id="footer-copyright">
     <div class="container">
       <div class="row">
-        <div class="col">
-          <p>FS Corredores de Seguros &copy; {{ date('Y') }}. Todos los derechos reservados.</p>
+        <div class="col-12">
+          <p class="text-center">FS Corredores de Seguros &copy; {{ date('Y') }}. Todos los derechos
+            reservados.</p>
         </div>
       </div>
     </div>
-  </div>
+  </section>
+  <!-- Fin Texto de copyright -->
 </footer>

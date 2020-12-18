@@ -1,20 +1,17 @@
 @extends('web.plantillas.principal')
 
 @section('contenidoPlantillaPrincipal')
-<main>
-  <!-- Heading Page -->
-  @component('web.componentes.banner_pagina', ["imagenBanner" => 'banner_contacto.jpg', 'tituloBanner' => "Contáctanos"])
+  <!-- Banner-->
+  @component('web.componentes.banner', ["imagenBanner" => 'banner_contacto.jpg', 'tituloBanner' => "Contáctanos"])
   @endcomponent
-  <!-- End Heading Page -->
+  <!-- Fin Banner-->
 
-  <!-- Section: Formulario de Contacto -->
+  <!-- Seccion: Formulario de Contacto -->
   <section>
-    <div class="section-container">
-      <div class="section-row">
-        <div class="section-heading col-12">
-          <h2 class="section-title">Envíanos tus preguntas o sugerencias</h2>
-        </div>
-        <div class="section-body col-12">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-center clr-blue">Envíanos tus preguntas o sugerencias</h2>
           <form method="POST" id="frm-contact" class="form-row" novalidate>
             <div class="form-group col-lg-6">
               <label for="txt-nombres">Nombres y Apellidos</label>
@@ -43,24 +40,27 @@
       </div>
     </div>
   </section>
-  <!-- End Section: Formulario de Contacto -->
+  <!-- Fin Seccion: Formulario de Contacto -->
 
-  <!-- Section: Ubicacion -->
-  <section id="section-contact-map">
-    <div class="section-container">
-      <div class="section-row">
-        <div class="section-heading col-12">
-          <h2 class="section-title">... o visita nuestra oficina</h2>
+  <!-- Seccion: Ubicacion -->
+  <section class="bgc-grey" id="map-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="text-center clr-blue">... o visita nuestra oficina</h2>
         </div>
       </div>
     </div>
-    <div id="location-map" data-aos="fade-in"></div>
+    <div id="map"></div>
   </section>
-  <!-- End Section: Ubicacion -->
-</main>
+  <!-- Fin Seccion: Ubicacion -->
 @endsection
 
 
 @section('title')
 Contacto
 @endsection
+
+@push('scripts')
+<script src="{{ asset('js/web/contacto.js') }}"></script>
+@endpush

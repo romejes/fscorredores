@@ -25,7 +25,7 @@ Route::group(["name" => "web"], function () {
 
     Route::get("seguros/{tipo?}", "FrontEnd\WebController@seguros");
 
-    Route::get("solicitudes/{tipo?}", "FrontEnd\WebController@solicitudes");
+    Route::get("servicios_en_linea/{tipo?}", "FrontEnd\WebController@serviciosEnLinea");
 
     Route::get("clientes", "FrontEnd\WebController@clientes");
 
@@ -104,7 +104,7 @@ Route::get('tipos-documento-identidad', "BackEnd\TipoDocumentoIdentidadControlle
 
 Route::post("afiliaciones/seguro_estudiante", "BackEnd\AfiliacionSeguroEstudianteController@store");
 Route::post("compras/soat", "BackEnd\CompraSoatController@store");
-Route::post("cotizaciones/vehiculo_todo_riesgo", "BackEnd\CotizacionVehiculoTodoRiesgoController@store");
+Route::post("cotizaciones/seguro_vehicular", "BackEnd\CotizacionVehiculoTodoRiesgoController@store");
 Route::post("cotizaciones/soat", "BackEnd\CotizacionSoatController@store");
 
 Route::group(["middleware" => ["auth"]], function () {

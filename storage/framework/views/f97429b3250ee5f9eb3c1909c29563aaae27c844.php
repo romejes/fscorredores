@@ -1,24 +1,23 @@
-<header>
+<header class="sticky-top">
   <div class="container">
-    <!-- Logo -->
-    <a href="<?php echo e(url('/')); ?>">
-      <img src="<?php echo e(asset('images/logo.svg')); ?>" alt="FS Corredores de Seguros" id="company-logo-header">
-    </a>
-    <!-- End logo -->
+    <div class="row py-2">
+      <div class="col-12 d-flex justify-content-between align-items-center">
+        <!-- Logo FS -->
+        <a href="<?php echo e(url('/')); ?>">
+          <img src="<?php echo e(asset('images/logo.svg')); ?>" alt="FS Corredores de Seguros" id="header-logo">
+        </a>
+        <!-- Fin Logo FS -->
 
-    <!-- Navbar -->
-    <nav class="navbar">
+        <!-- Menu -->
+        <?php echo $__env->make('web.plantillas.principal.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <!-- Fin Menu -->
 
-      <!-- Menu button -->
-      <button id="btn-menu" class="button" type="button">
-        <i class="fas fa-bars fa-2x"></i>
-      </button>
-      <!-- End Menu button-->
-
-      <!-- Navbar Links -->
-      <?php echo $__env->make('web.plantillas.principal.nav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-      <!-- End Navbar Links -->
-    </nav>
-    <!-- End Navbar -->
+        <!-- Boton menu smartphone -->
+        <button id="btn-menu">
+          <i class="fas fa-bars fa-2x"></i>
+        </button>
+        <!-- Fin Boton menu smartphone -->
+      </div>
+    </div>
   </div>
 </header>

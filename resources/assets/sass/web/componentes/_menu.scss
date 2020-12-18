@@ -24,18 +24,22 @@ nav {
         display: flex;
         justify-content: center;
         align-items: center;
+
         > a {
           transition: 0.3s;
           color: $blue-primary;
           font-family: 'Nunito', sans-serif;
           background-color: white;
           font-weight: bold;
-          font-size: 1.2rem;
+          font-size: 1.4rem;
           padding-left: 1em;
           padding-right: 1em;
           &:hover {
             color: $red-primary;
             transition: 0.3s;
+            ~ .container-submenu {
+              visibility: visible;
+            }
           }
         }
 

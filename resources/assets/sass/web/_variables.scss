@@ -1,13 +1,21 @@
-// Colors
-$red-primary: #BF3237;
-$red-secondary: #aa272b;
-$blue-primary: #465e89;
-$grey-primary: #9da3a9;
+//  Colores
+$rojo-fs: rgba(191, 50, 55, 1);
+$azul-fs: rgba(70, 94, 137, 1);
+$gris-fs: rgba(157, 163, 169, 1);
 
-$text-color: #676767;
+$rojo-alt-fs:rgb(161, 43, 47);
 
-//  FontSize
-$heading1: 2.5rem;
-$heading2: 2rem;
-$heading3: 1.5rem;
-$heading4: 1.2rem;
+$gris-fondo: rgb(235, 235, 237);
+
+$gris-texto: rgb(103, 103, 103);
+
+//  Tamaño de letra
+$encabezado1: 2.8rem;
+$encabezado2: 2rem;
+$encabezado3: 1.5rem;
+$encabezado4: 1.2rem;
+$parrafo: 1rem;
+
+//  Tipografía
+$fuente-titulo: "Montserrat", sans-serif;
+$fuente-parrafo: 'Nunito', sans-serif;

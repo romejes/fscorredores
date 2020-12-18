@@ -16,20 +16,30 @@
   <link rel="shortcut icon" href="<?php echo e(asset('favicon/favicon.ico')); ?>" type="image/x-icon">
 </head>
 
-<body>
-  <?php echo $__env->make('web.plantillas.principal.sidenav', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-  <div class="wrapper">
-    <div class="wrapper-shadow"></div>
-    <?php echo $__env->make('web.plantillas.principal.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-    <?php echo $__env->yieldContent('contenidoPlantillaPrincipal'); ?>
-    <?php echo $__env->make('web.plantillas.principal.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-  </div>
+<body class="m-0">
+  <!-- Header -->
+  <?php echo $__env->make('web.plantillas.principal.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  <!-- Fin Header -->
 
+  <!-- Contenido principal -->
+  <main>
+    <?php echo $__env->yieldContent('contenidoPlantillaPrincipal'); ?>
+  </main>
+  <!-- Fin Contenido principal -->
+
+  <!-- Slogan -->
+  <?php echo $__env->make('web.plantillas.principal.slogan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  <!-- Fin Slogan -->
+
+  <!-- Footer -->
+  <?php echo $__env->make('web.plantillas.principal.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  <!-- Fin Footer -->
+  
+  <!--Scripts -->
   <script src="<?php echo e(asset('js/web/vendor.js')); ?>"></script>
   <script src="<?php echo e(asset('js/web/manifest.js')); ?>"></script>
   <script src="<?php echo e(asset('js/web/app.js')); ?>"></script>
 
   <?php echo $__env->yieldPushContent('scripts'); ?>
 </body>
-
 </html>

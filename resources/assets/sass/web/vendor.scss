@@ -1,3 +1,6 @@
+//  Bootstrap
+@import './custom-bootstrap';
+
 //  Font Awesome
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import '~@fortawesome/fontawesome-free/scss/solid';
@@ -10,4 +13,5 @@
 //  AOS
 @import '~aos/dist/aos.css';
 
+//  Carousel
 @import "~owl.carousel/dist/assets/owl.carousel.css"

@@ -70,3 +70,4 @@ export function formatDate(dateString, formatOrigin, formatTarget) {
     .locale('es_MX')
     .format(formatTarget);
 }
+

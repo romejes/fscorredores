@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers\FrontEnd;
 
-use App\CustomClass\Seguro;
+use App\Data\Carousel;
+use App\Data\Clientes;
+use App\Data\Seguro;
+use App\Data\Servicio;
+use App\Data\Staff;
+use App\Data\ValoresEmpresa;
 use App\Http\Controllers\Controller;
 use App\Models\ClaseVehiculo;
 use App\Models\Pais;
@@ -15,12 +20,17 @@ class WebController extends Controller
     private $modelTipoDocumentoIdentidad;
     private $modelClaseVehiculo;
     private $modelPais;
+    private $dataControlador;
 
     public function __construct(TipoDocumentoIdentidad $tipoDocumentoIdentidad, ClaseVehiculo $claseVehiculo, Pais $pais)
     {
         $this->modelTipoDocumentoIdentidad = $tipoDocumentoIdentidad;
         $this->modelClaseVehiculo = $claseVehiculo;
         $this->modelPais = $pais;
+        $this->dataControlador = [
+            "seguros" => Seguro::obtenerDatos(),
+            "servicios" => Servicio::obtenerDatos()
+        ];
     }
 
     /**
@@ -30,7 +40,12 @@ class WebController extends Controller
      */
     public function inicio()
     {
-        return view("web.paginas.inicio");
+        $imagenesCarousel = Carousel::obtenerDatos();
+        $segurosPrincipales = Seguro::mostrarSegurosPrincipales();
+
+        $this->dataControlador['imagenesCarousel'] = $imagenesCarousel;
+        $this->dataControlador['segurosPrincipales'] = $segurosPrincipales;
+        return view('web.paginas.inicio', $this->dataControlador);
     }
 
     /**
@@ -40,158 +55,13 @@ class WebController extends Controller
      */
     public function nosotros()
     {
-        $staff = array(
-            array(
-                "name" => "Fanny Llanos Ramos",
-                "charge" => "Corredor de Seguros",
-                "email" => "fllanos@fscorredoresasesores.com",
-                "phone" => "990287528"
-            ),
-            array(
-                "name" => "John Ordoñez Monroy",
-                "charge" => "Soluciones Tecnológicas",
-                "email" => "jordonez@fscorredoresasesores.com",
-                "phone" => "952947576"
-            ),
-            array(
-                "name" => "Carlos Andrés Figueroa Llanos",
-                "charge" => "Ejecutivo Comercial en Seguros para Empresas Privadas",
-                "email" => "cfigueroa@fscorredoresasesores.com",
-                "phone" => "945276280"
-            ),
-            array(
-                "name" => "Milagros Nataly Mamani Flores",
-                "charge" => "Ejecutivo Comercial en Seguros para Empresas del Estado",
-                "email" => "mmamani@fscorredoresasesores.com",
-                "phone" => "997368020"
-            )
-        );
+        $staff = Staff::obtenerDatos();
+        $valores = ValoresEmpresa::obtenerDatos();
 
-        $values = array(
-            "Disciplina",
-            "Autocrítica",
-            "Responsabilidad",
-            "Disponibilidad al cambio",
-            "Perseverancia",
-            "Proactividad",
-            "Aprendizaje"
-        );
-
-        return view("web.paginas.nosotros", compact("staff", "values"));
-    }
-
-    /**
-     * Muestra la página de Seguros
-     *
-     * @param string $tipoSeguro
-     * @return View
-     */
-    public function seguros($tipoSeguro = null)
-    {
-        $seguros = Seguro::obtenerDataDeSeguros();
-
-        //  Si no se especifica el tipo de seguro, muestra la pagina principal de la seccion Seguros
-        if (!$tipoSeguro) {
-            return view("web.paginas.seguros.index", compact("seguros"));
-        }
-        
-        //  Comprueba que el parametro enviado coincida dentro del elemento slug del arreglo de solicitudes
-        //  que se muestra al inicio de la funcion.
-        //  Si no existe, se lanzará una excepcion.
-        $seguroExiste = false;
-        foreach ($seguros as $seguro) {
-            if (in_array($tipoSeguro, array_column($seguro["seguros"], "slug"))) {
-                $seguroExiste = true;
-                break;
-            }
-        }
-
-        if (!$seguroExiste) {
-            throw new NotFoundHttpException();
-        }
-
-        return view("web.paginas.seguros." . $tipoSeguro, compact("seguros"));
-    }
-
-    /**
-     * Mostrar la pagina de Solicitudes
-     *
-     * @param string $solicitud
-     * @return View
-     */
-    public function solicitudes($solicitud = null)
-    {
-        $solicitudes = array(
-            array(
-                "seguro" => "SOAT",
-                "picture" => "seguro_soat.jpg",
-                "opciones" => array(
-                    array(
-                        "name" => "Cotizar",
-                        "slug" => "cotizar_soat",
-                    ),
-                    array(
-                        "name" => "Comprar",
-                        "slug" => "comprar_soat",
-                    )
-                )
-            ),
-            array(
-                "seguro" => "Seguro Vehicular Todo Riesgo",
-                "picture" => "seguro_vehiculo.jpg",
-                "opciones" => array(
-                    array(
-                        "name" => "Cotizar",
-                        "slug" => "cotizar_seguro_vehicular_todo_riesgo",
-                    )
-                )
-            ),
-            array(
-                "seguro" => "Seguro Estudiantil contra Accidentes",
-                "picture" => "seguro_estudiante.jpg",
-                "opciones" => array(
-                    array(
-                        "name" => "Afiliar",
-                        "slug" => "afiliar_seguro_estudiantil",
-                    )
-                )
-            ),
-        );
-
-        //  Si no se especifica el tipo de solicitud, muestra la pagina principal de la seccion Solicitudes
-        if (!$solicitud) {
-            return view("web.paginas.solicitudes.index", compact("solicitudes"));
-        }
-
-        //  Comprueba que el parametro enviado coincida dentro del elemento slug del arreglo de solicitudes
-        //  que se muestra al inicio de la funcion.
-        //  Si no existe, se lanzará una excepcion.
-        $solicitudExiste = false;
-        foreach ($solicitudes as $itemSolicitud) {
-            if (in_array($solicitud, array_column($itemSolicitud["opciones"], "slug"))) {
-                $solicitudExiste = true;
-                break;
-            }
-        }
-
-        if (!$solicitudExiste) {
-            throw new NotFoundHttpException();
-        }
-
-        //  Obtener datos para mostrar la pagina detalle de cada pagina de solicitud
-        $tipoDocumentoIdentidad = $this->modelTipoDocumentoIdentidad->getByTipoCliente(
-            Config::get("constants.tipo_cliente.persona_natural")
-        );
-        $claseVehiculo = $this->modelClaseVehiculo->getAll();
-        $paises = $this->modelPais->getAll();
-
-        return view("web.paginas.solicitudes." . $solicitud,  compact([
-            "solicitudes",
-            "tipoDocumentoIdentidad",
-            "claseVehiculo",
-            "paises"
-        ]));
-    }
+        $this->dataControlador['staff'] = $staff;
+        $this->dataControlador['valores'] = $valores;
+        return view("web.paginas.nosotros", $this->dataControlador);
+    }   
 
     /**
      * Muestra la página de Clientes
@@ -200,91 +70,10 @@ class WebController extends Controller
      */
     public function clientes()
     {
-        $clientes = array(
-            "publicas" => array(
-                array(
-                    "logo" => "mun_cp_sanantonio_moquegua.png",
-                    "nombre" => "Municipalidad de C.P. San Antonio",
-                ),
-                array(
-                    "logo" => "mun_dist_albarracin.png",
-                    "nombre" => "Municipalidad Distrital Gregorio Albarracín Lanchipa",
-                ),
-                array(
-                    "logo" => "mun_dist_calana.png",
-                    "nombre" => "Municipalidad Distrital de Calana",
-                ),
-                array(
-                    "logo" => "mun_dist_carumas_moquegua.png",
-                    "nombre" => "Municipalidad Distrital de Carumas",
-                ),
-                array(
-                    "logo" => "mun_dist_ciudadnueva.png",
-                    "nombre" => "Municipalidad Distrital de Ciudad Nueva",
-                ),
-                array(
-                    "logo" => "mun_dist_estique.png",
-                    "nombre" => "Municipalidad Distrital de Estique",
-                ),
-                array(
-                    "logo" => "mun_dist_inclan.png",
-                    "nombre" => "Municipalidad Distrital de Inclán",
-                ),
-                array(
-                    "logo" => "mun_dist_ite.png",
-                    "nombre" => "Municipalidad Distrital de Ite",
-                ),
-                array(
-                    "logo" => "mun_prov_tarata.png",
-                    "nombre" => "Municipalidad Distrital de Tarata",
-                ),
-                array(
-                    "logo" => "mun_dist_palca_tacna.png",
-                    "nombre" => "Municipalidad Distrital de Palca",
-                ),
-                array(
-                    "logo" => "mun_dist_pocollay.png",
-                    "nombre" => "Municipalidad Distrital de Pocollay",
-                ),
-                array(
-                    "logo" => "mun_prov_candarave.png",
-                    "nombre" => "Municipalidad Distrital de Candarave",
-                ),
-                array(
-                    "logo" => "muni_prov_tacna.png",
-                    "nombre" => "Municipalidad Provincial de Tacna",
-                ),
-                array(
-                    "logo" => "muni_dist_sama-las_yaras.png",
-                    "nombre" => "Municipalidad Distrital de Sama - Las Yaras",
-                ),
-                array(
-                    "logo" => "gobierno_regional_tacna.png",
-                    "nombre" => "Gobierno Regional de Tacna",
-                ),
-                array(
-                    "logo" => "pet.png",
-                    "nombre" => "Proyecto Especial Tacna",
-                ),
-                array(
-                    "logo" => "unjbg.png",
-                    "nombre" => "Universidad Nacional Jorge Basadre Grohmann",
-                ),
-                array(
-                    "logo" => "una.png",
-                    "nombre" => "Universidad Nacional del Altiplano",
-                ),
-            ),
-            "privadas" => array(
-                array(
-                    "logo" => null,
-                    "nombre" => "PROMELEC S.A.C",
-                ),
-            )
-        );
-
-        return view("web.paginas.clientes", compact("clientes"));
-    }
+        $clientes = Clientes::obtenerDatos();
+        $this->dataControlador['clientes'] = $clientes;
+        return view("web.paginas.clientes", $this->dataControlador);
+    }    
 
     /**
      * Muestra la página de Contacto
@@ -293,6 +82,60 @@ class WebController extends Controller
      */
     public function contacto()
     {
-        return view("web.paginas.contacto");
+        return view("web.paginas.contacto", $this->dataControlador);
+    }
+
+    /**
+     * Muestra la página de Seguros
+     *
+     * @param string $tipoSeguro
+     * @return View
+     */
+    public function seguros($seguro = null)
+    {
+        //  Si no se especifica el tipo de seguro, muestra la pagina principal de la seccion Seguros
+        if (!$seguro) {
+            return view("web.paginas.seguros.index", $this->dataControlador);
+        }
+        
+        //  Comprueba que el parametro enviado coincida dentro del elemento slug del arreglo de solicitudes
+        //  que se muestra al inicio de la funcion.
+        //  Si no existe, se lanzará una excepcion.
+        $seguroExiste = Seguro::verificarSiExisteSeguro($seguro);
+        if (!$seguroExiste) {
+            throw new NotFoundHttpException();
+        }
+
+        return view("web.paginas.seguros." . $seguro, $this->dataControlador);
+    }
+
+    /**
+     * Mostrar la pagina de Solicitudes
+     *
+     * @param string $solicitud
+     * @return View
+     */
+    public function serviciosEnLinea($servicio = null)
+    {
+        if (!$servicio) {
+            return view('web.paginas.servicios.index', $this->dataControlador);
+        }
+
+        //  Comprueba que el parametro enviado coincida dentro del elemento slug del arreglo de solicitudes
+        //  que se muestra al inicio de la funcion.
+        //  Si no existe, se lanzará una excepcion.
+        $servicioExiste = Servicio::verificarSiExisteServicio($servicio);
+        if (!$servicioExiste) {
+            throw new NotFoundHttpException();
+        }
+
+        //  Obtener datos para mostrar la pagina detalle de cada pagina de solicitud
+        $this->dataControlador["tipoDocumentoIdentidad"] = $this->modelTipoDocumentoIdentidad->getByTipoCliente(
+            Config::get("constants.tipo_cliente.persona_natural")
+        );
+        $this->dataControlador["claseVehiculo"] =  $this->modelClaseVehiculo->getAll();
+        $this->dataControlador["paises"] = $this->modelPais->getAll();;
+
+        return view("web.paginas.servicios." . $servicio, $this->dataControlador);
     }
 }

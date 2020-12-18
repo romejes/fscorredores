@@ -2,62 +2,56 @@
 
 @section('contenidoPlantillaPrincipal')
 <main>
-  <!-- Heading Page-->
-  @component('web.componentes.banner_pagina', ["imagenBanner" => 'banner_clientes.jpg', 'tituloBanner' => "Nuestros Clientes"])
+  <!-- Banner-->
+  @component('web.componentes.banner', ["imagenBanner" => 'banner_clientes.jpg', 'tituloBanner' => "Nuestros Clientes"])
   @endcomponent
-  <!-- End Heading Page -->
+  <!-- Fin Banner -->
 
-  <!-- Section Entidades Publicas -->
+  <!-- Seccion Entidades Publicas -->
   <section>
-    <div class="section-container">
-      <div class="section-row">
-        <div class="section-heading col-12">
-          <h2 class="section-title">Entidades Públicas</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="clr-blue text-center">Entidades Públicas</h2>
         </div>
-        <div class="section-body col-12">
-          <div class="wrapper-card wrapper-customer">
-            @foreach ($clientes["publicas"] as $entidadPublica)
-            <div class="card customer-card" data-aos="fade-up">
-              <img src="{{ asset("images/clientes/" . $entidadPublica["logo"]) }}" alt="{{$entidadPublica['nombre'] }}">
-              <div class="card-body">
-                <p>{{$entidadPublica['nombre'] }}</p>
-              </div>
-            </div>
-            @endforeach
+        <div class="col-12">
+          <div class="cards-container clients-cards-container">
+          @foreach ($clientes["publicas"] as $entidadPublica)
+            @component("web.componentes.card", [
+              "imagen" => 'clientes/' . $entidadPublica['logo'],
+              "titulo" => $entidadPublica['nombre']
+            ])
+            @endcomponent
+          @endforeach
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Section Entidades Publicas -->
+  <!-- Fin Seccion Entidades Publicas -->
 
-  <!-- Section Entidades Privadas -->
+  <!-- Seccion Entidades Privadas -->
   <section>
-    <div class="section-container">
-      <div class="section-row">
-        <div class="section-heading col-12">
-          <h2 class="section-title">Entidades Privadas</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="clr-blue text-center">Entidades Privadas</h2>
         </div>
-        <div class="section-body col-12">
-          <div class="wrapper-card wrapper-customer">
-            @foreach ($clientes["privadas"] as $entidadPrivada)
-            <div class="card customer-card" data-aos="fade-up">
-              @if (is_null($entidadPrivada["logo"]))
-              <img src="{{ asset("images/no_logo.png") }}" alt="Sin logo disponible">    
-              @else
-              <img src="{{ asset("images/clientes/" . $entidadPrivada["logo"]) }}" alt="{{$entidadPrivada['nombre'] }}">
-              @endif
-              <div class="card-body">
-                <p>{{$entidadPrivada['nombre'] }}</p>
-              </div>
-            </div>
-            @endforeach
+        <div class="col-12">
+          <div class="cards-container clients-cards-container">
+          @foreach ($clientes["privadas"] as $entidadPrivada)
+            @component("web.componentes.card", [
+              "imagen" => is_null($entidadPrivada['logo']) ? 'no_logo.png' : 'clientes/' . $entidadPrivada['logo'],
+              "titulo" => $entidadPrivada['nombre']
+            ])
+            @endcomponent
+          @endforeach
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Section Entidades Publicas -->
+  <!-- Fin Seccion Entidades Privadas -->
 </main>
 @endsection
 

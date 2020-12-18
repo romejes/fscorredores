@@ -1,35 +1,23 @@
-//  Fonts
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@1,300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap');
+@import './fuentes';
+@import './util';
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-
-//  Theme
-@import './theme/all';
-
-//  Layouts
-@import './layout/header';
-@import './layout/sidenav';
-@import './layout/wrapper';
-@import './layout/footer';
+//  Plantilla
+@import './plantillas/principal';
 
 //  Componentes
-@import './componentes/section';
-@import './componentes/banner';
-@import './componentes/menu';
-@import './componentes/description-list';
-@import './componentes/split-container';
-@import './componentes/treeview';
-@import './componentes/wizard';
-@import './componentes/sw-alert';
 @import './componentes/carousel';
+@import './componentes/section';
+@import './componentes/button';
+@import './componentes/banner';
+@import './componentes/form';
+@import './componentes/card';
+@import './componentes/tables';
+@import "./componentes/sw-alert";
+@import "./componentes/wizard";
 
 //  Paginas
-@import './paginas/home';
+@import './paginas/inicio';
 @import './paginas/nosotros';
-@import './paginas/clientes';
 @import './paginas/contacto';
-@import './paginas/seguros';
-@import './paginas/solicitudes';
-@import './paginas/404';
+@import './paginas/clientes';
+@import './paginas/seguros-servicios';

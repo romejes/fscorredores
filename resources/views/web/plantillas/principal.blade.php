@@ -16,20 +16,30 @@
   <link rel="shortcut icon" href="{{ asset('favicon/favicon.ico')}}" type="image/x-icon">
 </head>
 
-<body>
-  @include('web.plantillas.principal.sidenav')
-  <div class="wrapper">
-    <div class="wrapper-shadow"></div>
-    @include('web.plantillas.principal.header')
-    @yield('contenidoPlantillaPrincipal')
-    @include('web.plantillas.principal.footer')
-  </div>
+<body class="m-0">
+  <!-- Header -->
+  @include('web.plantillas.principal.header')
+  <!-- Fin Header -->
 
+  <!-- Contenido principal -->
+  <main>
+    @yield('contenidoPlantillaPrincipal')
+  </main>
+  <!-- Fin Contenido principal -->
+
+  <!-- Slogan -->
+  @include('web.plantillas.principal.slogan')
+  <!-- Fin Slogan -->
+
+  <!-- Footer -->
+  @include('web.plantillas.principal.footer')
+  <!-- Fin Footer -->
+  
+  <!--Scripts -->
   <script src="{{ asset('js/web/vendor.js')}}"></script>
   <script src="{{ asset('js/web/manifest.js')}}"></script>
   <script src="{{ asset('js/web/app.js')}}"></script>
 
   @stack('scripts')
 </body>
-
 </html>

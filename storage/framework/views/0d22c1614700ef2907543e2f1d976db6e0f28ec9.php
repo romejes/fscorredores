@@ -1,61 +1,55 @@
 <?php $__env->startSection('contenidoPlantillaPrincipal'); ?>
 <main>
-  <!-- Heading Page-->
-   <?php $__env->startComponent('web.componentes.banner_pagina', ["imagenBanner" => 'banner_clientes.jpg', 'tituloBanner' => "Nuestros Clientes"]); ?>
+  <!-- Banner-->
+  <?php $__env->startComponent('web.componentes.banner', ["imagenBanner" => 'banner_clientes.jpg', 'tituloBanner' => "Nuestros Clientes"]); ?>
   <?php echo $__env->renderComponent(); ?>
-  <!-- End Heading Page -->
+  <!-- Fin Banner -->
 
-  <!-- Section Entidades Publicas -->
+  <!-- Seccion Entidades Publicas -->
   <section>
-    <div class="section-container">
-      <div class="section-row">
-        <div class="section-heading col-12">
-          <h2 class="section-title">Entidades Públicas</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="clr-blue text-center">Entidades Públicas</h2>
         </div>
-        <div class="section-body col-12">
-          <div class="wrapper-card wrapper-customer">
-            <?php $__currentLoopData = $clientes["publicas"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $entidadPublica): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="card customer-card" data-aos="fade-up">
-              <img src="<?php echo e(asset("images/clientes/" . $entidadPublica["logo"])); ?>" alt="<?php echo e($entidadPublica['nombre']); ?>">
-              <div class="card-body">
-                <p><?php echo e($entidadPublica['nombre']); ?></p>
-              </div>
-            </div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <div class="col-12">
+          <div class="cards-container clients-cards-container">
+          <?php $__currentLoopData = $clientes["publicas"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $entidadPublica): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__env->startComponent("web.componentes.card", [
+              "imagen" => 'clientes/' . $entidadPublica['logo'],
+              "titulo" => $entidadPublica['nombre']
+            ]); ?>
+            <?php echo $__env->renderComponent(); ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Section Entidades Publicas -->
+  <!-- Fin Seccion Entidades Publicas -->
 
-  <!-- Section Entidades Privadas -->
+  <!-- Seccion Entidades Privadas -->
   <section>
-    <div class="section-container">
-      <div class="section-row">
-        <div class="section-heading col-12">
-          <h2 class="section-title">Entidades Privadas</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2 class="clr-blue text-center">Entidades Privadas</h2>
         </div>
-        <div class="section-body col-12">
-          <div class="wrapper-card wrapper-customer">
-            <?php $__currentLoopData = $clientes["privadas"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $entidadPrivada): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-            <div class="card customer-card" data-aos="fade-up">
-              <?php if(is_null($entidadPrivada["logo"])): ?>
-              <img src="<?php echo e(asset("images/no_logo.png")); ?>" alt="Sin logo disponible">    
-              <?php else: ?>
-              <img src="<?php echo e(asset("images/clientes/" . $entidadPrivada["logo"])); ?>" alt="<?php echo e($entidadPrivada['nombre']); ?>">
-              <?php endif; ?>
-              <div class="card-body">
-                <p><?php echo e($entidadPrivada['nombre']); ?></p>
-              </div>
-            </div>
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <div class="col-12">
+          <div class="cards-container clients-cards-container">
+          <?php $__currentLoopData = $clientes["privadas"]; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $entidadPrivada): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+            <?php $__env->startComponent("web.componentes.card", [
+              "imagen" => is_null($entidadPrivada['logo']) ? 'no_logo.png' : 'clientes/' . $entidadPrivada['logo'],
+              "titulo" => $entidadPrivada['nombre']
+            ]); ?>
+            <?php echo $__env->renderComponent(); ?>
+          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <!-- End Section Entidades Publicas -->
+  <!-- Fin Seccion Entidades Privadas -->
 </main>
 <?php $__env->stopSection(); ?>
 

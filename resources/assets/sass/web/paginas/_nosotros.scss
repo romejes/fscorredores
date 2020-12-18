@@ -1,67 +1,27 @@
 @import '../variables';
 
 main {
-  section#section-about_us-mision-vision-values {
-    article {
-      text-align: center;
-      margin-bottom: 4em;
-
-      img {
-        width: 150px;
-        height: auto;
-      }
-
-      h2 {
-        color: $blue-primary;
-      }
-
-      .wrapper-company-values {
-        .company-value {
-          display: grid;
-          grid-template-columns: 64px auto;
-          .company-value-icon {
-            color: white;
-            background-color: $grey-primary;
-            padding: 0.5em;
-          }
-          .company-value-text {
-            color: white;
-            background-color: $blue-primary;
-            padding: 0.5em;
-          }
-        }
-      }
-    }
-  }
-
-  section#section-about_us-staff {
-    .staff-card {
-      max-width: 300px;
-      background-color: $blue-primary;
-      color: white;
-      border-color: $blue-primary;
-      dl {
-        margin-top: 0;
+  section {
+    article{
+      margin-bottom: 1em;
+      &:last-child{
         margin-bottom: 0;
-        p.worker-name {
-          font-size: 1.3rem;
-          margin: 0;
-          font-weight: bold;
-        }
-        i.worker-job {
-          font-weight: lighter;
-        }
       }
     }
-  }
-}
-
-@media (min-width: 576px) {
-  main {
-    section#section-about_us-staff {
-      .staff-card {
-        max-width: none;
-        width: 350px;
+    .staff-card-container {
+      .card {
+        width: 100%;
+        background-color: $azul-fs;
+        color: white;
+        padding: 0 1em;
+        .card-body {
+          .data-staff-grid {
+            display: grid;
+            grid-template-columns: 50px calc(100% - 50px);
+            align-items: center;
+            overflow-wrap: break-word;
+          }
+        }
       }
     }
   }
@@ -69,10 +29,29 @@ main {
 
 @media (min-width: 768px) {
   main {
-    section#section-about_us-staff {
-      .staff-card {
-        max-width: none;
-        width: 400px;
+    section {
+      .staff-card-container {
+        .card {
+          width: 325px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  main {
+    section {
+      .staff-card-container {
+        .card {
+          width: 360px;
+          &:first-child {
+            margin-left: 0;
+          }
+        }
       }
     }
   }

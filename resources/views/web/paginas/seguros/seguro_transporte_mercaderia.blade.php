@@ -1,7 +1,7 @@
-@extends('web.plantillas.seguro_detalle')
+@extends('web.plantillas.seguro')
 
 @section('bannerSeguro')
-  @component('web.componentes.banner_pagina', [
+  @component('web.componentes.banner', [
     "imagenBanner" => 'banner_seguro_transporte.jpg', 
     "tituloBanner" => "Nuestros Seguros", 
     "subtituloBanner" => "Seguro de Transporte de Mercadería"

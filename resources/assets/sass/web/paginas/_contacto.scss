@@ -1,34 +1,15 @@
 main {
   form#frm-contact {
-    margin-top: 2em;
-    width: 100%;
-
-    button#btn-send {
-      margin: 1.5em auto 0 auto;
-    }
+    max-width: 650px;
+    margin: 0 auto
   }
 
-  section#section-contact-map {
-    padding-bottom: 0px;
-    #location-map {
-      margin-top: 2em;
-      width: 100%;
-      height: 550px;
-    }
+  button#btn-send {
+    margin: 1.5em auto 0 auto;
   }
-}
 
-@media (min-width: 992px) {
-  main {
-    form#frm-contact {
-      width: 80%;
-      margin: 1.5em auto 0 auto;
-    }
-
-    section#section-contact-map {
-      #location-map {
-        height: 450px;
-      }
-    }
+  #map {
+    height: 400px;
+    margin-bottom: -6em;
   }
 }

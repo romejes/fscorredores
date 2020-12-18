@@ -1,4 +1,8 @@
-import './endpoints/template';
-import './endpoints/seguros';
-import './endpoints/contacto';
-import './endpoints/solicitudes';
+import AOS from 'aos';
+import { configurarValidacion } from './componentes/forms';
+
+//  Activar animaciones
+AOS.init();
+
+//  Inicializar configuracion de validacion
+configurarValidacion();

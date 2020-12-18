@@ -1,21 +1,19 @@
+//  Importar Laravel-Mix
 const mix = require('laravel-mix');
-require('laravel-mix-merge-manifest');
+require('mix-env-file');
 
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
+//  Importar esta libreria que permitirá fusionar estos ajustes de webpack con otros
+require('laravel-mix-merge-manifest');
 
 mix
   .sass('resources/assets/sass/web/app.scss', 'public/css/web.css')
   .sass('resources/assets/sass/web/vendor.scss', 'public/css/vendor.css')
+
   .js('resources/assets/js/web/app.js', 'public/js/web')
+  .js('resources/assets/js/web/inicio.js', 'public/js/web')
+  .js('resources/assets/js/web/contacto.js', 'public/js/web')
+  .js('resources/assets/js/web/servicios.js', 'public/js/web')
+  
   .extract([
     'jquery',
     'bootstrap',
@@ -29,9 +27,10 @@ mix
     'bs-custom-file-input',
     'load-google-maps-api',
     'aos',
-    "owl.carousel"
+    'owl.carousel',
   ])
   .mergeManifest()
   .autoload({
     jquery: ['$', 'window.jQuery', 'jQuery', 'window.$'],
-  });
+  })
+  .sourceMaps();
