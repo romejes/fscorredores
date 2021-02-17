@@ -10,6 +10,7 @@ form {
   }
 
   .form-control {
+    font-family: 'Nunito', sans-serif;
     &:focus {
       box-shadow: none;
       border-color: $azul-fs;
@@ -28,7 +29,7 @@ fieldset {
   padding: 0;
 }
 
-input[type="file"] {
+input[type='file'] {
   &.custom-file-input {
     &:focus {
       ~ .custom-file-label {

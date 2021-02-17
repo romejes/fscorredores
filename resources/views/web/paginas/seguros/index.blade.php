@@ -19,14 +19,11 @@
             @foreach ($grupoSeguro['seguros'] as $seguro )
             @component("web.componentes.card", [
               "imagen" => 'seguros/' . $seguro["imagen_miniatura"],
-              "titulo" => $seguro['nombre'],
-              "botones" => [
-                [
-                  "texto" => "Ver más",
-                  "url" => "seguros/${seguro['slug']}"
-                ]
-              ]
+              "titulo" => $seguro['nombre']
             ])
+              @slot('botones')
+                <a href="{{ url('seguros/' . $seguro['slug']) }}" class="button button-primary">Mas información</a>
+              @endslot
             @endcomponent       
             @endforeach
           </div>

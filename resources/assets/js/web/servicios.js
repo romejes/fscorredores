@@ -1,11 +1,11 @@
-import * as objWizard from './componentes/wizard';
-import * as objFile from './componentes/file_input';
-import * as objMask from './componentes/mask';
-
 //  Reglas de validacion
 import './validaciones/validacion_afiliacion_seguro_estudiante';
 import './validaciones/validacion_cotizar_seguro_vehiculo';
-import './validaciones/valdiacion_cotizar_soat';
+import './validaciones/validacion_cotizar_soat';
+
+import * as objWizard from './componentes/wizard';
+import * as objFile from './componentes/file_input';
+import * as objMask from './componentes/mask';
 
 import * as procesoAfiliarSeguroEstudiante from './procesos/proceso_afiliar_seguro_estudiante';
 import * as procesoCotizarSeguroVehicular from './procesos/proceso_cotizar_seguro_vehicular';
@@ -119,3 +119,28 @@ if (radioTieneSoat) {
     objWizard.ajustarPestana();
   });
 }
+
+$('#sel-servicios').on('change', ev => {
+  console.log;
+  const url = $(ev.target)
+    .find(':selected')
+    .data('href');
+  window.location.href = url;
+});
+
+$(document).on('ready', () => {
+  console.log(document.getElementsByTagName('section')[0]);
+  document.querySelectorAll('section')[0].focus();
+});
+
+$("input[type=text]").on('input', (ev) =>{
+  const input = $(ev.target)
+  const valueInput = input.val()
+  input.val(valueInput.toUpperCase())
+})
+
+$("input[type=email]").on('input', (ev) =>{
+  const input = $(ev.target)
+  const valueInput = input.val()
+  input.val(valueInput.toLowerCase())
+})

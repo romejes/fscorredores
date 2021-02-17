@@ -21,12 +21,14 @@
 
       .carousel-slide-title {
         font-size: $encabezado2;
+        font-family: $fuente-titulo;
         color: $azul-fs;
         margin-top: 0;
       }
 
       p {
-        font-size: 1.2rem;
+        font-size: 1rem;
+        text-align: justify;
       }
     }
   }

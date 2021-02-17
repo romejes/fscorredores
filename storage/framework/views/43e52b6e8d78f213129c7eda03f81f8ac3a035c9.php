@@ -31,7 +31,7 @@
             <optgroup label="<?php echo e($grupoSeguros['titulo']); ?>">
               <?php $__currentLoopData = $grupoSeguros['seguros']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seguro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <option
-                  data-href="<?php echo e(url('solicitudes/'. $seguro['slug'])); ?>">
+                  data-href="<?php echo e(url('seguros/'. $seguro['slug'])); ?>">
                   <?php echo e($seguro['nombre']); ?></option>
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </optgroup>
@@ -50,4 +50,8 @@
 </section>
 <!-- End Section -->
 <?php $__env->stopSection(); ?>
+
+<?php $__env->startPush('scripts'); ?>
+<script src="<?php echo e(asset('js/web/seguros.js')); ?>"></script>
+<?php $__env->stopPush(); ?>
 <?php echo $__env->make('web.plantillas.principal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

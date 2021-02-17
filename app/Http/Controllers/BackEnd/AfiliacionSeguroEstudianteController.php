@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Config;
 use App\Mail\AfiliacionSeguroEstudianteMail;
 use App\Http\Requests\DetalleSolicitudRequest;
 use Symfony\Component\HttpFoundation\Response;
@@ -16,10 +17,12 @@ use App\Http\Resources\DetalleAfiliacionSeguroEstudianteResource;
 class AfiliacionSeguroEstudianteController extends Controller
 {
     private $detalleAfiliacionSeguroEstudiante;
+    private $correoDestino;
     
     public function __construct(DetalleAfiliacionSeguroEstudiante $detalleAfiliacionSeguroEstudiante)
     {
         $this->detalleAfiliacionSeguroEstudiante = $detalleAfiliacionSeguroEstudiante;
+        $this->correoDestino = config('mail.to');
     }
 
     public function index()
@@ -60,7 +63,7 @@ class AfiliacionSeguroEstudianteController extends Controller
         $solicitudRegistrada = $this->detalleAfiliacionSeguroEstudiante->register($createAfiliacionSeguroEstudianteRequest);
 
         if ($solicitudRegistrada) {
-            Mail::to("fllanos@fscorredoresasesores.com")
+            Mail::to($this->correoDestino)
                 ->send(new AfiliacionSeguroEstudianteMail($solicitudRegistrada));
         }
 

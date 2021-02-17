@@ -1,3 +1,4 @@
+import 'jquery-validation';
 import { tipoClienteConstants } from '../../shared/constants';
 
 export function cambiarReglasTipoCliente(tipoCliente) {

@@ -3,7 +3,7 @@
   <section id="footer-main">
     <div class="container">
       <div class="row">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <h3>Seguros para Personas</h3>
           <ul>
             @foreach($seguros[0]['seguros'] as $seguro)
@@ -13,7 +13,7 @@
             @endforeach
           </ul>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-12 col-sm-6 col-lg-4">
           <h3>Seguros para Empresas</h3>
           <ul>
             @foreach($seguros[1]['seguros'] as $seguro)
@@ -23,7 +23,7 @@
             @endforeach
           </ul>
         </div>
-        <div class="col-12 col-sm-6 col-md-4 col-lg-4">
+        <div class="col-12 col-lg-4">
           <h3>Nuestra Oficina</h3>
           <div class="office-grid">
             <div class="office-icon-cell">
@@ -39,9 +39,12 @@
               <span>+51 052-285846</span>
             </div>
           </div>
-          <!--img src="{{ asset('images/logo2.svg') }}" id="footer-logo" alt="FS Corredores de Seguros">
-          
-          <img src="{{ asset('images/sbs.svg') }}" id="sbs-logo" alt="Superintendencia de Banca y Seguros"-->
+          <br>
+          <br>
+          <div class="supervised">
+            <img src="{{ asset('images/sbs.svg')}}" id="img-logo-sbs" alt="Superintendencia de Banca y Seguros">
+            <p>Trabajamos bajo supervision de la Superintendencia de Banca y Seguros</p>
+          </div>
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@
   background-color: $primary-color;
   color: $alt-color;
   border: thin solid $border-color;
+  font-family: $fuente-parrafo;
   &:not(:disabled):not(.disabled) {
     &:hover {
       background-color: $alt-color;

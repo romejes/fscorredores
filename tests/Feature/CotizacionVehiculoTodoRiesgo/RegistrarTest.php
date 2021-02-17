@@ -33,7 +33,7 @@ class RegistrarTest extends TestCase
             "costo" => 15000,
             "compania_seguro" => "La Positiva",
         ];
-        $response = $this->json("POST", "cotizaciones/vehiculo_todo_riesgo", $payload);
+        $response = $this->json("POST", "cotizaciones/seguro_vehicular", $payload);
         $response->assertStatus(201);
 
         $this->assertEquals(201, $response->getData()->statusCode);
@@ -85,7 +85,7 @@ class RegistrarTest extends TestCase
             "costo" => 15000,
             "compania_seguro" => "La Positiva",
         ];
-        $response = $this->json("POST", "cotizaciones/vehiculo_todo_riesgo", $payload);
+        $response = $this->json("POST", "cotizaciones/seguro_vehicular", $payload);
         $response->assertStatus(201);
 
         $this->assertEquals(201, $response->getData()->statusCode);
@@ -139,7 +139,7 @@ class RegistrarTest extends TestCase
             "costo" => 0,
             "compania_seguro" => "Cualquiera",
         ];
-        $response = $this->json("POST", "cotizaciones/vehiculo_todo_riesgo", $payload);
+        $response = $this->json("POST", "cotizaciones/seguro_vehicular", $payload);
         $response->assertStatus(400);
 
         $response->assertJsonStructure([

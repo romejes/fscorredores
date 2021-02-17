@@ -10,7 +10,9 @@
     @endif
   </div>
 
+  @if (isset($botones))
   <div class="card-footer">
     {{ $botones }}
-  </div>
+  </div>      
+  @endif
 </div>

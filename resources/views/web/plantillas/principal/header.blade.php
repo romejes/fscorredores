@@ -1,7 +1,7 @@
-<header class="sticky-top">
+<header>
   <div class="container">
-    <div class="row py-2">
-      <div class="col-12 d-flex justify-content-between align-items-center">
+    <div class="row">
+      <div class="col-12 d-flex justify-content-between align-items-stretch">
         <!-- Logo FS -->
         <a href="{{ url('/') }}">
           <img src="{{ asset('images/logo.svg') }}" alt="FS Corredores de Seguros" id="header-logo">

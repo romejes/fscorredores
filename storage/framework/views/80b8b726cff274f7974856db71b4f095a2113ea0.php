@@ -24,7 +24,7 @@
                     <a href="<?php echo e(url('servicios_en_linea/' . $opcion['slug'])); ?>" class="button button-primary"><?php echo e($opcion['nombre']); ?></a>
                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                 <?php $__env->endSlot(); ?>
-                
+
               <?php echo $__env->renderComponent(); ?>       
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>
@@ -37,6 +37,6 @@
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('title'); ?>
-Solicitudes
+Servicios en Linea
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('web.plantillas.principal', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

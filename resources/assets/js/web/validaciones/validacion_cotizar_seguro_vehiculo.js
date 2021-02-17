@@ -2,7 +2,7 @@ import 'jquery-validation';
 import 'jquery-validation/dist/localization/messages_es_PE';
 import 'jquery-validation/dist/additional-methods';
 
-$('#frm-cotizar-seguro-vehicular').validate({
+$('#frm-cotizar_seguro_vehicular').validate({
   rules: {
     nombres: {
       required: true,

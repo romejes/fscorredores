@@ -19,13 +19,11 @@
             @component("web.componentes.card", [
               "imagen" => 'seguros/' . $seguro["imagen_miniatura"],
               "titulo" => $seguro['nombre'],
-              "botones" => [
-                [
-                  "texto" => "Ver más",
-                  "url" => "seguros/${seguro['slug']}"
-                ]
-              ]
+              "descripcion" => $seguro['resumen']
             ])
+              @slot('botones')
+                <a href="{{ url('seguros/' . $seguro['slug']) }}" class="button button-primary">Mas información</a>
+              @endslot
             @endcomponent       
           @endforeach
         </div>
@@ -46,8 +44,8 @@
         <h2 class="text-center clr-white">¿Necesitas un SOAT?<br />Tranquilo, nosotros lo tenemos</h2>
       </div>
       <div class="col-12 text-center">
-        <a href="{{ url('solicitudes/cotizar_soat') }}" data-aos="fade-right" class="button button-alt">Cotiza aquí</a>
-        <a href="{{ url('solicitudes/comprar_soat') }}" data-aos="fade-left" class="button button-alt">Compra aquí</a>
+        <a href="{{ url('solicitudes/cotizar_soat') }}" data-aos="fade-right" class="button button-alt m-2">Cotiza aquí</a>
+        <a href="{{ url('solicitudes/comprar_soat') }}" data-aos="fade-left" class="button button-alt m-2">Compra aquí</a>
       </div>
     </div>
   </div>
@@ -59,7 +57,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2 class="clr-blue text-center">Trabajamos con las principales compañías de seguros en el país</h2>
+        <h2 class="clr-blue text-center">Trabajamos con las principales aseguradoras del país</h2>
       </div>
       <div class="col-12">
         <div class="wrapper-companias_seguro">

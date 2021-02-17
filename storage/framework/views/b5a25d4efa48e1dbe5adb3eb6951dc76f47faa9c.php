@@ -21,19 +21,23 @@
   <?php echo $__env->make('web.plantillas.principal.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   <!-- Fin Header -->
 
+  <?php echo $__env->make('web.plantillas.principal.menu_celular', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
   <!-- Contenido principal -->
   <main>
     <?php echo $__env->yieldContent('contenidoPlantillaPrincipal'); ?>
+
+     <!-- Slogan -->
+    <?php echo $__env->make('web.plantillas.principal.slogan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <!-- Fin Slogan -->
   </main>
   <!-- Fin Contenido principal -->
-
-  <!-- Slogan -->
-  <?php echo $__env->make('web.plantillas.principal.slogan', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
-  <!-- Fin Slogan -->
 
   <!-- Footer -->
   <?php echo $__env->make('web.plantillas.principal.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
   <!-- Fin Footer -->
+
+  <div id="cover-main"></div>
   
   <!--Scripts -->
   <script src="<?php echo e(asset('js/web/vendor.js')); ?>"></script>

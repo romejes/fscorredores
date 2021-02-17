@@ -20,10 +20,23 @@
       text-align: center;
     }
 
+    .card-text {
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
     .card-footer {
-      text-align: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       border-top-width: 0px;
       background-color: white;
+      .button {
+        margin: 5px;
+      }
     }
   }
 }

@@ -13,6 +13,7 @@ mix
   .js('resources/assets/js/web/inicio.js', 'public/js/web')
   .js('resources/assets/js/web/contacto.js', 'public/js/web')
   .js('resources/assets/js/web/servicios.js', 'public/js/web')
+  .js('resources/assets/js/web/seguros.js', 'public/js/web')
   
   .extract([
     'jquery',

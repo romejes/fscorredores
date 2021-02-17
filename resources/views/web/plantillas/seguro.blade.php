@@ -33,7 +33,7 @@
             <optgroup label="{{ $grupoSeguros['titulo'] }}">
               @foreach($grupoSeguros['seguros'] as $seguro)
                 <option
-                  data-href="{{ url('solicitudes/'. $seguro['slug']) }}">
+                  data-href="{{ url('seguros/'. $seguro['slug']) }}">
                   {{ $seguro['nombre'] }}</option>
               @endforeach
             </optgroup>
@@ -52,3 +52,7 @@
 </section>
 <!-- End Section -->
 @endsection
+
+@push('scripts')
+<script src="{{ asset('js/web/seguros.js') }}"></script>
+@endpush

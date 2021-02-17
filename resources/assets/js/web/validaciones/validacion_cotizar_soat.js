@@ -3,7 +3,7 @@ import 'jquery-validation/dist/localization/messages_es_PE';
 import 'jquery-validation/dist/additional-methods';
 import { regexFecha } from '../../shared/constants';
 
-$('#frm-cotizar-soat').validate({
+$('#frm-cotizar_soat').validate({
   nombres: {
     required: true,
     maxlength: 40,

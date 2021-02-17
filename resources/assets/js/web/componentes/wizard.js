@@ -16,7 +16,7 @@ export function inicializar(elemento, opciones = {}) {
     (e, anchorObject, currentStepIndex, nextStepIndex, stepDirection) => {
       if (stepDirection === 'forward') {
         const validacion = validarPaso(currentStepIndex);
-        const contenidoPestana = $('.tab-pane').eq(currentStepIndex);
+        const contenidoPestana = $('.wizard .tab-pane').eq(currentStepIndex);
 
         ajustarPestana(contenidoPestana);
         return validacion;
@@ -42,8 +42,8 @@ export function inicializar(elemento, opciones = {}) {
 }
 
 export function ajustarPestana() {
-  const pestanaActiva = $(".tab-pane:not([style*='display: none'])");
-  $('.tab-content')
+  const pestanaActiva = $(".wizard .tab-pane:not([style*='display: none'])");
+  $('.wizard .tab-content')
     .eq(0)
     .height(pestanaActiva.innerHeight());
 }

@@ -21,7 +21,7 @@ export function inicializarMapa(idContenedorMapa, latitud, longitud) {
       const ventana = construirVentanaInformacion(objGoogleMaps);
 
       
-      //ventana.open(mapa, marcador);
+      ventana.open(mapa, marcador);
 
       //  Asignar evento
       objGoogleMaps.event.addListener(marcador, 'click', () =>

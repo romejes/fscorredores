@@ -1,7 +1,7 @@
 import './componentes/carousel';
 import { cargarImagenes, inicializar } from './componentes/carousel';
 
-const carousel = $('carousel');
+const carousel = $('.carousel');
 const opcionesCarousel = {
   items: 1,
   loop: true,

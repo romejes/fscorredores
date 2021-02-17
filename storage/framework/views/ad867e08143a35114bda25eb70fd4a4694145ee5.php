@@ -17,14 +17,11 @@
             <?php $__currentLoopData = $grupoSeguro['seguros']; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $seguro): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <?php $__env->startComponent("web.componentes.card", [
               "imagen" => 'seguros/' . $seguro["imagen_miniatura"],
-              "titulo" => $seguro['nombre'],
-              "botones" => [
-                [
-                  "texto" => "Ver más",
-                  "url" => "seguros/${seguro['slug']}"
-                ]
-              ]
+              "titulo" => $seguro['nombre']
             ]); ?>
+              <?php $__env->slot('botones'); ?>
+                <a href="<?php echo e(url('seguros/' . $seguro['slug'])); ?>" class="button button-primary">Mas información</a>
+              <?php $__env->endSlot(); ?>
             <?php echo $__env->renderComponent(); ?>       
             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </div>

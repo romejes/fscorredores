@@ -5,11 +5,8 @@ namespace App\Models;
 use App\Exceptions\RegistroNoEncontradoException;
 use Carbon\Carbon;
 use App\Models\DetalleSolicitud;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\CreateAfiliacionSeguroEstudianteRequest;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
-use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class DetalleAfiliacionSeguroEstudiante extends DetalleSolicitud
 {

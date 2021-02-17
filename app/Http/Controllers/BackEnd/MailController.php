@@ -2,14 +2,21 @@
 
 namespace App\Http\Controllers\BackEnd;
 
-use App\CustomClass\ContactData;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Mail\ContactMail;
+use Illuminate\Http\Request;
+use App\CustomClass\ContactData;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Config;
 
 class MailController extends Controller
 {
+    private $correoDestino;
+
+    public function __construct() {
+        $this->correoDestino = Config::get('mail.to');
+    }
+
     public function __invoke(Request $request)
     {
         $contactData = new ContactData(
@@ -20,6 +27,6 @@ class MailController extends Controller
             $request->input("comentario")
         );
 
-        Mail::to("fllanos@fscorredoresasesores.com")->send(new ContactMail($contactData));
+        Mail::to($this->correoDestino)->send(new ContactMail($contactData));
     }
 }

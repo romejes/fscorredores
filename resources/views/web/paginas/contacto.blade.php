@@ -22,11 +22,11 @@
               <input type="text" name="asunto" id="txt-asunto" class="form-control" required>
             </div>
             <div class="form-group col-lg-6">
-              <label for="txt-email">Email</label>
+              <label for="txt-email">Correo electrónico</label>
               <input type="email" name="email" id="txt-email" class="form-control" required>
             </div>
             <div class="form-group col-lg-6">
-              <label for="txt-telefono">Telefono</label>
+              <label for="txt-telefono">Teléfono/Celular</label>
               <input type="tel" name="telefono" id="txt-telefono" class="form-control" required>
             </div>
             <div class="form-group col-12">
@@ -43,7 +43,7 @@
   <!-- Fin Seccion: Formulario de Contacto -->
 
   <!-- Seccion: Ubicacion -->
-  <section class="bgc-grey" id="map-section">
+  <section id="map-section">
     <div class="container">
       <div class="row">
         <div class="col-12">

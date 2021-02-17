@@ -23,7 +23,9 @@
           seguros a empresas públicas, privadas y personas naturales.
         </p>
       </article>
-      <div class="col-12 col-lg-6"></div>
+      <div class="col-12 col-lg-6">
+        <img src="<?php echo e(asset('images/quienes_somos.jpg')); ?>" id="quienes_somos-picture" alt="Quienes somos">
+      </div>
     </div>
   </div>
 </section>
@@ -34,21 +36,21 @@
   <div class="container">
     <div class="row">
       <article class="col-12 col-md-6">
-        <h2 class="clr-blue">¿Por qué elegirnos?</h2>
-        <ul>
-          <li>Adecuada y oportuna Asesoría Profesional.</li>
-          <li>Le permite ahorro en la contratación de sus seguros.</li>
-          <li>
+        <h2 class="clr-blue text-center">¿Por qué elegirnos?</h2>
+        <ul class="fa-ul">
+          <li><span class="fa-li clr-blue"><i class="fas fa-check"></i></span>Adecuada y oportuna Asesoría Profesional.</li>
+          <li><span class="fa-li clr-blue"><i class="fas fa-check"></i></span>Le permite ahorro en la contratación de sus seguros.</li>
+          <li><span class="fa-li clr-blue"><i class="fas fa-check"></i></span>
             Ante la ocurrencia de un siniestro, brindamos una asesoría
             personalizada logrando indemnizaciones justas y oportunas.
           </li>
         </ul>
       </article>
       <article class="col-12 col-md-6">
-        <h2 class="clr-blue">¿Qué nos distingue de la competencia?</h2>
-        <ul>
-          <li>Desarrollamos soluciones efectivas para nuestros clientes.</li>
-          <li>Innovación, eficiencia y rapidez en el servicio.</li>
+        <h2 class="clr-blue text-center">¿Qué nos distingue de la competencia?</h2>
+        <ul class="fa-ul">
+          <li><span class="fa-li clr-blue"><i class="fas fa-check"></i></span>Desarrollamos soluciones efectivas para nuestros clientes.</li>
+          <li><span class="fa-li clr-blue"><i class="fas fa-check"></i></span>Innovación, eficiencia y rapidez en el servicio.</li>
         </ul>
       </article>
     </div>
@@ -60,7 +62,8 @@
 <section class="bgc-white">
   <div class="container">
     <div class="row">
-      <article class="col-12 col-md-4">
+      <article class="col-12 col-md-4 text-center">
+        <i class="fas fa-handshake fa-3x clr-blue mb-4"></i>
         <h2 class="clr-blue text-center">Misión</h2>
         <p class="text-center">
           Brindar un asesoramiento profesional y confiable en la gestion
@@ -68,7 +71,8 @@
           cliente
         </p>
       </article>
-      <article class="col-12 col-md-4">
+      <article class="col-12 col-md-4 text-center">
+        <i class="fas fa-flag fa-3x clr-blue mb-4"></i>
         <h2 class="clr-blue text-center">Visión</h2>
         <p class="text-center">
           Ser la empresa de asesoría y corretaje en seguros de mayor prestigio
@@ -77,9 +81,10 @@
           servicio.
         </p>
       </article>
-      <article class="col-12 col-md-4">
+      <article class="col-12 col-md-4 text-center">
+        <i class="fas fa-star fa-3x clr-blue mb-4"></i>
         <h2 class="clr-blue text-center">Valores</h2>
-        <ul>
+        <ul class="values-list">
           <?php $__currentLoopData = $valores; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $valor): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
           <li><?php echo e($valor); ?></li>
           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -108,7 +113,12 @@
                   </div>
                   <div class="data-staff-info-cell">
                     <p class="mb-0"> <?php echo e($trabajador['nombre']); ?> <br>
-                      <i><?php echo e($trabajador['cargo']); ?></i> </p>
+                      <i><?php echo e($trabajador['cargo']); ?></i> 
+                      <?php if(isset($trabajador['codigo_sbs'])): ?>
+                      <br>
+                      <i>Codigo SBS: <?php echo e($trabajador['codigo_sbs']); ?></i>
+                      <?php endif; ?>
+                    </p>
                   </div>
                   <div class="data-staff-icon-cell">
                     <i class="fas fa-envelope fa-2x"></i>

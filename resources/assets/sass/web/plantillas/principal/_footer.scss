@@ -7,12 +7,12 @@ footer {
     padding-top: 3em;
     padding-bottom: 3em;
 
-    [class*="col-"] {
+    [class*='col-'] {
       margin-bottom: 2em;
-      &:last-child{
+      &:last-child {
         margin-bottom: 0;
       }
-    }    
+    }
 
     h3 {
       font-family: $fuente-titulo;
@@ -51,6 +51,18 @@ footer {
       overflow-wrap: break-word;
       row-gap: 5px;
     }
+
+    .supervised {
+      width: 100%;
+      text-align: center;
+      img#img-logo-sbs {
+        width: 150px;
+        height: auto;
+      }
+      p {
+        font-size: 0.8rem;
+      }
+    }
   }
 
   section#footer-copyright {
@@ -62,12 +74,12 @@ footer {
   }
 }
 
-@media(min-width: 768px) {
-  footer{
-    section#footer-main{
-      [class*="col-"] {
+@media (min-width: 768px) {
+  footer {
+    section#footer-main {
+      [class*='col-'] {
         margin-bottom: 0;
-      }    
+      }
     }
   }
 }

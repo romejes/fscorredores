@@ -10,8 +10,10 @@
     <?php endif; ?>
   </div>
 
+  <?php if(isset($botones)): ?>
   <div class="card-footer">
     <?php echo e($botones); ?>
 
-  </div>
+  </div>      
+  <?php endif; ?>
 </div>

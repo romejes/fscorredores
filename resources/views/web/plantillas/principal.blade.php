@@ -21,19 +21,23 @@
   @include('web.plantillas.principal.header')
   <!-- Fin Header -->
 
+  @include('web.plantillas.principal.menu_celular')
+
   <!-- Contenido principal -->
   <main>
     @yield('contenidoPlantillaPrincipal')
+
+     <!-- Slogan -->
+    @include('web.plantillas.principal.slogan')
+    <!-- Fin Slogan -->
   </main>
   <!-- Fin Contenido principal -->
-
-  <!-- Slogan -->
-  @include('web.plantillas.principal.slogan')
-  <!-- Fin Slogan -->
 
   <!-- Footer -->
   @include('web.plantillas.principal.footer')
   <!-- Fin Footer -->
+
+  <div id="cover-main"></div>
   
   <!--Scripts -->
   <script src="{{ asset('js/web/vendor.js')}}"></script>

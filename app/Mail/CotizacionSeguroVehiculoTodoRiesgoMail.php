@@ -32,7 +32,7 @@ class CotizacionSeguroVehiculoTodoRiesgoMail extends Mailable
      */
     public function build()
     {
-        return $this->subject("[Cotizacion Seguro Vehicular Todo Riesgo] Nueva solicitud")
+        return $this->subject("[Cotizacion Seguro Vehicular] Nueva solicitud")
             ->view("email.cotizacion_seguro_vehiculo_todo_riesgo")
             ->with("detalle", $this->data);
     }

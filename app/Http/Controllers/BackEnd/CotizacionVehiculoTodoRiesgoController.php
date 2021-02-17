@@ -4,21 +4,24 @@ namespace App\Http\Controllers\BackEnd;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateCotizacionVehiculoRequest;
 use App\Models\DetalleCotizacionVtr;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Config;
 use App\Http\Requests\DetalleSolicitudRequest;
 use Symfony\Component\HttpFoundation\Response;
-use App\Http\Resources\DetalleCotizacionVehiculoTodoRiesgoResource;
 use App\Mail\CotizacionSeguroVehiculoTodoRiesgoMail;
-use Illuminate\Support\Facades\Mail;
+use App\Http\Requests\CreateCotizacionVehiculoRequest;
+use App\Http\Resources\DetalleCotizacionVehiculoTodoRiesgoResource;
 
 class CotizacionVehiculoTodoRiesgoController extends Controller
 {
     private $detalleCotizacionVehiculo;
+    private $correoDestino;
 
     public function __construct(DetalleCotizacionVtr $detalleCotizacionVehiculo)
     {
         $this->detalleCotizacionVehiculo = $detalleCotizacionVehiculo;
+        $this->correoDestino = Config::get('mail.to');
     }
 
     public function index()
@@ -46,7 +49,7 @@ class CotizacionVehiculoTodoRiesgoController extends Controller
         $solicitudRegistrada = $this->detalleCotizacionVehiculo->register($createCotizacionVehiculoRequest);
 
         if ($solicitudRegistrada) {
-            Mail::to("fllanos@fscorredoresasesores.com")
+            Mail::to($this->correoDestino)
                 ->send(new CotizacionSeguroVehiculoTodoRiesgoMail(($solicitudRegistrada)));
         }
 

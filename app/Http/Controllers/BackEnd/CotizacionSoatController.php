@@ -2,22 +2,25 @@
 
 namespace App\Http\Controllers\BackEnd;
 
+use App\Mail\CotizacionSoatMail;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateCotizacionSoatRequest;
+use Illuminate\Support\Facades\Mail;
 use App\Models\DetalleCotizacionSoat;
+use Illuminate\Support\Facades\Config;
 use App\Http\Requests\DetalleSolicitudRequest;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Requests\CreateCotizacionSoatRequest;
 use App\Http\Resources\DetalleCotizacionSoatResource;
-use App\Mail\CotizacionSoatMail;
-use Illuminate\Support\Facades\Mail;
 
 class CotizacionSoatController extends Controller
 {
     private $detalleCotizacionSoat;
+    private $correoDestino;
 
     public function __construct(DetalleCotizacionSoat $detalleCotizacionSoat)
     {
         $this->detalleCotizacionSoat = $detalleCotizacionSoat;
+        $this->correoDestino = Config::get('mail.to');
     }
 
     public function index()
@@ -45,7 +48,7 @@ class CotizacionSoatController extends Controller
         $solicitudRegistrada = $this->detalleCotizacionSoat->register($createCotizacionSoatRequest);
 
         if ($solicitudRegistrada) {
-            Mail::to("fllanos@fscorredoresasesores.com")
+            Mail::to($this->correoDestino)
                 ->send(new CotizacionSoatMail(($solicitudRegistrada)));
         }
 

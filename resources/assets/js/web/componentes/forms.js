@@ -6,7 +6,7 @@ import { ajustarPestana } from './wizard';
 import { returnUrl } from '../../shared/util';
 import { tipoClienteConstants } from '../../shared/constants';
 import axios from 'axios';
-import { cambiarReglasFechaVencimiento } from '../validaciones/valdiacion_cotizar_soat';
+import { cambiarReglasFechaVencimiento } from '../validaciones/validacion_cotizar_soat';
 import { cambiarReglasTipoCliente } from '../validaciones/validacion_general';
 
 /**
@@ -35,7 +35,7 @@ export function configurarValidacion() {
  * @param {JQuery<HTMLElement>} control Control a validar
  */
 export function esValido(control) {
-  return control.valid();
+  return $(control).valid();
 }
 
 /**
@@ -105,7 +105,7 @@ function obtenerContenedorControlNoValidado(control) {
  * @param {number} indice
  */
 export function validarPaso(indice) {
-  const pestana = $('.tab-pane').eq(indice);
+  const pestana = $('.wizard .tab-pane').eq(indice);
   const controles = pestana.find('input, select, textarea');
   let controlesNoValidos = 0;
 
@@ -184,8 +184,6 @@ export function mostrarCamposTipoCliente(tipoCliente) {
     $('#txt-razon-social')
       .closest('.form-group')
       .addClass('d-none');
-
-    cambiarReglasTipoCliente(tipoCliente);
   }
 
   if (tipoCliente === tipoClienteConstants.PERSONA_JURIDICA) {
@@ -204,9 +202,8 @@ export function mostrarCamposTipoCliente(tipoCliente) {
     $('#txt-razon-social')
       .closest('.form-group')
       .removeClass('d-none');
-
-    cambiarReglasTipoCliente(tipoCliente);
   }
+  cambiarReglasTipoCliente(tipoCliente);
 }
 
 export function mostrarControlesOpcionTengoSoat() {
